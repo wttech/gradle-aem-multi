@@ -3,13 +3,13 @@ buildscript {
 }
 
 description = "Example - Content"
-defaultTasks = ['deployContent']
+//defaultTasks = ['deployContent']
 
-apply plugin: 'aem'
+apply plugin: 'cognifide.aem'
 
-aemPackage {
-    assemble project(':example.bundle')
+aemCreate {
+    assemble project(':example.bundle'), []
 }
-build.dependsOn aemPackage
+build.dependsOn aemCreate
 
 task deployContent(dependsOn: [clean, build, aemDeploy])

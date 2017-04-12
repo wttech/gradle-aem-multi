@@ -6,10 +6,10 @@ description = "Example - Bundle"
 defaultTasks = ['deployBundle']
 
 apply plugin: 'java'
-apply plugin: 'aem'
+apply plugin: 'cognifide.aem'
 
-aemPackage {
-    includeVault(project(':example.content').file('src/main/content/META-INF/vault'))
+aemCreate {
+  //  includeVault(project(':example.content').file('src/main/content/META-INF/vault'))
 }
 
 dependencies {
@@ -27,17 +27,15 @@ dependencies {
     aemProvide(group: 'org.apache.sling', name: 'org.apache.sling.jcr.api', version:'2.1.0')
 }
 
-bundle {
-    instruction 'Bundle-Name', project.description
-    instruction 'Bundle-Category', 'aem'
-    instruction 'Bundle-Vendor', 'Cognifide'
-    instruction 'Export-Package', 'com.cognifide.example.*'
+jar {
+    manifest {
+        instruction 'Bundle-Name', project.description
+        instruction 'Bundle-Category', 'aem'
+        instruction 'Bundle-Vendor', 'Cognifide'
+        instruction 'Export-Package', 'com.cognifide.example.*'
+    }
 }
 
-aemPackage.dependsOn([assemble, check])
-build.dependsOn aemPackage
-
-aemPackage.mustRunAfter clean
-aemDistribute.mustRunAfter aemPackage
+build.dependsOn aemCreate
 
 task deployBundle(dependsOn: [clean, build, aemDistribute])
