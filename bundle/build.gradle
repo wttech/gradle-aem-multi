@@ -1,0 +1,43 @@
+buildscript {
+    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+}
+
+description = "Example - Bundle"
+defaultTasks = ['deployBundle']
+
+apply plugin: 'java'
+apply plugin: 'aem'
+
+aemPackage {
+    includeVault(project(':example.content').file('src/main/content/META-INF/vault'))
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version:'4.8.1'
+
+    aemProvide(group: 'org.osgi', name: 'org.osgi.compendium', version:'4.2.0')
+    aemProvide(group: 'org.osgi', name: 'org.osgi.core', version:'4.2.0')
+    aemProvide(group: 'biz.aQute', name: 'bndlib', version:'1.43.0')
+    aemProvide(group: 'org.apache.felix', name: 'org.apache.felix.scr', version: '1.8.2')
+    aemProvide(group: 'org.apache.felix', name: 'org.apache.felix.scr.annotations', version: '1.9.8')
+    aemProvide(group: 'org.slf4j', name: 'slf4j-api', version:'1.5.10')
+    aemProvide(group: 'javax.servlet', name: 'servlet-api', version:'2.5')
+    aemProvide(group: 'javax.jcr', name: 'jcr', version:'2.0')
+    aemProvide(group: 'org.apache.sling', name: 'org.apache.sling.api', version:'2.2.0')
+    aemProvide(group: 'org.apache.sling', name: 'org.apache.sling.jcr.api', version:'2.1.0')
+}
+
+bundle {
+    instruction 'Bundle-Name', project.description
+    instruction 'Bundle-Category', 'aem'
+    instruction 'Bundle-Vendor', 'Cognifide'
+    instruction 'Export-Package', 'com.cognifide.example.*'
+}
+
+aemPackage.dependsOn([assemble, check])
+build.dependsOn aemPackage
+
+aemPackage.mustRunAfter clean
+aemDistribute.mustRunAfter aemPackage
+
+task deployBundle(dependsOn: [clean, build, aemDistribute])

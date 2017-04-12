@@ -1,0 +1,42 @@
+buildscript {
+    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+}
+
+description = "Example"
+defaultTasks = ['deployContent']
+
+ext {
+    set "project.organization.name", "Company"
+    set "buildNumber.timestampFormat", "yDDmmssSSS"
+}
+
+allprojects {
+    group = 'com.company.aem'
+    version = '1.0.0-SNAPSHOT'
+
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+
+    repositories {
+        maven { url "https://repo.adobe.com/nexus/content/groups/public" }
+        maven { url "https://repo1.maven.org/maven2" }
+        jcenter()
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+subprojects {
+    plugins.withId 'java', {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+
+        def compileOptions = {
+            options.encoding = "UTF-8"
+            options.compilerArgs << '-Xlint:deprecation'
+        }
+
+        compileJava compileOptions
+        compileTestJava compileOptions
+    }
+}

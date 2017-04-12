@@ -1,0 +1,31 @@
+/**
+ * This file is a consequence of: https://issues.gradle.org/browse/GRADLE-2801
+ *
+ * Build script configuration cannot be put in 'allprojects' section.
+ * It is not currently supported by Gradle version <= 2.10.
+ * As a workaround, each of sub project can apply from this file common build script configuration.
+ */
+
+// User friendly preconditions
+
+def javaVersion = Double.parseDouble(System.getProperty("java.specification.version"));
+if (javaVersion < 1.8) {
+    throw new GradleException("Java version should be at least 1.8 to build this project.")
+}
+
+// Plugins configuration
+
+repositories {
+    // Put below repositories
+
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "https://plugins.gradle.org/m2/" }
+}
+
+dependencies {
+    // Put below dependencies
+
+  //  classpath 'com.cognifide.gradle:aem-plugin:1.0.0'
+}
