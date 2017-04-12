@@ -6,32 +6,29 @@
 
 This project should be used while starting new project based on AEM.
 Currently Gradle does not support Maven's like archetypes, so you have to copy this project at start and customize it for your needs.
-Documentation for used plugins is available in project [Gradle AEM Plugins](https://stash.cognifide.com/projects/RND/repos/gradle-aem-plugins/browse).
-Project structure is based on Adobe's [multimodule-content-package](https://docs.adobe.com/docs/en/cq/5-6-1/core/how_to/how_to_use_the_vlttool/vlt-mavenplugin.html) archetype.
+Documentation for used plugins is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+
 
 ## Environment
 
-* Java 1.8
-* Gradle 2.x
-* Maven 3.x (optionally)
-* Adobe AEM 6.1
+* Java >= 1.8
+* Gradle >= 3.0
+* Adobe AEM >= 6.1
+
 
 ## Build
 
-1. Copy into your home user directory and modify required configuration files:
-    * gradle/gradle.properties -> ~/.grade/gradle.properties
-2. Install Gradle
+1. Install Gradle
     * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically.
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
-3. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
-4. Build application using commands:
+2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
+3. Build application using commands:
     * `gradle deployContent` or just `gradle`,
     * `gradle deployBundle`.
 
 Hints:
 
 * to skip tests or any other task by name use `-x test`
-* to apply profile from command line, for example for integration, use `-Penv=integration`
 
 
 ## Troubleshoot
