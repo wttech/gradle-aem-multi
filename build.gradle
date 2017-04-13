@@ -29,10 +29,20 @@ allprojects {
 subprojects {
 
     plugins.withId 'cognifide.aem', {
+
+        // Global configuration
         aem {
             config {
-                contentPath = "src/main/aem"
-                instance("1.1.1.1", "foo", "bar", "default")
+                contentPath = "src/main/content"
+                instance("http://localhost:4502", "admin", "admin", "author")
+                instance("http://localhost:4503", "admin", "admin", "publish")
+            }
+        }
+
+        // Task specific configuration
+        aemCompose {
+            config {
+                // allow globals can be overridden here or inside project
             }
         }
     }
