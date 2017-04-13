@@ -12,7 +12,7 @@ aemCompose {
         contentPath = "src/main/content"
     }
 
-    assemble project(':example.bundle'), []
+    assemble ':example.bundle'
 }
 build.dependsOn aemCompose
 
