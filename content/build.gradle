@@ -3,13 +3,17 @@ buildscript {
 }
 
 description = "Example - Content"
-//defaultTasks = ['deployContent']
+defaultTasks = ['deployContent']
 
 apply plugin: 'cognifide.aem'
 
-aemCreate {
+aemCompose {
+    config {
+        contentPath = "src/main/content"
+    }
+
     assemble project(':example.bundle'), []
 }
-build.dependsOn aemCreate
+build.dependsOn aemCompose
 
 task deployContent(dependsOn: [clean, build, aemDeploy])

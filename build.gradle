@@ -27,6 +27,16 @@ allprojects {
 }
 
 subprojects {
+
+    plugins.withId 'cognifide.aem', {
+        aem {
+            config {
+                contentPath = "src/main/aem"
+                instance("1.1.1.1", "foo", "bar", "default")
+            }
+        }
+    }
+
     plugins.withId 'java', {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
