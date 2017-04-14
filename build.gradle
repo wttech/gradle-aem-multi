@@ -30,7 +30,7 @@ subprojects {
 
     plugins.withId 'cognifide.aem', {
 
-        // Global configuration
+        // Project tasks configuration
         aem {
             config {
                 contentPath = "src/main/content"
@@ -39,7 +39,7 @@ subprojects {
             }
         }
 
-        // Task specific configuration
+        // Project task specific configuration
         aemCompose {
             config {
                 // allow globals can be overridden here or inside project
