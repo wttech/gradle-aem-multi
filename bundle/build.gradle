@@ -34,4 +34,4 @@ jar {
 
 build.dependsOn aemCompose
 
-task deployBundle(dependsOn: [clean, build, aemDistribute])
+task deployBundle(dependsOn: [clean, build, aemDeploy])
