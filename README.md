@@ -29,7 +29,6 @@ Tested on:
 3. Build application using commands:
     * `gradle contentDeploy` or just `gradle`,
     * `gradle bundleDeploy`.
-~/.ssh
 
 ## Tips & tricks
 
