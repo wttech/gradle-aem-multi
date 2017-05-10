@@ -7,16 +7,18 @@ defaultTasks = ['contentDeploy']
 
 apply plugin: 'cognifide.aem'
 
+aem {
+    config {
+        contentPath = "src/main/content"
+    }
+}
+
 aemSatisfy {
     // local("pkg/vanityurls-components-1.0.2.zip")
     download("https://github.com/Cognifide/APM/releases/download/cqsm-2.0.0/apm-2.0.0.zip")
 }
 
 aemCompose {
-    config {
-        contentPath = "src/main/content"
-    }
-
     includeProject ':example.bundle'
 }
 
