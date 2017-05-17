@@ -15,17 +15,14 @@ if (javaVersion < 1.8) {
 // Plugins configuration
 
 repositories {
-    // Put below repositories
-
     mavenLocal()
     mavenCentral()
     jcenter()
+    maven { url  "http://dl.bintray.com/cognifide/maven-public" }
     maven { url "https://plugins.gradle.org/m2/" }
 }
 
 dependencies {
-    // Put below dependencies
-
     classpath 'com.cognifide.gradle:aem-plugin:1.0.0'
     classpath "org.dm.gradle:gradle-bundle-plugin:0.10.0"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1"
