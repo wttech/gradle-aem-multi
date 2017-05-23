@@ -39,6 +39,7 @@ Tested on:
 
 ## Tips & tricks
 
+* To use Gradle wrapper and run it from subdirectory, make an alias using command `echo "alias gradle-example='sh $PWD/gradlew'" >> ~/.bash_profile`, then use `gradle-example` from any directory instead of `sh gradlew`.
 * Bundle & content project can be combined into one. There is absolutely no need to have separate projects. Example project structure just tries to reflect [Adobe Multi-Module Project Archetype](https://docs.adobe.com/docs/en/cq/5-6-1/core/how_to/how_to_use_the_vlttool/vlt-mavenplugin.html#multimodule-content-package-archetype).
 * Declare bundle dependencies available on AEM (Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'org.dm.bundle'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
