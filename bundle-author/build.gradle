@@ -2,7 +2,7 @@ buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
-description = "Example - Bundle"
+description = "Example - Bundle Author"
 defaultTasks = ['bundleDeploy']
 
 apply plugin: 'java'
@@ -11,12 +11,14 @@ apply plugin: 'org.dm.bundle'
 apply plugin: 'cognifide.aem'
 
 bundle {
-    instruction 'Bundle-SymbolicName', 'com.example.aem.bundle'
-    instruction 'Sling-Model-Packages', 'com.example.aem.bundle'
+    instruction 'Bundle-SymbolicName', 'com.example.aem.bundle-author'
+    instruction 'Sling-Model-Packages', 'com.example.aem.bundle-author'
     instruction 'Export-Package', 'com.example.aem.bundle.*;-split-package:=merge-first,org.hashids.*'
 }
 
 dependencies {
+    compile project(':example.bundle-common')
+
     aemInstall group: 'org.jetbrains.kotlin', name: 'kotlin-osgi-bundle', version: '1.1.1'
     aemInstall group: 'org.jsoup', name: 'jsoup', version: '1.10.2'
     aemEmbed group: 'org.hashids', name: 'hashids', version: '1.0.1'

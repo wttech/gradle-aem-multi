@@ -1,7 +1,13 @@
 rootProject.name = 'example'
 
-include ':example.bundle'
-project(':example.bundle').projectDir = "$rootDir/bundle" as File
+include ':example.bundle-common'
+project(':example.bundle-common').projectDir = "$rootDir/bundle-common" as File
+
+include ':example.bundle-author'
+project(':example.bundle-author').projectDir = "$rootDir/bundle-author" as File
+
+include ':example.bundle-publish'
+project(':example.bundle-publish').projectDir = "$rootDir/bundle-publish" as File
 
 include ':example.content'
 project(':example.content').projectDir = "$rootDir/content" as File
