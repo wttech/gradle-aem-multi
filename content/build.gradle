@@ -19,7 +19,9 @@ aemSatisfy {
 }
 
 aemCompose {
-    includeProject ':example.bundle'
+    includeProject ':example.bundle-common'
+    includeProject ':example.bundle-author'
+    includeProject ':example.bundle-publish'
 }
 
 build.dependsOn aemCompose
