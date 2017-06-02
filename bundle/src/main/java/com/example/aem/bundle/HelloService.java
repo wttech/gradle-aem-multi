@@ -6,6 +6,7 @@ import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
+import org.apache.jackrabbit.stats.QueryStatImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,6 +23,8 @@ public class HelloService {
 
     @Reference
     private PostsService postsService;
+
+    QueryStatImpl stat = new QueryStatImpl();
 
     @Activate
     protected void activate() {
