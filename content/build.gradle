@@ -19,7 +19,7 @@ aemSatisfy {
 }
 
 aemCompose {
-    includeProject ':example.bundle'
+    includeBundles ':example.bundle'
 }
 
 build.dependsOn aemCompose
