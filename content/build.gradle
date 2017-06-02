@@ -23,4 +23,4 @@ aemCompose {
 }
 
 build.dependsOn aemCompose
-task contentDeploy(dependsOn: [clean, build, aemDeploy])
+task contentDeploy(dependsOn: [build, aemDeploy])
