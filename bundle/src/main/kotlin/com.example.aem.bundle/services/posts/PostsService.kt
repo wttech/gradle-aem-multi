@@ -26,6 +26,7 @@ class PostsService {
 
     val posts: List<Post> by lazy {
         JsonUtils.GSON.fromJson<List<Post>>(
+                // TODO url is null
                 Url(config.url).openStream().bufferedReader().use { it.readText() },
                 object : TypeToken<List<Post>>() {}.type
         )
