@@ -17,26 +17,8 @@ import java.net.URL as Url
 @Designate(ocd = PostsService.Config::class)
 class PostsService {
 
-    private lateinit var config: Config
-
-    @Activate
-    private fun activate(config: Config) {
-        this.config = config
-    }
-
-    val posts: List<Post> by lazy {
-        JsonUtils.GSON.fromJson<List<Post>>(
-                // TODO url is null
-                Url(config.url).openStream().bufferedReader().use { it.readText() },
-                object : TypeToken<List<Post>>() {}.type
-        )
-    }
-
-    fun randomPosts(count: Int): List<Post> {
-        val shuffled = posts.toMutableList()
-        Collections.shuffle(shuffled)
-
-        return shuffled.subList(0, count)
+    companion object {
+        const private val urlDefault = "https://jsonplaceholder.typicode.com/posts"
     }
 
     @ObjectClassDefinition(
@@ -44,12 +26,34 @@ class PostsService {
             description = "Customize endpoint URL for service which is returning posts"
     )
     annotation class Config(
+
             @get:AttributeDefinition(
                     name = "Data source URL for posts.",
                     description = "Endpoint must return JSON with list of objects containing 'userId', 'id', 'title' and 'body'.",
-                    defaultValue = arrayOf("https://jsonplaceholder.typicode.com/posts")
+                    defaultValue = arrayOf(urlDefault)
             ) val url: String
     )
 
+    private lateinit var config: Config
+
+    @Activate
+    private fun activate(config: Config) {
+        this.config = config
+    }
+
+    val posts: List<Post>
+        get() {
+            return JsonUtils.GSON.fromJson<List<Post>>(
+                    Url(config.url ?: urlDefault).openStream().bufferedReader().use { it.readText() },
+                    object : TypeToken<List<Post>>() {}.type
+            )
+        }
+
+    fun randomPosts(count: Int): List<Post> {
+        val shuffled = posts.toMutableList()
+        Collections.shuffle(shuffled)
+
+        return shuffled.subList(0, count)
+    }
 
 }
