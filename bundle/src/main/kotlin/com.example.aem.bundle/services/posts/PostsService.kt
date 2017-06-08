@@ -17,23 +17,16 @@ import java.net.URL as Url
 @Designate(ocd = PostsService.Config::class)
 class PostsService {
 
-    companion object {
-        const private val urlDefault = "https://jsonplaceholder.typicode.com/posts"
-    }
-
     @ObjectClassDefinition(
             name = "Posts Service Config",
             description = "Customize endpoint URL for service which is returning posts"
     )
     annotation class Config(
-
-            @get:AttributeDefinition(
-                    name = "Data source URL for posts.",
-                    description = "Endpoint must return JSON with list of objects containing 'userId', 'id', 'title' and 'body'.",
-                    defaultValue = arrayOf(urlDefault)
-            ) val url: String
+        @get:AttributeDefinition(
+                name = "Data source URL for posts.",
+                description = "Endpoint must return JSON with list of objects containing 'userId', 'id', 'title' and 'body'."
+        ) val url: String = "https://jsonplaceholder.typicode.com/posts"
     )
-
     private lateinit var config: Config
 
     @Activate
@@ -43,8 +36,12 @@ class PostsService {
 
     val posts: List<Post>
         get() {
+            if (config.url.isNullOrBlank()) {
+                return listOf()
+            }
+
             return JsonUtils.GSON.fromJson<List<Post>>(
-                    Url(config.url ?: urlDefault).openStream().bufferedReader().use { it.readText() },
+                    Url(config.url).openStream().bufferedReader().use { it.readText() },
                     object : TypeToken<List<Post>>() {}.type
             )
         }
