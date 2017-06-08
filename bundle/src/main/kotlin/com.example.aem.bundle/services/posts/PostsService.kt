@@ -47,6 +47,10 @@ class PostsService {
         }
 
     fun randomPosts(count: Int): List<Post> {
+        if (count <= 0 || count > posts.size) {
+            return listOf()
+        }
+
         val shuffled = posts.toMutableList()
         Collections.shuffle(shuffled)
 

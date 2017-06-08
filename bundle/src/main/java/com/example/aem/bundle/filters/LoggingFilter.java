@@ -19,13 +19,8 @@ import java.io.IOException;
 @Component(
         service = Filter.class,
         property = {
-                /*
-                @SlingFilter(
-                    generateComponent = false,
-                    order = -700,
-                    scope = SlingFilterScope.REQUEST
-                )
-                 */
+                "sling.filter.scope=REQUEST",
+                "service.ranking=-700"
         }
 )
 public class LoggingFilter implements Filter {
