@@ -1,6 +1,7 @@
 package com.example.aem.bundle
 
 import com.example.aem.bundle.services.posts.PostsService
+import org.hashids.Hashids
 import org.osgi.service.component.annotations.Activate
 import org.osgi.service.component.annotations.Component
 import org.osgi.service.component.annotations.Reference
@@ -14,6 +15,8 @@ class HelloService {
 
     companion object {
         private val LOG = LoggerFactory.getLogger(HelloService::class.java)
+
+        private val HASHER = Hashids()
     }
 
     @Reference
@@ -24,6 +27,11 @@ class HelloService {
         val posts = postsService.posts
 
         LOG.info("Posts service contains knowledge of {} post(s).", posts.size)
+
+        val timestamp = System.currentTimeMillis()
+        val hashId = HASHER.encode(timestamp)
+
+        LOG.info("Hash ID for current timestamp: $timestamp is '$hashId'")
     }
 
 }
