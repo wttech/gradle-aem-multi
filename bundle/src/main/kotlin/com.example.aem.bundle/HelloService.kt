@@ -23,7 +23,7 @@ class HelloService {
     private lateinit var postsService: PostsService
 
     @Activate
-    protected fun activate() {
+    fun activate() {
         val posts = postsService.posts
 
         LOG.info("Posts service contains knowledge of {} post(s).", posts.size)

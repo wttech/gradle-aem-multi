@@ -67,7 +67,7 @@ subprojects { subproject ->
             instruction 'Bundle-Vendor', 'Example'
         }
 
-        // All dependencies are available at runtime so define them here once for all java projects
+        // AEM runtime dependencies
 
         dependencies {
             testCompile group: 'junit', name: 'junit', version:'4.8.1'

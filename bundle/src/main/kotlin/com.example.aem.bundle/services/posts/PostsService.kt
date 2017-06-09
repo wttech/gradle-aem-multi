@@ -30,7 +30,7 @@ class PostsService {
     private lateinit var config: Config
 
     @Activate
-    private fun activate(config: Config) {
+    fun activate(config: Config) {
         this.config = config
     }
 
