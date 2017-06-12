@@ -9,6 +9,7 @@ import org.apache.sling.models.annotations.Model
 import org.apache.sling.models.annotations.injectorspecific.OSGiService
 import org.apache.sling.models.annotations.injectorspecific.Self
 import org.slf4j.LoggerFactory
+import java.io.Serializable
 import java.util.*
 import javax.annotation.PostConstruct
 import javax.inject.Inject
@@ -18,7 +19,7 @@ import javax.inject.Named
         adaptables = arrayOf(Resource::class),
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
-class PageModel {
+class PageModel : Serializable {
 
     companion object {
         val LOG = LoggerFactory.getLogger(PageModel::class.java)

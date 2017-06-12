@@ -23,4 +23,4 @@ dependencies {
 }
 
 build.dependsOn aemCompose
-task bundleDeploy(dependsOn: [clean, build, aemDeploy])
+task bundleDeploy(dependsOn: [build, aemDeploy])
