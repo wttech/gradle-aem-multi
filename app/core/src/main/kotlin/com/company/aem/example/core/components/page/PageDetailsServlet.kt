@@ -2,7 +2,6 @@ package com.company.aem.example.core.components.page
 
 import com.day.cq.wcm.api.NameConstants
 import com.company.aem.example.common.JsonUtils
-import com.company.aem.example.core.components.page.PageModel
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
 import org.apache.sling.api.servlets.SlingAllMethodsServlet

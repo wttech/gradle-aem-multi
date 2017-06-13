@@ -1,4 +1,4 @@
-package com.example.aem.bundle.common
+package com.company.aem.example.common
 
 import java.util.*
 

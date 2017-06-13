@@ -8,7 +8,7 @@ defaultTasks = ['appDeploy']
 apply plugin: 'cognifide.aem'
 
 aemCompose {
-    includeProjects()
+    includeSubprojects()
 }
 
 build.dependsOn aemCompose
