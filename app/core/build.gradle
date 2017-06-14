@@ -15,7 +15,7 @@ bundle {
 
     instruction 'Bundle-SymbolicName', pkg
     instruction 'Sling-Model-Packages', pkg
-    instruction 'Export-Package', "$pkg.*"
+    instruction 'Export-Package', "$pkg.*;-split-package:=merge-first"
 }
 
 dependencies {
