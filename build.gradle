@@ -3,7 +3,9 @@ buildscript {
 }
 
 description = "Example"
-defaultTasks = ['appDeploy', 'contentDeploy']
+defaultTasks = ['fullDeploy']
+
+apply plugin: 'cognifide.aem'
 
 allprojects { subproject ->
     group = 'com.company.aem'
@@ -19,9 +21,6 @@ allprojects { subproject ->
         mavenCentral()
         mavenLocal()
     }
-}
-
-subprojects { subproject ->
 
     plugins.withId 'cognifide.aem', {
 
@@ -89,3 +88,11 @@ subprojects { subproject ->
 
     }
 }
+
+aemCompose {
+    includeProjects(':app:*')
+    includeProjects(':content:*')
+}
+
+build.dependsOn aemCompose
+task fullDeploy(dependsOn: [build, aemDeploy])
