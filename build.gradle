@@ -3,9 +3,9 @@ buildscript {
 }
 
 description = "Example"
-defaultTasks = ['appDeploy']
+defaultTasks = ['appDeploy', 'contentDeploy']
 
-allprojects {
+allprojects { subproject ->
     group = 'com.company.aem'
     version = '1.0.0-SNAPSHOT'
 

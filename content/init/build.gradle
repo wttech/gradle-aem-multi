@@ -1,0 +1,15 @@
+buildscript {
+    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+}
+
+description = "Example - Content Init"
+defaultTasks = ['contentInitDeploy']
+
+apply plugin: 'cognifide.aem'
+
+aemCompose {
+    includeSubprojects()
+}
+
+build.dependsOn aemCompose
+task contentInitDeploy(dependsOn: [build, aemDeploy])
