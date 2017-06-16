@@ -34,11 +34,13 @@ Tested on:
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
-    * All-in-one package:
-        * `gradle appDeploy` or just `gradle`
+    * Assembly packages:
+        * `gradle fullDeploy` or just `gradle`.
+        * `gradle appDeploy`.
+        * `gradle contentDeploy`.
         
-    * Subpackage only:
-        * `gradle coreDeploy`
+    * Single package:
+        * `gradle coreDeploy`.
         * `gradle commonDeploy`,
         * `gradle configDeploy`,
         * `gradle designDeploy`.
