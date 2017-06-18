@@ -35,19 +35,20 @@ Tested on:
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle fullDeploy` or just `gradle`.
-        * `gradle appDeploy`.
+        * `gradle fullDeploy` or just `gradle`,
+        * `gradle appDeploy`,
         * `gradle contentDeploy`.
-        
     * Single package:
-        * `gradle coreDeploy`.
-        * `gradle commonDeploy`,
-        * `gradle configDeploy`,
-        * `gradle designDeploy`.
+        * `gradle appCoreDeploy`,
+        * `gradle appCommonDeploy`,
+        * `gradle appConfigDeploy`,
+        * `gradle appDesignDeploy`,
+        * `gradle contentInitDeploy`,
+        * `gradle contentDemoDeploy`.
 
 ## Tips & tricks
 
-* To run some task only for subproject, use project name as a prefix, for instance: `sh gradlew :app:design:aemSync`.
+* To run some task only for subproject, use project path as a prefix, for instance: `sh gradlew :app:design:aemSync`.
 * Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'org.dm.bundle'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,

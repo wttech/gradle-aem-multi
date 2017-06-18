@@ -5,11 +5,7 @@ buildscript {
 description = "Example - Content Demo"
 defaultTasks = ['contentDemoDeploy']
 
-apply plugin: 'cognifide.aem'
-
-aemCompose {
-    includeSubprojects()
-}
+apply plugin: 'com.cognifide.aem'
 
 build.dependsOn aemCompose
 task contentDemoDeploy(dependsOn: [build, aemDeploy])
