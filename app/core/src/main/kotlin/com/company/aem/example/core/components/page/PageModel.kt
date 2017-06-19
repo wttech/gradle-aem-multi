@@ -3,11 +3,14 @@ package com.company.aem.example.core.components.page
 import com.day.cq.commons.jcr.JcrConstants
 import com.company.aem.example.core.services.posts.Post
 import com.company.aem.example.core.services.posts.PostsService
+import com.day.cq.commons.Language
+import com.day.cq.commons.LanguageUtil
 import org.apache.sling.api.resource.Resource
 import org.apache.sling.models.annotations.DefaultInjectionStrategy
 import org.apache.sling.models.annotations.Model
 import org.apache.sling.models.annotations.injectorspecific.OSGiService
 import org.apache.sling.models.annotations.injectorspecific.Self
+import org.joda.time.DateTime
 import org.slf4j.LoggerFactory
 import java.io.Serializable
 import java.util.*
@@ -53,5 +56,11 @@ class PageModel : Serializable {
 
         posts = postsService.randomPosts(5)
     }
+
+    val language: Language by lazy {
+        LanguageUtil.getLanguage(resource.path)
+    }
+
+    val currentDate = DateTime()
 
 }

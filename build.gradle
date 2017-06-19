@@ -84,6 +84,7 @@ allprojects { subproject ->
             compile group: 'org.apache.sling', name: 'org.apache.sling.models.api', version: '1.1.0'
             compile group: 'com.google.code.gson', name: 'gson', version: '2.3'
             compile group: 'com.adobe.aem', name: 'uber-jar', version: '6.2.0', classifier: 'obfuscated-apis'
+            compile group: 'joda-time', name: 'joda-time', version: '2.9.1'
         }
 
     }
