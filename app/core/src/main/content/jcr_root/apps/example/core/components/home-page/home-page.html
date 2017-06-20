@@ -1,7 +1,7 @@
 <sly data-sly-use.page="com.company.aem.example.core.components.page.PageModel"/>
 <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
 <!DOCTYPE html>
-<html lang="${page.language.countryCode}">
+<html lang="${page.languageCode}">
 <head>
     <title>Example | ${page.title}</title>
 
@@ -16,7 +16,7 @@
         <sly data-sly-resource="${'content' @ resourceType='wcm/foundation/components/parsys'}"/>
     </div>
     <footer id="footer">
-        ${page.currentDate.year} &copy; Company
+       2017 &copy; Company
     </footer>
 
     <sly data-sly-call="${clientLib.js @ categories='example.publish'}" data-sly-test="${wcmmode.disabled}"/>

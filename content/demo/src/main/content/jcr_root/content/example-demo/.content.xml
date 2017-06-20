@@ -8,7 +8,7 @@
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/example-demo/en">
+        redirectTarget="/content/example-demo/en-us">
     </jcr:content>
     <en/>
 </jcr:root>

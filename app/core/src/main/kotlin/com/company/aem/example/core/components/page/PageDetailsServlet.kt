@@ -2,6 +2,7 @@ package com.company.aem.example.core.components.page
 
 import com.day.cq.wcm.api.NameConstants
 import com.company.aem.example.common.JsonUtils
+import com.day.cq.commons.jcr.JcrConstants
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
 import org.apache.sling.api.servlets.SlingAllMethodsServlet
@@ -22,7 +23,7 @@ import javax.servlet.Servlet
 class PageDetailsServlet : SlingAllMethodsServlet() {
 
     override fun doGet(request: SlingHttpServletRequest, response: SlingHttpServletResponse) {
-        val page = request.resource.adaptTo(PageModel::class.java)
+        val page = request.resource.getChild(JcrConstants.JCR_CONTENT).adaptTo(PageModel::class.java)
         val json = JsonUtils.GSON.toJson(page)
 
         response.writer.use { it.write(json) }
