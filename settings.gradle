@@ -1,7 +1,10 @@
 rootProject.name = 'example'
 
-include ':app'
-include ':app:common'
-include ':app:core'
-include ':app:config'
-include ':app:design'
+include 'app'
+include 'app:common'
+include 'app:core'
+include 'app:config'
+include 'app:design'
+
+include 'content:init'
+include 'content:demo'

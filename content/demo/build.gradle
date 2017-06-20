@@ -2,10 +2,10 @@ buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
-description = "Example - App Config"
-defaultTasks = ['appConfigDeploy']
+description = "Example - Content Demo"
+defaultTasks = ['contentDemoDeploy']
 
 apply plugin: 'com.cognifide.aem'
 
 build.dependsOn aemCompose
-task appConfigDeploy(dependsOn: [build, aemDeploy])
+task contentDemoDeploy(dependsOn: [build, aemDeploy])

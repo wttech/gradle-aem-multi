@@ -5,7 +5,7 @@ buildscript {
 description = "Example - App"
 defaultTasks = ['appDeploy']
 
-apply plugin: 'cognifide.aem'
+apply plugin: 'com.cognifide.aem'
 
 aemCompose {
     includeSubprojects()
