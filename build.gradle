@@ -24,7 +24,8 @@ allprojects { subproject ->
 
     plugins.withId 'com.cognifide.aem', {
 
-        // All tasks configuration
+        // Common AEM configuration (CRX packages, deployment etc)
+
         aem {
             config {
                 contentPath = "src/main/content"
@@ -33,12 +34,6 @@ allprojects { subproject ->
             }
         }
 
-        // Specific task configuration
-        aemCompose {
-            config {
-                // Allow globals be overridden here or inside project
-            }
-        }
     }
 
     plugins.withId 'java', {

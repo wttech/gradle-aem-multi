@@ -9,7 +9,6 @@
         sling:resourceType="example/core/components/home-page">
         <content
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/parsys">
-        </content>
+            sling:resourceType="wcm/foundation/components/parsys"/>
     </jcr:content>
 </jcr:root>
