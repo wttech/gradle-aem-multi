@@ -5,8 +5,8 @@
 <head>
     <title>Example | ${page.title}</title>
 
-    <sly data-sly-call="${clientLib.css @ categories='example.publish'}" data-sly-test="${wcmMode.disabled}"/>
-    <sly data-sly-call="${clientLib.css @ categories='example.author'}" data-sly-test="${!wcmMode.disabled}"/>
+    <sly data-sly-call="${clientLib.css @ categories='example.publish'}" data-sly-test="${wcmmode.disabled}"/>
+    <sly data-sly-call="${clientLib.css @ categories='example.author'}" data-sly-test="${!wcmmode.disabled}"/>
 </head>
 <body>
     <header id="header">
@@ -19,7 +19,7 @@
         ${page.currentDate.year} &copy; Company
     </footer>
 
-    <sly data-sly-call="${clientLib.js @ categories='example.publish'}" data-sly-test="${wcmMode.disabled}"/>
-    <sly data-sly-call="${clientLib.js @ categories='example.author'}" data-sly-test="${!wcmMode.disabled}"/>
+    <sly data-sly-call="${clientLib.js @ categories='example.publish'}" data-sly-test="${wcmmode.disabled}"/>
+    <sly data-sly-call="${clientLib.js @ categories='example.author'}" data-sly-test="${!wcmmode.disabled}"/>
 </body>
 </html>
