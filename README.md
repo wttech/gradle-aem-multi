@@ -48,6 +48,7 @@ Tested on:
 
 ## Tips & tricks
 
+* To speed up build, use [build cache](https://docs.gradle.org/current/userguide/build_cache.html) by appending to command `--build-cache` option.
 * To run some task only for subproject, use project path as a prefix, for instance: `sh gradlew :app:design:aemSync`.
 * Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'org.dm.bundle'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
