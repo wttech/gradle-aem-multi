@@ -3,7 +3,7 @@ buildscript {
 }
 
 description = "Example - App Common"
-defaultTasks = ['appCommonDeploy']
+defaultTasks = ['aemAppCommonDeploy']
 
 apply plugin: 'java'
 apply plugin: "kotlin"
@@ -23,6 +23,3 @@ dependencies {
      aemInstall group: 'org.jsoup', name: 'jsoup', version: '1.10.2'
      aemEmbed group: 'org.hashids', name: 'hashids', version: '1.0.1'
 }
-
-build.dependsOn aemCompose
-task appCommonDeploy(dependsOn: [build, aemDeploy])

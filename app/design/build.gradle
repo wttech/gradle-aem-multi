@@ -3,9 +3,6 @@ buildscript {
 }
 
 description = "Example - App Design"
-defaultTasks = ['appDesignDeploy']
+defaultTasks = ['aemAppDesignDeploy']
 
 apply plugin: 'com.cognifide.aem'
-
-build.dependsOn aemCompose
-task appDesignDeploy(dependsOn: [build, aemDeploy])

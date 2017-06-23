@@ -3,9 +3,6 @@ buildscript {
 }
 
 description = "Example - Content Init"
-defaultTasks = ['contentInitDeploy']
+defaultTasks = ['aemContentInitDeploy']
 
 apply plugin: 'com.cognifide.aem'
-
-build.dependsOn aemCompose
-task contentInitDeploy(dependsOn: [build, aemDeploy])
