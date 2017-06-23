@@ -10,6 +10,3 @@ apply plugin: 'com.cognifide.aem'
 aemCompose {
     includeSubprojects()
 }
-
-build.dependsOn aemCompose
-task appDeploy(dependsOn: [build, aemDeploy])
