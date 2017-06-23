@@ -89,6 +89,3 @@ aemCompose {
     includeProjects(':app:*')
     includeProjects(':content:*')
 }
-
-build.dependsOn aemCompose
-task fullDeploy(dependsOn: [build, aemDeploy])
