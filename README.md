@@ -35,16 +35,16 @@ Tested on:
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle fullDeploy` or just `gradle`,
-        * `gradle appDeploy`,
-        * `gradle contentDeploy`.
+        * `gradle aemRootDeploy` or just `gradle`,
+        * `gradle aemAppDeploy`,
+        * `gradle aemContentDeploy`.
     * Single package:
-        * `gradle appCoreDeploy`,
-        * `gradle appCommonDeploy`,
-        * `gradle appConfigDeploy`,
-        * `gradle appDesignDeploy`,
-        * `gradle contentInitDeploy`,
-        * `gradle contentDemoDeploy`.
+        * `gradle aemAppCoreDeploy`,
+        * `gradle aemAppCommonDeploy`,
+        * `gradle aemAppConfigDeploy`,
+        * `gradle aemAppDesignDeploy`,
+        * `gradle aemContentInitDeploy`,
+        * `gradle aemContentDemoDeploy`.
 
 ## Tips & tricks
 
