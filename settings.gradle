@@ -1,3 +1,19 @@
+// User friendly preconditions
+
+def minJavaVersion = 1.8
+def javaVersion = Double.parseDouble(System.getProperty("java.specification.version"))
+if (javaVersion < minJavaVersion) {
+    throw new GradleException("Java version should be at least $minJavaVersion to build this project.")
+}
+
+def minGradleVersion = 3.5
+def gradleVersion = Double.parseDouble(gradle.gradleVersion)
+if (gradleVersion < minGradleVersion) {
+    throw new GradleException("Gradle version should be at least $minGradleVersion to build this project.")
+}
+
+// Project structure
+
 rootProject.name = 'example'
 
 include 'app'

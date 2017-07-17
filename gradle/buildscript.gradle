@@ -1,18 +1,13 @@
 /**
- * This file is a consequence of: https://issues.gradle.org/browse/GRADLE-2801
+ * This file is a consequence of <a href="https://issues.gradle.org/browse/GRADLE-2801">Gradle issue</a>.
+ * To sum up, custom plugin repositories configuration is tricky in case of multi-module projects.
  *
- * As of Gradle 3.5, build script configuration cannot be put in 'allprojects' section.
- * As a workaround, each of sub project can apply from this file common build script configuration.
+ * As of Gradle 3.5, buildscript configuration cannot be put in 'allprojects' section.
+ * As a workaround, each of subproject can apply from this file common buildscript configuration.
+ *
+ * Approach with new section 'pluginManagement' is also possible, but in case of AEM plugin needs another
+ * ID to dependency mapping using custom <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_management>resolution strategy</a>.
  */
-
-// User friendly preconditions
-
-def javaVersion = Double.parseDouble(System.getProperty("java.specification.version"));
-if (javaVersion < 1.8) {
-    throw new GradleException("Java version should be at least 1.8 to build this project.")
-}
-
-// Plugins configuration
 
 repositories {
     mavenLocal()
@@ -23,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    classpath 'com.cognifide.gradle:aem-plugin:1.4.+'
+    classpath 'com.cognifide.gradle:aem-plugin:1.4.1'
     classpath "org.dm.gradle:gradle-bundle-plugin:0.10.0"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.3-2"
 }

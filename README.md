@@ -24,7 +24,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 Tested on:
 
 * Java 1.8
-* Gradle 3.5
+* Gradle 4.0.1
 * Adobe AEM 6.2
 
 ## Build
