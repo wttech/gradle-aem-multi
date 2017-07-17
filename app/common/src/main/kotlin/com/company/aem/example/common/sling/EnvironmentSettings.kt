@@ -8,7 +8,8 @@ import org.osgi.service.component.annotations.Reference
  * Provides environment related data like AEM instance type.
  */
 @Component(
-        service = arrayOf(EnvironmentSettings::class)
+        service = arrayOf(EnvironmentSettings::class),
+        immediate = true
 )
 class EnvironmentSettings {
 
