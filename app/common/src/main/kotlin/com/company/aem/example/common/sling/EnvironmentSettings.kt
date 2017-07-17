@@ -23,7 +23,7 @@ class EnvironmentSettings {
     private lateinit var settings: SlingSettingsService
 
     fun isMode(mode: String): Boolean {
-        return settings.runModes.stream().anyMatch { it.equals(mode, ignoreCase = true) }
+        return settings.runModes.any { it.equals(mode, ignoreCase = true) }
     }
 
     val author: Boolean
