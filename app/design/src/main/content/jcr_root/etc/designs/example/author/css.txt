@@ -1,2 +1,2 @@
 #base=css
-main.less
+main.scss

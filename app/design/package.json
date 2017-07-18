@@ -1,0 +1,14 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "buildPublish": "cd src/main/content/jcr_root/etc/designs/example/publish/src && webpack"
+  },
+  "devDependencies": {
+    "node-sass": "4.5.0",
+    "sass-loader": "6.0.2",
+    "css-loader": "0.26.2",
+    "url-loader": "0.5.8",
+    "webpack": "2.2.1",
+    "webpack-merge": "3.0.0"
+  }
+}

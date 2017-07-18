@@ -1,3 +1,3 @@
 (function () {
-    console.log('Example Author JS')
+    console.log('Example Author JS');
 }());
