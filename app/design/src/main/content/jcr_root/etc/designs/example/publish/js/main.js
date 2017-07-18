@@ -1,3 +1,2 @@
-(function () {
-    console.log('Example Publish JS')
-}());
+require('./components/page');
+require('./components/richtext');

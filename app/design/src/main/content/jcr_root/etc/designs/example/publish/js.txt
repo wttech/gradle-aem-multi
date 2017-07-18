@@ -1,2 +1,2 @@
 #base=dist
-main.js
+main.bundle.js
