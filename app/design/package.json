@@ -1,8 +1,4 @@
 {
-  "name": "example-app-design",
-  "version": "1.0.0-SNAPSHOT",
-  "description": "Example - App Design",
-  "author": "Company",
   "private": true,
   "devDependencies": {
     "gulp": "^3.9.1",
