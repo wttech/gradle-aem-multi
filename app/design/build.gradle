@@ -6,3 +6,11 @@ description = "Example - App Design"
 defaultTasks = ['aemAppDesignDeploy']
 
 apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.moowork.node'
+
+task gulpBuild(type: YarnTask) {
+    dependsOn yarn
+    yarnCommand = ['gulp']
+}
+
+aemCompose.dependsOn([gulpBuild])

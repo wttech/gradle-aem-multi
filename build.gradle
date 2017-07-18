@@ -80,6 +80,14 @@ allprojects { subproject ->
         }
 
     }
+
+    plugins.withId 'com.moowork.node', {
+        node {
+            version = '6.11.1'
+            yarnVersion = '0.27.5'
+            download = true
+        }
+    }
 }
 
 aemCompose {
