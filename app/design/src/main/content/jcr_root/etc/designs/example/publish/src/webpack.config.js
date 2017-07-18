@@ -30,29 +30,20 @@ module.exports = [
                         fallback: "style-loader",
                         use: [
                             {
-                                loader: "css-loader",
+                                loader: "css-loader"
+                            },
+                            {
+                                loader: "postcss-loader",
                                 options: {
-                                    sourceMap: true,
-                                    modules: true,
-                                    importLoaders: true,
-                                    localIdentName: "[name]__[local]___[hash:base64:5]"
+                                    plugins: function () {
+                                        return [
+                                            require("autoprefixer")
+                                        ];
+                                    }
                                 }
                             },
-                            // {
-                            //     loader: "postcss-loader",
-                            //     options: {
-                            //         plugins: function () {
-                            //             return [
-                            //                 require("autoprefixer")
-                            //             ];
-                            //         }
-                            //     }
-                            // },
                             {
-                                loader: "sass-loader",
-                                options: {
-                                    sourceMap: true
-                                }
+                                loader: "sass-loader"
                             }
                         ]
                     })
@@ -60,7 +51,7 @@ module.exports = [
             ]
         },
         plugins: [
-            new ExtractTextPlugin('[name].css')
+            new ExtractTextPlugin({filename: '[name].css', allChunks: true})
         ]
     }
 ];
