@@ -6,3 +6,19 @@ description = "Example - App Design"
 defaultTasks = ['aemAppDesignDeploy']
 
 apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.moowork.node'
+
+task gulpBuild(type: YarnTask) {
+    dependsOn yarn
+    yarnCommand = ['gulp']
+
+    inputs.dir("src/main/content/jcr_root/etc/designs/example/author/js")
+    inputs.dir("src/main/content/jcr_root/etc/designs/example/author/scss")
+    outputs.dir("src/main/content/jcr_root/etc/designs/example/author/dist")
+
+    inputs.dir("src/main/content/jcr_root/etc/designs/example/publish/js")
+    inputs.dir("src/main/content/jcr_root/etc/designs/example/publish/scss")
+    outputs.dir("src/main/content/jcr_root/etc/designs/example/publish/dist")
+}
+
+aemCompose.dependsOn([gulpBuild])

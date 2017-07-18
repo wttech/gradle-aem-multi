@@ -1,0 +1,1 @@
+console.log("Richtext component JS loaded.");

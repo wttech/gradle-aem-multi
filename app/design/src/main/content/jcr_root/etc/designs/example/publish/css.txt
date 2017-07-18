@@ -1,2 +1,2 @@
-#base=css
-main.less
+#base=dist
+main.css
