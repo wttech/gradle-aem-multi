@@ -9,6 +9,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-sass": "^3.1.0",
-    "gulp-jshint": "^2.0.4"
+    "browserify": "^14.4.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

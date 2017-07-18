@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 var clientlibsRoot = './src/main/content/jcr_root/etc/designs/example';
 
@@ -19,7 +21,10 @@ function setupClientlib(name) {
     });
 
     gulp.task(scripts, function () {
-        // TODO ...
+        return browserify(root + '/js/main.js')
+            .bundle()
+            .pipe(source("main.bundle.js"))
+            .pipe(gulp.dest(root + '/dist'));
     });
 
     gulp.task(name, [styles, scripts], function() {});
