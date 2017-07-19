@@ -6,3 +6,15 @@ description = "Example - App Design"
 defaultTasks = ['aemAppDesignDeploy']
 
 apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.moowork.node'
+
+task webpackPublish(type: YarnTask) {
+    dependsOn yarn
+    yarnCommand = ['buildPublish']
+
+    def dir = 'src/main/content/jcr_root/etc/designs/example/publish'
+    inputs.dir("$dir/src")
+    outputs.dir("$dir/dist")
+}
+
+aemCompose.dependsOn([webpackPublish])

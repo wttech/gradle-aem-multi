@@ -18,7 +18,6 @@ This project should be used while starting new project based on AEM.
 Currently Gradle does not support Maven's like archetypes, so you have to copy this project at start and customize it for your needs.
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
 
-
 ## Environment
 
 Tested on:
@@ -26,6 +25,20 @@ Tested on:
 * Java 1.8
 * Gradle 4.0.1
 * Adobe AEM 6.2
+
+## Structure
+
+Project is divided into subpackages (reinstallabilty on production environments taken into account):
+
+* root - non-reinstallable complete all-in-one package with application and contents.
+* app - reinstallable assembly package that contains all sub-parts of application:
+    * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs etc).
+    * *core* - OSGi bundle with core business logic and AEM components implementation.
+    * *config* - OSGi services configuration.
+    * *design* - AEM design configuration responsible for look & feel of AEM pages.
+* content - non-reinstallable assembly package that contains all type of contents listed below:
+    * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
+    * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
 
 ## Build
 
