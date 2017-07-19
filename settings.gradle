@@ -1,15 +1,15 @@
 // User friendly preconditions
 
-def minJavaVersion = 1.8
-def javaVersion = Double.parseDouble(System.getProperty("java.specification.version"))
+def minJavaVersion = VersionNumber.parse("1.8")
+def javaVersion = VersionNumber.parse(System.getProperty("java.specification.version"))
 if (javaVersion < minJavaVersion) {
-    throw new GradleException("Java version should be at least $minJavaVersion to build this project.")
+    throw new GradleException("Java version should be at least $minJavaVersion to build this project, but $javaVersion detected.")
 }
 
-def minGradleVersion = 3.5
-def gradleVersion = Double.parseDouble(gradle.gradleVersion)
-if (gradleVersion < minGradleVersion) {
-    throw new GradleException("Gradle version should be at least $minGradleVersion to build this project.")
+def minGradleVersion = VersionNumber.parse("3.5")
+def gradleVersion = VersionNumber.parse(gradle.gradleVersion)
+if (gradleVersion < minJavaVersion) {
+    throw new GradleException("Gradle version should be at least $minGradleVersion to build this project, but $gradleVersion detected.")
 }
 
 // Project structure
