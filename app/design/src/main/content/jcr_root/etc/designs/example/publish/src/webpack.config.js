@@ -28,11 +28,16 @@ module.exports = [
                 presets: ['env']
               }
             },
+          ]
+        },
+        {
+          test: /\.js$/,
+          use: [
             {
-              loader: 'eslint-loader'
+              loader: 'eslint-loader',
             },
           ]
-        }
+        },
       ]
     }
   },
