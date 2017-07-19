@@ -1,3 +1,3 @@
-const config = require('./config');
+const config = require("./config");
 
-console.log('Welcome on ' + config.siteName + '!');
+console.log(`Welcome on ${config.siteName}!`);
