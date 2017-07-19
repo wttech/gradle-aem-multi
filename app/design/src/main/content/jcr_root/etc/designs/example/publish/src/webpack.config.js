@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const config = {
   sourceJs: __dirname + '/js/main.js',
@@ -65,7 +66,6 @@ module.exports = [
                   plugins: function () {
                     return [
                       require("autoprefixer"),
-                      require("stylelint")
                     ];
                   }
                 }
@@ -79,7 +79,8 @@ module.exports = [
       ]
     },
     plugins: [
-      new ExtractTextPlugin({filename: '[name].css', allChunks: true})
+      new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
+      new StyleLintPlugin(),
     ]
   }
 ];
