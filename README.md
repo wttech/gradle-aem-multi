@@ -15,7 +15,7 @@
 ## Description
 
 This project should be used while starting new project based on AEM.
-Currently Gradle does not support Maven's like archetypes, so you have to copy this project at start and customize it for your needs.
+Currently Gradle does not support Maven's like archetypes, so you have to copy this project at start and customize it for your needs. Don't worry! Comparing to Maven, much less to do - only few lines to change.
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
 
 ## Environment
@@ -28,7 +28,7 @@ Tested on:
 
 ## Structure
 
-Project is divided into subpackages (reinstallabilty on production environments taken into account):
+Project is divided into subpackages (designed with reinstallabilty on production environments in mind):
 
 * *root* - non-reinstallable complete all-in-one package with application and contents.
 * *app* - reinstallable assembly package that contains all sub-parts of application:
