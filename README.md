@@ -30,15 +30,25 @@ Tested on:
 
 Project is divided into subpackages (reinstallabilty on production environments taken into account):
 
-* root - non-reinstallable complete all-in-one package with application and contents.
-* app - reinstallable assembly package that contains all sub-parts of application:
-    * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs etc).
+* *root* - non-reinstallable complete all-in-one package with application and contents.
+* *app* - reinstallable assembly package that contains all sub-parts of application:
+    * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs, form controls etc).
     * *core* - OSGi bundle with core business logic and AEM components implementation.
     * *config* - OSGi services configuration.
     * *design* - AEM design configuration responsible for look & feel of AEM pages.
-* content - non-reinstallable assembly package that contains all type of contents listed below:
+* *content* - non-reinstallable assembly package that contains all type of contents listed below:
     * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
     * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
+
+
+## Features
+
+* Interoperable Java and [Kotlin](https://kotlinlang.org) code examples.
+* Integrated popular UI build toolkit: [NodeJS](https://nodejs.org/en/), [Yarn](https://yarnpkg.com) and [Webpack](https://webpack.github.io/) for advanced assets bundling (modular JS, ECMAScript6 transpilation, SCSS compilation with [PostCSS](http://postcss.org), code style checks etc).
+* Integrated SCSS compilation on AEM side using [AEM Sass Compiler](https://github.com/mickleroy/aem-sass-compiler).
+* Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
+* Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
+
 
 ## Build
 
