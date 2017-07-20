@@ -13,20 +13,20 @@ import javax.servlet.Servlet
  * @see <http://localhost:4502/content/geometrixx-outdoors/en.details.json>
  */
 @Component(
-        service = arrayOf(Servlet::class),
-        property = arrayOf(
-                "sling.servlet.extensions=json",
-                "sling.servlet.selectors=details",
-                "sling.servlet.resourceTypes=${NameConstants.NT_PAGE}"
-        )
+  service = arrayOf(Servlet::class),
+  property = arrayOf(
+    "sling.servlet.extensions=json",
+    "sling.servlet.selectors=details",
+    "sling.servlet.resourceTypes=${NameConstants.NT_PAGE}"
+  )
 )
 class PageDetailsServlet : SlingAllMethodsServlet() {
 
-    override fun doGet(request: SlingHttpServletRequest, response: SlingHttpServletResponse) {
-        val page = request.resource.getChild(JcrConstants.JCR_CONTENT).adaptTo(PageModel::class.java)
-        val json = JsonUtils.GSON.toJson(page)
+  override fun doGet(request: SlingHttpServletRequest, response: SlingHttpServletResponse) {
+    val page = request.resource.getChild(JcrConstants.JCR_CONTENT).adaptTo(PageModel::class.java)
+    val json = JsonUtils.GSON.toJson(page)
 
-        response.writer.use { it.write(json) }
-    }
+    response.writer.use { it.write(json) }
+  }
 
 }

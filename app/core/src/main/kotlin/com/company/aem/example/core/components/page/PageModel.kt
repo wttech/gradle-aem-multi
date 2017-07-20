@@ -16,46 +16,46 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @Model(
-        adaptables = arrayOf(Resource::class),
-        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
+  adaptables = arrayOf(Resource::class),
+  defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
 class PageModel : Serializable {
 
-    @Inject
-    @field:Named(JcrConstants.JCR_TITLE)
-    lateinit var title: String
+  @Inject
+  @field:Named(JcrConstants.JCR_TITLE)
+  lateinit var title: String
 
-    @Inject
-    @field:Named(JcrConstants.JCR_CREATED)
-    lateinit var created: GregorianCalendar
+  @Inject
+  @field:Named(JcrConstants.JCR_CREATED)
+  lateinit var created: GregorianCalendar
 
-    @Inject
-    @field:Named(JcrConstants.JCR_CREATED_BY)
-    lateinit var userId: String
+  @Inject
+  @field:Named(JcrConstants.JCR_CREATED_BY)
+  lateinit var userId: String
 
-    @Transient
-    @field:Self
-    private lateinit var resource: Resource
+  @Transient
+  @field:Self
+  private lateinit var resource: Resource
 
-    @Transient
-    @OSGiService
-    private lateinit var postsService: PostsService
+  @Transient
+  @OSGiService
+  private lateinit var postsService: PostsService
 
-    lateinit var posts: List<Post>
+  lateinit var posts: List<Post>
 
-    lateinit var languageCode: String
+  lateinit var languageCode: String
 
-    @PostConstruct
-    fun construct() {
-        this.languageCode = determineLanguageCode()
-        this.posts = postsService.randomPosts(5)
-    }
+  @PostConstruct
+  fun construct() {
+    this.languageCode = determineLanguageCode()
+    this.posts = postsService.randomPosts(5)
+  }
 
-    private fun determineLanguageCode(): String {
-        val languagePath = LanguageUtil.getLanguageRoot(resource.path)
-        val languagePart = languagePath.substringAfterLast("/")
+  private fun determineLanguageCode(): String {
+    val languagePath = LanguageUtil.getLanguageRoot(resource.path)
+    val languagePart = languagePath.substringAfterLast("/")
 
-        return LanguageUtil.getLanguage(languagePart).languageCode ?: "en"
-    }
+    return LanguageUtil.getLanguage(languagePart).languageCode ?: "en"
+  }
 
 }

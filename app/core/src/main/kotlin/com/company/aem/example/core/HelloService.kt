@@ -13,25 +13,25 @@ import org.slf4j.LoggerFactory
 @Component(service = arrayOf(HelloService::class), immediate = true)
 class HelloService {
 
-    companion object {
-        private val LOG = LoggerFactory.getLogger(HelloService::class.java)
+  companion object {
+    private val LOG = LoggerFactory.getLogger(HelloService::class.java)
 
-        private val HASHER = Hashids()
-    }
+    private val HASHER = Hashids()
+  }
 
-    @Reference
-    private lateinit var postsService: PostsService
+  @Reference
+  private lateinit var postsService: PostsService
 
-    @Activate
-    fun activate() {
-        val posts = postsService.posts
+  @Activate
+  fun activate() {
+    val posts = postsService.posts
 
-        LOG.info("Posts service contains knowledge of {} post(s).", posts.size)
+    LOG.info("Posts service contains knowledge of {} post(s).", posts.size)
 
-        val timestamp = System.currentTimeMillis()
-        val hashId = HASHER.encode(timestamp)
+    val timestamp = System.currentTimeMillis()
+    val hashId = HASHER.encode(timestamp)
 
-        LOG.info("Hash ID for current timestamp: $timestamp is '$hashId'")
-    }
+    LOG.info("Hash ID for current timestamp: $timestamp is '$hashId'")
+  }
 
 }

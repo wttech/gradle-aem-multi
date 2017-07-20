@@ -10,22 +10,22 @@ import javax.servlet.*
  */
 abstract class SlingFilter : Filter {
 
-    override fun destroy() {
-        // intentionally empty
-    }
+  override fun destroy() {
+    // intentionally empty
+  }
 
-    override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
-        if (request is SlingHttpServletRequest && response is SlingHttpServletResponse) {
-            doFilter(request, response, chain)
-        } else {
-            doFilter(request, response, chain)
-        }
+  override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
+    if (request is SlingHttpServletRequest && response is SlingHttpServletResponse) {
+      doFilter(request, response, chain)
+    } else {
+      doFilter(request, response, chain)
     }
+  }
 
-    @Throws(IOException::class, ServletException::class)
-    abstract fun doFilter(request: SlingHttpServletRequest, response: SlingHttpServletResponse, chain: FilterChain)
+  @Throws(IOException::class, ServletException::class)
+  abstract fun doFilter(request: SlingHttpServletRequest, response: SlingHttpServletResponse, chain: FilterChain)
 
-    override fun init(p0: FilterConfig?) {
-        // intentionally empty
-    }
+  override fun init(p0: FilterConfig?) {
+    // intentionally empty
+  }
 }
