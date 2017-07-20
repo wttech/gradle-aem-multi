@@ -1,8 +1,8 @@
 package com.company.aem.example.core.components.page
 
-import com.day.cq.wcm.api.NameConstants
 import com.company.aem.example.common.JsonUtils
 import com.day.cq.commons.jcr.JcrConstants
+import com.day.cq.wcm.api.NameConstants
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
 import org.apache.sling.api.servlets.SlingAllMethodsServlet

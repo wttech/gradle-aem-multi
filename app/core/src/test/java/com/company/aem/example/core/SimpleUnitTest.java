@@ -1,14 +1,14 @@
 package com.company.aem.example.core;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 public class SimpleUnitTest {
 
-    @Test
-    public void someTest() {
-        assertTrue(true);
-    }
+  @Test
+  public void someTest() {
+    assertTrue(true);
+  }
 
 }

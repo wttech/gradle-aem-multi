@@ -20,29 +20,29 @@ import java.io.IOException;
  * TODO Remember to delete that component, because it is only for demonstrating purposes.
  */
 @Component(
-        service = Filter.class,
-        property = {
-                "sling.filter.scope=REQUEST",
-                "service.ranking=-700"
-        }
+  service = Filter.class,
+  property = {
+    "sling.filter.scope=REQUEST",
+    "service.ranking=-700"
+  }
 )
 public class LoggingFilter extends SlingFilter {
 
-    private Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
+  private Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
 
-    @Reference
-    private EnvironmentSettings settings;
+  @Reference
+  private EnvironmentSettings settings;
 
-    @Override
-    public void doFilter(SlingHttpServletRequest request, SlingHttpServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
-        if (settings.getAuthor()) {
-            logger.info("Request for '{}', with selector '{}'",
-                    request.getRequestPathInfo().getResourcePath(),
-                    request.getRequestPathInfo().getSelectorString()
-            );
-        }
-
-        chain.doFilter(request, response);
+  @Override
+  public void doFilter(SlingHttpServletRequest request, SlingHttpServletResponse response, FilterChain chain)
+    throws IOException, ServletException {
+    if (settings.getAuthor()) {
+      logger.info("Request for '{}', with selector '{}'",
+        request.getRequestPathInfo().getResourcePath(),
+        request.getRequestPathInfo().getSelectorString()
+      );
     }
+
+    chain.doFilter(request, response);
+  }
 }
