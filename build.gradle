@@ -91,19 +91,24 @@ allprojects { subproject ->
 }
 
 aemCreate {
-    instanceJarUrl = ""
-    instanceLicenseUrl = ""
+    instanceFiles {
+        instanceJar()
+        instanceLicense()
+    }
 }
 
 aemSatisfy {
-    group 'dependencies', {
-        // local("pkg/vanityurls-components-1.0.2.zip")
+    packages {
+        group 'dependencies', {
+            // local("pkg/vanityurls-components-1.0.2.zip")
+        }
+
+        group 'tools', {
+            download('https://github.com/OlsonDigital/aem-groovy-console/releases/download/9.0.1/aem-groovy-console-9.0.1.zip')
+            download("https://github.com/Cognifide/APM/releases/download/cqsm-2.0.0/apm-2.0.0.zip")
+        }
     }
 
-    group 'tools', {
-        download('https://github.com/OlsonDigital/aem-groovy-console/releases/download/9.0.1/aem-groovy-console-9.0.1.zip')
-        download("https://github.com/Cognifide/APM/releases/download/cqsm-2.0.0/apm-2.0.0.zip")
-    }
 }
 
 aemCompose {
