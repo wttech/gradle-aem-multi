@@ -5,4 +5,4 @@ buildscript {
 description = "Example - Content Init"
 defaultTasks = ['aemContentInitDeploy']
 
-apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.cognifide.aem.package'

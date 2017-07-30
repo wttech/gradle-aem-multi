@@ -5,7 +5,8 @@ buildscript {
 description = "Example"
 defaultTasks = ['aemRootDeploy']
 
-apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.cognifide.aem.instance'
+apply plugin: 'com.cognifide.aem.package'
 
 allprojects { subproject ->
     group = 'com.company.aem'
@@ -22,13 +23,12 @@ allprojects { subproject ->
         mavenLocal()
     }
 
-    plugins.withId 'com.cognifide.aem', {
+    plugins.withId 'com.cognifide.aem.base', {
 
         // Common AEM configuration (CRX packages, deployment etc)
 
         aem {
             config {
-                contentPath = subproject.file("src/main/content")
                 localInstance("http://localhost:4502")
                 localInstance("http://localhost:4503")
             }
@@ -87,13 +87,6 @@ allprojects { subproject ->
             yarnVersion = '0.27.5'
             download = true
         }
-    }
-}
-
-aemCreate {
-    instanceFiles {
-        instanceJar()
-        instanceLicense()
     }
 }
 
