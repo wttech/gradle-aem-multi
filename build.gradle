@@ -5,8 +5,8 @@ buildscript {
 description = "Example"
 defaultTasks = ['aemBuild']
 
-apply plugin: 'com.cognifide.aem.instance'
 apply plugin: 'com.cognifide.aem.package'
+apply plugin: 'com.cognifide.aem.instance'
 
 allprojects { subproject ->
     group = 'com.company.aem'
