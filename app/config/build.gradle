@@ -3,6 +3,6 @@ buildscript {
 }
 
 description = "Example - App Config"
-defaultTasks = ['aemAppConfigDeploy']
+defaultTasks = ['aemAppConfigBuild']
 
 apply plugin: 'com.cognifide.aem.package'

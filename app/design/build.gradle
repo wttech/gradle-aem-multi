@@ -3,7 +3,7 @@ buildscript {
 }
 
 description = "Example - App Design"
-defaultTasks = ['aemAppDesignDeploy']
+defaultTasks = ['aemAppDesignBuild']
 
 apply plugin: 'com.cognifide.aem.package'
 apply plugin: 'com.moowork.node'
