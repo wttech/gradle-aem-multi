@@ -101,6 +101,11 @@ aemSatisfy {
             url("https://github.com/Cognifide/APM/releases/download/cqsm-2.0.0/apm-2.0.0.zip")
         }
     }
+//    actions {
+//        after '*', {
+//            awaitStable()
+//        }
+//    }
 
 }
 
