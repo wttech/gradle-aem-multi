@@ -2,11 +2,11 @@ buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
-description = "Example"
-defaultTasks = ['aemBuild']
-
 apply plugin: 'com.cognifide.aem.package'
 apply plugin: 'com.cognifide.aem.instance'
+
+description = "Example"
+defaultTasks = [aemBuild]
 
 allprojects { subproject ->
     group = 'com.company.aem'
@@ -55,10 +55,12 @@ allprojects { subproject ->
 
         // Unified bundle configuration
 
-        bundle {
-            instruction 'Bundle-Name', subproject.description
-            instruction 'Bundle-Category', 'example'
-            instruction 'Bundle-Vendor', 'Example'
+        subproject.afterEvaluate {
+            bundle {
+                instruction 'Bundle-Name', subproject.description
+                instruction 'Bundle-Category', 'example'
+                instruction 'Bundle-Vendor', 'Example'
+            }
         }
 
         // AEM runtime dependencies
