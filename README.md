@@ -58,16 +58,16 @@ Project is divided into subpackages (designed with reinstallabilty on production
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle aemRootDeploy` or just `gradle`,
-        * `gradle aemAppDeploy`,
-        * `gradle aemContentDeploy`.
+        * `gradle` (`:aemBuild`),
+        * `gradle aemAppBuild`,
+        * `gradle aemContentBuild`.
     * Single package:
-        * `gradle aemAppCoreDeploy`,
-        * `gradle aemAppCommonDeploy`,
-        * `gradle aemAppConfigDeploy`,
-        * `gradle aemAppDesignDeploy`,
-        * `gradle aemContentInitDeploy`,
-        * `gradle aemContentDemoDeploy`.
+        * `gradle aemAppCoreBuild`,
+        * `gradle aemAppCommonBuild`,
+        * `gradle aemAppConfigBuild`,
+        * `gradle aemAppDesignBuild`,
+        * `gradle aemContentInitBuild`,
+        * `gradle aemContentDemoBuild`.
 
 ## Tips & tricks
 
