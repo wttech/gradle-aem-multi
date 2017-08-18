@@ -2,10 +2,12 @@ buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
-description = "Example"
-defaultTasks = ['aemRootDeploy']
+description = 'Example'
+defaultTasks = [':aemSatisfy', ':aemBuild']
 
-apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.cognifide.aem.package'
+apply plugin: 'com.cognifide.aem.instance'
+
 
 allprojects { subproject ->
     group = 'com.company.aem'
@@ -22,15 +24,14 @@ allprojects { subproject ->
         mavenLocal()
     }
 
-    plugins.withId 'com.cognifide.aem', {
+    plugins.withId 'com.cognifide.aem.base', {
 
         // Common AEM configuration (CRX packages, deployment etc)
 
         aem {
             config {
-                contentPath = subproject.file("src/main/content")
-                instance("http://localhost:4502", "admin", "admin", "local-author")
-                // instance("http://localhost:4503", "admin", "admin", "local-publish")
+                localInstance "http://localhost:5502"
+                //localInstance "http://localhost:4503"
             }
         }
 
@@ -90,18 +91,20 @@ allprojects { subproject ->
     }
 }
 
+aemSatisfy {
+    packages {
+        group 'dependencies', {
+            // local("pkg/vanityurls-components-1.0.2.zip")
+        }
+
+        group 'tools', {
+            url('https://github.com/OlsonDigital/aem-groovy-console/releases/download/9.0.1/aem-groovy-console-9.0.1.zip')
+            url("https://github.com/Cognifide/APM/releases/download/cqsm-2.0.0/apm-2.0.0.zip")
+        }
+    }
+}
+
 aemCompose {
     includeProjects ':app:*'
     includeProjects ':content:*'
-}
-
-aemSatisfy {
-    group 'dependencies', {
-        // local("pkg/vanityurls-components-1.0.2.zip")
-    }
-
-    group 'tools', {
-        download('https://github.com/OlsonDigital/aem-groovy-console/releases/download/9.0.1/aem-groovy-console-9.0.1.zip')
-        download("https://github.com/Cognifide/APM/releases/download/cqsm-2.0.0/apm-2.0.0.zip")
-    }
 }

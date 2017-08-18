@@ -2,17 +2,16 @@ package com.company.aem.example.core;
 
 import com.company.aem.example.common.servlet.SlingFilter;
 import com.company.aem.example.common.sling.EnvironmentSettings;
+import java.io.IOException;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import java.io.IOException;
 
 /**
  * Simple servlet filter component that logs incoming requests only on author instances.

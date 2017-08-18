@@ -2,7 +2,7 @@ buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
-description = "Example - Content Demo"
-defaultTasks = ['aemContentDemoDeploy']
+description = 'Example - Content Demo'
+defaultTasks = ['aemBuild']
 
-apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.cognifide.aem.package'

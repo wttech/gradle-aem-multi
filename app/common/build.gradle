@@ -2,13 +2,13 @@ buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
-description = "Example - App Common"
-defaultTasks = ['aemAppCommonDeploy']
+description = 'Example - App Common'
+defaultTasks = ['aemBuild']
 
 apply plugin: 'java'
 apply plugin: "kotlin"
 apply plugin: 'org.dm.bundle'
-apply plugin: 'com.cognifide.aem'
+apply plugin: 'com.cognifide.aem.package'
 
 bundle {
     def pkg = 'com.company.aem.example.common'
