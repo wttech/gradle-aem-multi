@@ -8,7 +8,6 @@ defaultTasks = [':aemSatisfy', ':aemBuild']
 apply plugin: 'com.cognifide.aem.package'
 apply plugin: 'com.cognifide.aem.instance'
 
-
 allprojects { subproject ->
     group = 'com.company.aem'
     version = '1.0.0-SNAPSHOT'
@@ -59,7 +58,7 @@ allprojects { subproject ->
         bundle {
             instruction 'Bundle-Name', subproject.description
             instruction 'Bundle-Category', 'example'
-            instruction 'Bundle-Vendor', 'Example'
+            instruction 'Bundle-Vendor', 'Company'
         }
 
         // AEM runtime dependencies
