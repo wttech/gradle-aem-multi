@@ -18,8 +18,8 @@ repositories {
 }
 
 dependencies {
-    classpath 'com.cognifide.gradle:aem-plugin:2.0.0-beta'
+    classpath 'com.cognifide.gradle:aem-plugin:2.0.0'
     classpath "org.dm.gradle:gradle-bundle-plugin:0.10.0"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.3-2"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4"
     classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
 }
