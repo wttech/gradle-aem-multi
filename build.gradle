@@ -28,8 +28,10 @@ allprojects { subproject ->
         // Common AEM configuration (CRX packages, deployment etc)
 
         aem {
-            localInstance "http://localhost:4502"
-            localInstance "http://localhost:4503"
+            config {
+                localInstance "http://localhost:4502"
+                localInstance "http://localhost:4503"
+            }
         }
 
     }
