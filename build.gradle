@@ -5,6 +5,7 @@ buildscript {
 description = 'Example'
 defaultTasks = [':aemSatisfy', ':aemBuild', ':aemAwait']
 
+apply plugin: 'com.neva.fork'
 apply plugin: 'com.cognifide.aem.package'
 apply plugin: 'com.cognifide.aem.instance'
 
@@ -29,8 +30,8 @@ allprojects { subproject ->
 
         aem {
             config {
-                localInstance "http://localhost:4502"
-                localInstance "http://localhost:4503"
+                localInstance "http://localhost:6502"
+              //  localInstance "http://localhost:4503"
             }
         }
 
@@ -106,4 +107,17 @@ aemSatisfy {
 aemCompose {
     includeProjects ':app:*'
     includeProjects ':content:*'
+}
+
+fork {
+    config {
+        copyFile {
+            gitIgnores = true
+            filter {
+                exclude '**/build/*'
+            }
+        }
+        moveFile "/example/", "/{{project}}/"
+        amendContent "com.company.aem", "{{group}}"
+    }
 }
