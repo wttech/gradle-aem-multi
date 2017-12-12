@@ -23,8 +23,8 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 Tested on:
 
 * Java 1.8
-* Gradle 4.0.1
-* Adobe AEM 6.2
+* Gradle 4.4
+* Adobe AEM 6.3
 
 ## Structure
 
@@ -58,16 +58,16 @@ Project is divided into subpackages (designed with reinstallabilty on production
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle` (`:aemSatisfy :aemBuild`),
-        * `gradle aemAppBuild`,
-        * `gradle aemContentBuild`.
+        * `gradle` <=> `:aemSatisfy :aemBuild`, `:aemAwait`,
+        * `gradle :app:aemBuild` <=> `aemAppBuild`,
+        * `gradle :content:aemBuild` <=> `aemContentBuild`.
     * Single package:
-        * `gradle aemAppCoreBuild`,
-        * `gradle aemAppCommonBuild`,
-        * `gradle aemAppConfigBuild`,
-        * `gradle aemAppDesignBuild`,
-        * `gradle aemContentInitBuild`,
-        * `gradle aemContentDemoBuild`.
+        * `gradle :app:core:aemBuild` <=> `aemAppCoreBuild`,
+        * `gradle :app:common:aemBuild` <=> `aemAppCommonBuild`,
+        * `gradle :app:config:aemBuild` <=> `aemAppConfigBuild`,
+        * `gradle :app:design:aemBuild` <=> `aemAppDesignBuild`,
+        * `gradle :content:init:aemBuild` <=> `aemContentInitBuild`,
+        * `gradle :content:demo:aemBuild` <=> `aemContentDemoBuild`.
 
 ## Tips & tricks
 
