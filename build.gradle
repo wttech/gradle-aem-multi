@@ -65,10 +65,6 @@ allprojects { subproject ->
             }
         }
 
-        test {
-            classpath += files(jar.archivePath)
-        }
-
         // AEM runtime dependencies
 
         dependencies {
