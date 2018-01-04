@@ -28,8 +28,8 @@ allprojects { subproject ->
 
         aem {
             config {
-                localInstance "http://localhost:8502"
-               // localInstance "http://localhost:4503"
+                localInstance "http://localhost:4502"
+                localInstance "http://localhost:4503"
             }
         }
 
