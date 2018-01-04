@@ -1,3 +1,5 @@
+import aQute.bnd.gradle.Bundle
+
 buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
@@ -13,17 +15,17 @@ apply plugin: 'com.cognifide.aem.package'
 jar {
     def pkg = 'com.company.aem.example.core'
 
-    jar {
-        manifest {
-            attributes([
-                    'Bundle-SymbolicName': pkg,
-                    'Sling-Model-Packages': pkg,
-                    'Export-Package': "$pkg.*;-split-package:=merge-first"
-            ])
-        }
+    manifest {
+        attributes([
+                'Bundle-SymbolicName': pkg,
+                'Sling-Model-Packages': pkg,
+                'Export-Package': "$pkg.*;-split-package:=merge-first"
+        ])
     }
 }
 
 dependencies {
     compile project(':app:common')
 }
+
+
