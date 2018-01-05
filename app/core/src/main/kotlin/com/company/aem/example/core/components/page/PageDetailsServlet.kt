@@ -11,7 +11,7 @@ import org.osgi.service.component.annotations.Component
 import javax.servlet.Servlet
 
 /**
- * @see <http://localhost:4502/content/geometrixx-outdoors/en.details.json>
+ * @see <http://[host]:[port]/content/we-retail/us/en.details.json>
  */
 @Component(
   service = arrayOf(Servlet::class),

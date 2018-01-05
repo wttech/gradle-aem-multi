@@ -51,20 +51,25 @@ allprojects { subproject ->
 
     }
 
-    plugins.withId 'org.dm.bundle', {
+    plugins.withId 'biz.aQute.bnd.builder', {
 
         // Unified bundle configuration
 
-        bundle {
-            instruction 'Bundle-Name', subproject.description
-            instruction 'Bundle-Category', 'example'
-            instruction 'Bundle-Vendor', 'Company'
+        jar {
+            manifest {
+                attributes([
+                        'Bundle-Name': subproject.description,
+                        'Bundle-Category': 'example',
+                        'Bundle-Vendor': 'Company'
+                ])
+            }
         }
 
         // AEM runtime dependencies
 
         dependencies {
             testCompile group: 'junit', name: 'junit', version: '4.12'
+            testCompile group: 'io.wcm', name: 'io.wcm.testing.aem-mock', version: '2.2.8'
 
             compile group: 'org.osgi', name: 'osgi.cmpn', version: '6.0.0'
             compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
