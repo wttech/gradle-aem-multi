@@ -23,8 +23,8 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 Tested on:
 
 * Java 1.8
-* Gradle 4.0.1
-* Adobe AEM 6.2
+* Gradle 4.4
+* Adobe AEM 6.3
 
 ## Structure
 
@@ -58,22 +58,22 @@ Project is divided into subpackages (designed with reinstallabilty on production
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle` (`:aemSatisfy :aemBuild`),
-        * `gradle aemAppBuild`,
-        * `gradle aemContentBuild`.
+        * `gradle` <=> `:aemSatisfy :aemBuild`, `:aemAwait`,
+        * `gradle :app:aemBuild` <=> `aemAppBuild`,
+        * `gradle :content:aemBuild` <=> `aemContentBuild`.
     * Single package:
-        * `gradle aemAppCoreBuild`,
-        * `gradle aemAppCommonBuild`,
-        * `gradle aemAppConfigBuild`,
-        * `gradle aemAppDesignBuild`,
-        * `gradle aemContentInitBuild`,
-        * `gradle aemContentDemoBuild`.
+        * `gradle :app:core:aemBuild` <=> `aemAppCoreBuild`,
+        * `gradle :app:common:aemBuild` <=> `aemAppCommonBuild`,
+        * `gradle :app:config:aemBuild` <=> `aemAppConfigBuild`,
+        * `gradle :app:design:aemBuild` <=> `aemAppDesignBuild`,
+        * `gradle :content:init:aemBuild` <=> `aemContentInitBuild`,
+        * `gradle :content:demo:aemBuild` <=> `aemContentDemoBuild`.
 
 ## Tips & tricks
 
 * To speed up build, use [build cache](https://docs.gradle.org/current/userguide/build_cache.html) by appending to command `--build-cache` option.
 * To run some task only for subproject, use project path as a prefix, for instance: `sh gradlew :app:design:aemSync`.
-* Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'org.dm.bundle'` to avoid defining them separately for each subproject.
+* Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'biz.aQute.bnd.builder'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.

@@ -11,16 +11,15 @@
 
 repositories {
     mavenLocal()
-    mavenCentral()
     jcenter()
     maven { url  "http://dl.bintray.com/cognifide/maven-public" }
     maven { url "https://plugins.gradle.org/m2/" }
 }
 
 dependencies {
-    classpath 'com.cognifide.gradle:aem-plugin:2.0.12'
-    classpath "org.dm.gradle:gradle-bundle-plugin:0.10.0"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.60"
+    classpath 'com.cognifide.gradle:aem-plugin:2.0.18'
+    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:3.5.0'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
     classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
     classpath 'com.neva.gradle:fork-plugin:1.0.0-SNAPSHOT'
 }
