@@ -8,7 +8,7 @@ description = 'Example - App Core'
 defaultTasks = ['aemBuild']
 
 apply plugin: 'java'
-apply plugin: "kotlin"
+apply plugin: 'kotlin'
 apply plugin: 'biz.aQute.bnd.builder'
 apply plugin: 'com.cognifide.aem.package'
 

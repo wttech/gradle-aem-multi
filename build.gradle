@@ -52,6 +52,15 @@ allprojects { subproject ->
 
     }
 
+    plugins.withId 'kotlin', {
+        def compileOptions = {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+
+        compileKotlin compileOptions
+        compileTestKotlin compileOptions
+    }
+
     plugins.withId 'biz.aQute.bnd.builder', {
 
         // Unified bundle configuration
