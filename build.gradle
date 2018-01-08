@@ -124,13 +124,29 @@ aemCompose {
 
 fork {
     config {
-        copyFile {
-            gitIgnores = true
-            filter {
-                exclude '**/build/*'
-            }
-        }
-        moveFile "/example/", "/{{project}}/"
-        amendContent "com.company.aem", "{{group}}"
+        copyFile()
+        moveFile([
+                "/example": "/{{projectName}}"
+        ])
+        replaceContent([
+                "com.company.aem.example": "{{package}}",
+                "example": "{{projectName}}",
+                "Example": "{{projectLabel}}"
+        ])
+        clean()
+        action({
+            logger.info("Computing fork summary")
+            def source = 0
+            def forked = 0
+
+            visitFiles(config.sourceTree, { handler ->
+                source++
+            })
+            logger.info("Total count of source files: $source")
+            visitFiles(config.targetTree, { handler ->
+                forked++
+            })
+            logger.info("Total count of forked files: $forked")
+        })
     }
 }
