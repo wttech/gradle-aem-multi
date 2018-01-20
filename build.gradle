@@ -134,6 +134,5 @@ fork {
                 "example": "{{projectName}}",
                 "Example": "{{projectLabel}}"
         ])
-        clean()
     }
 }
