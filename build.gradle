@@ -29,8 +29,8 @@ allprojects { subproject ->
 
         aem {
             config {
-                localInstance "http://localhost:6502"
-              //  localInstance "http://localhost:4503"
+                localInstance "http://localhost:4502"
+                localInstance "http://localhost:4503"
             }
         }
 
@@ -106,12 +106,13 @@ allprojects { subproject ->
 }
 
 aemSatisfy {
-    packages {
+    files {
         group 'dependencies', {
             // local("pkg/vanityurls-components-1.0.2.zip")
         }
 
         group 'tools', {
+            dependency('com.neva.felix:search-webconsole-plugin:1.2.0')
             url('https://github.com/OlsonDigital/aem-groovy-console/releases/download/11.0.0/aem-groovy-console-11.0.0.zip')
         }
     }
@@ -134,19 +135,5 @@ fork {
                 "Example": "{{projectLabel}}"
         ])
         clean()
-        action({
-            logger.info("Computing fork summary")
-            def source = 0
-            def forked = 0
-
-            visitFiles(config.sourceTree, { handler ->
-                source++
-            })
-            logger.info("Total count of source files: $source")
-            visitFiles(config.targetTree, { handler ->
-                forked++
-            })
-            logger.info("Total count of forked files: $forked")
-        })
     }
 }
