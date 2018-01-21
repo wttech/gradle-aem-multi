@@ -80,7 +80,7 @@ This project can be easily copied and customized automatically to target applica
 ## Building
 
 1. Install Gradle
-    * Use bundled wrapper (always use command `sh gradlew` instead of `gradle`). It will be downloaded automatically.
+    * Use bundled wrapper (always use command `sh gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
