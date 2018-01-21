@@ -68,7 +68,7 @@ This project can be easily copied and customized automatically to target applica
 1. Run command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true`
+    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true
     ```
 
 2. Specify configuration of Maven's like archetype properties:
@@ -85,16 +85,16 @@ This project can be easily copied and customized automatically to target applica
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle` <=> `:aemSatisfy :aemBuild`, `:aemAwait`,
-        * `gradle :app:aemBuild` <=> `aemAppBuild`,
-        * `gradle :content:aemBuild` <=> `aemContentBuild`.
+        * `gradle` <=> `:aemSatisfy :aemBuild :aemAwait`,
+        * `gradle :app:aemBuild`,
+        * `gradle :content:aemBuild`.
     * Single package:
-        * `gradle :app:core:aemBuild` <=> `aemAppCoreBuild`,
-        * `gradle :app:common:aemBuild` <=> `aemAppCommonBuild`,
-        * `gradle :app:config:aemBuild` <=> `aemAppConfigBuild`,
-        * `gradle :app:design:aemBuild` <=> `aemAppDesignBuild`,
-        * `gradle :content:init:aemBuild` <=> `aemContentInitBuild`,
-        * `gradle :content:demo:aemBuild` <=> `aemContentDemoBuild`.
+        * `gradle :app:core:aemBuild`,
+        * `gradle :app:common:aemBuild`,
+        * `gradle :app:config:aemBuild`,
+        * `gradle :app:design:aemBuild`,
+        * `gradle :content:init:aemBuild`,
+        * `gradle :content:demo:aemBuild`.
 
 ## Tips & tricks
 
