@@ -31,7 +31,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 
 ## Quickstart
 
-1. Run command:
+1. Fork project using command:
 
     ```bash
     git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true
@@ -41,10 +41,13 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
     
-3. Wait until project is generated at configured target path.
-4. Enter target path, and copy file *./gradle/gradle.properties* into *./gradle.properties* (at project root).
-5. Amend copied file by specyfing URL to AEM JAR and license file (and HTTPS/SMB/SFTP credentials if needed).
-6. Run command:
+3. Wait until project is forked at configured target path.
+4. Enter target path and copy file *./gradle/gradle.properties* into *./gradle.properties* (project root).
+5. Amend copied file by specyfing:
+    * URL to AEM quickstart JAR,
+    * URL to license file, 
+    * HTTPS/SMB/SFTP credentials if needed.
+6. Build project using command:
 
     ```bash
     sh gradlew -i
