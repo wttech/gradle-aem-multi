@@ -65,9 +65,16 @@ Project is divided into subpackages (designed with reinstallabilty on production
 
 This project can be easily copied and customized automatically to target application related names by using [Gradle Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin).
 
-1. Run command: `git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true`
+1. Run command:
+
+    ```bash
+    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true`
+    ```
+
 2. Specify configuration of Maven's like archetype properties:
-  ![Fork Props Dialog](docs/fork-props-dialog.png)
+
+    ![Fork Props Dialog](docs/fork-props-dialog.png)
+    
 3. Wait until project is generated at configured target path.
 
 ## Building
