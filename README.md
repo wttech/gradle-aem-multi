@@ -20,14 +20,39 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 
 ## Table of Contents
 
+* [Quickstart](#quickstart)
 * [Environment](#environment)
 * [Structure](#structure)
 * [Features](#features)
-* [Forking](#forking)
 * [Building](#building)
 * [Tips &amp; tricks](#tips--tricks)
 * [Attaching debugger](#attaching-debugger)
 * [Extending build](#extending-build)
+
+## Quickstart
+
+1. Run command:
+
+    ```bash
+    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true
+    ```
+
+2. Specify configuration of Maven's like archetype properties:
+
+    ![Fork Props Dialog](docs/fork-props-dialog.png)
+    
+3. Wait until project is generated at configured target path.
+4. Enter target path, and copy file *./gradle/gradle.properties* into *./gradle.properties* (at project root).
+5. Amend copied file by specyfing URL to AEM JAR and license file (and HTTPS/SMB/SFTP credentials if needed).
+6. Run command:
+
+    ```bash
+    sh gradlew -i
+    ```
+    
+7. Wait until local AEM instances with application and dependencies will be available at:
+  * <http://localhost:4502>
+  * <http://localhost:4503>
 
 ## Environment
 
@@ -60,22 +85,6 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * Integrated popular AEM testing toolkit: [wcm.io Testing](http://wcm.io/testing).
 * Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
 * Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
-
-## Forking
-
-This project can be easily copied and customized automatically to target application related names by using [Gradle Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin).
-
-1. Run command:
-
-    ```bash
-    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true
-    ```
-
-2. Specify configuration of Maven's like archetype properties:
-
-    ![Fork Props Dialog](docs/fork-props-dialog.png)
-    
-3. Wait until project is generated at configured target path.
 
 ## Building
 
