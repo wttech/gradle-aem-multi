@@ -22,5 +22,5 @@ dependencies {
     classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:3.5.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.20"
     classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
-    classpath 'com.neva.gradle:fork-plugin:1.0.0-beta2'
+    classpath 'com.neva.gradle:fork-plugin:1.0.0-beta3'
 }
