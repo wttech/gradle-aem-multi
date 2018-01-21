@@ -15,8 +15,19 @@
 ## Description
 
 This project should be used while starting new project based on AEM.
-Currently Gradle does not support Maven's like archetypes, so you have to copy this project at start and customize it for your needs. Don't worry! Comparing to Maven, much less to do - only few lines to change.
+
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+
+## Table of Contents
+
+* [Environment](#environment)
+* [Structure](#structure)
+* [Features](#features)
+* [Forking](#forking)
+* [Building](#building)
+* [Tips &amp; tricks](#tips--tricks)
+* [Attaching debugger](#attaching-debugger)
+* [Extending build](#extending-build)
 
 ## Environment
 
@@ -40,17 +51,26 @@ Project is divided into subpackages (designed with reinstallabilty on production
     * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
     * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
 
-
 ## Features
 
+* Integrated [Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin) / project generator based on live archetypes.
 * Interoperable Java and [Kotlin](https://kotlinlang.org) code examples.
 * Integrated popular UI build toolkit: [NodeJS](https://nodejs.org/en/), [Yarn](https://yarnpkg.com) and [Webpack](https://webpack.github.io/) for advanced assets bundling (modular JS, ECMAScript6 transpilation, SCSS compilation with [PostCSS](http://postcss.org), code style checks etc).
 * Integrated SCSS compilation on AEM side using [AEM Sass Compiler](https://github.com/mickleroy/aem-sass-compiler).
+* Integrated popular AEM testing toolkit: [wcm.io Testing](http://wcm.io/testing).
 * Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
 * Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
 
+## Forking
 
-## Build
+This project can be easily copied and customized automatically to target application related names by using [Gradle Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin).
+
+1. Run command: `git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true`
+2. Specify configuration of Maven's like archetype properties:
+  ![Fork Props Dialog](docs/fork-props-dialog.png)
+3. Wait until project is generated at configured target path.
+
+## Building
 
 1. Install Gradle
     * Use bundled wrapper (always use command `sh gradlew` instead of `gradle`). It will be downloaded automatically.
