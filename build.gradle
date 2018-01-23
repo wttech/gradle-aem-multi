@@ -125,14 +125,15 @@ aemCompose {
 
 fork {
     config {
-        copyFile()
-        moveFile([
+        cloneFiles()
+        moveFiles([
                 "/example": "/{{projectName}}"
         ])
-        replaceContent([
+        replaceContents([
                 "com.company.aem.example": "{{package}}",
                 "example": "{{projectName}}",
                 "Example": "{{projectLabel}}"
         ])
+        copyTemplateFile("gradle.properties")
     }
 }
