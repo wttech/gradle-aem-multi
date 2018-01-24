@@ -34,7 +34,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork
+    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew -i fork
     ```
 
 2. Specify properties:
@@ -45,7 +45,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 4. Build project using command:
 
     ```bash
-    sh gradlew aemSetup
+    sh gradlew -i aemSetup
     ```
     
 5. Wait until local AEM instances with application and dependencies will be available at:
