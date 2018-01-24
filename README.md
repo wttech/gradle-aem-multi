@@ -41,7 +41,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
     
-3. Wait until project is forked at configured target path.
+3. Wait until project is forked then enter configured target directory.
 4. Build project using command:
 
     ```bash
@@ -49,6 +49,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
     ```
     
 5. Wait until local AEM instances with application and dependencies will be available at:
+
   * <http://localhost:4502>
   * <http://localhost:4503>
 
