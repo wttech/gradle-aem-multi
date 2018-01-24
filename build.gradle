@@ -132,8 +132,8 @@ fork {
         replaceContents([
                 "com.company.aem.example": "{{projectGroup}}.{projectName}}",
                 'com.company.aem': "{{projectGroup}}",
+                "Example": "{{projectLabel}}",
                 "example": "{{projectName}}",
-                "Example": "{{projectLabel}}"
         ])
         copyTemplateFile("gradle.properties")
     }
