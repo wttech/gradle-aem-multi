@@ -34,26 +34,21 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork -i -Pfork.interactive=true
+    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew fork
     ```
 
-2. Specify configuration of Maven's like archetype properties:
+2. Specify properties:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
     
 3. Wait until project is forked at configured target path.
-4. Enter target path and copy file *./gradle/gradle.properties* into *./gradle.properties* (project root).
-5. Amend copied file by specyfing:
-    * URL to AEM quickstart JAR,
-    * URL to license file, 
-    * HTTPS/SMB/SFTP credentials if needed.
-6. Build project using command:
+4. Build project using command:
 
     ```bash
-    sh gradlew -i
+    sh gradlew aemSetup
     ```
     
-7. Wait until local AEM instances with application and dependencies will be available at:
+5. Wait until local AEM instances with application and dependencies will be available at:
   * <http://localhost:4502>
   * <http://localhost:4503>
 
@@ -62,7 +57,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 Tested on:
 
 * Java 1.8
-* Gradle 4.4
+* Gradle 4.4.1
 * Adobe AEM 6.3
 
 ## Structure
