@@ -130,8 +130,8 @@ fork {
                 "/example": "/{{projectName}}"
         ])
         replaceContents([
-                "com.company.aem.example": "{{group}}.{projectName}}",
-                'com.company.aem': "{{group}}",
+                "com.company.aem.example": "{{projectGroup}}.{projectName}}",
+                'com.company.aem': "{{projectGroup}}",
                 "example": "{{projectName}}",
                 "Example": "{{projectLabel}}"
         ])
