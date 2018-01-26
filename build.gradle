@@ -29,8 +29,8 @@ allprojects { subproject ->
 
         aem {
             config {
-                localInstance "http://localhost:4502"
-                localInstance "http://localhost:4503"
+                localAuthorInstance()
+                localPublishInstance()
             }
         }
 
@@ -127,10 +127,11 @@ fork {
     config {
         cloneFiles()
         moveFiles([
+                "/com/company/aem/example": "/{{projectGroup|substitute('.', '/')}}/{{projectName}}",
                 "/example": "/{{projectName}}"
         ])
         replaceContents([
-                "com.company.aem.example": "{{projectGroup}}.{projectName}}",
+                "com.company.aem.example": "{{projectGroup}}.{{projectName}}",
                 'com.company.aem': "{{projectGroup}}",
                 "Example": "{{projectLabel}}",
                 "example": "{{projectName}}",
