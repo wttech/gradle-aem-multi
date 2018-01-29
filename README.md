@@ -37,21 +37,35 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
     git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew -i fork
     ```
 
-2. Specify properties:
+    then specify properties:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
     
-3. Wait until project is forked then enter configured target directory.
-4. Build project using command:
+    and wait until project is forked then enter configured target directory.
+
+2. Setup user specific project configuration using command:
 
     ```bash
-    sh gradlew -i aemSetup
+    sh gradlew -i fork -Pfork.config=setup
     ```
     
-5. Wait until local AEM instances with application and dependencies will be available at:
+    then specify properties:
 
-  * <http://localhost:4502>
-  * <http://localhost:4503>
+    ![Fork Props Dialog](docs/setup-props-dialog.png)
+
+3. Setup local AEM instances and dependencies then build application using command:
+
+    ```bash
+    sh gradlew -i fork -Pfork.config=setup && sh gradlew -i aemSetup
+    ```
+    
+    Enjoy complete AEM environment ready to use.
+  
+4. Develop continuously application using command:
+
+    ```bash
+    sh gradlew
+    ```
 
 ## Environment
 

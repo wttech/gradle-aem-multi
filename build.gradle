@@ -136,7 +136,6 @@ fork {
                 "Example": "{{projectLabel}}",
                 "example": "{{projectName}}",
         ])
-        copyTemplateFile("gradle.properties")
     }
     inPlaceConfig 'setup', {
         copyTemplateFile("gradle.properties")
