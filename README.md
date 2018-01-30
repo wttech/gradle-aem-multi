@@ -34,10 +34,10 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && sh gradlew -i fork
+    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && gradlew -i fork
     ```
 
-    then specify properties:
+    and specify properties:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
     
@@ -46,25 +46,25 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 2. Setup user specific project configuration using command:
 
     ```bash
-    sh gradlew -i fork -Pfork.config=setup
+    gradlew -i fork -Pfork.config=setup
     ```
     
-    then specify properties:
+    and specify properties:
 
     ![Fork Props Dialog](docs/setup-props-dialog.png)
 
 3. Setup local AEM instances and dependencies then build application using command:
 
     ```bash
-    sh gradlew -i fork -Pfork.config=setup && sh gradlew -i aemSetup
+    gradlew -i aemSetup
     ```
     
-    Enjoy complete AEM environment ready to use.
+    and wait till complete AEM environment will be ready to use.
   
 4. Develop continuously application using command:
 
     ```bash
-    sh gradlew
+    gradlew -i
     ```
 
 ## Environment
@@ -102,7 +102,7 @@ Project is divided into subpackages (designed with reinstallabilty on production
 ## Building
 
 1. Install Gradle
-    * Use bundled wrapper (always use command `sh gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
+    * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
@@ -121,7 +121,7 @@ Project is divided into subpackages (designed with reinstallabilty on production
 ## Tips & tricks
 
 * To speed up build, use [build cache](https://docs.gradle.org/current/userguide/build_cache.html) by appending to command `--build-cache` option.
-* To run some task only for subproject, use project path as a prefix, for instance: `sh gradlew :app:design:aemSync`.
+* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :app:design:aemSync`.
 * Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'biz.aQute.bnd.builder'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
