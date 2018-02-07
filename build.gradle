@@ -61,7 +61,7 @@ allprojects { subproject ->
         compileTestKotlin compileOptions
     }
 
-    plugins.withId 'biz.aQute.bnd.builder', {
+    plugins.withId 'com.cognifide.aem.bundle', {
 
         // Unified bundle configuration
 
