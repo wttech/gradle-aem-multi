@@ -1,11 +1,9 @@
-import aQute.bnd.gradle.Bundle
-
 buildscript {
     apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
 }
 
 description = 'Example - App Core'
-defaultTasks = ['aemBuild']
+defaultTasks = ['aemDeploy']
 
 apply plugin: 'java'
 apply plugin: 'kotlin'

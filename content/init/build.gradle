@@ -3,6 +3,6 @@ buildscript {
 }
 
 description = 'Example - Content Init'
-defaultTasks = ['aemBuild']
+defaultTasks = ['aemDeploy']
 
 apply plugin: 'com.cognifide.aem.package'

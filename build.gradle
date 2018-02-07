@@ -3,7 +3,7 @@ buildscript {
 }
 
 description = 'Example'
-defaultTasks = [':aemSatisfy', ':aemBuild', ':aemAwait']
+defaultTasks = [':aemSatisfy', ':aemDeploy', ':aemAwait']
 
 apply plugin: 'com.neva.fork'
 apply plugin: 'com.cognifide.aem.package'
@@ -106,12 +106,12 @@ allprojects { subproject ->
 }
 
 aemSatisfy {
-    files {
-        group 'dependencies', {
+    packages {
+        group 'dep.vanity-urls', {
             // local("pkg/vanityurls-components-1.0.2.zip")
         }
 
-        group 'tools', {
+        group 'tool.search-webconsole-plugin', {
             dependency('com.neva.felix:search-webconsole-plugin:1.2.0')
             url('https://github.com/OlsonDigital/aem-groovy-console/releases/download/11.0.0/aem-groovy-console-11.0.0.zip')
         }
