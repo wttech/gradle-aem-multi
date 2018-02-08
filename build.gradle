@@ -3,8 +3,9 @@ buildscript {
 }
 
 description = 'Example'
-defaultTasks = [':aemSatisfy', ':aemBuild', ':aemAwait']
+defaultTasks = [':aemSatisfy', ':aemDeploy', ':aemAwait']
 
+apply plugin: 'com.neva.fork'
 apply plugin: 'com.cognifide.aem.package'
 apply plugin: 'com.cognifide.aem.instance'
 
@@ -28,8 +29,8 @@ allprojects { subproject ->
 
         aem {
             config {
-                localInstance "http://localhost:4502"
-                localInstance "http://localhost:4503"
+                localAuthorInstance()
+                localPublishInstance()
             }
         }
 
@@ -51,7 +52,16 @@ allprojects { subproject ->
 
     }
 
-    plugins.withId 'biz.aQute.bnd.builder', {
+    plugins.withId 'kotlin', {
+        def compileOptions = {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+
+        compileKotlin compileOptions
+        compileTestKotlin compileOptions
+    }
+
+    plugins.withId 'com.cognifide.aem.bundle', {
 
         // Unified bundle configuration
 
@@ -97,11 +107,12 @@ allprojects { subproject ->
 
 aemSatisfy {
     packages {
-        group 'dependencies', {
+        group 'dep.vanity-urls', {
             // local("pkg/vanityurls-components-1.0.2.zip")
         }
 
-        group 'tools', {
+        group 'tool.search-webconsole-plugin', {
+            dependency('com.neva.felix:search-webconsole-plugin:1.2.0')
             url('https://github.com/OlsonDigital/aem-groovy-console/releases/download/11.0.0/aem-groovy-console-11.0.0.zip')
         }
     }
@@ -110,4 +121,23 @@ aemSatisfy {
 aemCompose {
     includeProjects ':app:*'
     includeProjects ':content:*'
+}
+
+fork {
+    config {
+        cloneFiles()
+        moveFiles([
+                "/com/company/aem/example": "/{{projectGroup|substitute('.', '/')}}/{{projectName}}",
+                "/example": "/{{projectName}}"
+        ])
+        replaceContents([
+                "com.company.aem.example": "{{projectGroup}}.{{projectName}}",
+                'com.company.aem': "{{projectGroup}}",
+                "Example": "{{projectLabel}}",
+                "example": "{{projectName}}",
+        ])
+    }
+    inPlaceConfig 'setup', {
+        copyTemplateFile("gradle.properties")
+    }
 }
