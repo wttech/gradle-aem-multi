@@ -107,16 +107,16 @@ Project is divided into subpackages (designed with reinstallabilty on production
 2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
-        * `gradle` <=> `:aemSatisfy :aemDeploy :aemAwait`,
-        * `gradle :app:aemDeploy`,
-        * `gradle :content:aemDeploy`.
+        * `gradlew` <=> `:aemSatisfy :aemDeploy :aemAwait`,
+        * `gradlew :app:aemDeploy`,
+        * `gradlew :content:aemDeploy`.
     * Single package:
-        * `gradle :app:core:aemDeploy`,
-        * `gradle :app:common:aemDeploy`,
-        * `gradle :app:config:aemDeploy`,
-        * `gradle :app:design:aemDeploy`,
-        * `gradle :content:init:aemDeploy`,
-        * `gradle :content:demo:aemDeploy`.
+        * `gradlew :app:core:aemDeploy`,
+        * `gradlew :app:common:aemDeploy`,
+        * `gradlew :app:config:aemDeploy`,
+        * `gradlew :app:design:aemDeploy`,
+        * `gradlew :content:init:aemDeploy`,
+        * `gradlew :content:demo:aemDeploy`.
 
 ## Tips & tricks
 
