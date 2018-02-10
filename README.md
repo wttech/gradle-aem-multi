@@ -120,9 +120,8 @@ Project is divided into subpackages (designed with reinstallabilty on production
 
 ## Tips & tricks
 
-* To speed up build, use [build cache](https://docs.gradle.org/current/userguide/build_cache.html) by appending to command `--build-cache` option.
 * To run some task only for subproject, use project path as a prefix, for instance: `gradlew :app:design:aemSync`.
-* Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'biz.aQute.bnd.builder'` to avoid defining them separately for each subproject.
+* Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'com.cognifide.aem.bundle'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.
@@ -130,13 +129,11 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * To see more descriptive details about errors, you could use `-i`, `--stacktrace`, `--debug` options.
 * To skip tests or any other task by name use `-x test`
 
-
 ## Attaching debugger
 
 1. Execute build with options `-Dorg.gradle.debug=true --no-daemon`, it will suspend,
 2. Attach debugger on port 5005,
 3. Suspension will be released and build should stop at breakpoint.
-
 
 ## Extending build
 
