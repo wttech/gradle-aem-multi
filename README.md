@@ -104,7 +104,7 @@ Project is divided into subpackages (designed with reinstallabilty on production
 1. Install Gradle
     * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
-2. Run `gradle idea` or `gradle eclipse` to generate configuration for your favourite IDE.
+2. Run `gradlew idea` or `gradlew eclipse` to generate configuration for your favourite IDE.
 3. Build application and deploy:
     * Assembly packages:
         * `gradlew` <=> `:aemSatisfy :aemDeploy :aemAwait`,
