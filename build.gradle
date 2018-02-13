@@ -19,8 +19,8 @@ allprojects { subproject ->
     repositories {
         maven { url "https://repo.adobe.com/nexus/content/groups/public" }
         maven { url "https://repo1.maven.org/maven2" }
+        maven { url  "https://dl.bintray.com/neva-dev/maven-public" }
         jcenter()
-        mavenLocal()
     }
 
     plugins.withId 'com.cognifide.aem.base', {
