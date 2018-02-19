@@ -36,22 +36,6 @@ allprojects { subproject ->
 
     }
 
-    plugins.withId 'java', {
-
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-
-        def compileOptions = {
-            options.encoding = "UTF-8"
-            options.compilerArgs << '-Xlint:deprecation'
-            options.incremental = true
-        }
-
-        compileJava compileOptions
-        compileTestJava compileOptions
-
-    }
-
     plugins.withId 'kotlin', {
         def compileOptions = {
             kotlinOptions.jvmTarget = "1.8"
@@ -110,7 +94,6 @@ aemSatisfy {
         group 'dep.vanity-urls', {
             // local("pkg/vanityurls-components-1.0.2.zip")
         }
-
         group 'tool.search-webconsole-plugin', {
             dependency('com.neva.felix:search-webconsole-plugin:1.2.0')
             url('https://github.com/OlsonDigital/aem-groovy-console/releases/download/11.0.0/aem-groovy-console-11.0.0.zip')
