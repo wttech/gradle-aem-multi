@@ -1,12 +1,10 @@
-buildscript {
-    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+plugins {
+    id 'com.cognifide.aem.package'
+    id 'com.moowork.node'
 }
 
 description = 'Example - App Design'
 defaultTasks = ['aemDeploy']
-
-apply plugin: 'com.cognifide.aem.package'
-apply plugin: 'com.moowork.node'
 
 task webpackPublish(type: YarnTask) {
     dependsOn yarn
