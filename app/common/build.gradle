@@ -12,6 +12,7 @@ jar {
     jar {
         manifest {
             attributes([
+                    'Bundle-Name': project.description,
                     'Bundle-SymbolicName': pkg,
                     'Sling-Model-Packages': pkg,
                     'Export-Package': "$pkg.*;-split-package:=merge-first,org.hashids.*"
