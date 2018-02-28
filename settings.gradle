@@ -1,15 +1,25 @@
-// User friendly preconditions
+// Plugins configuration
 
-def minJavaVersion = VersionNumber.parse("1.8")
-def javaVersion = VersionNumber.parse(System.getProperty("java.specification.version"))
-if (javaVersion < minJavaVersion) {
-    throw new GradleException("Java version should be at least $minJavaVersion to build this project, but $javaVersion detected.")
-}
-
-def minGradleVersion = VersionNumber.parse("3.5")
-def gradleVersion = VersionNumber.parse(gradle.gradleVersion)
-if (gradleVersion < minJavaVersion) {
-    throw new GradleException("Gradle version should be at least $minGradleVersion to build this project, but $gradleVersion detected.")
+pluginManagement {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url  "http://dl.bintray.com/cognifide/maven-public" }
+        maven { url  "https://dl.bintray.com/neva-dev/maven-public" }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.namespace == 'com.cognifide.aem') {
+                useModule('com.cognifide.gradle:aem-plugin:3.0.6')
+            } else if (requested.id.id == 'com.neva.fork') {
+                useModule('com.neva.gradle:fork-plugin:1.0.3')
+            } else if (requested.id.id == 'org.jetbrains.kotlin.jvm') {
+                useModule('org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.21')
+            } else if (requested.id.id == 'com.moowork.node') {
+                useModule("com.moowork.gradle:gradle-node-plugin:1.2.0")
+            }
+        }
+    }
 }
 
 // Project structure

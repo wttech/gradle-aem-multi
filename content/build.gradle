@@ -1,11 +1,9 @@
-buildscript {
-    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+plugins {
+    id 'com.cognifide.aem.package'
 }
 
 description = 'Example - Content'
 defaultTasks = ['aemDeploy']
-
-apply plugin: 'com.cognifide.aem.package'
 
 aemCompose {
     includeSubprojects()

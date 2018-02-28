@@ -1,13 +1,11 @@
-buildscript {
-    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+plugins {
+    id 'com.neva.fork'
+    id 'com.cognifide.aem.package'
+    id 'com.cognifide.aem.instance'
 }
 
 description = 'Example'
 defaultTasks = [':aemSatisfy', ':aemDeploy', ':aemAwait']
-
-apply plugin: 'com.neva.fork'
-apply plugin: 'com.cognifide.aem.package'
-apply plugin: 'com.cognifide.aem.instance'
 
 allprojects { subproject ->
     group = 'com.company.aem'
@@ -52,7 +50,6 @@ allprojects { subproject ->
         jar {
             manifest {
                 attributes([
-                        'Bundle-Name': subproject.description,
                         'Bundle-Category': 'example',
                         'Bundle-Vendor': 'Company'
                 ])

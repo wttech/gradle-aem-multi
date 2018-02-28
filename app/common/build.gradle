@@ -1,12 +1,10 @@
-buildscript {
-    apply from: "$rootProject.projectDir/gradle/buildscript.gradle", to: buildscript
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'com.cognifide.aem.bundle'
 }
 
 description = 'Example - App Common'
 defaultTasks = ['aemDeploy']
-
-apply plugin: 'com.cognifide.aem.bundle'
-apply plugin: 'kotlin'
 
 jar {
     def pkg = 'com.company.aem.example.common'
@@ -14,6 +12,7 @@ jar {
     jar {
         manifest {
             attributes([
+                    'Bundle-Name': project.description,
                     'Bundle-SymbolicName': pkg,
                     'Sling-Model-Packages': pkg,
                     'Export-Package': "$pkg.*;-split-package:=merge-first,org.hashids.*"
