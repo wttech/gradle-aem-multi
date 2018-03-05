@@ -1,7 +1,7 @@
 ![Cognifide logo](docs/cognifide-logo.png)
 
-[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-example/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-example/status)
-[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-example.svg?label=License)](http://www.apache.org/licenses/)
+[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
+[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
 
 # AEM Multi-Project Example
 
@@ -34,7 +34,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-example.git && cd gradle-aem-example && gradlew -i fork
+    git clone git@github.com:Cognifide/gradle-aem-multi.git && cd gradle-aem-multi && gradlew -i fork
     ```
 
     and specify properties:
