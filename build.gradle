@@ -9,6 +9,11 @@ defaultTasks = [':aemSatisfy', ':aemDeploy', ':aemAwait']
 
 apply from: 'common.gradle'
 
+aemCompose {
+    includeProjects ':app:*'
+    includeProjects ':content:*'
+}
+
 aemSatisfy {
     packages {
         group 'dep.vanity-urls', {
@@ -19,11 +24,6 @@ aemSatisfy {
             url('https://github.com/OlsonDigital/aem-groovy-console/releases/download/11.0.0/aem-groovy-console-11.0.0.zip')
         }
     }
-}
-
-aemCompose {
-    includeProjects ':app:*'
-    includeProjects ':content:*'
 }
 
 fork {
