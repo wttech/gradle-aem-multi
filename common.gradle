@@ -54,6 +54,7 @@ allprojects { subproject ->
             testCompile group: 'junit', name: 'junit', version: '4.12'
             testCompile group: 'io.wcm', name: 'io.wcm.testing.aem-mock', version: '2.2.8'
 
+            compile group: 'org.jetbrains.kotlin', name: 'kotlin-osgi-bundle', version: '1.2.21'
             compile group: 'org.osgi', name: 'osgi.cmpn', version: '6.0.0'
             compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
             compile group: 'javax.jcr', name: 'jcr', version: '2.0'
