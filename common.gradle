@@ -19,7 +19,7 @@ allprojects { subproject ->
         aem {
             config {
                 localAuthorInstance()
-                localPublishInstance()
+                //localPublishInstance()
                 awaitCondition = { it.bundleState.activeIgnoring("org.apache.sling.jcr.webdav") }
             }
         }

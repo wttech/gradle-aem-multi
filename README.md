@@ -14,7 +14,9 @@
 
 ## Description
 
-This project should be used while starting new project based on AEM.
+This project could be used to start developing **project** based on AEM.
+
+To start developing **application** based on AEM it is recommended to use [Gradle AEM Single](https://github.com/Cognifide/gradle-aem-single) instead.
 
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
 
