@@ -5,7 +5,7 @@
         cq:designPath="/etc/designs/example"
         cq:template="/apps/example/core/templates/home-page"
         jcr:primaryType="cq:PageContent"
-        jcr:title="English"
+        jcr:title="English US"
         sling:resourceType="example/core/components/home-page">
         <content
             jcr:primaryType="nt:unstructured"
