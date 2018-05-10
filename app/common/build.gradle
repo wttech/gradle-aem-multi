@@ -6,18 +6,12 @@ plugins {
 description = 'Example - App Common'
 defaultTasks = ['aemDeploy']
 
-jar {
-    def pkg = 'com.company.aem.example.common'
-
-    jar {
-        manifest {
-            attributes([
-                    'Bundle-Name': project.description,
-                    'Bundle-SymbolicName': pkg,
-                    'Sling-Model-Packages': pkg,
-                    'Export-Package': "$pkg.*;-split-package:=merge-first,org.hashids.*"
-            ])
-        }
+aem {
+    config {
+        bundlePackage = "com.company.aem.example.common"
+    }
+    bundle {
+        exportPackage "org.hashids"
     }
 }
 

@@ -6,21 +6,14 @@ plugins {
 description = 'Example - App Core'
 defaultTasks = ['aemDeploy']
 
-jar {
-    def pkg = 'com.company.aem.example.core'
-
-    manifest {
-        attributes([
-                'Bundle-Name': project.description,
-                'Bundle-SymbolicName': pkg,
-                'Sling-Model-Packages': pkg,
-                'Export-Package': "$pkg.*;-split-package:=merge-first"
-        ])
+aem {
+    config {
+        bundlePackage = "com.company.aem.example.core"
     }
 }
 
 dependencies {
-    compile project(':app:common')
+    implementation project(':app:common')
 }
 
 
