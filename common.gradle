@@ -2,14 +2,11 @@ allprojects { subproject ->
     group = 'com.company.aem'
     version = '1.0.0-SNAPSHOT'
 
-    apply plugin: "eclipse"
-    apply plugin: "idea"
-
     repositories {
+        jcenter()
         maven { url "https://repo.adobe.com/nexus/content/groups/public" }
         maven { url "https://repo1.maven.org/maven2" }
         maven { url  "https://dl.bintray.com/neva-dev/maven-public" }
-        jcenter()
     }
 
     plugins.withId 'com.cognifide.aem.base', {
@@ -18,9 +15,9 @@ allprojects { subproject ->
 
         aem {
             config {
-                localAuthorInstance()
-                localPublishInstance()
-                awaitCondition = { it.bundleState.activeIgnoring("org.apache.sling.jcr.webdav") }
+                localInstance 'http://localhost:4502' // TODO will come from gradle.properties
+                localInstance 'http://localhost:4503' // TODO will come from gradle.properties
+                awaitStableCheck = { it.bundleState.stableExcept("org.apache.sling.jcr.webdav") }
             }
         }
 
@@ -39,16 +36,12 @@ allprojects { subproject ->
 
         // Unified bundle configuration
 
-        jar {
-            manifest {
-                attributes([
-                        'Bundle-Category': 'example',
-                        'Bundle-Vendor': 'Company'
-                ])
+        aem {
+            bundle {
+                attribute 'Bundle-Category', 'example'
+                attribute 'Bundle-Vendor', 'Company'
             }
         }
-
-
 
         dependencies {
             // AEM runtime dependencies
