@@ -15,8 +15,6 @@ allprojects { subproject ->
 
         aem {
             config {
-                localInstance 'http://localhost:4502' // TODO will come from gradle.properties
-                localInstance 'http://localhost:4503' // TODO will come from gradle.properties
                 awaitStableCheck = { it.bundleState.stableExcept("org.apache.sling.jcr.webdav") }
             }
         }
