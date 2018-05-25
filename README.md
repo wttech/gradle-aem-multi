@@ -131,6 +131,14 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * To see more descriptive details about errors, you could use `-i`, `--stacktrace`, `--debug` options.
 * To skip tests or any other task by name use `-x test`
 
+## Running tests in IntelliJ
+
+Certain unit tests may depend on the results of running gradle tasks. One such example is the testing of OSGi Services using [OSGi Mocks](https://sling.apache.org/documentation/development/osgi-mock.html) where in order to run a test, the SCR metadata must be available for a class. Running a test like this in IntelliJ results in errors because the IDE is not aware of the Bundle plugin.
+
+This can be worked around by configuring IntelliJ to delegate test execution to Gradle. In order to set this up, go to _Settings > Build, Execution, Deployment > Gradle > Runner_ and set your IDE to delegate IDE build/run actions to Gradle. Alternatively, you can use a dropdown menu to use a specific runner or to decide on a test-by-test basis.
+
+
+
 ## Attaching debugger
 
 1. Execute build with options `-Dorg.gradle.debug=true --no-daemon`, it will suspend,
