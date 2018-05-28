@@ -37,7 +37,4 @@ fork {
                 "example": "{{projectName}}",
         ])
     }
-    inPlaceConfig 'setup', {
-        copyTemplateFile("gradle.properties")
-    }
 }

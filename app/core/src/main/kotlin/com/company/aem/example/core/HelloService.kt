@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory
 /**
  * Note that the site configuration is injected, not retrieved.
  */
-@Component(service = arrayOf(HelloService::class), immediate = true)
+@Component(service = [(HelloService::class)], immediate = true)
 class HelloService {
 
   companion object {

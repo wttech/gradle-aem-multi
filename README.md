@@ -48,7 +48,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 2. Setup user specific project configuration using command:
 
     ```bash
-    gradlew -i fork -Pfork.config=setup
+    gradlew props
     ```
     
     and specify properties:
