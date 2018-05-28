@@ -2,7 +2,6 @@
 
 pluginManagement {
     repositories {
-        mavenLocal()
         jcenter()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url  "http://dl.bintray.com/cognifide/maven-public" }
@@ -11,7 +10,7 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if (requested.id.namespace == 'com.cognifide.aem') {
-                useModule('com.cognifide.gradle:aem-plugin:4.0.0')
+                useModule('com.cognifide.gradle:aem-plugin:4.0.0-beta2')
             } else if (requested.id.id == 'com.neva.fork') {
                 useModule('com.neva.gradle:fork-plugin:1.0.5')
             } else if (requested.id.id == 'org.jetbrains.kotlin.jvm') {
