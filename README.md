@@ -36,7 +36,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-multi.git && cd gradle-aem-multi && gradlew -i fork
+    git clone git@github.com:Cognifide/gradle-aem-multi.git && cd gradle-aem-multi && gradlew fork
     ```
 
     and specify properties:
