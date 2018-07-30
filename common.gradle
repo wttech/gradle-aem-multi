@@ -62,7 +62,7 @@ allprojects { subproject ->
             // Extra libraries provided by packages through task 'aemSatisfy'
             // or configurations: 'aemEmbed', 'aemInstall'.
 
-            compileOnly group: 'org.jetbrains.kotlin', name: 'kotlin-osgi-bundle', version: '1.2.21'
+            compileOnly group: 'org.jetbrains.kotlin', name: 'kotlin-osgi-bundle', version: '1.2.51'
             compileOnly group: 'org.hashids', name: 'hashids', version: '1.0.1'
 
             // Tests
