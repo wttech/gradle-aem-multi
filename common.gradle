@@ -16,8 +16,6 @@ allprojects { subproject ->
         aem {
             config {
                 awaitStableCheck = { it.checkBundleStableExcept(["org.apache.sling.jcr.webdav"]) }
-
-                notificationConfig = { it.jcgay() }
             }
         }
 
@@ -74,8 +72,8 @@ allprojects { subproject ->
 
     plugins.withId 'com.moowork.node', {
         node {
-            version = '6.11.1'
-            yarnVersion = '0.27.5'
+            version = '8.11.3'
+            yarnVersion = '1.9.2'
             download = true
         }
     }
