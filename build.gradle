@@ -19,7 +19,6 @@ aemSatisfy {
         group 'dep.vanity-urls', { /* local "pkg/vanityurls-components-1.0.2.zip" */ }
         group 'dep.kotlin', { dependency 'org.jetbrains.kotlin:kotlin-osgi-bundle:1.2.51' }
         group 'dep.acs-aem-commons', { url "https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip" }
-        group 'tool.apm', { url "https://github.com/Cognifide/APM/releases/download/cqsm-3.1.0/apm-3.1.0.zip" }
         group 'tool.groovy-console', { url 'https://github.com/OlsonDigital/aem-groovy-console/releases/download/12.0.0/aem-groovy-console-12.0.0.zip' }
         group 'tool.search-webconsole-plugin', { dependency 'com.neva.felix:search-webconsole-plugin:1.2.0' }
     }
