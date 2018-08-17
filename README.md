@@ -75,8 +75,8 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 Tested on:
 
 * Java 1.8
-* Gradle 4.4.1
-* Adobe AEM 6.3
+* Gradle 4.9
+* Adobe AEM 6.4
 
 ## Structure
 
