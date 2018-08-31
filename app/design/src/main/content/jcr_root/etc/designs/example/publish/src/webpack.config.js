@@ -3,7 +3,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const config = {
   sourceJs: __dirname + '/js/main.js',
-  sourceScss: __dirname + '/css/main.scss',
+  sourceScss: __dirname + '/styles/main.scss',
   distPath: __dirname + '/../dist',
   distJs: 'main.bundle.js',
   distCss: 'main.css'
@@ -22,6 +22,7 @@ module.exports = [
       rules: [
         {
           test: /\.js$/,
+          exclude: /node_modules/,
           use: [
             {
               loader: 'babel-loader',
@@ -80,7 +81,9 @@ module.exports = [
     },
     plugins: [
       new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
-      new StyleLintPlugin(),
+      new StyleLintPlugin({
+        fix: true
+      }),
     ]
   }
 ];
