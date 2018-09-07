@@ -1,12 +1,13 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
+const path = require('path');
 
 const config = {
   sourceJs: __dirname + '/js/main.js',
   sourceScss: __dirname + '/styles/main.scss',
   distPath: __dirname + '/../dist',
   distJs: 'main.bundle.js',
-  distCss: 'main.css'
+  distCss: 'main-new.css'
 };
 
 module.exports = [
@@ -18,32 +19,6 @@ module.exports = [
       path: config.distPath,
       filename: config.distJs
     },
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                presets: ['env']
-              }
-            },
-          ]
-        },
-        {
-          test: /\.js$/,
-          use: [
-            {
-              loader: 'eslint-loader',
-            },
-          ]
-        },
-      ]
-    }
-  },
-  {
     entry: [
       config.sourceScss
     ],
@@ -52,38 +27,19 @@ module.exports = [
       filename: config.distCss
     },
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-              {
-                loader: "css-loader"
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  plugins: function () {
-                    return [
-                      require("autoprefixer"),
-                    ];
-                  }
-                }
-              },
-              {
-                loader: "sass-loader"
-              }
-            ]
-          })
-        }
-      ]
+          use: [
+              "style-loader", // creates style nodes from JS strings
+              "css-loader", // translates CSS into CommonJS
+              "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          ]
+      }]
     },
     plugins: [
-      new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
-      new StyleLintPlugin({
-        fix: true
-      }),
+      new MiniCssExtractPlugin({
+        filename: "main-new.css"
+      })
     ]
   }
 ];

@@ -1,6 +1,0 @@
-{
-  "extends": "airbnb-base", // TODO https://github.com/airbnb/javascript/issues/1481
-  "env": {
-    "browser": true
-  }
-}
