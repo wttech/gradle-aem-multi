@@ -5,18 +5,18 @@
     "dev": "cd src/main/content/jcr_root/etc/designs/example/publish/src && webpack --mode development"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.2",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^1.0.0",
-    "mini-css-extract-plugin": "^0.4.2",
-    "node-sass": "^4.9.3",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0"
+    "babel-core": "6.26.3",
+    "babel-loader": "8.0.2",
+    "babel-preset-env": "1.7.0",
+    "css-loader": "1.0.0",
+    "mini-css-extract-plugin": "0.4.2",
+    "node-sass": "4.9.3",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.0",
+    "webpack": "4.17.2",
+    "webpack-cli": "3.1.0"
   },
   "dependencies": {
-    "path": "^0.12.7"
+    "path": "0.12.7"
   }
 }
