@@ -1,5 +1,6 @@
 allprojects { subproject ->
-    group = 'com.company.aem'
+
+    group = 'com.company.example'
     version = '1.0.0-SNAPSHOT'
 
     repositories {
@@ -15,19 +16,12 @@ allprojects { subproject ->
 
         aem {
             config {
-                awaitStableCheck = { it.checkBundleStableExcept(["org.apache.sling.jcr.webdav"]) }
+
+                // https://github.com/Cognifide/gradle-aem-plugin#additional
+
             }
         }
 
-    }
-
-    plugins.withId 'kotlin', {
-        def compileOptions = {
-            kotlinOptions.jvmTarget = "1.8"
-        }
-
-        compileKotlin compileOptions
-        compileTestKotlin compileOptions
     }
 
     plugins.withId 'com.cognifide.aem.bundle', {
@@ -41,10 +35,49 @@ allprojects { subproject ->
             }
         }
 
+    }
+
+    plugins.withId 'com.moowork.node', {
+        node {
+            version = '6.11.1'
+            yarnVersion = '0.27.5'
+            download = true
+        }
+    }
+
+
+    plugins.withId 'kotlin', {
+        def compileOptions = {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+
+        compileKotlin compileOptions
+        compileTestKotlin compileOptions
+    }
+
+    plugins.withId 'java', {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+
+        def compileOptions = {
+            it.options.encoding = "UTF-8"
+        }
+
+        compileJava compileOptions
+        compileTestJava compileOptions
+
+        test {
+            useJUnitPlatform()
+            failFast = true
+        }
+
         dependencies {
+
             // AEM runtime dependencies
 
             compileOnly group: 'org.osgi', name: 'osgi.cmpn', version: '6.0.0'
+            compileOnly group: 'org.osgi', name: 'org.osgi.core', version: '6.0.0'
+
             compileOnly group: 'javax.servlet', name: 'servlet-api', version: '2.5'
             compileOnly group: 'javax.jcr', name: 'jcr', version: '2.0'
             compileOnly group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
@@ -63,18 +96,13 @@ allprojects { subproject ->
             compileOnly group: 'org.jetbrains.kotlin', name: 'kotlin-osgi-bundle', version: '1.2.51'
             compileOnly group: 'org.hashids', name: 'hashids', version: '1.0.1'
 
-            // Tests
+            // Tests runtime
 
-            testImplementation group: 'junit', name: 'junit', version: '4.12'
-            testImplementation group: 'io.wcm', name: 'io.wcm.testing.aem-mock', version: '2.2.8'
+            testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+            testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+
+            testImplementation group: 'io.wcm', name: 'io.wcm.testing.aem-mock.junit5', version: '2.3.2'
         }
     }
 
-    plugins.withId 'com.moowork.node', {
-        node {
-			version = '6.11.1'
-            yarnVersion = '0.27.5'
-            download = true
-        }
-    }
 }

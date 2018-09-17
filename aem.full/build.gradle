@@ -1,0 +1,15 @@
+plugins {
+    id 'com.cognifide.aem.package'
+}
+
+description = 'Example - AEM Full (Application & Content)'
+
+aemCompose {
+    includeProject ':aem.app.common'
+    includeProject ':aem.app.core'
+    includeProject ':aem.app.config'
+    includeProject ':aem.app.design'
+
+    includeProject ':aem.content.demo'
+    includeProject ':aem.content.init'
+}
