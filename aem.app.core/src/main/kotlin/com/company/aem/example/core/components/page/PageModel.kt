@@ -16,7 +16,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @Model(
-  adaptables = arrayOf(Resource::class),
+  adaptables = [Resource::class],
   defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
 class PageModel : Serializable {

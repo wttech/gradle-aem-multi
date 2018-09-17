@@ -46,7 +46,7 @@ allprojects { subproject ->
     }
 
 
-    plugins.withId 'kotlin', {
+    plugins.withId 'org.jetbrains.kotlin.jvm', {
         def compileOptions = {
             kotlinOptions.jvmTarget = "1.8"
         }
@@ -80,6 +80,7 @@ allprojects { subproject ->
 
             compileOnly group: 'javax.servlet', name: 'servlet-api', version: '2.5'
             compileOnly group: 'javax.jcr', name: 'jcr', version: '2.0'
+            compileOnly group: 'javax.annotation', name: 'javax.annotation-api', version: '1.2'
             compileOnly group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
             compileOnly group: 'org.apache.geronimo.specs', name: 'geronimo-atinject_1.0_spec', version: '1.0'
             compileOnly group: 'org.apache.sling', name: 'org.apache.sling.api', version: '2.16.4'
@@ -93,7 +94,8 @@ allprojects { subproject ->
             // Extra libraries provided by packages through task 'aemSatisfy'
             // or configurations: 'aemEmbed', 'aemInstall'.
 
-            compileOnly group: 'org.jetbrains.kotlin', name: 'kotlin-osgi-bundle', version: '1.2.51'
+            compileOnly group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.2.70'
+            compileOnly group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.2.70'
             compileOnly group: 'org.hashids', name: 'hashids', version: '1.0.1'
 
             // Tests runtime
