@@ -22,7 +22,7 @@ aem {
 }
 
 aemSetup {
-    dependsOn ':aem.full:aemDeploy'
+    dependsOn deploy
 }
 
 aemSatisfy {

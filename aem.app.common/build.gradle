@@ -6,9 +6,6 @@ plugins {
 description = 'Example - AEM Application Common'
 
 aem {
-    config {
-        bundlePackage = "com.company.example.aem.common"
-    }
     bundle {
         exportPackage "org.hashids"
     }

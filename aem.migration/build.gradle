@@ -4,3 +4,10 @@ plugins {
 
 description = 'Example - AEM Application Migration'
 
+aem {
+    config {
+        packageEntries += [
+                'installhook.aecu.class': "de.valtech.aecu.core.installhook.AecuInstallHook"
+        ]
+    }
+}
