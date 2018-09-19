@@ -11,7 +11,7 @@ apply from: 'fork.gradle'
 
 aem {
     tasks {
-        sequence 'deploy', [
+        setupSequence 'deploy', [
                 ':aem.full:aemDeploy',
                 await('full'),
                 ':aem.migration:aemDeploy',
@@ -20,10 +20,6 @@ aem {
                 ':test.functional:test'
         ]
     }
-}
-
-aemSetup {
-    dependsOn deploy
 }
 
 aemSatisfy {
