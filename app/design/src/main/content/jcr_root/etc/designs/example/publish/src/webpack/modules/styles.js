@@ -17,7 +17,7 @@ const prodConfig = source => ({
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                 autoprefixer,
+                autoprefixer,
                 stylelint,
                 focus,
                 reporter({ clearReportedMessages: true }),
