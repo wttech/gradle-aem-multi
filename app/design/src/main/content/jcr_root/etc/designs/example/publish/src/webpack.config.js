@@ -32,7 +32,8 @@ const common = {
 module.exports = merge(
   common,
   modules.production,
-  modules.styles(config.sass, isProduction)
+  modules.styles(config.sass, isProduction),
+  modules.babel(config.js, isProduction)
 );
 
 /* eslint-enable */
