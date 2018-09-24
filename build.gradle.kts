@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.cognifide.gradle.aem.api.AemExtension
 import com.cognifide.gradle.aem.instance.SatisfyTask
+import com.moowork.gradle.node.NodeExtension
 import com.neva.gradle.fork.ForkTask
 
 plugins {
@@ -13,7 +14,7 @@ plugins {
 description = "Example"
 defaultTasks = listOf(":deploy")
 
-configure<AemExtension> {
+aem {
     tasks {
         setupSequence("deploy", listOf(
                 // TODO fix circular: ":aemSatisfy",
@@ -151,6 +152,14 @@ allprojects {
                 "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.1.1")
                 "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
             }
+        }
+    }
+
+    plugins.withId("com.moowork.node") {
+        configure<NodeExtension> {
+            version = "6.11.1"
+            yarnVersion = "0.27.5"
+            download = true
         }
     }
 

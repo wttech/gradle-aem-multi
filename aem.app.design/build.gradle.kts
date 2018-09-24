@@ -1,4 +1,3 @@
-import com.moowork.gradle.node.NodeExtension
 import com.moowork.gradle.node.yarn.YarnTask
 
 plugins {
@@ -19,10 +18,4 @@ tasks.register<YarnTask>("webpackPublish") {
 
 tasks.named<Task>("aemCompose") {
     dependsOn("webpackPublish")
-}
-
-configure<NodeExtension> {
-    version = "6.11.1"
-    yarnVersion = "0.27.5"
-    download = true
 }
