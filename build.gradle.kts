@@ -16,6 +16,7 @@ defaultTasks = listOf(":deploy")
 configure<AemExtension> {
     tasks {
         setupSequence("deploy", listOf(
+                // TODO fix circular: ":aemSatisfy",
                 ":aem.full:aemDeploy",
                 await("full"),
                 ":aem.migration:aemDeploy",
