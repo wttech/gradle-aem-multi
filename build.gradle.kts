@@ -31,7 +31,7 @@ aem {
 tasks.named<SatisfyTask>("aemSatisfy") {
     packages {
         group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
-        group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.2.70") }
+        group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.2.71") }
         group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip") }
         group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
         group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
@@ -136,8 +136,8 @@ allprojects {
                 // Extra libraries provided by packages through task "aemSatisfy"
                 // or configurations: "aemEmbed", "aemInstall".
 
-                "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.70")
-                "compileOnly"("org.jetbrains.kotlin:kotlin-reflect:1.2.70")
+                "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.71")
+                "compileOnly"("org.jetbrains.kotlin:kotlin-reflect:1.2.71")
                 "compileOnly"("org.hashids:hashids:1.0.1")
             }
 
@@ -157,8 +157,8 @@ allprojects {
 
     plugins.withId("com.moowork.node") {
         configure<NodeExtension> {
-            version = "6.11.1"
-            yarnVersion = "0.27.5"
+            version = "8.9.0"
+            yarnVersion = "1.9.4"
             download = true
         }
     }

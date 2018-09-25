@@ -1,0 +1,12 @@
+@import 'module';
+
+$color: blue;
+
+body {
+
+    background: $color;
+
+    a {
+        text-decoration: underline;
+    }
+}

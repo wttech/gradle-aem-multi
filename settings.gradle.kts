@@ -16,7 +16,7 @@ pluginManagement {
             } else if (requested.id.id == "com.neva.fork") {
                 useModule("com.neva.gradle:fork-plugin:1.0.7")
             } else if (requested.id.id == "org.jetbrains.kotlin.jvm") {
-                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.70")
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.71")
             } else if (requested.id.id == "com.moowork.node") {
                 useModule("com.moowork.gradle:gradle-node-plugin:1.2.0")
             }
