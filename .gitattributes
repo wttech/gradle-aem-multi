@@ -6,6 +6,7 @@
 #
 # These files are text and should be normalized (Convert crlf => lf)
 *.css           text
+*.scss          text
 *.df            text
 *.htm           text
 *.html          text

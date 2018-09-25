@@ -72,8 +72,8 @@ allprojects { subproject ->
 
     plugins.withId 'com.moowork.node', {
         node {
-			version = '6.11.1'
-            yarnVersion = '0.27.5'
+            version = '8.9.0'
+            yarnVersion = '1.9.4'
             download = true
         }
     }

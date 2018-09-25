@@ -1,86 +1,39 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const path = require('path');
+const { isProduction } = require('webpack-mode');
+const merge = require('webpack-merge');
+const modules = require('./webpack/index');
+const glob = require('glob');
+
+const entries = [
+  ...glob.sync('./js/**/*.js'),
+  ...glob.sync('./styles/**/*.scss'),
+];
 
 const config = {
-  sourceJs: __dirname + '/js/main.js',
-  sourceScss: __dirname + '/css/main.scss',
-  distPath: __dirname + '/../dist',
-  distJs: 'main.bundle.js',
-  distCss: 'main.css'
+  images: path.join(__dirname, 'assets/img'),
+  fonts: path.join(__dirname, 'assets/fonts'),
+  js: path.join(__dirname, 'js'),
+  sass: path.join(__dirname, 'styles'),
+  startPath: '',
+  devServerPort: '3000'
 };
 
-module.exports = [
-  {
-    entry: [
-      config.sourceJs
-    ],
-    output: {
-      path: config.distPath,
-      filename: config.distJs
-    },
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                presets: ['env']
-              }
-            },
-          ]
-        },
-        {
-          test: /\.js$/,
-          use: [
-            {
-              loader: 'eslint-loader',
-            },
-          ]
-        },
-      ]
-    }
+const common = {
+  devtool: isProduction ? 'none' : 'source-map',
+  entry: entries,
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../dist'),
   },
-  {
-    entry: [
-      config.sourceScss
-    ],
-    output: {
-      path: config.distPath,
-      filename: config.distCss
-    },
-    module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-              {
-                loader: "css-loader"
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  plugins: function () {
-                    return [
-                      require("autoprefixer"),
-                    ];
-                  }
-                }
-              },
-              {
-                loader: "sass-loader"
-              }
-            ]
-          })
-        }
-      ]
-    },
-    plugins: [
-      new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
-      new StyleLintPlugin(),
-    ]
-  }
-];
+};
+
+/* eslint-disable comma-dangle */
+
+module.exports = merge(
+  common,
+  modules.production,
+  modules.styles(config.sass, isProduction),
+  modules.babel(config.js, isProduction)
+);
+
+/* eslint-enable */

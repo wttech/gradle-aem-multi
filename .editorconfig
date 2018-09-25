@@ -6,7 +6,7 @@ insert_final_newline = true
 
 [*.js]
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 [*.xml]
 indent_style = space
@@ -14,7 +14,8 @@ indent_size = 4
 
 [*.{scss,less,css}]
 indent_style = space
-indent_size = 2
+indent_size = 4
+insert_final_newline = true
 
 [*.{kt,java,jsp}]
 indent_style = space
