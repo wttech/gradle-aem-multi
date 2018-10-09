@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.cognifide.gradle.aem.api.AemExtension
 import com.cognifide.gradle.aem.instance.SatisfyTask
+import com.cognifide.gradle.aem.instance.SetupTask
 import com.moowork.gradle.node.NodeExtension
 import com.neva.gradle.fork.ForkTask
 
@@ -16,15 +17,14 @@ defaultTasks = listOf(":deploy")
 
 aem {
     tasks {
-        setupSequence("deploy", listOf(
-                // TODO fix circular: ":aemSatisfy",
-                ":aem.full:aemDeploy",
-                await("full"),
-                ":aem.migration:aemDeploy",
-                await("migration"),
-                ":test.integration:test",
-                ":test.functional:test"
-        ))
+        setupSequence("deploy") { listOf(
+            project(":aem.full").tasks.named("aemDeploy"),
+            await("full"),
+            project(":aem.migration").tasks.named("aemDeploy"),
+            await("migration"),
+            project(":test.integration").tasks.named("test"),
+            project(":test.functional").tasks.named("test")
+        )}
     }
 }
 
