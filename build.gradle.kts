@@ -28,7 +28,7 @@ aem {
     }
 }
 
-tasks.named<SatisfyTask>("aemSatisfy") {
+tasks.withType<SatisfyTask>().configureEach {
     packages {
         group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
         group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.2.71") }
@@ -38,7 +38,7 @@ tasks.named<SatisfyTask>("aemSatisfy") {
     }
 }
 
-tasks.named<ForkTask>("fork") {
+tasks.withType<ForkTask>().configureEach {
     config {
         cloneFiles()
         moveFiles(mapOf(
@@ -96,7 +96,7 @@ allprojects {
     }
 
     plugins.withId("org.jetbrains.kotlin.jvm") {
-        tasks.named<KotlinCompile>("compileKotlin") {
+        tasks.withType<KotlinCompile>().configureEach {
             kotlinOptions {
                 jvmTarget = "1.8"
             }
@@ -104,7 +104,7 @@ allprojects {
     }
 
     plugins.withId("java") {
-        tasks.named<JavaCompile>("compileJava") {
+        tasks.withType<JavaCompile>().configureEach {
             with(options) {
                 sourceCompatibility = "1.8"
                 targetCompatibility = "1.8"
@@ -143,7 +143,7 @@ allprojects {
 
         }
 
-        tasks.named<Test>("test") {
+        tasks.withType<Test>().configureEach {
             useJUnitPlatform()
             failFast = true
 

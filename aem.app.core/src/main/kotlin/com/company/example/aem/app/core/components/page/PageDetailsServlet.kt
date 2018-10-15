@@ -14,12 +14,12 @@ import javax.servlet.Servlet
  * @see <http://[host]:[port]/content/we-retail/us/en.details.json>
  */
 @Component(
-  service = arrayOf(Servlet::class),
-  property = arrayOf(
+  service = [Servlet::class],
+  property = [
     "sling.servlet.extensions=json",
     "sling.servlet.selectors=details",
     "sling.servlet.resourceTypes=${NameConstants.NT_PAGE}"
-  )
+  ]
 )
 class PageDetailsServlet : SlingAllMethodsServlet() {
 
