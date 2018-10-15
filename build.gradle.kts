@@ -18,12 +18,12 @@ defaultTasks = listOf(":deploy")
 aem {
     tasks {
         setupSequence("deploy") { dependsOn(
-            project(":aem.full").tasks.named("aemDeploy"),
+            path(":aem.full:aemDeploy"),
             await("full"),
-            project(":aem.migration").tasks.named("aemDeploy"),
+            path(":aem.migration:aemDeploy"),
             await("migration"),
-            project(":test.integration").tasks.named("test"),
-            project(":test.functional").tasks.named("test")
+            path(":test.integration:test"),
+            path(":test.functional:test")
         )}
     }
 }
