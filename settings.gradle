@@ -11,7 +11,7 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if (requested.id.namespace == 'com.cognifide.aem') {
-                useModule('com.cognifide.gradle:aem-plugin:5.0.1')
+                useModule('com.cognifide.gradle:aem-plugin:5.1.2')
             } else if (requested.id.id == 'com.neva.fork') {
                 useModule('com.neva.gradle:fork-plugin:1.0.7')
             } else if (requested.id.id == 'org.jetbrains.kotlin.jvm') {
