@@ -28,7 +28,7 @@ aem {
     }
 }
 
-tasks.withType<SatisfyTask>().configureEach {
+tasks.named<SatisfyTask>(SatisfyTask.NAME).configure {
     packages {
         group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
         group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.2.71") }
@@ -38,7 +38,7 @@ tasks.withType<SatisfyTask>().configureEach {
     }
 }
 
-tasks.withType<ForkTask>().configureEach {
+tasks.named<ForkTask>(ForkTask.NAME).configure {
     config {
         cloneFiles()
         moveFiles(mapOf(
@@ -68,7 +68,7 @@ allprojects {
         maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
     }
 
-    plugins.withId("com.company.aem.base") {
+    plugins.withId("com.cognifide.aem.base") {
 
         // Common AEM configuration (CRX packages, deployment etc)
 
