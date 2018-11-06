@@ -7,10 +7,10 @@ plugins {
 description = "Example - AEM Application Full"
 
 tasks.named<ComposeTask>("aemCompose") {
-    includeProject(":aem.app.common")
-    includeProject(":aem.app.core")
-    includeProject(":aem.app.author", "author")
-    includeProject(":aem.app.publish", "publish")
-    includeProject(":aem.app.config")
-    includeProject(":aem.app.design")
+    fromProject(":aem.app.common")
+    fromProject(":aem.app.core")
+    fromProject(":aem.app.author"/*, "author"*/)
+    fromProject(":aem.app.publish"/*, "publish"*/)
+    fromProject(":aem.app.config")
+    fromProject(":aem.app.design")
 }

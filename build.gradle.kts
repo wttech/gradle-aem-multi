@@ -31,7 +31,7 @@ aem {
 tasks.named<SatisfyTask>(SatisfyTask.NAME).configure {
     packages {
         group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
-        group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.2.71") }
+        group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.3.0") }
         group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip") }
         group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
         group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
@@ -93,6 +93,35 @@ allprojects {
             }
         }
 
+        subproject.dependencies {
+
+            // AEM runtime dependencies
+
+            "compileOnly"("org.osgi:osgi.cmpn:6.0.0")
+            "compileOnly"("org.osgi:org.osgi.core:6.0.0")
+
+            "compileOnly"("javax.servlet:servlet-api:2.5")
+            "compileOnly"("javax.jcr:jcr:2.0")
+            "compileOnly"("org.slf4j:slf4j-api:1.7.25")
+            "compileOnly"("org.apache.geronimo.specs:geronimo-atinject_1.0_spec:1.0")
+            // TODO fix it (no such package in 1.x version on instance)
+            "compileOnly"("org.apache.geronimo.specs:geronimo-annotation_1.0_spec:1.1.1")
+
+            "compileOnly"("org.apache.sling:org.apache.sling.api:2.16.4")
+            "compileOnly"("org.apache.sling:org.apache.sling.jcr.api:2.4.0")
+            "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.6")
+            "compileOnly"("com.google.code.gson:gson:2.8.1")
+            "compileOnly"(group = "com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
+            "compileOnly"("joda-time:joda-time:2.9.1")
+            "compileOnly"("org.jetbrains:annotations:13.0")
+
+            // Extra libraries provided by packages through task "aemSatisfy"
+            // or configurations: "aemEmbed", "aemInstall".
+
+            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.0")
+            "compileOnly"("org.jetbrains.kotlin:kotlin-reflect:1.3.0")
+            "compileOnly"("org.hashids:hashids:1.0.1")
+        }
     }
 
     plugins.withId("org.jetbrains.kotlin.jvm") {
@@ -110,37 +139,6 @@ allprojects {
                 targetCompatibility = "1.8"
                 encoding = "UTF-8"
             }
-
-            subproject.dependencies {
-
-                // AEM runtime dependencies
-
-                "compileOnly"("org.osgi:osgi.cmpn:6.0.0")
-                "compileOnly"("org.osgi:org.osgi.core:6.0.0")
-
-                "compileOnly"("javax.servlet:servlet-api:2.5")
-                "compileOnly"("javax.jcr:jcr:2.0")
-                "compileOnly"("org.slf4j:slf4j-api:1.7.25")
-                "compileOnly"("org.apache.geronimo.specs:geronimo-atinject_1.0_spec:1.0")
-                // TODO fix it (no such package in 1.x version on instance)
-                "compileOnly"("org.apache.geronimo.specs:geronimo-annotation_1.0_spec:1.1.1")
-
-                "compileOnly"("org.apache.sling:org.apache.sling.api:2.16.4")
-                "compileOnly"("org.apache.sling:org.apache.sling.jcr.api:2.4.0")
-                "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.6")
-                "compileOnly"("com.google.code.gson:gson:2.8.1")
-                "compileOnly"(group = "com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
-                "compileOnly"("joda-time:joda-time:2.9.1")
-                "compileOnly"("org.jetbrains:annotations:13.0")
-
-                // Extra libraries provided by packages through task "aemSatisfy"
-                // or configurations: "aemEmbed", "aemInstall".
-
-                "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.71")
-                "compileOnly"("org.jetbrains.kotlin:kotlin-reflect:1.2.71")
-                "compileOnly"("org.hashids:hashids:1.0.1")
-            }
-
         }
 
         tasks.withType<Test>().configureEach {

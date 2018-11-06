@@ -1,14 +1,12 @@
 import com.cognifide.gradle.aem.api.AemExtension
+import com.cognifide.gradle.aem.pkg.ComposeTask
 
 plugins {
     id("com.cognifide.aem.package")
 }
 
 description = "Example - AEM Application Migration"
-configure<AemExtension> {
-    config {
-        packageEntries = mutableMapOf(
-            "installhook.aecu.class" to "de.valtech.aecu.core.installhook.AecuInstallHook"
-        )
-    }
+
+tasks.named<ComposeTask>("aemCompose").configure {
+    vaultProperty("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
 }
