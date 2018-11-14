@@ -1,4 +1,4 @@
-import com.cognifide.gradle.aem.api.AemExtension
+import com.cognifide.gradle.aem.pkg.ComposeTask
 
 plugins {
     id("org.jetbrains.kotlin.jvm")
@@ -7,14 +7,14 @@ plugins {
 
 description = "Example - AEM Application Common"
 
-configure<AemExtension> {
+aem {
     bundle {
+        embedPackage("org.hashIds", false, "org.hashids:hashids:1.0.1")
         exportPackage("org.hashids")
     }
 }
 
-dependencies {
-    aemInstall("org.jsoup:jsoup:1.10.2")
-    aemInstall("com.github.mickleroy:aem-sass-compiler:1.0.1")
-    aemEmbed("org.hashids:hashids:1.0.1")
+tasks.named<ComposeTask>("aemCompose") {
+    fromJar("org.jsoup:jsoup:1.10.2")
+    fromJar("com.github.mickleroy:aem-sass-compiler:1.0.1")
 }
