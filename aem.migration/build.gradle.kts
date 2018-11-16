@@ -1,5 +1,4 @@
-import com.cognifide.gradle.aem.api.AemExtension
-import com.cognifide.gradle.aem.pkg.ComposeTask
+import com.cognifide.gradle.aem.pkg.tasks.Compose
 
 plugins {
     id("com.cognifide.aem.package")
@@ -7,6 +6,6 @@ plugins {
 
 description = "Example - AEM Application Migration"
 
-tasks.named<ComposeTask>("aemCompose").configure {
+tasks.named<Compose>(Compose.NAME).configure {
     vaultProperty("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
 }

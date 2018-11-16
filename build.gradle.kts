@@ -1,7 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import com.cognifide.gradle.aem.api.AemExtension
-import com.cognifide.gradle.aem.instance.SatisfyTask
-import com.cognifide.gradle.aem.instance.SetupTask
+import com.cognifide.gradle.aem.instance.tasks.Satisfy
+import com.cognifide.gradle.aem.instance.tasks.Setup
 import com.moowork.gradle.node.NodeExtension
 import com.neva.gradle.fork.ForkTask
 
@@ -28,7 +27,7 @@ aem {
     }
 }
 
-tasks.named<SatisfyTask>(SatisfyTask.NAME).configure {
+tasks.named<Satisfy>(Satisfy.NAME).configure {
     packages {
         group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
         group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.3.0") }

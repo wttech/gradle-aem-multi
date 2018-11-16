@@ -1,4 +1,4 @@
-import com.cognifide.gradle.aem.pkg.ComposeTask
+import com.cognifide.gradle.aem.pkg.tasks.Compose
 
 plugins {
     id("org.jetbrains.kotlin.jvm")
@@ -14,7 +14,7 @@ aem {
     }
 }
 
-tasks.named<ComposeTask>("aemCompose") {
+tasks.named<Compose>(Compose.NAME) {
     fromJar("org.jsoup:jsoup:1.10.2")
     fromJar("com.github.mickleroy:aem-sass-compiler:1.0.1")
 }

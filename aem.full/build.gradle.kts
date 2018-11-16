@@ -1,4 +1,4 @@
-import com.cognifide.gradle.aem.pkg.ComposeTask
+import com.cognifide.gradle.aem.pkg.tasks.Compose
 
 plugins {
     id("com.cognifide.aem.package")
@@ -6,7 +6,7 @@ plugins {
 
 description = "Example - AEM Full"
 
-tasks.named<ComposeTask>("aemCompose") {
+tasks.named<Compose>(Compose.NAME) {
     fromProject(":aem.app.common")
     fromProject(":aem.app.core")
     fromProject(":aem.app.author"/*, "author"*/)

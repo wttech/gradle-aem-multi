@@ -1,4 +1,5 @@
 import com.moowork.gradle.node.yarn.YarnTask
+import com.cognifide.gradle.aem.pkg.tasks.Compose
 
 plugins {
     id("com.cognifide.aem.package")
@@ -13,9 +14,8 @@ tasks.register<YarnTask>("webpackPublish") {
     val dir = "src/main/content/jcr_root/etc/designs/example/publish"
     inputs.dir("$dir/src")
     outputs.dir("$dir/dist")
-
 }
 
-tasks.named<Task>("aemCompose") {
-    dependsOn("webpackPublish")
+tasks.named<Compose>(Compose.NAME) {
+    dependsOn(tasks.named("webpackPublish"))
 }
