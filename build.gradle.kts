@@ -5,7 +5,6 @@ import com.neva.gradle.fork.ForkTask
 plugins {
     id("com.neva.fork")
     id("com.cognifide.aem.instance")
-    id("com.moowork.node") apply false
     id("org.jetbrains.kotlin.jvm") apply false
 }
 
@@ -14,7 +13,7 @@ defaultTasks = listOf(":deploy")
 
 aem {
     tasks {
-//        sequence("deploy") { // TODO setupSequence
+        //        sequence("deploy") { // TODO setupSequence
 //            dependsOn(
 //                path(":aemSatisfy"),
 //                path(":aem.full:aemDeploy"),
