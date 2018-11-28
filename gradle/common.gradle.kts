@@ -46,8 +46,6 @@ allprojects {
 
             // AEM runtime dependencies
 
-            "compileOnly"( group ="com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
-
             "compileOnly"( "org.osgi:osgi.cmpn:6.0.0")
             "compileOnly"( "org.osgi:org.osgi.core:6.0.0")
             "compileOnly"( "javax.servlet:servlet-api:2.5")
@@ -63,6 +61,8 @@ allprojects {
             "compileOnly"( "com.google.code.gson:gson:2.8.2")
             "compileOnly"( "joda-time:joda-time:2.9.1")
             "compileOnly"("org.jetbrains:annotations:13.0")
+
+            "compileOnly"("com.adobe.aem", "uber-jar", "6.4.0", classifier = "obfuscated-apis")
 
             // Extra libraries provided by packages through task "aemSatisfy"
             // or configurations: "aemEmbed", "aemInstall".
