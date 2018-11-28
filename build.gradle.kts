@@ -14,17 +14,17 @@ defaultTasks = listOf(":deploy")
 
 aem {
     tasks {
-        sequence("deploy") { // TODO setupSequence
-            dependsOn(
-                path(":aemSatisfy"),
-                path(":aem.full:aemDeploy"),
-                await("full"),
-                path(":aem.migration:aemDeploy"),
-                await("migration"),
-                path(":test.integration:test"),
-                path(":test.functional:test")
-            )
-        }
+//        sequence("deploy") { // TODO setupSequence
+//            dependsOn(
+//                path(":aemSatisfy"),
+//                path(":aem.full:aemDeploy"),
+//                await("full"),
+//                path(":aem.migration:aemDeploy"),
+//                await("migration"),
+//                path(":test.integration:test"),
+//                path(":test.functional:test")
+//            )
+//        }
     }
 }
 

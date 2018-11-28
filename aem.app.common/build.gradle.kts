@@ -9,7 +9,7 @@ description = "Example - AEM Application Common"
 
 aem {
     bundle {
-        embedPackage("org.hashids", false, "org.hashids:hashids:1.0.1")
+        embedPackage("org.hashids", true, "org.hashids:hashids:1.0.1")
     }
 }
 
