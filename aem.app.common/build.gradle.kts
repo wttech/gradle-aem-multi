@@ -13,7 +13,9 @@ aem {
     }
 }
 
-tasks.named<Compose>(Compose.NAME) {
-    fromJar("org.jsoup:jsoup:1.10.2")
-    fromJar("com.github.mickleroy:aem-sass-compiler:1.0.1")
+tasks {
+    named<Compose>(Compose.NAME) {
+        fromJar("org.jsoup:jsoup:1.10.2")
+        fromJar("com.github.mickleroy:aem-sass-compiler:1.0.1")
+    }
 }

@@ -12,43 +12,50 @@ defaultTasks = listOf(":deploy")
 
 aem {
     tasks {
-        sequence("deploy") { // TODO setupSequence
+        sequence("deploy") {
             dependsOn(
-                path(":aemSatisfy"),
-                path(":aem.full:aemDeploy"),
+                pathed(":aemSatisfy"),
+                pathed(":aem.full:aemDeploy"),
                 await("full"),
-                path(":aem.migration:aemDeploy"),
+                pathed(":aem.migration:aemDeploy"),
                 await("migration"),
-                path(":test.integration:test"),
-                path(":test.functional:test")
+                pathed(":test.integration:test"),
+                pathed(":test.functional:test")
             )
         }
     }
 }
 
-tasks.named<Satisfy>(Satisfy.NAME).configure {
-    packages {
-        group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
-        group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.3.10") }
-        group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip") }
-        group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
-        group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
+tasks {
+    named<Setup>(Setup.NAME).configure {
+        dependsOn(named("deploy"))
     }
-}
 
-tasks.named<ForkTask>(ForkTask.NAME).configure {
-    config {
-        cloneFiles()
-        moveFiles(mapOf(
-                "/com/company/aem/example" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}",
-                "/example" to "/{{projectName}}"
-        ))
-        replaceContents(mapOf(
-                "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
-                "com.company.aem" to "{{projectGroup}}",
-                "Example" to "{{projectLabel}}",
-                "example" to "{{projectName}}"
-        ))
+
+    named<Satisfy>(Satisfy.NAME).configure {
+        packages {
+            group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
+            group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.3.10") }
+            group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip") }
+            group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
+            group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
+        }
+    }
+
+    named<ForkTask>(ForkTask.NAME).configure {
+        config {
+            cloneFiles()
+            moveFiles(mapOf(
+                    "/com/company/aem/example" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}",
+                    "/example" to "/{{projectName}}"
+            ))
+            replaceContents(mapOf(
+                    "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
+                    "com.company.aem" to "{{projectGroup}}",
+                    "Example" to "{{projectLabel}}",
+                    "example" to "{{projectName}}"
+            ))
+        }
     }
 }
 

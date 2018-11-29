@@ -8,14 +8,16 @@ plugins {
 
 description = "Example - AEM Application Design"
 
-tasks.register<YarnTask>("webpackPublish") {
-    dependsOn("yarn")
+tasks {
+    register<YarnTask>("webpackPublish") {
+        dependsOn("yarn")
 
-    val dir = "src/main/content/jcr_root/etc/designs/example/publish"
-    inputs.dir("$dir/src")
-    outputs.dir("$dir/dist")
-}
+        val dir = "src/main/content/jcr_root/etc/designs/example/publish"
+        inputs.dir("$dir/src")
+        outputs.dir("$dir/dist")
+    }
 
-tasks.named<Compose>(Compose.NAME) {
-    dependsOn(tasks.named("webpackPublish"))
+    named<Compose>(Compose.NAME) {
+        dependsOn(named("webpackPublish"))
+    }
 }

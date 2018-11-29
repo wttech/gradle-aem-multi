@@ -7,13 +7,15 @@ dependencies {
     "testImplementation"(project(":aem.app.publish"))
 }
 
-tasks.named<Jar>(JavaPlugin.JAR_TASK_NAME) {
-    enabled = false
-}
+tasks {
+    named<Jar>(JavaPlugin.JAR_TASK_NAME) {
+        enabled = false
+    }
 
-tasks.named<Test>(JavaPlugin.TEST_TASK_NAME) {
-    testLogging {
-        showStandardStreams = true
-        events = setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
+    named<Test>(JavaPlugin.TEST_TASK_NAME) {
+        testLogging {
+            showStandardStreams = true
+            events = setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
+        }
     }
 }
