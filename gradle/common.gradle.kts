@@ -14,6 +14,7 @@ allprojects {
         maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
         maven { url = uri("https://repo1.maven.org/maven2") }
         maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
+        maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
     }
 
     plugins.withId("com.cognifide.aem.base") {
@@ -66,8 +67,7 @@ allprojects {
             // Extra libraries provided by packages through task "aemSatisfy"
             // or configurations: "aemEmbed", "aemInstall".
 
-            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.10")
-            "compileOnly"("org.jetbrains.kotlin:kotlin-reflect:1.3.10")
+            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20-dev-998")
             "compileOnly"("org.hashids:hashids:1.0.1")
         }
     }
