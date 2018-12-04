@@ -1,13 +1,10 @@
-import com.cognifide.gradle.aem.api.AemExtension
+import com.cognifide.gradle.aem.common.AemExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.moowork.gradle.node.NodeExtension
 
 allprojects {
-
-    group = "com.company.example"
-    version = "1.0.0-SNAPSHOT"
 
     repositories {
         jcenter()
@@ -67,8 +64,7 @@ allprojects {
             // Extra libraries provided by packages through task "aemSatisfy"
             // or configurations: "aemEmbed", "aemInstall".
 
-            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.0")
-            "compileOnly"("org.jetbrains.kotlin:kotlin-reflect:1.3.0")
+            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20-dev-998")
             "compileOnly"("org.hashids:hashids:1.0.1")
         }
     }

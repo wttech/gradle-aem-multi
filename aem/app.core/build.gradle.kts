@@ -6,5 +6,5 @@ plugins {
 description = "Example - AEM Application Core"
 
 dependencies {
-    implementation(project(":aem.app.common"))
+    implementation(project(":aem:app.common"))
 }
