@@ -9,16 +9,16 @@ plugins {
 
 description = "Example - Functional Tests"
 
-tasks.create<YarnTask>("test-functional") {
-    dependsOn("test-set-up", "test-install-node")
+tasks.create<YarnTask>("testFunctional") {
+    dependsOn("testSetup", "testInstallNode")
     group = "check"
     setYarnCommand("jest")
     setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
     outputs.dir(file("${projectDir.absolutePath}/test.functional"))
     doFirst {
         val props = mutableListOf()
-        if (project.hasProperty("env")) {
-            props.addAll(listOf("--config", "./env/${project.properties["env"]}.config.js"))
+        if (project.hasProperty("aem.env")) {
+            props.addAll(listOf("--config", "./env/${project.properties["aem.env"]}.config.js"))
         } else {
             props.addAll(listOf("--config", "./env/local-publish.config.js"))
         }
@@ -26,7 +26,7 @@ tasks.create<YarnTask>("test-functional") {
     }
 }
 
-tasks.create("test-set-up") {
+tasks.create("testSetup") {
     description = "Creates env json from gradle properties."
     group = "check"
     doLast {
@@ -43,14 +43,14 @@ tasks.create("test-set-up") {
     }
 }
 
-tasks.create<YarnTask>("test-install-node") {
+tasks.create<YarnTask>("testInstallNode") {
     setYarnCommand("install")
     group = "check"
     setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
     outputs.dir(file("${projectDir.absolutePath}/test.functional"))
 }
 
-tasks.create<YarnTask>("test-lint") {
+tasks.create<YarnTask>("testLint") {
     setYarnCommand("lint")
     group = "check"
     setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
