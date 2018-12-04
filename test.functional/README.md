@@ -2,7 +2,7 @@
 
 ### Running the tests
 
-Download dependencies, set up configuration and run test just run:
+Download dependencies, set up configuration and run test:
 
 `./gradlew testFunctional -Paem.env=local-author`
 

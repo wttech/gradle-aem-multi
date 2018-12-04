@@ -9,52 +9,54 @@ plugins {
 
 description = "Example - Functional Tests"
 
-tasks.create<YarnTask>("testFunctional") {
-    dependsOn("testSetup", "testInstallNode")
-    group = "check"
-    setYarnCommand("jest")
-    setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
-    outputs.dir(file("${projectDir.absolutePath}/test.functional"))
-    doFirst {
-        val props = mutableListOf()
-        if (project.hasProperty("aem.env")) {
-            props.addAll(listOf("--config", "./env/${project.properties["aem.env"]}.config.js"))
-        } else {
-            props.addAll(listOf("--config", "./env/local-publish.config.js"))
+tasks{
+    register<YarnTask>("testFunctional") {
+        dependsOn("testSetup", "testInstallNode")
+        group = "check"
+        setYarnCommand("jest")
+        setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
+        outputs.dir(file("${projectDir.absolutePath}/test.functional"))
+        doFirst {
+            val props = mutableListOf()
+            if (project.hasProperty("aem.env")) {
+                props.addAll(listOf("--config", "./env/${project.properties["aem.env"]}.config.js"))
+            } else {
+                props.addAll(listOf("--config", "./env/local-publish.config.js"))
+            }
+            args = props
         }
-        args = props
     }
-}
 
-tasks.create("testSetup") {
-    description = "Creates env json from gradle properties."
-    group = "check"
-    doLast {
-        val configTemplate = File("test.functional/config/_templates/template-jest-config.js").readText()
-        val envTemplate = File("test.functional/config/_templates/template-puppeteer-environment.js").readText()
-        file("test.functional/env").mkdirs()
-        aem.instances.forEach(Consumer {
-            val values = hashMapOf("instance-name" to it.name, "instance-url" to it.httpUrl)
-            File("test.functional/env/${it.name}.config.js")
-                    .printWriter().use { out -> out.print(aem.props.expand(configTemplate, values)) }
-            File("test.functional/env/${it.name}.env.js")
-                    .printWriter().use { out -> out.print(aem.props.expand(envTemplate, values)) }
-        })
+    register("testSetup") {
+        description = "Creates env json from gradle properties."
+        group = "check"
+        doLast {
+            val configTemplate = File("${projectDir.absolutePath}/config/_templates/template-jest-config.js").readText()
+            val envTemplate = File("${projectDir.absolutePath}/config/_templates/template-puppeteer-environment.js").readText()
+            file("${projectDir.absolutePath}/env").mkdirs()
+            aem.instances.forEach(Consumer {
+                val values = hashMapOf("instanceName" to it.name, "instanceUrl" to it.httpUrl)
+                File("${projectDir.absolutePath}/env/${it.name}.config.js")
+                        .printWriter().use { out -> out.print(aem.props.expand(configTemplate, values)) }
+                File("${projectDir.absolutePath}/env/${it.name}.env.js")
+                        .printWriter().use { out -> out.print(aem.props.expand(envTemplate, values)) }
+            })
+        }
     }
-}
 
-tasks.create<YarnTask>("testInstallNode") {
-    setYarnCommand("install")
-    group = "check"
-    setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
-    outputs.dir(file("${projectDir.absolutePath}/test.functional"))
-}
+    register<YarnTask>("testInstallNode") {
+        setYarnCommand("install")
+        group = "check"
+        setWorkingDir(file(projectDir.absolutePath))
+        outputs.dir(file(projectDir.absolutePath))
+    }
 
-tasks.create<YarnTask>("testLint") {
-    setYarnCommand("lint")
-    group = "check"
-    setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
-    outputs.dir(file("${projectDir.absolutePath}/test.functional"))
+    register<YarnTask>("testLint") {
+        setYarnCommand("lint")
+        group = "check"
+        setWorkingDir(file(projectDir.absolutePath))
+        outputs.dir(file(projectDir.absolutePath))
+    }
 }
 
 apply(from = "../gradle/test.gradle.kts")
