@@ -6,8 +6,8 @@ plugins {
 description = "Example - AEM Application Publish"
 
 dependencies {
-    implementation(project(":aem.app.common"))
-    implementation(project(":aem.app.core"))
+    implementation(project(":aem:app.common"))
+    implementation(project(":aem:app.core"))
 }
 
 

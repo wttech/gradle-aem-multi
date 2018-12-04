@@ -15,12 +15,12 @@ aem {
         sequence("deploy") {
             dependsOn(
                 pathed(":aemSatisfy"),
-                pathed(":aem.full:aemDeploy"),
+                pathed(":aem:full:aemDeploy"),
                 await("full"),
-                pathed(":aem.migration:aemDeploy"),
+                pathed(":aem:migration:aemDeploy"),
                 await("migration"),
-                pathed(":test.integration:test"),
-                pathed(":test.functional:test")
+                pathed(":test:integration:test"),
+                pathed(":test:functional:test")
             )
         }
     }
@@ -60,3 +60,4 @@ tasks {
 }
 
 apply(from = "gradle/common.gradle.kts")
+apply(from = "aem/gradle/common.gradle.kts")
