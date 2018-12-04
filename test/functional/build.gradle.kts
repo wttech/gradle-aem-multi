@@ -58,5 +58,3 @@ tasks{
         outputs.dir(file(projectDir.absolutePath))
     }
 }
-
-apply(from = "../gradle/test.gradle.kts")
