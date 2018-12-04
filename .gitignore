@@ -4,7 +4,6 @@
 *.ipr
 classes/
 fork.properties
-/test.functional/env/
 
 ### Java template
 *.class
