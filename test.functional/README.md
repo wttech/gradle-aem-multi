@@ -4,7 +4,7 @@
 
 Download dependencies, set up configuration and run test just run:
 
-`./gradlew test-functional -Penv=local-author`
+`./gradlew test-functional -Paem.env=local-author`
 
 parameters:
 
