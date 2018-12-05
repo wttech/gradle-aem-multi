@@ -7,7 +7,7 @@ plugins {
 
 tasks {
     named<Setup>(Setup.NAME).configure {
-        dependsOn(named("deploy"))
+        dependsOn(":deploy")
     }
 
     named<Satisfy>(Satisfy.NAME).configure {
