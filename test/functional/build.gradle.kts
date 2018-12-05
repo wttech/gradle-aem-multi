@@ -3,7 +3,7 @@ import java.util.function.Consumer
 
 plugins {
     id("java")
-    id("com.cognifide.aem.instance")
+    id("com.cognifide.aem.base")
     id("com.moowork.node")
 }
 
