@@ -16,9 +16,7 @@ aem {
             dependsOn(
                 pathed(":aemSatisfy"),
                 pathed(":aem:full:aemDeploy"),
-                await("full"),
                 pathed(":aem:migration:aemDeploy"),
-                await("migration"),
                 pathed(":test:integration:test"),
                 pathed(":test:functional:test")
             )
@@ -30,7 +28,6 @@ tasks {
     named<Setup>(Setup.NAME).configure {
         dependsOn(named("deploy"))
     }
-
 
     named<Satisfy>(Satisfy.NAME).configure {
         packages {
