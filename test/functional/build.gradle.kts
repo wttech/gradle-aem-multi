@@ -9,49 +9,41 @@ plugins {
 
 description = "Example - Functional Tests"
 
-tasks{
-    register<YarnTask>("testFunctional") {
-        dependsOn("testSetup", "testInstallNode")
+tasks {
+
+    named("check") { dependsOn(named("runJestPuppeteer")) }
+
+    register<YarnTask>("runJestPuppeteer") {
+        dependsOn("setupJestPuppeteer")
         group = "check"
         setYarnCommand("jest")
-        setWorkingDir(file("${projectDir.absolutePath}/test.functional"))
-        outputs.dir(file("${projectDir.absolutePath}/test.functional"))
+        setWorkingDir(file(file("test.functional")))
+        outputs.dir(file(file("test.functional")))
         doFirst {
-            val props = mutableListOf()
-            if (project.hasProperty("aem.env")) {
-                props.addAll(listOf("--config", "./env/${project.properties["aem.env"]}.config.js"))
-            } else {
-                props.addAll(listOf("--config", "./env/local-publish.config.js"))
-            }
-            args = props
-        }
-    }
-
-    register("testSetup") {
-        description = "Creates env json from gradle properties."
-        group = "check"
-        doLast {
-            val configTemplate = File("${projectDir.absolutePath}/config/_templates/template-jest-config.js").readText()
-            val envTemplate = File("${projectDir.absolutePath}/config/_templates/template-puppeteer-environment.js").readText()
+            val configTemplate = project.file("config/_templates/template-jest-config.js").readText()
+            val envTemplate = project.file("config/_templates/template-puppeteer-environment.js").readText()
             file("${projectDir.absolutePath}/env").mkdirs()
-            aem.instances.forEach(Consumer {
-                val values = hashMapOf("instanceName" to it.name, "instanceUrl" to it.httpUrl)
-                File("${projectDir.absolutePath}/env/${it.name}.config.js")
+            aem.instances.forEach {
+                val values = hashMapOf("instance.name" to it.name, "instance.json" to it.json)
+                project.file("/env/${it.name}.config.js")
                         .printWriter().use { out -> out.print(aem.props.expand(configTemplate, values)) }
-                File("${projectDir.absolutePath}/env/${it.name}.env.js")
+                project.file("/env/${it.name}.env.js")
                         .printWriter().use { out -> out.print(aem.props.expand(envTemplate, values)) }
-            })
+            }
+
+            args = listOf("--config", "./env/${project.findProject("aem.env")
+                    ?: "local-publish"}.config.js")
         }
     }
 
-    register<YarnTask>("testInstallNode") {
+    register<YarnTask>("setupJestPuppeteer") {
         setYarnCommand("install")
         group = "check"
         setWorkingDir(file(projectDir.absolutePath))
         outputs.dir(file(projectDir.absolutePath))
     }
 
-    register<YarnTask>("testLint") {
+    register<YarnTask>("runLint") {
         setYarnCommand("lint")
         group = "check"
         setWorkingDir(file(projectDir.absolutePath))

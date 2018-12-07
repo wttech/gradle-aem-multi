@@ -7,7 +7,7 @@ class Env extends PuppeteerEnvironment {
 
     async setup() {
         await super.setup();
-        this.global.httpUrl = '{{instanceUrl}}';
+        this.global.instance = '{{instance.json}}';
     }
 }
 
