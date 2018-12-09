@@ -1,14 +1,14 @@
 ## Functional tests
 
-### Running the tests
+### Running
 
 Download dependencies, set up configuration and run test:
 
-`./gradlew testFunctional -Paem.env=local-author`
+`./gradlew testFunctional -Paem.instance=local-publish`
 
-parameters:
+Parameters:
 
-* `aem.env` - name of instance from `gradle.properties`
+* `-Paem.instance` - name of instance from `gradle.properties`
 
 Run test from node.js:
 
@@ -16,14 +16,10 @@ Run test from node.js:
 
 ### Tasks
 
-* `testFunctional` - run tests
-
-* `testSetup` - create configuration files from aem instances
-
-* `testLint` - js syntax check 
-
-* `testInstallNode` - install node dependencies  
-
+* `runJestPuppeteer` - run tests
+* `runLint` - js syntax check
+ 
 ### Stack
+
 [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/)
 

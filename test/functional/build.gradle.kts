@@ -30,13 +30,13 @@ tasks {
             root.deleteRecursively()
             root.mkdirs()
 
-            aem.instances.forEach {
-                val values = mapOf("instance" to it)
-                File(root, "${it.name}.config.js").printWriter().use { it.print(aem.props.expand(configTemplate, values)) }
-                File(root, "${it.name}.env.js").printWriter().use { it.print(aem.props.expand(envTemplate, values)) }
-            }
+            val instance = aem.instanceNamed(defaultName = "local-publish")
+            val templateVars = mapOf("instance" to instance)
 
-            args = listOf("--config", project.file("env/${project.findProject("aem.env") ?: "local-publish"}.config.js").toString())
+            File(root, "${instance.name}.config.js").printWriter().use { it.print(aem.props.expand(configTemplate, templateVars)) }
+            File(root, "${instance.name}.env.js").printWriter().use { it.print(aem.props.expand(envTemplate, templateVars)) }
+
+            args = listOf("--config", project.file("env/${instance.name}.config.js").toString())
         }
     }
 
