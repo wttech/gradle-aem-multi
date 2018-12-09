@@ -18,9 +18,10 @@ tasks {
     register<YarnTask>("runJestPuppeteer") {
         dependsOn("setupJestPuppeteer")
         group = "check"
+
         setYarnCommand("jest")
-        setWorkingDir(file(file("test.functional")))
-        outputs.dir(file(file("test.functional")))
+        setWorkingDir(file("test.functional"))
+
         doFirst {
             val configTemplate = project.file("config/_templates/jest-config.js").readText()
             val envTemplate = project.file("config/_templates/puppeteer-environment.js").readText()
@@ -40,16 +41,20 @@ tasks {
     }
 
     register<YarnTask>("setupJestPuppeteer") {
-        setYarnCommand("install")
         group = "check"
-        setWorkingDir(file(projectDir.absolutePath))
-        outputs.dir(file(projectDir.absolutePath))
+
+        setYarnCommand("install")
+        setWorkingDir(project.projectDir)
+
+        outputs.dir(project.projectDir)
     }
 
     register<YarnTask>("runLint") {
-        setYarnCommand("lint")
         group = "check"
+
+        setYarnCommand("lint")
         setWorkingDir(file(projectDir.absolutePath))
+
         outputs.dir(file(projectDir.absolutePath))
     }
 }
