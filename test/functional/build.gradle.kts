@@ -22,8 +22,8 @@ tasks {
         setWorkingDir(file(file("test.functional")))
         outputs.dir(file(file("test.functional")))
         doFirst {
-            val configTemplate = project.file("config/_templates/template-jest-config.js").readText()
-            val envTemplate = project.file("config/_templates/template-puppeteer-environment.js").readText()
+            val configTemplate = project.file("config/_templates/jest-config.js").readText()
+            val envTemplate = project.file("config/_templates/puppeteer-environment.js").readText()
             val root = file("env")
 
             root.deleteRecursively()
