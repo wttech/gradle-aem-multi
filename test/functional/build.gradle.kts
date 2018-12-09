@@ -22,17 +22,18 @@ tasks {
         doFirst {
             val configTemplate = project.file("config/_templates/template-jest-config.js").readText()
             val envTemplate = project.file("config/_templates/template-puppeteer-environment.js").readText()
-            file("${projectDir.absolutePath}/env").mkdirs()
+
+            file("env").mkdirs()
+
             aem.instances.forEach {
-                val values = hashMapOf("instance.name" to it.name, "instance.json" to it.json)
-                project.file("/env/${it.name}.config.js")
+                val values = mapOf("instance" to it)
+                project.file("env/${it.name}.config.js")
                         .printWriter().use { out -> out.print(aem.props.expand(configTemplate, values)) }
-                project.file("/env/${it.name}.env.js")
+                project.file("env/${it.name}.env.js")
                         .printWriter().use { out -> out.print(aem.props.expand(envTemplate, values)) }
             }
 
-            args = listOf("--config", "./env/${project.findProject("aem.env")
-                    ?: "local-publish"}.config.js")
+            args = listOf("--config", project.file("env/${project.findProject("aem.env") ?: "local-publish"}.config.js").toString())
         }
     }
 
