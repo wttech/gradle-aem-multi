@@ -21,6 +21,14 @@ tasks {
     }
 
     // here is a desired place for defining custom AEM tasks
+
+    register("aemConfigure") {
+        doLast {
+            aem.sync(aem.instancePublishers) {
+                disableComponent("org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet")
+            }
+        }
+    }
 }
 
 apply(from = "gradle/common.gradle.kts")
