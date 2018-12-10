@@ -19,6 +19,8 @@ tasks {
             group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
         }
     }
+
+    // here is a desired place for defining custom AEM tasks
 }
 
 apply(from = "gradle/common.gradle.kts")
