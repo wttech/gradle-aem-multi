@@ -42,10 +42,9 @@ subprojects {
 
             "compileOnly"("com.adobe.aem:uber-jar:6.4.0:obfuscated-apis")
 
-            // Extra libraries provided by packages through task "aemSatisfy"
-            // or configurations: "aemEmbed", "aemInstall".
+            // Extra libraries provided by: task "aemSatisfy", task aemCompose.fromJar, put directly inside dir 'install'.
 
-            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20-dev-998")
+            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20-eap16")
             "compileOnly"("org.hashids:hashids:1.0.1")
         }
     }
