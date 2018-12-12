@@ -1,17 +1,21 @@
 import com.cognifide.gradle.aem.common.AemExtension
 
-subprojects {
-
-    if (!project.path.startsWith(":aem:")) {
-        return@subprojects
-    }
+allprojects {
 
     group = "com.company.example.aem"
     version = "1.0.0-SNAPSHOT"
 
-    plugins.withId("com.cognifide.aem.bundle") {
+    plugins.withId("com.cognifide.aem.base") {
 
-        // Unified bundle configuration
+        configure<AemExtension> {
+            config {
+                // amend if needed
+            }
+        }
+
+    }
+
+    plugins.withId("com.cognifide.aem.bundle") {
 
         configure<AemExtension> {
             bundle {
