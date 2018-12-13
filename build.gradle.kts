@@ -1,6 +1,6 @@
 plugins {
     id("com.neva.fork")
-    id("com.cognifide.aem.base")
+    id("com.cognifide.aem.config")
 }
 
 description = "Example"
