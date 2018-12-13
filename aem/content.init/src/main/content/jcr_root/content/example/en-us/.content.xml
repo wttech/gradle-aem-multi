@@ -3,10 +3,10 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:designPath="/etc/designs/example"
-        cq:template="/apps/example/core/templates/home-page"
+        cq:template="/apps/example/app.core/templates/home-page"
         jcr:primaryType="cq:PageContent"
         jcr:title="English US"
-        sling:resourceType="example/core/components/home-page">
+        sling:resourceType="example/app.core/components/home-page">
         <content
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys"/>

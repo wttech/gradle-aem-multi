@@ -2,13 +2,13 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Template"
     jcr:title="Home Page"
-    allowedParents="[/apps/example/core/templates/home-page]"
+    allowedParents="[/apps/example/app.core/templates/home-page]"
     ranking="{Long}100">
     <jcr:content
-        cq:allowedTemplates="[/apps/example/core/templates/home-page]"
+        cq:allowedTemplates="[/apps/example/app.core/templates/home-page]"
         cq:designPath="/etc/designs/example"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="example/core/components/home-page">
+        sling:resourceType="example/app.core/components/home-page">
         <content
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys"/>
