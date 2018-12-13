@@ -39,3 +39,4 @@
 *.png           binary
 *.so            binary
 *.war           binary
+*original       binary
