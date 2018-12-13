@@ -20,7 +20,7 @@ tasks {
         group = "check"
 
         setYarnCommand("jest")
-        setWorkingDir(file("test.functional"))
+        setWorkingDir(projectDir)
 
         doFirst {
             val configTemplate = project.file("config/_templates/jest-config.js").readText()
@@ -44,17 +44,17 @@ tasks {
         group = "check"
 
         setYarnCommand("install")
-        setWorkingDir(project.projectDir)
+        setWorkingDir(projectDir)
 
-        outputs.dir(project.projectDir)
+        outputs.dir(projectDir)
     }
 
     register<YarnTask>("runLint") {
         group = "check"
 
         setYarnCommand("lint")
-        setWorkingDir(file(projectDir.absolutePath))
+        setWorkingDir(projectDir)
 
-        outputs.dir(file(projectDir.absolutePath))
+        outputs.dir(projectDir)
     }
 }
