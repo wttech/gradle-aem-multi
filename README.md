@@ -81,20 +81,20 @@ To see documentation for previous 5.x serie, please [click here](https://github.
 Tested on:
 
 * Java 1.8
-* Gradle 4.9
+* Gradle 5.0
 * Adobe AEM 6.4
 
 ## Structure
 
 Project is divided into subpackages (designed with reinstallabilty on production environments in mind):
 
-* *root* - non-reinstallable complete all-in-one package with application and contents.
-* *app* - reinstallable assembly package that contains all sub-parts of application:
+* *aem/full* - non-reinstallable complete all-in-one package with application and contents.
+* *aem/app* - reinstallable assembly package that contains all sub-parts of application:
     * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs, form controls etc).
     * *core* - OSGi bundle with core business logic and AEM components implementation.
     * *config* - OSGi services configuration.
     * *design* - AEM design configuration responsible for look & feel of AEM pages.
-* *content* - non-reinstallable assembly package that contains all type of contents listed below:
+* *aem/content* - non-reinstallable assembly package that contains all type of contents listed below:
     * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
     * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
 
@@ -114,29 +114,29 @@ Project is divided into subpackages (designed with reinstallabilty on production
     * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
 2. Run `gradlew idea` or `gradlew eclipse` to generate configuration for your favourite IDE.
-3. Build application and deploy:
-    * Assembly packages:
-        * `gradlew` <=> `:aemSatisfy :aemDeploy :aemAwait`,
-        * `gradlew :app:aemDeploy`,
-        * `gradlew :content:aemDeploy`.
-    * Single package:
-        * `gradlew :app:core:aemDeploy`,
-        * `gradlew :app:common:aemDeploy`,
-        * `gradlew :app:config:aemDeploy`,
-        * `gradlew :app:design:aemDeploy`,
-        * `gradlew :content:init:aemDeploy`,
-        * `gradlew :content:demo:aemDeploy`.
+3. Deploy application:
+    * Full assembly, migration and all tests
+        * `gradlew` <=> `:deploy`
+    * Only assembly packages:
+        * `gradlew :aem:full`
+        * `gradlew :aem:app`
+        * `gradlew :aem:content`
+    * Only single package:
+        * `gradlew :aem:app.core:aemDeploy`,
+        * `gradlew :aem:app.common:aemDeploy`,
+        * `gradlew :aem:app.config:aemDeploy`,
+        * `gradlew :aem:app.design:aemDeploy`,
+        * `gradlew :aem:migration:aemDeploy`,
+        * `gradlew :aem:content.init:aemDeploy`,
+        * `gradlew :aem:content.demo:aemDeploy`.
 
 ## Tips & tricks
 
-* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :app:design:aemSync`.
-* Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'com.cognifide.aem.bundle'` to avoid defining them separately for each subproject.
+* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:app.design:aemSync`.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.
-* If build caches to much, you could try with `--rerun-tasks` option. See this [link](https://docs.gradle.org/current/userguide/gradle_command_line.html) for more details.
-* To see more descriptive details about errors, you could use `-i`, `--stacktrace`, `--debug` options.
-* To skip tests or any other task by name use `-x test`
+* To see more descriptive errors or want to skip some tasks, see command line [documentation](https://docs.gradle.org/current/userguide/command_line_interface.html).
 
 ## Running tests 
 
