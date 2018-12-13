@@ -1,6 +1,0 @@
-plugins {
-    id 'com.cognifide.aem.package'
-}
-
-description = 'Example - App Config'
-defaultTasks = ['aemDeploy']

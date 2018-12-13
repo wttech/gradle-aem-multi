@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    file.location=""
+    file.max="-1"
+    file.threshold="256000"
+    request.max="-1"
+    sling.default.max.parameters="10000"
+    sling.default.parameter.encoding="UTF-8"/>
