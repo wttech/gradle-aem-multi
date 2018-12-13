@@ -20,6 +20,12 @@ To start developing **application** based on AEM it is recommended to use [Gradl
 
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
 
+## Important notice 
+
+Gradle AEM Plugin 6.x serie and upper will **no longer support Groovy DSL** and **stands on Kotlin DSL** coming with Gradle 5.0.
+
+To see documentation for previous 5.x serie, please [click here](https://github.com/Cognifide/gradle-aem-multi/tree/groovy) (navigate to branch `groovy`).
+
 ## Table of Contents
 
 * [Quickstart](#quickstart)
