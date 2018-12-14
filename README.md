@@ -1,6 +1,6 @@
 ![Cognifide logo](docs/cognifide-logo.png)
 
-[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
+[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg?random=123)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
 
 # AEM Multi-Project Example
