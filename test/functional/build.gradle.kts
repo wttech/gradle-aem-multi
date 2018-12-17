@@ -30,7 +30,7 @@ tasks {
             root.deleteRecursively()
             root.mkdirs()
 
-            val instance = aem.instanceNamed(defaultName = "local-publish")
+            val instance = aem.namedInstance(defaultName = "local-publish")
             val templateVars = mapOf("instance" to instance)
 
             File(root, "${instance.name}.config.js").printWriter().use { it.print(aem.props.expand(configTemplate, templateVars)) }

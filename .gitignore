@@ -1,4 +1,5 @@
 ### Project specific
+.aem/
 .idea/
 *.iml
 *.ipr

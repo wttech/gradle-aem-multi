@@ -24,7 +24,7 @@ tasks {
 
     register("aemConfigure") {
         doLast {
-            aem.sync(aem.instancePublishers) {
+            aem.sync(aem.publishInstances) {
                 disableComponent("org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet")
             }
         }
