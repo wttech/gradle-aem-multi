@@ -10,4 +10,8 @@ dependencies {
     implementation(project(":aem:app.core"))
 }
 
-
+aem {
+    bundle {
+        installRunMode = "publish"
+    }
+}
