@@ -24,12 +24,12 @@ fork {
     config {
         cloneFiles()
         moveFiles(mapOf(
-                "/com/company/aem/example" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}",
+                "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem",
                 "/example" to "/{{projectName}}"
         ))
         replaceContents(mapOf(
-                "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
-                "com.company.aem" to "{{projectGroup}}",
+                "com.company.example.aem" to "{{projectGroup}}.{{projectName}}.aem",
+                "com.company.example" to "{{projectGroup}}.{{projectName}}",
                 "Example" to "{{projectLabel}}",
                 "example" to "{{projectName}}"
         ))
