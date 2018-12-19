@@ -9,8 +9,6 @@ description = "Example - Integration Tests"
 dependencies {
     "testImplementation"(project(":aem:app.common"))
     "testImplementation"(project(":aem:app.core"))
-    "testImplementation"(project(":aem:app.author"))
-    "testImplementation"(project(":aem:app.publish"))
 }
 
 tasks {
