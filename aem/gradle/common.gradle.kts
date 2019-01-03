@@ -5,7 +5,7 @@ allprojects {
     group = "com.company.example.aem"
     version = "1.0.0-SNAPSHOT"
 
-    plugins.withId("com.cognifide.aem.base") {
+    plugins.withId("com.cognifide.aem.config") {
 
         configure<AemExtension> {
             config {
@@ -18,9 +18,11 @@ allprojects {
     plugins.withId("com.cognifide.aem.bundle") {
 
         configure<AemExtension> {
-            bundle {
-                category = "example"
-                vendor = "Company"
+            tasks {
+                bundle {
+                    category = "example"
+                    vendor = "Company"
+                }
             }
         }
 
