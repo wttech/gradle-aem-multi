@@ -1,5 +1,4 @@
-import com.cognifide.gradle.aem.instance.tasks.Satisfy
-import com.cognifide.gradle.aem.instance.tasks.Setup
+import com.cognifide.gradle.aem.common.ProgressLogger
 
 plugins {
     id("com.cognifide.aem.instance")
