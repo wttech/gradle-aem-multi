@@ -1,5 +1,3 @@
-// Project structure
-
 rootProject.name = "example"
 
 include("aem")

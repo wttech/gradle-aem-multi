@@ -1,31 +1,32 @@
-import com.cognifide.gradle.aem.instance.tasks.Satisfy
-import com.cognifide.gradle.aem.instance.tasks.Setup
+import com.cognifide.gradle.aem.common.ProgressLogger
 
 plugins {
     id("com.cognifide.aem.instance")
 }
 
-tasks {
-    named<Setup>(Setup.NAME).configure {
-        dependsOn(":deploy")
-    }
-
-    named<Satisfy>(Satisfy.NAME).configure {
-        packages {
-            group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
-            group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.3.10") }
-            group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip") }
-            group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
-            group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
+aem {
+    tasks {
+        setup {
+            dependsOn(":deploy")
         }
-    }
 
-    // here is a desired place for defining custom AEM tasks
+        satisfy {
+            packages {
+                group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
+                group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:1.3.10") }
+                group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-3.17.0/acs-aem-commons-content-3.17.0-min.zip") }
+                group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
+                group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
+            }
+        }
 
-    register("aemConfigure") {
-        doLast {
-            aem.sync(aem.publishInstances) {
-                disableComponent("org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet")
+        // here is a desired place for defining custom AEM tasks
+
+        register("aemConfigure") {
+            doLast {
+                aem.sync(aem.publishInstances) {
+                    disableComponent("org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet")
+                }
             }
         }
     }
