@@ -2,24 +2,15 @@
 
 ### Running
 
-Download dependencies, set up configuration and run test:
+Simply run command: `sh gradlew :test:functional:runJestPuppeteer`. 
 
-`./gradlew testFunctional -Paem.instance=local-publish`
+Available parameters:
 
-Parameters:
+|Parameter|Description|Default value|Sample value|
+|---|---|---|---|
+|`aem.instance.name`|Name of instance from *gradle.properties*|`local-publish`|`int-publish`|
 
-* `-Paem.instance` - name of instance from `gradle.properties`
-
-Run test from node.js:
-
-`npm test -- --config=/env/local-author.config.js`
-
-### Tasks
-
-* `runJestPuppeteer` - run tests
-* `runLint` - js syntax check
- 
+To check style of tests source code, run command: `sh gradlew :test:functional:runLint`.
 ### Stack
 
 [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/)
-

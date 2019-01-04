@@ -12,7 +12,7 @@ description = "Example - Functional Tests"
 tasks {
 
     named("check") {
-        dependsOn(named("runJestPuppeteer"))
+        dependsOn("runJestPuppeteer")
     }
 
     register<YarnTask>("runJestPuppeteer") {
