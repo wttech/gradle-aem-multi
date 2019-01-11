@@ -1,10 +1,8 @@
 rootProject.name = "example"
 
 include("aem")
-include("aem:app.common")
-include("aem:app.core")
-include("aem:app.config")
-include("aem:app.design")
+include("aem:common")
+include("aem:sites")
 include("aem:content.init")
 include("aem:content.demo")
 include("aem:migration")

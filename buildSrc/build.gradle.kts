@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.cognifide.gradle:aem-plugin:6.0.0-beta4")
+    implementation("com.cognifide.gradle:aem-plugin:6.0.0")
     implementation("com.neva.gradle:fork-plugin:2.0.1")
     implementation("com.moowork.gradle:gradle-node-plugin:1.2.0")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.20-eap-16") // TODO update when released 1.3.20
