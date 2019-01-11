@@ -11,7 +11,7 @@ aem {
         sequence("deploy") {
             dependsOn(
                 ":aem:aemSatisfy",
-                ":aem:full:aemDeploy",
+                ":aem:assembly:full:aemDeploy",
                 ":aem:migration:aemDeploy",
                 ":test:integration:test",
                 ":test:functional:test"

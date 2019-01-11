@@ -7,9 +7,9 @@ include("aem:content.init")
 include("aem:content.demo")
 include("aem:migration")
 
-include("aem:app")
-include("aem:content")
-include("aem:full")
+include("aem:assembly:app")
+include("aem:assembly:content")
+include("aem:assembly:full")
 
 include("test:functional")
 include("test:integration")
