@@ -5,7 +5,7 @@ configure<ForkExtension> {
         define(mapOf(
                 "projectGroup" to { validator { shouldNotContain("projectName") } },
 
-                "aemInstanceType" to { select(listOf("local", "remote"), "remote") },
+                "aemInstanceType" to { select("local", "remote") },
                 "aemInstanceRunModes" to { text("nosamplecontent") },
                 "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
                 "aemInstanceAuthorHttpUrl" to { url("http://localhost:4502") },
