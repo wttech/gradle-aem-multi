@@ -1,6 +1,17 @@
 import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
+    properties {
+        define(mapOf(
+                "projectGroup" to { validator { shouldNotContain("projectName") } },
+
+                "aemInstanceType" to { select(listOf("local", "remote"), "remote") },
+                "aemInstanceRunModes" to { text("nosamplecontent") },
+                "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
+                "aemInstanceAuthorHttpUrl" to { url("http://localhost:4502") },
+                "aemInstancePublishHttpUrl" to { url("http://localhost:4503") }
+        ))
+    }
     config {
         cloneFiles()
         moveFiles(mapOf(
