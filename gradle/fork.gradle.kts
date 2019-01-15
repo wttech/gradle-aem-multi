@@ -3,15 +3,18 @@ import com.neva.gradle.fork.ForkExtension
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "projectName" to { description = "Artifact 'name' coordinate (lowercase)" },
+                "projectName" to {
+                    description = "Artifact 'name' coordinate (lowercase)"
+                    validator { lowercased(); alphanumeric() }
+                },
                 "projectLabel" to { description = "Nice project name (human-readable)" },
                 "projectGroup" to {
-                    validator { javaPackage(); notContains("projectName") }
                     description = "Java package in source code and artifact 'group' coordinate"
+                    validator { javaPackage(); notContains("projectName") }
                 },
                 "aemInstanceType" to {
                     select("local", "remote")
-                    description = "Local - instance will be created on local file system.\nRemote - connecting to remote instance only."
+                    description = "local - instance will be created on local file system.\nremote - connecting to remote instance only."
                 },
                 "aemInstanceRunModes" to { text("nosamplecontent") },
                 "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
