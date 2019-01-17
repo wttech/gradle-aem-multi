@@ -6,8 +6,11 @@ plugins {
 
 description = "Example - AEM Application Migration"
 
-tasks {
-    named<Compose>(Compose.NAME).configure {
-        vaultProperty("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
+aem {
+    tasks {
+        compose {
+            vaultProperty("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
+        }
     }
+
 }
