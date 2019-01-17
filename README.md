@@ -121,14 +121,12 @@ Project is divided into subpackages (designed with reinstallabilty on production
     * Full assembly, migration and all tests
         * `gradlew` <=> `:deploy`
     * Only assembly packages:
-        * `gradlew :aem:full:aemDeploy`
-        * `gradlew :aem:app:aemDeploy`
-        * `gradlew :aem:content:aemDeploy`
+        * `gradlew :aem:assembly:full:aemDeploy`
+        * `gradlew :aem:assembly:app:aemDeploy`
+        * `gradlew :aem:assembly:content:aemDeploy`
     * Only single package:
-        * `gradlew :aem:app.core:aemDeploy`,
-        * `gradlew :aem:app.common:aemDeploy`,
-        * `gradlew :aem:app.config:aemDeploy`,
-        * `gradlew :aem:app.design:aemDeploy`,
+        * `gradlew :aem:sites:aemDeploy`,
+        * `gradlew :aem:common:aemDeploy`,
         * `gradlew :aem:migration:aemDeploy`,
         * `gradlew :aem:content.init:aemDeploy`,
         * `gradlew :aem:content.demo:aemDeploy`.

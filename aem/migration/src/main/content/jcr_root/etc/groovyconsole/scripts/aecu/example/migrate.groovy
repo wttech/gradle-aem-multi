@@ -4,9 +4,9 @@
 
 // =====[ Configuration ]=====
 
-DRY_RUN = false
+DRY_RUN = true // TODO 'false' (to automatically apply changes)
 CONTENT_PATHS = ["/content/example", "/content/example-demo"]
-MIGRATED_DATE = new Date()
+MIGRATED_DATE = Calendar.getInstance()
 
 // =====[ Definition ]=====
 

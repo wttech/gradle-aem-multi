@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <en-us/>
     <jcr:content
-        cq:designPath="/etc/designs/example"
+        cq:designPath="/etc/designs/example/sites"
         jcr:primaryType="cq:PageContent"
         jcr:title="Example Demo"
         sling:redirect="{Boolean}true"
