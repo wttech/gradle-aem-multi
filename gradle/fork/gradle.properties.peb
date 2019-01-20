@@ -1,14 +1,17 @@
 # AEM configuration
 
+{% if aemInstanceAuthorHttpUrl is not empty %}
 aem.instance.local-author.httpUrl={{aemInstanceAuthorHttpUrl}}
 aem.instance.local-author.type={{aemInstanceType}}
 aem.instance.local-author.runModes={{aemInstanceRunModes}}
 aem.instance.local-author.jvmOpts={{aemInstanceJvmOpts}}
-
+{% endif %}
+{% if aemInstancePublishHttpUrl is not empty %}
 aem.instance.local-publish.httpUrl={{aemInstancePublishHttpUrl}}
 aem.instance.local-publish.type={{aemInstanceType}}
 aem.instance.local-publish.runModes={{aemInstanceRunModes}}
 aem.instance.local-publish.jvmOpts={{aemInstanceJvmOpts}}
+{% endif %}
 
 aem.localInstance.jarUrl={{aemLocalInstanceJarUri}}
 aem.localInstance.licenseUrl={{aemLocalInstanceLicenseUri}}
