@@ -28,7 +28,8 @@ configure<ForkExtension> {
                     url("http://localhost:4503")
                     optional()
                     description = "URL for accessing AEM publish instance"
-                }
+                },
+                "aemLocalInstanceZipUri" to { optional() }
         ))
     }
     config {
