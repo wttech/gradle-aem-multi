@@ -25,7 +25,7 @@ configure<ForkExtension> {
                 "aemInstanceType" to {
                     select("local", "remote")
                     description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
-                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstanceJarUri", "aemLocalInstanceLicenseUri", "aemLocalInstanceZipUri") }
+                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
                 },
                 "aemInstanceRunModes" to { text("nosamplecontent") },
                 "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
