@@ -29,9 +29,16 @@ configure<ForkExtension> {
                 },
                 "aemInstanceRunModes" to { text("nosamplecontent") },
                 "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
-                "aemLocalInstanceJarUri" to {},
-                "aemLocalInstanceLicenseUri" to {},
-                "aemLocalInstanceZipUri" to { optional() }
+                "aemLocalInstanceJarUri" to {
+                    description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
+                },
+                "aemLocalInstanceLicenseUri" to {
+                    description = "Quickstart license file (license.properties)"
+                },
+                "aemLocalInstanceZipUri" to {
+                    description = "ZIP file created by Gradle AEM Plugin backup task"
+                    optional()
+                }
         ))
     }
     config {
