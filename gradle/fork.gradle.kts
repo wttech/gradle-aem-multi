@@ -12,13 +12,6 @@ configure<ForkExtension> {
                     description = "Java package in source code and artifact 'group' coordinate"
                     validator { javaPackage(); notEndsWith("projectName") }
                 },
-                "aemInstanceType" to {
-                    select("local", "remote")
-                    description = "local - instance will be created on local file system.\nremote - connecting to remote instance only."
-                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
-                },
-                "aemInstanceRunModes" to { text("nosamplecontent") },
-                "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
                 "aemInstanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
                     optional()
@@ -29,6 +22,15 @@ configure<ForkExtension> {
                     optional()
                     description = "URL for accessing AEM publish instance"
                 },
+                "aemInstanceType" to {
+                    select("local", "remote")
+                    description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
+                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstanceJarUri", "aemLocalInstanceLicenseUri", "aemLocalInstanceZipUri") }
+                },
+                "aemInstanceRunModes" to { text("nosamplecontent") },
+                "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
+                "aemLocalInstanceJarUri" to {},
+                "aemLocalInstanceLicenseUri" to {},
                 "aemLocalInstanceZipUri" to { optional() }
         ))
     }
