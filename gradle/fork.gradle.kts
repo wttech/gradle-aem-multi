@@ -28,7 +28,7 @@ configure<ForkExtension> {
                     controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
                 },
                 "aemInstanceRunModes" to { text("nosamplecontent") },
-                "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
+                "aemInstanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
                 "aemLocalInstanceJarUri" to {
                     description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
                 },
