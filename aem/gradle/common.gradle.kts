@@ -50,7 +50,7 @@ allprojects {
 
             // Extra libraries provided by: task "aemSatisfy", task aemCompose.fromJar, put directly inside dir 'install'.
 
-            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.10")
+            "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20")
             "compileOnly"("org.hashids:hashids:1.0.1")
         }
     }

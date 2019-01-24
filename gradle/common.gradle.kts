@@ -11,7 +11,6 @@ allprojects {
         maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
         maven { url = uri("https://repo1.maven.org/maven2") }
         maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
-        maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
     }
 
     plugins.withId("java") {
