@@ -3,7 +3,6 @@ import com.cognifide.gradle.aem.common.AemExtension
 allprojects {
 
     group = "com.company.example.aem"
-    version = "1.0.0-SNAPSHOT"
 
     plugins.withId("com.cognifide.aem.config") {
 

@@ -27,7 +27,7 @@ configure<ForkExtension> {
                     description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
                     controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
                 },
-                "aemInstanceRunModes" to { text("nosamplecontent") },
+                "aemInstanceRunModes" to { text("local,nosamplecontent") },
                 "aemInstanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
                 "aemLocalInstanceJarUri" to {
                     description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"

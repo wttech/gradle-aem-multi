@@ -6,6 +6,8 @@ import com.moowork.gradle.node.NodeExtension
 
 allprojects {
 
+    version = "1.0.0-SNAPSHOT"
+
     repositories {
         jcenter()
         maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
