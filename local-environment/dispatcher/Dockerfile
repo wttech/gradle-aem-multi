@@ -22,6 +22,7 @@ RUN chown apache:apache /opt/aem/dispatcher/logs
 
 RUN mkdir -p /opt/aem/dispatcher/cache/demo
 RUN mkdir -p /opt/aem/dispatcher/cache/website
+RUN mkdir -p /opt/aem/dispatcher/cache/author
 RUN chown apache:apache /opt/aem/dispatcher/cache
 RUN chown apache:apache /opt/aem/dispatcher/cache/demo
 RUN chown apache:apache /opt/aem/dispatcher/cache/website
