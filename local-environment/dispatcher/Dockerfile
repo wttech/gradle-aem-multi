@@ -15,9 +15,16 @@ RUN ln -s /etc/httpd/modules/dispatcher-apache2.*.so /etc/httpd/modules/mod_disp
 # Copy all config files to the image
 COPY conf /etc/httpd/conf
 
-RUN mkdir -p /opt/communique/dispatcher/cache/website
-RUN mkdir -p /opt/communique/dispatcher/cache/demo
-RUN mkdir -p /opt/communique/dispatcher/cache/author
+RUN chown apache:apache /etc/httpd/conf/dispatcher/invalidation/invalidateHandler.sh
+RUN chmod u+x /etc/httpd/conf/dispatcher/invalidation/invalidateHandler.sh
+RUN mkdir -p /opt/aem/dispatcher/logs
+RUN chown apache:apache /opt/aem/dispatcher/logs
+
+RUN mkdir -p /opt/aem/dispatcher/cache/demo
+RUN mkdir -p /opt/aem/dispatcher/cache/website
+RUN chown apache:apache /opt/aem/dispatcher/cache
+RUN chown apache:apache /opt/aem/dispatcher/cache/demo
+RUN chown apache:apache /opt/aem/dispatcher/cache/website
 
 CMD ["-D", "FOREGROUND"]
 ENTRYPOINT ["/usr/sbin/httpd"]
