@@ -15,5 +15,9 @@ RUN ln -s /etc/httpd/modules/dispatcher-apache2.*.so /etc/httpd/modules/mod_disp
 # Copy all config files to the image
 COPY conf /etc/httpd/conf
 
+RUN mkdir -p /opt/communique/dispatcher/cache/website
+RUN mkdir -p /opt/communique/dispatcher/cache/demo
+RUN mkdir -p /opt/communique/dispatcher/cache/author
+
 CMD ["-D", "FOREGROUND"]
 ENTRYPOINT ["/usr/sbin/httpd"]

@@ -1,0 +1,56 @@
+/author
+{
+  /clientheaders
+    {
+    "*"
+    }
+  /virtualhosts
+    {
+    "author.example.com"
+    }
+  /renders
+    {
+      /rend
+      {
+            /hostname "host.docker.internal"
+            /port "4502"
+            /timeout "10000"
+            /always-resolve "1"
+      }
+    }
+  /filter
+  {
+      # Allow everything
+      /0001 { /type "allow" /glob "*" }
+
+      # Disable consoles
+      /0010 { /type "deny" /glob "* /system/*" }
+      /0011 { /type "deny" /glob "* /crx/*" }
+      /0012 { /type "deny" /glob "* /admin/*" }
+
+      # Consoles exclusions
+      /0020 { /type "allow" /glob "* /system/sling/logout*" }
+      /0021 { /type "allow"  /glob "* /libs/granite/csrf/token.json" }
+  }
+
+  /cache
+  {
+      /docroot "/mnt/var/www/html/author"
+      /statfileslevel "2"
+      /allowAuthorized "0"
+      /serveStaleOnError "1"
+
+      /rules
+      {
+          # Deny by default
+          /0001 { /type "deny" /glob "*" }
+      }
+
+      /invalidate
+      {
+          /0000 { /type "deny" /glob "*" }
+      }
+  }
+
+  /propagateSyndPost "0"
+}

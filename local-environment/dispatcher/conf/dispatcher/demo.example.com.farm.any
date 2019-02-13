@@ -1,0 +1,141 @@
+/demo
+  {
+  /clientheaders
+    {
+    "*"
+    }
+  /virtualhosts
+    {
+    "demo.example.com"
+    }
+  /renders
+    {
+    /rend01
+      {
+      /hostname "host.docker.internal"
+      /port "4503"
+      }
+    }
+  /filter
+    {
+    # Deny everything first and then allow specific entries
+    /0001 { /type "deny" /glob "*" }
+
+    # Open consoles
+  #     /0011 { /type "allow" /url "/admin/*"  }  # allow servlet engine admin
+  #     /0012 { /type "allow" /url "/crx/*"    }  # allow content repository
+  #     /0013 { /type "allow" /url "/system/*" }  # allow OSGi console
+
+    # Allow non-public content directories
+  #     /0021 { /type "allow" /url "/apps/*"   }  # allow apps access
+  #     /0022 { /type "allow" /url "/bin/*"    }
+    /0023 { /type "allow" /url "/content*" }  # disable this rule to allow mapped content only
+
+  #     /0024 { /type "allow" /url "/libs/*"   }
+  #     /0025 { /type "deny"  /url "/libs/shindig/proxy*" } # if you enable /libs close access to proxy
+
+  #     /0026 { /type "allow" /url "/home/*"   }
+  #     /0027 { /type "allow" /url "/tmp/*"    }
+  #     /0028 { /type "allow" /url "/var/*"    }
+
+    # Enable extensions in non-public content directories, using a regular expression
+    /0041
+      {
+      /type "allow"
+      /extension '(clientlibs|css|gif|ico|js|png|swf|jpe?g|woff2?)'
+      }
+
+    # Enable features
+    /0062 { /type "allow" /url "/libs/cq/personalization/*"  }  # enable personalization
+
+    # Deny content grabbing, on all accessible pages, using regular expressions
+    /0081
+      {
+      /type "deny"
+      /selectors '((sys|doc)view|query|[0-9-]+)'
+      /extension '(json|xml)'
+      }
+    # Deny content grabbing for /content
+    /0082
+      {
+      /type "deny"
+      /path "/content"
+      /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy)'
+      /extension '(json|xml|html)'
+      }
+
+    # Uncomment the following to allow one-level json requests
+  #     /0087 { /type "allow" /method "GET" /extension "json" /selectors "1" }
+
+    }
+
+  /cache
+    {
+    # The docroot must be equal to the document root of the webserver. The
+    # dispatcher will store files relative to this directory and subsequent
+    # requests may be "declined" by the dispatcher, allowing the webserver
+    # to deliver them just like static files.
+    /docroot "/opt/communique/dispatcher/cache/example/demo"
+
+    # Only the following requests can lead to cacheable responses:
+    # - HTTP method is GET
+    # - URL has an extension
+    # - Request has no query string
+    # - Request has no "Authorization" header (unless allowAuthorized is 1)
+    /rules
+      {
+      /0000
+        {
+        /glob "*"
+        /type "allow"
+        }
+      }
+
+    # The invalidate section defines the pages that are "invalidated" after
+    # any activation. Please note that the activated page itself and all
+    # related documents are flushed on an modification. For example: if the
+    # page /foo/bar is activated, all /foo/bar.* files are removed from the
+    # cache.
+    /invalidate
+      {
+      /0000
+        {
+        /glob "*"
+        /type "deny"
+        }
+      /0001
+        {
+        # Consider all HTML files stale after an activation.
+        /glob "*.html"
+        /type "allow"
+        }
+      /0002
+        {
+        /glob "/etc/segmentation.segment.js"
+        /type "allow"
+        }
+      /0003
+        {
+        /glob "*/analytics.sitecatalyst.js"
+        /type "allow"
+        }
+      }
+    }
+
+  # The statistics sections dictates how the load should be balanced among the
+  # renders according to the media-type.
+  /statistics
+    {
+    /categories
+      {
+      /html
+        {
+        /glob "*.html"
+        }
+      /others
+        {
+        /glob "*"
+        }
+      }
+    }
+}
