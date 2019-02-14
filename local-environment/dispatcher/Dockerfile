@@ -1,4 +1,9 @@
+# This image is based on offical Adobe documentation:
+# https://docs.adobe.com/content/help/en/experience-manager-dispatcher/using/dispatcher.html
+
 FROM centos:7
+
+LABEL maintainer="mierzwid"
 
 # Install HTTPD and enable it
 RUN yum -y install httpd mod_ssl mod_so mod_security openssl; yum clean all; systemctl enable httpd.service

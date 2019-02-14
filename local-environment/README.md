@@ -57,7 +57,7 @@ docker {
 You can also check docker services status using `docker service ls`:
 ```
 ID                  NAME                   MODE                REPLICAS            IMAGE                       PORTS
-ukdohhbfvxm8        poc-stack_dispatcher   replicated          1/1                 mierzwid/dispatcher:0.0.1   *:80->80/tcp
+ukdohhbfvxm8        local-setup_dispatcher   replicated          1/1                 mierzwid/dispatcher:0.0.1   *:80->80/tcp
 ```
 
 ## Updating httpd/dispatcher configuration
