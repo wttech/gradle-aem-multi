@@ -3,6 +3,8 @@
 
 This setup consists of a dispatcher connected by default with AEM publish and AEM author deployed via [gradle-aem-plugin](https://github.com/Cognifide/gradle-aem-plugin). Dispatcher runs on docker and its image is build based on [dispatcher/Dockerfile](dispatcher/Dockerfile).
 
+AEM author and publish instances need to be up.
+
 ## Environment in details
 1. AEM author at [http://localhost:4502](http://localhost:4502)
 2. AEM publish at [http://localhost:4503](http://localhost:4503)
@@ -12,7 +14,7 @@ This setup consists of a dispatcher connected by default with AEM publish and AE
   * http://author.example.com -> which is proxy to the author instance
 
 ## Configuration
-Most of the configuration steps are automated. However, there are three manual steps:
+Most of the configuration steps are automated. However, there are three manual steps to make this setup fully operating:
 
 1. [Install docker](https://docs.docker.com/install/)
 2. Extend your `/etc/hosts` (`c:\Windows\System32\Drivers\etc\hosts` for Windows 10) with entries: 
@@ -21,17 +23,42 @@ Most of the configuration steps are automated. However, there are three manual s
     127.0.0.1       demo.example.com
     127.0.0.1	author.example.com
     ```
-3. Setup dispatcher flush on author
-    * go to [/etc/replication/agents.author/flush.html](http://localhost:4502/etc/replication/agents.author/flush.html)
+3. Setup dispatcher flush on author for cache invalidation (make sure your author and publish instances are up)
+    * go to [http://localhost:4502/etc/replication/agents.author/flush.html](http://localhost:4502/etc/replication/agents.author/flush.html)
     * Edit
-    * Check `Enabled`
-    * Go to `Transport` tab, set `URI` to http://example.com/dispatcher/invalidate.cache
+    * check `Enabled`
+    * go to `Transport` tab, set `URI` to http://example.com/dispatcher/invalidate.cache
     
 ## Starting
 
-Run: `gradlew aemEnvUp`
+Run `gradlew aemEnvSetup` to start both dispatcher and AEM instances and deploy the app.
 
-It takes few seconds to start, you can check status via: `docker service ls`
+Run `gradlew aemEnvUp` to start dispatcher when AEM instances are up and application is deployed.
+
+In case of the dispatcher it takes few seconds to start. Service heath check is described in [../aem/build.gradle.kts](../aem/build.gradle.kts). By default it will wait for all three domains to be available:
+
+```kotlin
+docker {
+    healthCheck("http://example.com/en-us.html") {
+        status = 200
+        text = "English"
+    }
+    healthCheck("http://demo.example.com/en-us.html") {
+        status = 200
+        text = "English"
+    }
+    healthCheck("http://author.example.com/libs/granite/core/content/login.html?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown") {
+        status = 200
+        text = "AEM Sign In"
+    }
+}
+```
+
+You can also check docker services status using `docker service ls`:
+```
+ID                  NAME                   MODE                REPLICAS            IMAGE                       PORTS
+ukdohhbfvxm8        poc-stack_dispatcher   replicated          1/1                 mierzwid/dispatcher:0.0.1   *:80->80/tcp
+```
 
 ## Updating httpd/dispatcher configuration
 

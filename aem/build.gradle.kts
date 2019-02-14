@@ -3,6 +3,20 @@ plugins {
 }
 
 aem {
+    docker {
+        healthCheck("http://example.com/en-us.html") {
+            status = 200
+            text = "English"
+        }
+        healthCheck("http://demo.example.com/en-us.html") {
+            status = 200
+            text = "English"
+        }
+        healthCheck("http://author.example.com/libs/granite/core/content/login.html?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown") {
+            status = 200
+            text = "AEM Sign In"
+        }
+    }
     tasks {
         setup {
             dependsOn(":deploy")
