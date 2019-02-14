@@ -1,5 +1,5 @@
 plugins {
-    id("com.cognifide.aem.instance")
+    id("com.cognifide.aem.environment")
 }
 
 aem {

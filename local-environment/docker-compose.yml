@@ -1,13 +1,13 @@
 version: "3"
 services:
   dispatcher:
-    image: dispatcher:0.0.9
+    image: mierzwid/dispatcher:0.0.1
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
     ports:
-    - "40080:80"
+    - "80:80"
     networks:
     - docker-net
   solr:
