@@ -38,18 +38,20 @@ Run `gradlew aemEnvUp` to start dispatcher when AEM instances are up and applica
 In case of the dispatcher it takes few seconds to start. Service heath check is described in [../aem/build.gradle.kts](../aem/build.gradle.kts). By default it will wait for all three domains to be available:
 
 ```kotlin
-docker {
-    healthCheck("http://example.com/en-us.html") {
-        status = 200
-        text = "English"
-    }
-    healthCheck("http://demo.example.com/en-us.html") {
-        status = 200
-        text = "English"
-    }
-    healthCheck("http://author.example.com/libs/granite/core/content/login.html?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown") {
-        status = 200
-        text = "AEM Sign In"
+environment {
+    healthChecks {
+        "http://example.com/en-us.html" respondsWith {
+            status = 200
+            text = "English"
+        }
+        "http://demo.example.com/en-us.html" respondsWith {
+            status = 200
+            text = "English"
+        }
+        "http://author.example.com/libs/granite/core/content/login.html?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown" respondsWith {
+            status = 200
+            text = "AEM Sign In"
+        }
     }
 }
 ```

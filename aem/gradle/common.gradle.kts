@@ -10,9 +10,21 @@ allprojects {
             config {
                 // amend if needed
             }
-            docker {
-                stackName = "poc-stack"
-                composeFilePath = "local-environment/docker-compose.yml" // that's default value
+            environment {
+                healthChecks {
+                    "http://example.com/en-us.html" respondsWith {
+                        status = 200
+                        text = "English"
+                    }
+                    "http://demo.example.com/en-us.html" respondsWith {
+                        status = 200
+                        text = "English"
+                    }
+                    "http://author.example.com/libs/granite/core/content/login.html?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown" respondsWith {
+                        status = 200
+                        text = "AEM Sign In"
+                    }
+                }
             }
         }
     }
