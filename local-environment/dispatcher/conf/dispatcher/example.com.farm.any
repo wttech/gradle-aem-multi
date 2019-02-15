@@ -18,75 +18,17 @@
     }
   /filter
     {
-    /0001 { /type "deny" /glob "*" }
-    /0023 { /type "allow" /url "/content*" }  # disable this rule to allow mapped content only
-    /0041
-      {
-      /type "allow"
-      /extension '(clientlibs|css|gif|ico|js|png|swf|jpe?g|woff2?)'
-      }
-    /0062 { /type "allow" /url "/libs/cq/personalization/*"  }  # enable personalization
-    /0081
-      {
-      /type "deny"
-      /selectors '((sys|doc)view|query|[0-9-]+)'
-      /extension '(json|xml)'
-      }
-    /0082
-      {
-      /type "deny"
-      /path "/content"
-      /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy)'
-      /extension '(json|xml|html)'
-      }
+    /0001 { /type "allow" /glob "*" } # URL mapping done on AEM: https://docs.adobe.com/content/help/en/experience-manager-dispatcher/using/configuring/dispatcher-domains.html#aem-rewrites-incoming-urls
     }
   /cache
     {
-    /docroot "/opt/aem/dispatcher/cache/website"
+    /docroot "/opt/aem/dispatcher/cache/content/website"
     /rules
       {
       /0000
         {
         /glob "*"
         /type "allow"
-        }
-      }
-    /invalidate
-      {
-      /0000
-        {
-        /glob "*"
-        /type "deny"
-        }
-      /0001
-        {
-        /glob "*.html"
-        /type "allow"
-        }
-      /0002
-        {
-        /glob "/etc/segmentation.segment.js"
-        /type "allow"
-        }
-      /0003
-        {
-        /glob "*/analytics.sitecatalyst.js"
-        /type "allow"
-        }
-      }
-      /invalidateHandler "/etc/httpd/conf/dispatcher/invalidation/invalidateHandler.sh"
-    }
-  /statistics
-    {
-    /categories
-      {
-      /html
-        {
-        /glob "*.html"
-        }
-      /others
-        {
-        /glob "*"
         }
       }
     }

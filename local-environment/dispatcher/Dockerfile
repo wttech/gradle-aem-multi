@@ -25,12 +25,13 @@ RUN chmod u+x /etc/httpd/conf/dispatcher/invalidation/invalidateHandler.sh
 RUN mkdir -p /opt/aem/dispatcher/logs
 RUN chown apache:apache /opt/aem/dispatcher/logs
 
-RUN mkdir -p /opt/aem/dispatcher/cache/demo
-RUN mkdir -p /opt/aem/dispatcher/cache/website
-RUN mkdir -p /opt/aem/dispatcher/cache/author
+RUN mkdir -p /opt/aem/dispatcher/cache/content/demo
+RUN mkdir -p /opt/aem/dispatcher/cache/content/website
+RUN mkdir -p /opt/aem/dispatcher/cache/content/author
 RUN chown apache:apache /opt/aem/dispatcher/cache
-RUN chown apache:apache /opt/aem/dispatcher/cache/demo
-RUN chown apache:apache /opt/aem/dispatcher/cache/website
+RUN chown apache:apache /opt/aem/dispatcher/cache/content/demo
+RUN chown apache:apache /opt/aem/dispatcher/cache/content/website
 
+#CMD ["sleep", "5000"]
 CMD ["-D", "FOREGROUND"]
 ENTRYPOINT ["/usr/sbin/httpd"]
