@@ -6,7 +6,7 @@
     }
   /virtualhosts
     {
-    "invalidation_only"
+    "invalidation-only"
     }
   /renders
     {

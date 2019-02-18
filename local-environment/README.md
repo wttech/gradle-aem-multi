@@ -19,6 +19,7 @@ Most of the configuration steps are automated. However, there are three manual s
 1. [Install docker](https://docs.docker.com/install/)
 2. Extend your `/etc/hosts` (`c:\Windows\System32\Drivers\etc\hosts` for Windows 10) with entries: 
     ```bash
+    127.0.0.1       invalidation-only
     127.0.0.1       example.com
     127.0.0.1       demo.example.com
     127.0.0.1	author.example.com
