@@ -1,4 +1,4 @@
-# AEM Content Demonstrative Module
+# AEM Demonstrative Site
 
 ## Description
 
