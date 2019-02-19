@@ -24,7 +24,7 @@
   /cache
     {
     /docroot "/opt/aem/dispatcher/cache"
-    /statfileslevel "2"
+    /statfileslevel "4"
     /invalidate
       {
       /0000
@@ -48,20 +48,6 @@
         /type "allow"
         }
       }
-      /invalidateHandler "/etc/httpd/conf/dispatcher/invalidation/invalidateHandler.sh"
-    }
-  /statistics
-    {
-    /categories
-      {
-      /html
-        {
-        /glob "*.html"
-        }
-      /others
-        {
-        /glob "*"
-        }
-      }
+    /invalidateHandler "/etc/httpd/conf/dispatcher/invalidation/invalidateHandler.sh"
     }
 }

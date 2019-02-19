@@ -22,7 +22,8 @@
     }
   /cache
     {
-    /docroot "/opt/aem/dispatcher/cache/content/demo"
+    /docroot "/opt/aem/dispatcher/cache/content/example/demo"
+    /statfileslevel "1"
     /rules
       {
       /0000
@@ -31,5 +32,28 @@
         /type "allow"
         }
       }
+      /invalidate
+        {
+        /0000
+          {
+          /glob "*"
+          /type "deny"
+          }
+        /0001
+          {
+          /glob "*.html"
+          /type "allow"
+          }
+        /0002
+          {
+          /glob "/etc/segmentation.segment.js"
+          /type "allow"
+          }
+        /0003
+          {
+          /glob "*/analytics.sitecatalyst.js"
+          /type "allow"
+          }
+        }
     }
 }
