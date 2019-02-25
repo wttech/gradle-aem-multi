@@ -17,18 +17,12 @@ AEM author and publish instances need to be up.
 Most of the configuration steps are automated. However, there are three manual steps to make this setup fully operating:
 
 1. [Install docker](https://docs.docker.com/install/)
-2. Extend your `/etc/hosts` (`c:\Windows\System32\Drivers\etc\hosts` for Windows 10) with entries: 
-    ```bash
-    127.0.0.1       invalidation-only
-    127.0.0.1       example.com
-    127.0.0.1       demo.example.com
-    127.0.0.1	author.example.com
-    ```
-3. Setup dispatcher flush on author for cache invalidation (make sure your author and publish instances are up)
-    * go to [http://localhost:4502/etc/replication/agents.author/flush.html](http://localhost:4502/etc/replication/agents.author/flush.html)
-    * Edit
-    * check `Enabled`
-    * go to `Transport` tab, set `URI` to http://example.com/dispatcher/invalidate.cache
+2. Setup hosts on your local machine (admin rights are required to access `/etc/hosts` or `C:\Windows\System32\drivers\etc\hosts` file): 
+    * Windows: 
+        * Start PowerShell with "Run asadministrator"
+        * Execute: `.\gradlew.bat aemEnvHosts --no-daemon`
+    * Unix: 
+        * Execute: `sudo ./gradlew aemEnvHosts --no-daemon`
     
 ## Starting
 
