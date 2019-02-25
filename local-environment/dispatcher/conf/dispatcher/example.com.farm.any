@@ -22,7 +22,7 @@
     }
   /cache
     {
-    /docroot "/opt/aem/dispatcher/cache/content/example/website"
+    /docroot "/opt/aem/dispatcher/cache/content/example/live"
     /statfileslevel "1"
     /rules
       {

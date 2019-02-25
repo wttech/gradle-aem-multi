@@ -23,7 +23,7 @@ RUN chown apache:apache /opt/aem/dispatcher/logs
 
 # Cache directories
 RUN mkdir -p /opt/aem/dispatcher/cache/content/example/demo
-RUN mkdir -p /opt/aem/dispatcher/cache/content/example/website
+RUN mkdir -p /opt/aem/dispatcher/cache/content/example/live
 RUN chown -R apache:apache /opt/aem/dispatcher/cache
 
 RUN yum install -y tree

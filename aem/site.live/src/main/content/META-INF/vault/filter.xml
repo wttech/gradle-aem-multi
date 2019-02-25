@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/content/example/website" mode="update"/>
+    <filter root="/content/example/live" mode="update"/>
     <filter root="/etc/map.publish/http/example.com"/>
 </workspaceFilter>

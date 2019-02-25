@@ -9,7 +9,7 @@ AEM author and publish instances need to be up.
 1. AEM author at [http://localhost:4502](http://localhost:4502)
 2. AEM publish at [http://localhost:4503](http://localhost:4503)
 3. Dispatcher available under three different domains:
-  * http://example.com -> which maps to `/content/example/website` content root on publish
+  * http://example.com -> which maps to `/content/example/live` content root on publish
   * http://demo.example.com -> which maps to `/content/example/demo` content root on publish
   * http://author.example.com -> which is proxy to the author instance
 

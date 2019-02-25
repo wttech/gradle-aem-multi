@@ -12,7 +12,7 @@ aem {
             fromProject(":aem:sites")
 
             fromProject(":aem:site.demo")
-            fromProject(":aem:site.init")
+            fromProject(":aem:site.live")
         }
     }
 }

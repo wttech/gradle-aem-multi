@@ -128,7 +128,7 @@ Project is divided into subpackages (designed with reinstallabilty on production
         * `gradlew :aem:sites:aemDeploy`,
         * `gradlew :aem:common:aemDeploy`,
         * `gradlew :aem:migration:aemDeploy`,
-        * `gradlew :aem:site.init:aemDeploy`,
+        * `gradlew :aem:site.live:aemDeploy`,
         * `gradlew :aem:site.demo:aemDeploy`.
 
 ## Tips & tricks

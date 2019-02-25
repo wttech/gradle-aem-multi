@@ -8,7 +8,7 @@ aem {
     tasks {
         compose {
             fromProject(":aem:site.demo")
-            fromProject(":aem:site.init")
+            fromProject(":aem:site.live")
         }
     }
 }
