@@ -10,15 +10,5 @@ services:
     - "80:80"
     networks:
     - docker-net
-  solr:
-    image: solr:7.6.0
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    ports:
-    - "48983:8983"
-    networks:
-    - docker-net
 networks:
   docker-net:
