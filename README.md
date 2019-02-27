@@ -51,7 +51,7 @@ Documentation for:
 
     and specify properties:
 
-    ![Fork Props Dialog](docs/fork-props-dialog.png)
+    ![Fork Props Dialog](docs/fork-default-dialog.png)
     
     and wait until project is forked then enter configured target directory.
 
@@ -63,7 +63,7 @@ Documentation for:
     
     and specify properties:
 
-    ![Fork Props Dialog](docs/setup-props-dialog.png)
+    ![Fork Props Dialog](docs/fork-props-dialog.png)
 
 3. Setup local AEM instances and dependencies then build application using command:
 

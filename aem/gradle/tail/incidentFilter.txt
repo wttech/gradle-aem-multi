@@ -1,0 +1,2 @@
+# Put here fragment of first line of exception from log to treat incident as known issue (no longer see notification, wildcards supported)
+org.apache.jackrabbit.oak.jcr.session.RefreshStrategy This session has been idle for * minutes
