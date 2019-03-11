@@ -9,7 +9,9 @@ description = "Example - AEM Application Migration"
 aem {
     tasks {
         compose {
-            vaultProperty("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
+            vaultDefinition {
+                property("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
+            }
         }
     }
 

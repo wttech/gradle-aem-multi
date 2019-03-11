@@ -1,5 +1,3 @@
-import com.cognifide.gradle.aem.common.ProgressLogger
-
 plugins {
     id("com.cognifide.aem.instance")
 }
