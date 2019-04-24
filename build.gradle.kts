@@ -4,7 +4,7 @@ plugins {
 }
 
 description = "Example"
-defaultTasks = listOf("deploy")
+defaultTasks("deploy")
 
 aem {
     tasks {
