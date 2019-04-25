@@ -7,8 +7,8 @@ description = "Example - AEM Content"
 aem {
     tasks {
         compose {
-            fromProject(":aem:content.demo")
-            fromProject(":aem:content.init")
+            fromProject(":aem:site.demo")
+            fromProject(":aem:site.live")
         }
     }
 }
