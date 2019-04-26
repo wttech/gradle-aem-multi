@@ -68,7 +68,7 @@ Documentation for:
 3. Setup local AEM instances and dependencies then build application using command:
 
     ```bash
-    gradlew -i aemSetup
+    gradlew aemSetup
     ```
     
     and wait till complete AEM environment will be ready to use.
@@ -76,16 +76,17 @@ Documentation for:
 4. Develop continuously application using command:
 
     ```bash
-    gradlew -i
+    gradlew
     ```
 
-## Environment
+## Prerequisites
 
 Tested on:
 
 * Java 1.8
-* Gradle 5.0
+* Gradle 5.4
 * Adobe AEM 6.4
+* Docker 
 
 ## Structure
 
@@ -110,6 +111,22 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * Integrated popular AEM testing toolkit: [wcm.io Testing](http://wcm.io/testing).
 * Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
 * Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
+
+## Environment
+
+Project is configured to have local environment which consists of:
+
+* native AEM instances running on local file system, 
+* virtualized Apache HTTP Server with AEM Dispatcher module running on Docker ([official httpd image](https://hub.docker.com/_/httpd)).
+
+Assumptions:
+
+* AEM author available at [http://localhost:4502](http://localhost:4502)
+* AEM publish available at [http://localhost:4503](http://localhost:4503)
+* Apache web server with Virtual hosts configured for domains:
+  * http://example.com -> which maps to `/content/example/live` content root on publish
+  * http://demo.example.com -> which maps to `/content/example/demo` content root on publish
+  * http://author.example.com -> which is proxy to the author instance
 
 ## Building
 

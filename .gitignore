@@ -1,7 +1,6 @@
 ### Project specific
 .aem/
 .idea/
-.aem/
 *.iml
 *.ipr
 classes/
