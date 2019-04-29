@@ -44,9 +44,10 @@ allprojects {
             "compileOnly"("joda-time:joda-time:2.9.1")
             "compileOnly"("org.jetbrains:annotations:13.0")
 
-            "compileOnly"("com.adobe.aem:uber-jar:6.4.0:obfuscated-apis")
+            "compileOnly"("com.adobe.aem:uber-jar:6.5.0:apis")
 
-            // Extra libraries provided by: task "instanceSatisfy", task packageCompose.fromJar, put directly inside dir 'install'.
+            // Extra libraries provided by: task "instanceSatisfy", task packageCompose.fromJar
+            // or put directly inside dir 'install'.
 
             "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20")
             "compileOnly"("org.hashids:hashids:1.0.1")
