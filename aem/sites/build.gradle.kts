@@ -22,7 +22,7 @@ aem {
             outputs.dir("$dir/dist")
         }
 
-        compose {
+        packageCompose {
             dependsOn(named("webpackPublish"))
         }
     }

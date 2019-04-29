@@ -109,8 +109,8 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * Integrated popular UI build toolkit: [NodeJS](https://nodejs.org/en/), [Yarn](https://yarnpkg.com) and [Webpack](https://webpack.github.io/) for advanced assets bundling (modular JS, ECMAScript6 transpilation, SCSS compilation with [PostCSS](http://postcss.org), code style checks etc).
 * Integrated SCSS compilation on AEM side using [AEM Sass Compiler](https://github.com/mickleroy/aem-sass-compiler).
 * Integrated popular AEM testing toolkit: [wcm.io Testing](http://wcm.io/testing).
-* Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
-* Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
+* Example configuration for [embedding OSGi bundles into CRX package](aem/common/build.gradle.kts#L11).
+* Example configuration for installing dependant CRX packages on AEM before application deployment (`instanceSatisfy`).
 
 ## Environment
 
