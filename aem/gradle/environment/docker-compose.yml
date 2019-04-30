@@ -12,7 +12,7 @@ services:
     networks:
       - docker-net
     volumes:
-      - "./distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      - "./files/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
       - "./cache:/opt/aem/dispatcher/cache"
       - "./logs:/usr/local/apache2/logs"
       - "../../gradle/environment/httpd/conf:/usr/local/apache2/conf"
