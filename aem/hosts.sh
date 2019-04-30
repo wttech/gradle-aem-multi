@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo gradlew aemEnvHosts --no-daemon
+sudo gradlew environmentHosts --no-daemon
