@@ -42,7 +42,7 @@ allprojects {
     plugins.withId("org.jetbrains.kotlin.jvm") {
         tasks.withType<KotlinCompile>().configureEach {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "11"
             }
         }
     }
