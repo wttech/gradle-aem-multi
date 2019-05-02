@@ -10,9 +10,9 @@ aem {
     tasks {
         sequence("deploy") {
             dependsOn(
-                ":aem:aemSatisfy",
-                ":aem:assembly:full:aemDeploy",
-                ":aem:migration:aemDeploy",
+                ":aem:instanceSatisfy",
+                ":aem:assembly:full:packageDeploy",
+                ":aem:migration:packageDeploy",
                 ":test:integration:test",
                 ":test:functional:test"
             )

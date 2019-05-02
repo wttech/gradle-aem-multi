@@ -1,26 +1,26 @@
 # AEM configuration
 
+notificationEnabled=true
+
 {% if aemInstanceAuthorHttpUrl is not empty %}
-aem.instance.local-author.httpUrl={{aemInstanceAuthorHttpUrl}}
-aem.instance.local-author.type={{aemInstanceType}}
-aem.instance.local-author.runModes={{aemInstanceRunModes}}
-aem.instance.local-author.jvmOpts={{aemInstanceJvmOpts}}
+instance.local-author.httpUrl={{aemInstanceAuthorHttpUrl}}
+instance.local-author.type={{aemInstanceType}}
+instance.local-author.runModes={{aemInstanceRunModes}}
+instance.local-author.jvmOpts={{aemInstanceJvmOpts}}
 {% endif %}
 
 {% if aemInstancePublishHttpUrl is not empty %}
-aem.instance.local-publish.httpUrl={{aemInstancePublishHttpUrl}}
-aem.instance.local-publish.type={{aemInstanceType}}
-aem.instance.local-publish.runModes={{aemInstanceRunModes}}
-aem.instance.local-publish.jvmOpts={{aemInstanceJvmOpts}}
+instance.local-publish.httpUrl={{aemInstancePublishHttpUrl}}
+instance.local-publish.type={{aemInstanceType}}
+instance.local-publish.runModes={{aemInstanceRunModes}}
+instance.local-publish.jvmOpts={{aemInstanceJvmOpts}}
 {% endif %}
 
 {% if aemInstanceType == 'local' %}
-aem.localInstance.zipUrl={{aemLocalInstanceZipUri}}
-aem.localInstance.jarUrl={{aemLocalInstanceJarUri}}
-aem.localInstance.licenseUrl={{aemLocalInstanceLicenseUri}}
+localInstance.zipUrl={{aemLocalInstanceZipUri}}
+localInstance.jarUrl={{aemLocalInstanceJarUri}}
+localInstance.licenseUrl={{aemLocalInstanceLicenseUri}}
 {% endif %}
-
-aem.notificationEnabled=true
 
 # Performance tuning
 org.gradle.daemon=true

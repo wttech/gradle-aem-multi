@@ -1,4 +1,3 @@
-
 plugins {
     id("com.cognifide.aem.package")
 }
@@ -7,7 +6,7 @@ description = "Example - AEM Full"
 
 aem {
     tasks {
-        compose {
+        packageCompose {
             fromProject(":aem:common")
             fromProject(":aem:sites")
 

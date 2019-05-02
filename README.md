@@ -68,7 +68,8 @@ Documentation for:
 3. Setup local AEM instances and dependencies then build application using command:
 
     ```bash
-    gradlew -i aemSetup
+    aem/hosts
+    gradlew setup
     ```
     
     and wait till complete AEM environment will be ready to use.
@@ -76,30 +77,30 @@ Documentation for:
 4. Develop continuously application using command:
 
     ```bash
-    gradlew -i
+    gradlew
     ```
 
-## Environment
+## Prerequisites
 
 Tested on:
 
 * Java 1.8
-* Gradle 5.0
+* Gradle 5.4
 * Adobe AEM 6.4
+* Docker 2.0.0.3 (optional)
 
 ## Structure
 
 Project is divided into subpackages (designed with reinstallabilty on production environments in mind):
 
-* *aem/full* - non-reinstallable complete all-in-one package with application and contents.
-* *aem/app* - reinstallable assembly package that contains all sub-parts of application:
-    * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs, form controls etc).
-    * *core* - OSGi bundle with core business logic and AEM components implementation.
-    * *config* - OSGi services configuration.
-    * *design* - AEM design configuration responsible for look & feel of AEM pages.
-* *aem/content* - non-reinstallable assembly package that contains all type of contents listed below:
-    * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
-    * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
+* *aem/assembly/full* - non-reinstallable complete all-in-one package with application and contents (combination of subpackages: all). Useful to deploy all code by installing single package in a project stage when application is not live.
+* *aem/assembly/app* - reinstallable assembly package that contains only application code, not content (combination of subpackages: *common*, *sites*). Useful to deploy application code only in a project stage when application is live and content should remain untouched on production server.
+* *aem/assembly/content* - non-reinstallable assembly package that contains content only (combination of subpackages: *site.live* and *site.demo*).
+
+* *aem/common* - OSGi bundle with integrations of libraries needed by other bundles and global AEM extensions (dialogs, form controls etc). Only code unrelated to any site / AEM platform wide.
+* *aem/sites* - AEM sites module extension consisting of site specific code like: OSGi bundle with business logic, AEM components, templates, design.
+* *aem/site.demo* - consists of extra AEM pages that presents features of application (useful for testing). Helps application testers and developers in QA/UAT application feature tests.
+* *aem/site.live* - contains minimal set of pages needed initially to rollout new site(s) using installed application. Helps content authors to start working with application.
 
 ## Features
 
@@ -108,8 +109,24 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * Integrated popular UI build toolkit: [NodeJS](https://nodejs.org/en/), [Yarn](https://yarnpkg.com) and [Webpack](https://webpack.github.io/) for advanced assets bundling (modular JS, ECMAScript6 transpilation, SCSS compilation with [PostCSS](http://postcss.org), code style checks etc).
 * Integrated SCSS compilation on AEM side using [AEM Sass Compiler](https://github.com/mickleroy/aem-sass-compiler).
 * Integrated popular AEM testing toolkit: [wcm.io Testing](http://wcm.io/testing).
-* Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
-* Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
+* Example configuration for [embedding OSGi bundles into CRX package](aem/common/build.gradle.kts) (`embedPackage`).
+* Example configuration for [installing dependant CRX packages on AEM](aem/gradle/environment.gradle.kts) before application deployment (`instanceSatisfy`).
+
+## Environment
+
+Project is configured to have local environment which consists of:
+
+* native AEM instances running on local file system, 
+* virtualized Apache HTTP Server with AEM Dispatcher module running on Docker ([official httpd image](https://hub.docker.com/_/httpd)).
+
+Assumptions:
+
+* AEM author available at [http://localhost:4502](http://localhost:4502)
+* AEM publish available at [http://localhost:4503](http://localhost:4503)
+* Apache web server with Virtual hosts configured for domains:
+  * http://example.com -> which maps to `/content/example/live` content root on publish
+  * http://demo.example.com -> which maps to `/content/example/demo` content root on publish
+  * http://author.example.com -> which is proxy to the author instance
 
 ## Building
 
@@ -121,15 +138,15 @@ Project is divided into subpackages (designed with reinstallabilty on production
     * Full assembly, migration and all tests
         * `gradlew` <=> `:deploy`
     * Only assembly packages:
-        * `gradlew :aem:assembly:full:aemDeploy`
-        * `gradlew :aem:assembly:app:aemDeploy`
-        * `gradlew :aem:assembly:content:aemDeploy`
+        * `gradlew :aem:assembly:full:packageDeploy`
+        * `gradlew :aem:assembly:app:packageDeploy`
+        * `gradlew :aem:assembly:content:packageDeploy`
     * Only single package:
-        * `gradlew :aem:sites:aemDeploy`,
-        * `gradlew :aem:common:aemDeploy`,
-        * `gradlew :aem:migration:aemDeploy`,
-        * `gradlew :aem:site.live:aemDeploy`,
-        * `gradlew :aem:site.demo:aemDeploy`.
+        * `gradlew :aem:sites:packageDeploy`,
+        * `gradlew :aem:common:packageDeploy`,
+        * `gradlew :aem:migration:packageDeploy`,
+        * `gradlew :aem:site.live:packageDeploy`,
+        * `gradlew :aem:site.demo:packageDeploy`.
 
 ## Tips & tricks
 
