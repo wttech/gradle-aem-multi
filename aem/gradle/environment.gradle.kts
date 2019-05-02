@@ -1,33 +1,31 @@
 import com.cognifide.gradle.aem.common.AemExtension
 
 configure<AemExtension> {
-    config {
-        environment {
-            hosts(
-                    "127.0.0.1 example.com",
-                    "127.0.0.1 demo.example.com",
-                    "127.0.0.1 author.example.com",
-                    "127.0.0.1 invalidation-only"
-            )
-            directories(
-                    "logs",
-                    "cache/content/example/live",
-                    "cache/content/example/demo"
-            )
-            healthChecks {
-                "http://example.com/en-us.html" respondsWith {
-                    status = 200
-                    text = "English"
-                }
-                "http://demo.example.com/en-us.html" respondsWith {
-                    status = 200
-                    text = "English"
-                }
-                "http://author.example.com/libs/granite/core/content/login.html" +
-                        "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown" respondsWith {
-                    status = 200
-                    text = "AEM Sign In"
-                }
+    environment {
+        hosts(
+                "127.0.0.1 example.com",
+                "127.0.0.1 demo.example.com",
+                "127.0.0.1 author.example.com",
+                "127.0.0.1 invalidation-only"
+        )
+        directories(
+                "logs",
+                "cache/content/example/live",
+                "cache/content/example/demo"
+        )
+        healthChecks {
+            "http://example.com/en-us.html" respondsWith {
+                status = 200
+                text = "English"
+            }
+            "http://demo.example.com/en-us.html" respondsWith {
+                status = 200
+                text = "English"
+            }
+            "http://author.example.com/libs/granite/core/content/login.html" +
+                    "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown" respondsWith {
+                status = 200
+                text = "AEM Sign In"
             }
         }
     }
