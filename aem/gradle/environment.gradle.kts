@@ -14,16 +14,16 @@ configure<AemExtension> {
                 "cache/content/example/demo"
         )
         healthChecks {
-            "http://example.com/en-us.html" respondsWith {
+            url("http://example.com/en-us.html") {
                 status = 200
                 text = "English"
             }
-            "http://demo.example.com/en-us.html" respondsWith {
+            url("http://demo.example.com/en-us.html") {
                 status = 200
                 text = "English"
             }
-            "http://author.example.com/libs/granite/core/content/login.html" +
-                    "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown" respondsWith {
+            url("http://author.example.com/libs/granite/core/content/login.html" +
+                    "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown") {
                 status = 200
                 text = "AEM Sign In"
             }
