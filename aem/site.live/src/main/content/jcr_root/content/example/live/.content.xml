@@ -9,5 +9,5 @@
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/example/live/en-us"/>
+        cq:redirectTarget="/content/example/live/en-us"/>
 </jcr:root>
