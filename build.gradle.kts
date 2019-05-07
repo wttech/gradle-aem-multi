@@ -12,6 +12,7 @@ aem {
             dependsOn(
                 ":aem:instanceSatisfy",
                 ":aem:assembly:full:packageDeploy",
+                ":aem:environmentClean",
                 ":aem:migration:packageDeploy",
                 ":test:integration:test",
                 ":test:functional:test"

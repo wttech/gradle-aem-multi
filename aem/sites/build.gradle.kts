@@ -16,8 +16,11 @@ aem {
     tasks {
         register<YarnTask>("webpackPublish") {
             dependsOn("yarn")
+            setYarnCommand("buildPublish")
 
-            val dir = "src/main/content/jcr_root/etc/designs/example/sites/publish"
+            val dir = "src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish"
+
+            inputs.file("package.json")
             inputs.dir("$dir/src")
             outputs.dir("$dir/dist")
         }

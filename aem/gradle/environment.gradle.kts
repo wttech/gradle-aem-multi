@@ -38,11 +38,11 @@ configure<AemExtension> {
 
         // here is a desired place for defining custom AEM tasks
 
-        register("instanceConfigure") {
+        register("environmentClean") {
             doLast {
-                aem.sync(aem.publishInstances) {
-                    disableComponent("org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet")
-                }
+                delete(fileTree(aem.environment.rootDir) { 
+                    include("cache/**")
+                })
             }
         }
     }
