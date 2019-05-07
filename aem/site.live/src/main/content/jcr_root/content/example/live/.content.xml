@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <en-us/>
     <jcr:content
-        cq:designPath="/etc/designs/example/sites"
+        cq:designPath="/apps/settings/wcm/designs/example/sites"
         jcr:primaryType="cq:PageContent"
         jcr:title="Live Site"
         sling:redirect="{Boolean}true"

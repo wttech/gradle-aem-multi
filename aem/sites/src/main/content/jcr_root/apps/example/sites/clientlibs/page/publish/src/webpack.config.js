@@ -10,8 +10,6 @@ const entries = [
 ];
 
 const config = {
-  images: path.join(__dirname, 'assets/img'),
-  fonts: path.join(__dirname, 'assets/fonts'),
   js: path.join(__dirname, 'js'),
   sass: path.join(__dirname, 'styles'),
   startPath: '',

@@ -2,10 +2,11 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:designPath="/etc/designs/example/sites"
+        cq:designPath="/apps/settings/wcm/designs/example/sites"
         cq:template="/apps/example/sites/templates/home-page"
         jcr:primaryType="cq:PageContent"
         jcr:title="English US"
+        jcr:description="Home Page of English US market"
         jcr:language="en_US"
         sling:resourceType="example/sites/components/home-page">
         <content

@@ -1,2 +1,2 @@
-#base=dist
-main.css
+libs/bootstrap.min.css
+dist/main.css
