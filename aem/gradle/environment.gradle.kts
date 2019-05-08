@@ -23,7 +23,7 @@ configure<AemExtension> {
 
     tasks {
         instanceSetup {
-            dependsOn(":deploy")
+            dependsOn(":develop")
         }
 
         instanceSatisfy {
