@@ -15,6 +15,7 @@ dependencies {
 aem {
     tasks {
         register<YarnTask>("webpackPublish") {
+            description = "Builds sites publish clientlib using Webpack"
             dependsOn("yarn")
             setYarnCommand("buildPublish")
 

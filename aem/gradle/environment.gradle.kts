@@ -39,6 +39,7 @@ configure<AemExtension> {
         // here is a desired place for defining custom AEM tasks
 
         register("environmentClean") {
+            description = "Cleans AEM dispatcher cache"
             doLast {
                 delete(fileTree(aem.environment.rootDir) { 
                     include("cache/**")
