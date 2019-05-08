@@ -5,7 +5,7 @@
         cq:designPath="/apps/settings/wcm/designs/example/sites"
         cq:template="/apps/example/sites/templates/home-page"
         jcr:primaryType="cq:PageContent"
-        jcr:title="English"
+        jcr:title="English US"
         jcr:description="Home Page of English US market"
         jcr:language="en_US"
         sling:resourceType="example/sites/components/home-page">
