@@ -79,6 +79,12 @@ Documentation for:
     ```bash
     gradlew
     ```
+    
+    or to just deploy AEM application (without running migration scripts and tests):
+    
+    ```bash
+    gradlew :aem:assembly:full:packageDeploy
+    ```
 
 ## Prerequisites
 
