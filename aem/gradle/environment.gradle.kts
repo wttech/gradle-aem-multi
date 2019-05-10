@@ -22,7 +22,7 @@ configure<AemExtension> {
     }
 
     tasks {
-        instanceSetup {
+        registerOrConfigure("setup", "resetup") {
             dependsOn(":develop")
         }
 
