@@ -22,7 +22,7 @@ configure<AemExtension> {
     }
 
     tasks {
-        instanceSetup {
+        registerOrConfigure("setup", "resetup") {
             dependsOn(":develop")
         }
 
@@ -36,15 +36,16 @@ configure<AemExtension> {
             }
         }
 
-        // here is a desired place for defining custom AEM tasks
+        // Here is a desired place for defining custom AEM tasks
+        // https://github.com/Cognifide/gradle-aem-plugin#implement-custom-aem-tasks
 
-        register("environmentClean") {
-            description = "Cleans AEM dispatcher cache"
+        /*
+        register("instanceConfigure") {
+            description = "Configures XXX on AEM instances"
             doLast {
-                delete(fileTree(aem.environment.rootDir) { 
-                    include("cache/**")
-                })
+                // ...
             }
         }
+        */
     }
 }
