@@ -136,13 +136,10 @@ Assumptions:
 
 ## Building
 
-1. Install Gradle
-    * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
-    * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
-2. Run `gradlew idea` or `gradlew eclipse` to generate configuration for your favourite IDE.
-3. Deploy application:
+1. Use command `gradlew` so that Gradle in version according to project will be downloaded automatically.
+2. Deploy application:
     * Full assembly, migration and all tests
-        * `gradlew` <=> `:deploy`
+        * `gradlew` <=> `:develop`
     * Only assembly packages:
         * `gradlew :aem:assembly:full:packageDeploy`
         * `gradlew :aem:assembly:app:packageDeploy`
@@ -154,9 +151,18 @@ Assumptions:
         * `gradlew :aem:site.live:packageDeploy`,
         * `gradlew :aem:site.demo:packageDeploy`.
 
+Build might look complicated, to make a AEM development a breeze it just covers many things to be done within single task execution like `setup` or `develop`.
+Graphical visualisation of task graph:
+
+<br>
+<p align="center">
+  <img src="docs/resetup-graph.png" alt="Resetup task graph"/>
+</p>
+<br>
+
 ## Tips & tricks
 
-* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:app.design:aemSync`.
+* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:site.demo:sync`.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.
