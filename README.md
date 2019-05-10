@@ -151,14 +151,28 @@ Assumptions:
         * `gradlew :aem:site.live:packageDeploy`,
         * `gradlew :aem:site.demo:packageDeploy`.
 
-Build might look complicated, to make a AEM development a breeze it just covers many things to be done within single task execution like `setup` or `develop`.
-Graphical visualisation of task graph:
+Build might look complicated, but to make a AEM development a breeze it just covers many things to be done  within single task execution like `setup` or `develop`.
+Graphical visualisation of task graph for these task:
 
 <br>
 <p align="center">
   <img src="docs/resetup-graph.png" alt="Resetup task graph"/>
 </p>
 <br>
+
+Task `setup` will:
+
+* set up AEM instances (author & publish)
+* set up AEM environment (run HTTPD service on Docker) and install AEM dispatcher module
+* build AEM application (compose assembly CRX package from many)
+* migrate AEM application (for projects already deployed on production to upgrade JCR content in case of changed application behavior)
+* clean AEM environment (restart HTTPD service then clean AEM dispatcher caches)
+* check AEM environment (quickly check responsiveness of deployed application)
+* run integration tests
+* run functional tests
+
+To sum up, all things needed by developer are fully automated in one place / Gradle build. 
+Still all separate concerns like running tests, only building application, only running tests, could be used separately by running particular Gradle tasks.
 
 ## Tips & tricks
 
