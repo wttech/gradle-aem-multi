@@ -1,0 +1,15 @@
+{
+  "configRetrieverOptions": {
+    "scanPeriod": 5000,
+    "stores": [
+      {
+        "type": "file",
+        "format": "conf",
+        "config": {
+          "path": "${KNOTX_HOME}/conf/application.conf"
+        },
+        "optional": false
+      }
+    ]
+  }
+}

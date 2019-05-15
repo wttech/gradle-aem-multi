@@ -1,0 +1,32 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Knot.x Stack OAS
+  description: This is the server API specification.
+
+servers:
+- url: https://{domain}:{port}
+  description: The local API server
+  variables:
+    domain:
+      default: localhost
+      description: api domain
+    port:
+      enum:
+        - '8092'
+        - '443'
+      default: '8092'
+
+paths:
+  /products/*:
+    get:
+      operationId: products-get
+      responses:
+        default:
+          description: Remote repository template processing with http action and te
+  /assets/*:
+    get:
+      operationId: assets-get
+      responses:
+        default:
+          description: Return assets as is from the repository
