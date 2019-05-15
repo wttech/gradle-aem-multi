@@ -33,7 +33,8 @@
   <logger name="io.vertx" level="TRACE"/>
 
   <root level="INFO">
+    <!-- FixMe log to file -->
     <appender-ref ref="FILE"/>
-<!--    <appender-ref ref="CONSOLE"/>-->
+    <appender-ref ref="CONSOLE"/>
   </root>
 </configuration>
