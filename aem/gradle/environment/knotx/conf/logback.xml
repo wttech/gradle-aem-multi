@@ -17,24 +17,25 @@
 
 -->
 <configuration>
-  <include resource="io/knotx/logging/logback/defaults.xml"/>
-  <include resource="io/knotx/logging/logback/file-appender.xml"/>
-  <include resource="io/knotx/logging/logback/access.xml" />
+    <property name="LOG_PATH" value="/var/log/knotx"/>
 
-  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-    <layout class="ch.qos.logback.classic.PatternLayout">
-      <Pattern>
-        %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
-      </Pattern>
-    </layout>
-  </appender>
+    <include resource="io/knotx/logging/logback/defaults.xml"/>
+    <include resource="io/knotx/logging/logback/file-appender.xml"/>
+    <include resource="io/knotx/logging/logback/access.xml"/>
 
-  <logger name="io.knotx" level="TRACE"/>
-  <logger name="io.vertx" level="TRACE"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
 
-  <root level="INFO">
-    <!-- FixMe log to file -->
-    <appender-ref ref="FILE"/>
-    <appender-ref ref="CONSOLE"/>
-  </root>
+    <logger name="io.knotx" level="TRACE"/>
+    <logger name="io.vertx" level="TRACE"/>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
 </configuration>
