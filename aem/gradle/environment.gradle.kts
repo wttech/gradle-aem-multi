@@ -3,10 +3,10 @@ import com.cognifide.gradle.aem.common.AemExtension
 configure<AemExtension> {
     environment {
         hosts(
-                "127.0.0.1 example.com",
-                "127.0.0.1 demo.example.com",
-                "127.0.0.1 author.example.com",
-                "127.0.0.1 invalidation-only"
+                "example.com", 
+                "demo.example.com", 
+                "author.example.com", 
+                "invalidation-only"
         )
         directories(
                 "logs",

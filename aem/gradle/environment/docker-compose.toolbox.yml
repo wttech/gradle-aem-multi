@@ -1,0 +1,22 @@
+version: "3"
+services:
+  httpd:
+    image: httpd:2.4.39
+    command: ["tail", "-f", "--retry", "/usr/local/apache2/logs/error.log"]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - docker-net
+    volumes:
+      - "/aem/.aem/environment/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      - "/aem/.aem/environment/cache:/opt/aem/dispatcher/cache"
+      - "/aem/.aem/environment/logs:/usr/local/apache2/logs"
+      - "/aem/gradle/environment/httpd/conf:/usr/local/apache2/conf"
+    extra_hosts:
+      - "host.docker.internal:10.0.2.2"
+networks:
+  docker-net:
