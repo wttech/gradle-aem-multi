@@ -11,13 +11,11 @@ services:
       - "80:80"
     networks:
       - docker-net
-
     volumes:
       - "{{ environment.dockerRootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
       - "{{ environment.dockerRootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
       - "{{ environment.dockerRootPath }}/httpd/logs:/usr/local/apache2/logs"
       - "{{ environment.dockerConfigPath }}/httpd/conf:/usr/local/apache2/conf"
-
     {% if (environment.dockerType == 'TOOLBOX') %}
     extra_hosts:
       - "host.docker.internal:10.0.2.2"
