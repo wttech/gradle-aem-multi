@@ -14,16 +14,16 @@ services:
     {% if (environment.dockerType == 'TOOLBOX') %}
     volumes:
       - "/aem/.aem/environment/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
-      - "/aem/.aem/environment/cache:/opt/aem/dispatcher/cache"
-      - "/aem/.aem/environment/logs:/usr/local/apache2/logs"
+      - "/aem/.aem/environment/httpd/cache:/opt/aem/dispatcher/cache"
+      - "/aem/.aem/environment/httpd/logs:/usr/local/apache2/logs"
       - "/aem/gradle/environment/httpd/conf:/usr/local/apache2/conf"
     extra_hosts:
       - "host.docker.internal:10.0.2.2"
     {% else %}
     volumes:
       - "./distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
-      - "./cache:/opt/aem/dispatcher/cache"
-      - "./logs:/usr/local/apache2/logs"
+      - "./httpd/cache:/opt/aem/dispatcher/cache"
+      - "./httpd/logs:/usr/local/apache2/logs"
       - "../../gradle/environment/httpd/conf:/usr/local/apache2/conf"
     {% endif %}
 networks:

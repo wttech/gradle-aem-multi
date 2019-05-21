@@ -3,16 +3,20 @@ import com.cognifide.gradle.aem.common.AemExtension
 configure<AemExtension> {
     environment {
         hosts(
-                "example.com", 
-                "demo.example.com", 
-                "author.example.com", 
+                "example.com",
+                "demo.example.com",
+                "author.example.com",
                 "invalidation-only"
         )
-        directories(
-                "logs",
-                "cache/content/example/live",
-                "cache/content/example/demo"
-        )
+        directories {
+            regular(
+                    "httpd/logs"
+            )
+            cache(
+                    "httpd/cache/content/example/live",
+                    "httpd/cache/content/example/demo"
+            )
+        }
         healthChecks {
             url("Live site", "http://example.com/en-us.html", text = "English")
             url("Demo site", "http://demo.example.com/en-us.html", text = "English")
