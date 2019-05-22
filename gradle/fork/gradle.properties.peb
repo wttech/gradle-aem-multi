@@ -1,6 +1,5 @@
 # AEM configuration
-
-notificationEnabled=true
+notifier.enabled=true
 
 {% if aemInstanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{aemInstanceAuthorHttpUrl}}
