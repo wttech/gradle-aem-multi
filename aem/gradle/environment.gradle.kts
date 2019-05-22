@@ -6,11 +6,13 @@ configure<AemExtension> {
                 "example.com",
                 "demo.example.com",
                 "author.example.com",
-                "invalidation-only"
+                "invalidation-only",
+                "knotx.example.com"
         )
         directories {
             regular(
-                    "httpd/logs"
+                    "httpd/logs",
+                    "knotx/logs"
             )
             cache(
                     "httpd/cache/content/example/live",
@@ -22,6 +24,7 @@ configure<AemExtension> {
             url("Demo site", "http://demo.example.com/en-us.html", text = "English")
             url("Author login", "http://author.example.com/libs/granite/core/content/login.html" +
                     "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown", text = "AEM Sign In")
+            url("Knot.x", "http://knotx.example.com/", statusCode = 404)
         }
     }
 
