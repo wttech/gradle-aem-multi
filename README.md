@@ -65,7 +65,7 @@ Documentation for:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
 
-3. Setup local AEM instances and dependencies then build application using command:
+3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
 
     ```bash
     aem/hosts
@@ -152,7 +152,7 @@ Assumptions:
         * `gradlew :aem:site.demo:packageDeploy`.
 
 Build might look complicated, but to make a AEM development a breeze it just covers many things to be done  within single task execution like `setup` or `develop`.
-Graphical visualisation of task graph for these task:
+Graphical visualisation of task graph for `resetup` task:
 
 <br>
 <p align="center">
