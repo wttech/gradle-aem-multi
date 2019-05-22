@@ -25,7 +25,7 @@ services:
     command: ["knotx", "run-knotx"]
     volumes:
       - "{{ environment.dockerConfigPath }}/knotx/conf:/usr/local/knotx/conf"
-      - "{{ environment.dockerRootPath }}/knotx/logs:/usr/local/knotx/logs"
+      - "{{ environment.dockerRootPath }}/knotx/logs:/var/log/knotx"
     ports:
       - "8092:8092"
     networks:
