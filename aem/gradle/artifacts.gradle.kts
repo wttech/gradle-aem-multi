@@ -1,4 +1,4 @@
-import com.cognifide.gradle.aem.common.AemExtension
+import com.cognifide.gradle.aem.AemExtension
 
 allprojects {
 
