@@ -16,9 +16,9 @@ instance.local-publish.jvmOpts={{aemInstanceJvmOpts}}
 {% endif %}
 
 {% if aemInstanceType == 'local' %}
-localInstance.zipUrl={{aemLocalInstanceZipUri}}
-localInstance.jarUrl={{aemLocalInstanceJarUri}}
-localInstance.licenseUrl={{aemLocalInstanceLicenseUri}}
+localInstance.backup.downloadUrl={{aemLocalInstanceZipUri}}
+localInstance.quickstart.jarUrl={{aemLocalInstanceJarUri}}
+localInstance.quickstart.licenseUrl={{aemLocalInstanceLicenseUri}}
 {% endif %}
 
 # Performance tuning

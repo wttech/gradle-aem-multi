@@ -33,23 +33,31 @@ configure<AemExtension> {
         instanceSatisfy {
             packages {
                 group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
-                group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:${Build.KOTLIN_VERSION}") }
-                group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-4.0.0/acs-aem-commons-content-4.0.0-min.zip") }
-                group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
-                group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
+                group("dep.kotlin") { resolve("org.jetbrains.kotlin:kotlin-osgi-bundle:${Build.KOTLIN_VERSION}") }
+                group("dep.acs-aem-commons") { download("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-4.0.0/acs-aem-commons-content-4.0.0-min.zip") }
+                group("tool.aem-easy-content-upgrade") { download("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
+                group("tool.search-webconsole-plugin") { resolve("com.neva.felix:search-webconsole-plugin:1.2.0") }
             }
         }
 
         // Here is a desired place for defining custom AEM tasks
         // https://github.com/Cognifide/gradle-aem-plugin#implement-custom-aem-tasks
 
-        /*
-        register("instanceConfigure") {
-            description = "Configures XXX on AEM instances"
+        register("migratePages") {
+            description = "Migrates pages to new component"
             doLast {
-                // ...
+                aem.anyInstance.sync {
+                    repository {
+                        node("/content/example").traverse()
+                                .filter { it.type == "cq:PageContent" && properties["sling:resourceType"] == "example/components/basicPage" }
+                                .forEach { page ->
+                                    logger.info("Migrating page: ${page.path}")
+                                    page.saveProperty("sling:resourceType", "example/components/advancedPage")
+                                }
+                    }
+                }
             }
         }
-        */
+
     }
 }
