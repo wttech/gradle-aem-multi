@@ -43,18 +43,11 @@ configure<AemExtension> {
         // Here is a desired place for defining custom AEM tasks
         // https://github.com/Cognifide/gradle-aem-plugin#implement-custom-aem-tasks
 
-        register("migratePages") {
-            description = "Migrates pages to new component"
+        register("doSomething") {
+            description = "Does something"
             doLast {
-                aem.anyInstance.sync {
-                    repository {
-                        node("/content/example").traverse()
-                                .filter { it.type == "cq:PageContent" && properties["sling:resourceType"] == "example/components/basicPage" }
-                                .forEach { page ->
-                                    logger.info("Migrating page: ${page.path}")
-                                    page.saveProperty("sling:resourceType", "example/components/advancedPage")
-                                }
-                    }
+                aem.sync {
+                    // use instance services: 'http', 'repository', 'packageManager', 'osgiFramework', 'groovyConsole'
                 }
             }
         }
