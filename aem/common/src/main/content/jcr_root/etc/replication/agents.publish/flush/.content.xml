@@ -15,7 +15,7 @@
         retryDelay="60000"
         serializationType="flush"
         ssl="default"
-        transportUri="http://invalidation-only/dispatcher/invalidate.cache"
+        transportUri="http://dispatcher.example.com/dispatcher/invalidate.cache"
         triggerReceive="true"
         triggerSpecific="true"/>
 </jcr:root>

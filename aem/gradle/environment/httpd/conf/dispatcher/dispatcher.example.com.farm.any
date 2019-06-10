@@ -6,7 +6,7 @@
     }
   /virtualhosts
     {
-    "invalidation-only"
+    "dispatcher.example.com"
     }
   /renders
     {

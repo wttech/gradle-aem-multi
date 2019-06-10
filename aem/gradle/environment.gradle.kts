@@ -6,8 +6,13 @@ configure<AemExtension> {
                 "example.com",
                 "demo.example.com",
                 "author.example.com",
-                "invalidation-only"
+                "dispatcher.example.com"
         )
+        distributions {
+            download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
+                copyArchiveFile(it, "**/dispatcher-apache*.so", distributionFile("mod_dispatcher.so"))
+            }
+        }
         directories {
             regular(
                     "httpd/logs"
