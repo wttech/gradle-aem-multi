@@ -11,6 +11,11 @@
 </p>
 <br>
 
+## Screenshot
+
+<p align="center">
+  <img src="docs/gradle-aem-multi-build.gif" alt="Gradle AEM Multi Build"/>
+</p>
 
 ## Description
 
