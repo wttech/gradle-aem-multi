@@ -1,5 +1,6 @@
 ### Project specific
-.aem/
+.instance/
+.environment/
 .idea/
 *.iml
 *.ipr

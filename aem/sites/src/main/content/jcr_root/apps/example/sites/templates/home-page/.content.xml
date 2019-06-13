@@ -6,7 +6,7 @@
     ranking="{Long}100">
     <jcr:content
         cq:allowedTemplates="[/apps/example/sites/templates/home-page]"
-        cq:designPath="/etc/designs/example"
+        cq:designPath="/apps/settings/wcm/designs/example/sites"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="example/sites/components/home-page">
         <content

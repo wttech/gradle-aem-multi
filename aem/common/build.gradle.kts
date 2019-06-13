@@ -10,7 +10,7 @@ aem {
         bundle {
             embedPackage("org.hashids", true, "org.hashids:hashids:1.0.1")
         }
-        compose {
+        packageCompose {
             fromJar("org.jsoup:jsoup:1.10.2")
             fromJar("com.github.mickleroy:aem-sass-compiler:1.0.1")
         }

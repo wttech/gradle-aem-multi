@@ -1,3 +1,11 @@
+plugins {
+    `kotlin-dsl`
+}
+
+kotlinDslPluginOptions {
+    experimentalWarning.set(false)
+}
+
 repositories {
     mavenLocal()
     jcenter()
@@ -7,8 +15,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.cognifide.gradle:aem-plugin:6.3.0")
-    implementation("com.neva.gradle:fork-plugin:3.1.1")
+    implementation("com.cognifide.gradle:aem-plugin:7.0.0")
+    implementation("com.neva.gradle:fork-plugin:3.1.4")
     implementation("com.moowork.gradle:gradle-node-plugin:1.2.0")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.30")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31")
 }

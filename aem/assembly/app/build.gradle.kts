@@ -6,7 +6,7 @@ description = "Example - AEM Application"
 
 aem {
     tasks {
-        compose {
+        packageCompose {
             fromProject(":aem:common")
             fromProject(":aem:sites")
         }

@@ -1,20 +1,23 @@
 plugins {
     id("com.neva.fork")
-    id("com.cognifide.aem.config")
+    id("com.cognifide.aem.common")
 }
 
 description = "Example"
-defaultTasks("deploy")
+defaultTasks("develop")
 
 aem {
     tasks {
-        sequence("deploy") {
-            dependsOn(
-                ":aem:aemSatisfy",
-                ":aem:assembly:full:aemDeploy",
-                ":aem:migration:aemDeploy",
-                ":test:integration:test",
-                ":test:functional:test"
+        sequence("develop", {
+            description = "Builds and deploys AEM application, cleans environment then runs integration and functional tests"
+        }) {
+            dependsOrdered(
+                    ":aem:instanceSatisfy",
+                    ":aem:assembly:full:packageDeploy",
+                    ":aem:environmentClean",
+                    ":aem:environmentCheck",
+                    ":test:integration:test",
+                    ":test:functional:test"
             )
         }
     }

@@ -1,6 +1,6 @@
 ![Cognifide logo](docs/cognifide-logo.png)
 
-[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg?random=123)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
+[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg?random=456)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
 
 # AEM Multi-Project Example
@@ -11,6 +11,11 @@
 </p>
 <br>
 
+## Screenshot
+
+<p align="center">
+  <img src="docs/gradle-aem-multi-build.gif" alt="Gradle AEM Multi Build"/>
+</p>
 
 ## Description
 
@@ -65,10 +70,11 @@ Documentation for:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
 
-3. Setup local AEM instances and dependencies then build application using command:
+3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
 
     ```bash
-    gradlew -i aemSetup
+    aem/hosts
+    gradlew setup
     ```
     
     and wait till complete AEM environment will be ready to use.
@@ -76,30 +82,35 @@ Documentation for:
 4. Develop continuously application using command:
 
     ```bash
-    gradlew -i
+    gradlew
+    ```
+    
+    or to just deploy AEM application (without running anything else):
+    
+    ```bash
+    gradlew :aem:assembly:full:packageDeploy
     ```
 
-## Environment
+## Prerequisites
 
 Tested on:
 
 * Java 1.8
-* Gradle 5.0
+* Gradle 5.4
 * Adobe AEM 6.4
+* Docker 2.0.0.3
 
 ## Structure
 
 Project is divided into subpackages (designed with reinstallabilty on production environments in mind):
 
-* *aem/full* - non-reinstallable complete all-in-one package with application and contents.
-* *aem/app* - reinstallable assembly package that contains all sub-parts of application:
-    * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs, form controls etc).
-    * *core* - OSGi bundle with core business logic and AEM components implementation.
-    * *config* - OSGi services configuration.
-    * *design* - AEM design configuration responsible for look & feel of AEM pages.
-* *aem/content* - non-reinstallable assembly package that contains all type of contents listed below:
-    * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
-    * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
+* *aem/assembly/full* - non-reinstallable complete all-in-one package with application and contents (combination of subpackages: all). Useful to deploy all code by installing single package in a project stage when application is not live.
+* *aem/assembly/app* - reinstallable assembly package that contains only application code, not content (combination of subpackages: *common*, *sites*). Useful to deploy application code only in a project stage when application is live and content should remain untouched on production server.
+
+* *aem/common* - OSGi bundle with integrations of libraries needed by other bundles and global AEM extensions (dialogs, form controls etc). Only code unrelated to any site / AEM platform wide.
+* *aem/sites* - AEM sites module extension consisting of site specific code like: OSGi bundle with business logic, AEM components, templates, design.
+* *aem/site.demo* - consists of extra AEM pages that presents features of application (useful for testing). Helps application testers and developers in QA/UAT application feature tests.
+* *aem/site.live* - contains minimal set of pages needed initially to rollout new site(s) using installed application. Helps content authors to start working with application.
 
 ## Features
 
@@ -108,32 +119,66 @@ Project is divided into subpackages (designed with reinstallabilty on production
 * Integrated popular UI build toolkit: [NodeJS](https://nodejs.org/en/), [Yarn](https://yarnpkg.com) and [Webpack](https://webpack.github.io/) for advanced assets bundling (modular JS, ECMAScript6 transpilation, SCSS compilation with [PostCSS](http://postcss.org), code style checks etc).
 * Integrated SCSS compilation on AEM side using [AEM Sass Compiler](https://github.com/mickleroy/aem-sass-compiler).
 * Integrated popular AEM testing toolkit: [wcm.io Testing](http://wcm.io/testing).
-* Example configuration for embedding OSGi bundles into CRX package (`aemInstall`, `aemEmbed`).
-* Example configuration for installing dependant CRX packages on AEM before application deployment (`aemSatisfy`).
+* Example configuration for [embedding OSGi bundles into CRX package](aem/common/build.gradle.kts) (`embedPackage`).
+* Example configuration for [installing dependant CRX packages on AEM](aem/gradle/environment.gradle.kts) before application deployment (`instanceSatisfy`).
+
+## Environment
+
+Project is configured to have local environment which consists of:
+
+* native AEM instances running on local file system, 
+* virtualized Apache HTTP Server with AEM Dispatcher module running on Docker ([official httpd image](https://hub.docker.com/_/httpd)).
+
+Assumptions:
+
+* AEM author available at [http://localhost:4502](http://localhost:4502)
+* AEM publish available at [http://localhost:4503](http://localhost:4503)
+* Apache web server with Virtual hosts configured for domains:
+  * http://example.com -> which maps to `/content/example/live` content root on publish
+  * http://demo.example.com -> which maps to `/content/example/demo` content root on publish
+  * http://author.example.com -> which is proxy to the author instance
 
 ## Building
 
-1. Install Gradle
-    * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
-    * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
-2. Run `gradlew idea` or `gradlew eclipse` to generate configuration for your favourite IDE.
-3. Deploy application:
-    * Full assembly, migration and all tests
-        * `gradlew` <=> `:deploy`
+1. Use command `gradlew` so that Gradle in version according to project will be downloaded automatically.
+2. Deploy application:
+    * Full assembly and run all tests
+        * `gradlew` <=> `:develop`
     * Only assembly packages:
-        * `gradlew :aem:assembly:full:aemDeploy`
-        * `gradlew :aem:assembly:app:aemDeploy`
-        * `gradlew :aem:assembly:content:aemDeploy`
-    * Only single package:
-        * `gradlew :aem:sites:aemDeploy`,
-        * `gradlew :aem:common:aemDeploy`,
-        * `gradlew :aem:migration:aemDeploy`,
-        * `gradlew :aem:content.init:aemDeploy`,
-        * `gradlew :aem:content.demo:aemDeploy`.
+        * `gradlew :aem:assembly:full:packageDeploy`
+        * `gradlew :aem:assembly:app:packageDeploy`
+    * Only single package: [
+        * `gradlew :aem:sites:packageDeploy`,
+        * `gradlew :aem:common:packageDeploy`,
+        * `gradlew :aem:site.live:packageDeploy`,
+        * `gradlew :aem:site.demo:packageDeploy`.
+
+Build might look complicated, but to make a AEM development a breeze it just covers many things to be done  within single task execution like `setup` or `develop`.
+Graphical visualisation of task graph for `resetup` task:
+
+<br>
+<p align="center">
+  <img src="docs/resetup-graph.png" alt="Resetup task graph"/>
+</p>
+<br>
+
+Task `setup` will:
+
+* set up AEM instances (author & publish)
+* set up AEM environment (run HTTPD service on Docker) and install AEM dispatcher module
+* build AEM application (compose assembly CRX package from many)
+* migrate AEM application (for projects already deployed on production to upgrade JCR content in case of changed application behavior)
+* clean AEM environment (restart HTTPD service then clean AEM dispatcher caches)
+* check AEM environment (quickly check responsiveness of deployed application)
+* run integration tests
+* run functional tests
+
+To sum up, all things needed by developer are fully automated in one place / Gradle build. 
+Still all separate concerns like running tests, only building application, only running tests, could be used separately by running particular Gradle tasks.
 
 ## Tips & tricks
 
-* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:app.design:aemSync`.
+* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:site.demo:sync`.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.

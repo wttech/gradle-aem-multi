@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <en-us/>
+    <jcr:content
+        cq:designPath="/apps/settings/wcm/designs/example/sites"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Demo Site"
+        sling:redirect="{Boolean}true"
+        sling:redirectStatus="{Long}302"
+        sling:resourceType="foundation/components/redirect"
+        cq:redirectTarget="/content/example/demo/en-us"/>
+</jcr:root>

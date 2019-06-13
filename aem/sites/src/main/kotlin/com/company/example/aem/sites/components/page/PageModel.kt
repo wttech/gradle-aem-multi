@@ -26,6 +26,10 @@ class PageModel : Serializable {
   lateinit var title: String
 
   @Inject
+  @field:Named(JcrConstants.JCR_DESCRIPTION)
+  var description: String? = null
+
+  @Inject
   @field:Named(JcrConstants.JCR_CREATED)
   lateinit var created: GregorianCalendar
 

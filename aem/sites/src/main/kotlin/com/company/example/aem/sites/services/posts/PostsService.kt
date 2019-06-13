@@ -53,7 +53,7 @@ class PostsService {
     }
 
     val shuffled = posts.toMutableList()
-    Collections.shuffle(shuffled)
+    shuffled.shuffle()
 
     return shuffled.subList(0, count)
   }
