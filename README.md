@@ -85,7 +85,7 @@ Documentation for:
     gradlew
     ```
     
-    or to just deploy AEM application (without running migration scripts and tests):
+    or to just deploy AEM application (without running anything else):
     
     ```bash
     gradlew :aem:assembly:full:packageDeploy
@@ -98,7 +98,7 @@ Tested on:
 * Java 1.8
 * Gradle 5.4
 * Adobe AEM 6.4
-* Docker 2.0.0.3 (optional)
+* Docker 2.0.0.3
 
 ## Structure
 
@@ -106,7 +106,6 @@ Project is divided into subpackages (designed with reinstallabilty on production
 
 * *aem/assembly/full* - non-reinstallable complete all-in-one package with application and contents (combination of subpackages: all). Useful to deploy all code by installing single package in a project stage when application is not live.
 * *aem/assembly/app* - reinstallable assembly package that contains only application code, not content (combination of subpackages: *common*, *sites*). Useful to deploy application code only in a project stage when application is live and content should remain untouched on production server.
-* *aem/assembly/content* - non-reinstallable assembly package that contains content only (combination of subpackages: *site.live* and *site.demo*).
 
 * *aem/common* - OSGi bundle with integrations of libraries needed by other bundles and global AEM extensions (dialogs, form controls etc). Only code unrelated to any site / AEM platform wide.
 * *aem/sites* - AEM sites module extension consisting of site specific code like: OSGi bundle with business logic, AEM components, templates, design.
@@ -143,16 +142,14 @@ Assumptions:
 
 1. Use command `gradlew` so that Gradle in version according to project will be downloaded automatically.
 2. Deploy application:
-    * Full assembly, migration and all tests
+    * Full assembly and run all tests
         * `gradlew` <=> `:develop`
     * Only assembly packages:
         * `gradlew :aem:assembly:full:packageDeploy`
         * `gradlew :aem:assembly:app:packageDeploy`
-        * `gradlew :aem:assembly:content:packageDeploy`
-    * Only single package:
+    * Only single package: [
         * `gradlew :aem:sites:packageDeploy`,
         * `gradlew :aem:common:packageDeploy`,
-        * `gradlew :aem:migration:packageDeploy`,
         * `gradlew :aem:site.live:packageDeploy`,
         * `gradlew :aem:site.demo:packageDeploy`.
 

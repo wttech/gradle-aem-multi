@@ -1,24 +1,26 @@
 # AEM configuration
 notifier.enabled=true
 
-{% if aemInstanceAuthorHttpUrl is not empty %}
-instance.local-author.httpUrl={{aemInstanceAuthorHttpUrl}}
-instance.local-author.type={{aemInstanceType}}
-instance.local-author.runModes={{aemInstanceRunModes}}
-instance.local-author.jvmOpts={{aemInstanceJvmOpts}}
+{% if instanceAuthorHttpUrl is not empty %}
+instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
+instance.local-author.type={{instanceType}}
+instance.local-author.runModes={{instanceRunModes}}
+instance.local-author.jvmOpts={{instanceJvmOpts}}
 {% endif %}
 
-{% if aemInstancePublishHttpUrl is not empty %}
-instance.local-publish.httpUrl={{aemInstancePublishHttpUrl}}
-instance.local-publish.type={{aemInstanceType}}
-instance.local-publish.runModes={{aemInstanceRunModes}}
-instance.local-publish.jvmOpts={{aemInstanceJvmOpts}}
+{% if instancePublishHttpUrl is not empty %}
+instance.local-publish.httpUrl={{instancePublishHttpUrl}}
+instance.local-publish.type={{instanceType}}
+instance.local-publish.runModes={{instanceRunModes}}
+instance.local-publish.jvmOpts={{instanceJvmOpts}}
 {% endif %}
 
-{% if aemInstanceType == 'local' %}
-localInstance.backup.downloadUrl={{aemLocalInstanceZipUri}}
-localInstance.quickstart.jarUrl={{aemLocalInstanceJarUri}}
-localInstance.quickstart.licenseUrl={{aemLocalInstanceLicenseUri}}
+{% if instanceType == 'local' %}
+localInstance.source={{ localInstanceSource }}
+localInstance.quickstart.jarUrl={{ localInstanceQuickstartJarUri }}
+localInstance.quickstart.licenseUrl={{ localInstanceQuickstartLicenseUri }}
+localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
+localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
 {% endif %}
 
 # Performance tuning
