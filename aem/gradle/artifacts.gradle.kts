@@ -1,15 +1,13 @@
-import com.cognifide.gradle.aem.common.AemExtension
+import com.cognifide.gradle.aem.AemExtension
 
 allprojects {
 
     group = "com.company.example.aem"
 
-    plugins.withId("com.cognifide.aem.config") {
+    plugins.withId("com.cognifide.aem.common") {
 
         configure<AemExtension> {
-            config {
-                // amend if needed
-            }
+            // amend if needed
         }
     }
 

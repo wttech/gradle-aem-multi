@@ -1,5 +1,6 @@
 ### Project specific
-.aem/
+.instance/
+.environment/
 .idea/
 *.iml
 *.ipr
@@ -139,10 +140,6 @@ buildNumber.properties
 .gradle
 build/
 /gradle.properties
-
-# Gradle AEM Environment Plugin
-aem/gradle/environment/build
-gradle/environment/build
 
 # Ignore Gradle GUI config
 gradle-app.setting

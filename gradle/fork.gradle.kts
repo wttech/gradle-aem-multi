@@ -1,3 +1,4 @@
+import com.cognifide.gradle.aem.common.instance.local.Source
 import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
@@ -12,31 +13,39 @@ configure<ForkExtension> {
                     description = "Java package in source code and artifact 'group' coordinate"
                     validator { javaPackage(); notEndsWith("projectName") }
                 },
-                "aemInstanceAuthorHttpUrl" to {
+                "instanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
                     optional()
                     description = "URL for accessing AEM author instance"
                 },
-                "aemInstancePublishHttpUrl" to {
+                "instancePublishHttpUrl" to {
                     url("http://localhost:4503")
                     optional()
                     description = "URL for accessing AEM publish instance"
                 },
-                "aemInstanceType" to {
+                "instanceType" to {
                     select("local", "remote")
                     description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
-                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
+                    controller { toggle(value == "local", "instanceRunModes", "instanceJvmOpts", "localInstance*") }
                 },
-                "aemInstanceRunModes" to { text("local,nosamplecontent") },
-                "aemInstanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
-                "aemLocalInstanceJarUri" to {
+                "instanceRunModes" to { text("local,nosamplecontent") },
+                "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
+                "localInstanceSource" to {
+                    description = "Local instance source\nControls how instances will be created (from scratch or backup)"
+                    select(Source.values().map { it.name.toLowerCase() }, Source.BACKUP_ANY.name.toLowerCase())
+                },
+                "localInstanceQuickstartJarUri" to {
                     description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
                 },
-                "aemLocalInstanceLicenseUri" to {
+                "localInstanceQuickstartLicenseUri" to {
                     description = "Quickstart license file (license.properties)"
                 },
-                "aemLocalInstanceZipUri" to {
-                    description = "ZIP file created by Gradle AEM Plugin backup task"
+                "localInstanceBackupDownloadUri" to {
+                    description = "URL to backup file (SMB/SFTP/HTTP)"
+                    optional()
+                },
+                "localInstanceBackupUploadUri" to {
+                    description = "URL to backup directory (SMB/SFTP)"
                     optional()
                 }
         ))

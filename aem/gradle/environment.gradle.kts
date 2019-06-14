@@ -1,4 +1,4 @@
-import com.cognifide.gradle.aem.common.AemExtension
+import com.cognifide.gradle.aem.AemExtension
 
 configure<AemExtension> {
     environment {
@@ -6,9 +6,14 @@ configure<AemExtension> {
                 "example.com",
                 "demo.example.com",
                 "author.example.com",
-                "invalidation-only",
+                "dispatcher.example.com",
                 "knotx.example.com"
         )
+        distributions {
+            download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
+                copyArchiveFile(it, "**/dispatcher-apache*.so", distributionFile("mod_dispatcher.so"))
+            }
+        }
         directories {
             regular(
                     "httpd/logs",
@@ -36,23 +41,24 @@ configure<AemExtension> {
         instanceSatisfy {
             packages {
                 group("dep.vanity-urls") { /* local("pkg/vanityurls-components-1.0.2.zip") */ }
-                group("dep.kotlin") { dependency("org.jetbrains.kotlin:kotlin-osgi-bundle:${Build.KOTLIN_VERSION}") }
-                group("dep.acs-aem-commons") { url("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-4.0.0/acs-aem-commons-content-4.0.0-min.zip") }
-                group("tool.aem-easy-content-upgrade") { url("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
-                group("tool.search-webconsole-plugin") { dependency("com.neva.felix:search-webconsole-plugin:1.2.0") }
+                group("dep.kotlin") { resolve("org.jetbrains.kotlin:kotlin-osgi-bundle:${Build.KOTLIN_VERSION}") }
+                group("dep.acs-aem-commons") { download("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-4.0.0/acs-aem-commons-content-4.0.0-min.zip") }
+                group("tool.aem-easy-content-upgrade") { download("https://github.com/valtech/aem-easy-content-upgrade/releases/download/1.4.0/aecu.bundle-1.4.0.zip") }
+                group("tool.search-webconsole-plugin") { resolve("com.neva.felix:search-webconsole-plugin:1.2.0") }
             }
         }
 
         // Here is a desired place for defining custom AEM tasks
         // https://github.com/Cognifide/gradle-aem-plugin#implement-custom-aem-tasks
 
-        /*
-        register("instanceConfigure") {
-            description = "Configures XXX on AEM instances"
+        register("doSomething") {
+            description = "Does something"
             doLast {
-                // ...
+                aem.sync {
+                    // use instance services: 'http', 'repository', 'packageManager', 'osgiFramework', 'groovyConsole'
+                }
             }
         }
-        */
+
     }
 }
