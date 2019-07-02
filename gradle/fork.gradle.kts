@@ -51,10 +51,13 @@ configure<ForkExtension> {
         ))
     }
     config {
+        textFiles.addAll(listOf("**/*.conf", "**/*.any"))
         cloneFiles()
         moveFiles(mapOf(
                 "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem",
-                "/example" to "/{{projectName}}"
+                "/example" to "/{{projectName}}",
+                "/demo.example" to "/demo.{{projectName}}",
+                "example.com" to "{{projectName}}.com"
         ))
         replaceContents(mapOf(
                 "com.company.example.aem" to "{{projectGroup}}.{{projectName}}.aem",
