@@ -11,3 +11,4 @@ include("aem:assembly:full")
 
 include("test:functional")
 include("test:integration")
+include("test:performance")
