@@ -16,10 +16,7 @@ node {
 tasks {
     register<NpmTask>("runLighthouse") {
         dependsOn("npmInstall")
-        
-        val link = file("config/sites.txt").readLines()[0]
-        
         setNpmCommand("run")
-        setArgs(listOf("lighthouse",link))
+        setArgs(listOf("lighthouse-batch"))
     }
 }

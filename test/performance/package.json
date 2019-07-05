@@ -1,9 +1,9 @@
 {
   "name": "performance-tests",
   "scripts": {
-    "lighthouse": "lighthouse  --quiet --output-path=\"lighthouse-results.html\" --chrome-flags=\"--headless\" --view"
+    "lighthouse": "lighthouse-batch --file \"./config/sites.txt\" --out \"./reports\" --html"
   },
   "dependencies": {
-    "lighthouse": "^5.1.0"
+    "lighthouse-batch": "^5.0.1"
   }
 }
