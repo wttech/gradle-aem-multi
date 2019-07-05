@@ -29,7 +29,7 @@ configure<AemExtension> {
             url("Demo site", "http://demo.example.com/en-us.html", text = "English")
             url("Author login", "http://author.example.com/libs/granite/core/content/login.html" +
                     "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown", text = "AEM Sign In")
-            url("Knot.x", "http://knotx.example.com/", statusCode = 404)
+            url("Knot.x", "http://knotx.example.com/products/details.html", text = "Hello Knot.x with GAP")
         }
     }
 
