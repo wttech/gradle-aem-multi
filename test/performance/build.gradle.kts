@@ -14,7 +14,7 @@ node {
 }
 
 tasks {
-    register<NpmTask>("runLighthouse") {
+    register<NpmTask>("test") {
         dependsOn("npmInstall")
         setNpmCommand("run")
         setArgs(listOf("lighthouse-batch"))

@@ -17,7 +17,8 @@ aem {
                     ":aem:environmentClean",
                     ":aem:environmentCheck",
                     ":test:integration:test",
-                    ":test:functional:test"
+                    ":test:functional:test",
+                    ":test:performance:test"
             )
         }
     }
