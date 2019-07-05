@@ -1,1 +1,2 @@
 http://localhost:4503/content/sample/demo/en-us.html
+http://localhost:4503/content/sample/live/en-us.html
