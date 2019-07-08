@@ -1,7 +1,7 @@
 {
   "name": "performance-tests",
   "scripts": {
-    "lighthouse": "lighthouse-batch --file \"./config/sites.txt\" --out \"./reports\" --html"
+    "lighthouse": "lighthouse-batch --file \"./config/sites.conf\" --out \"./reports\" --html"
   },
   "dependencies": {
     "lighthouse-batch": "^5.0.1"
