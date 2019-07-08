@@ -9,7 +9,7 @@ defaultTasks("develop")
 aem {
     tasks {
         sequence("develop", {
-            description = "Builds and deploys AEM application, cleans environment then runs integration and functional tests"
+            description = "Builds and deploys AEM application, cleans environment then runs integration, functional and performance tests"
         }) {
             dependsOrdered(
                     ":aem:instanceSatisfy",
