@@ -8,8 +8,6 @@ plugins {
 node {
     //Lighthouse requires Node 10.13 or later
     version = "10.16.0"
-    npmVersion = "6.9.0"
-    distBaseUrl = "https://nodejs.org/dist"
     download = true
 }
 
