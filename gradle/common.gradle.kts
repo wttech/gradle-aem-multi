@@ -49,7 +49,7 @@ allprojects {
 
     plugins.withId("com.moowork.node") {
         configure<NodeExtension> {
-            version = "8.9.0"
+            version = "10.16.0"
             yarnVersion = "1.9.4"
             download = true
         }
