@@ -1,6 +1,6 @@
 language: java
 install: ./gradlew -i -S assemble
-script: ./gradlew -i -S check
+script: ./gradlew -i -S -Poffline=true check
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
