@@ -1,17 +1,27 @@
 import com.cognifide.gradle.aem.common.instance.local.Source
 import com.neva.gradle.fork.ForkExtension
+import java.io.File
 
 configure<ForkExtension> {
     properties {
         define(mapOf(
+                "targetPath" to {
+                    description = "Forked project destination path"
+                },
                 "projectName" to {
                     description = "Artifact 'name' coordinate (lowercase)"
                     validator { lowercased(); alphanumeric() }
+                    controller { other("targetPath").value = File(File(other("sourcePath").value).parentFile, value).toString() }
+                    defaultValue = project.rootProject.name
                 },
-                "projectLabel" to { description = "Nice project name (human-readable)" },
+                "projectLabel" to {
+                    description = "Nice project name (human-readable)"
+                    defaultValue = project.rootProject.name.capitalize()
+                },
                 "projectGroup" to {
                     description = "Java package in source code and artifact 'group' coordinate"
                     validator { javaPackage(); notEndsWith("projectName") }
+                    defaultValue = project.group.toString()
                 },
                 "instanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
@@ -31,7 +41,7 @@ configure<ForkExtension> {
                 "instanceRunModes" to { text("local,nosamplecontent") },
                 "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
                 "localInstanceSource" to {
-                    description = "Local instance source\nControls how instances will be created (from scratch or backup)"
+                    description = "Controls how instances will be created (from scratch, backup or automatically determined)"
                     select(Source.values().map { it.name.toLowerCase() }, Source.BACKUP_ANY.name.toLowerCase())
                 },
                 "localInstanceQuickstartJarUri" to {
