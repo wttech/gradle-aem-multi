@@ -31,7 +31,7 @@ configure<AemExtension> {
     }
 
     tasks {
-        registerOrConfigure("setup", "resetup") {
+        registerOrConfigure<Task>("setup", "resetup") {
             dependsOn(":develop")
         }
 
