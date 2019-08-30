@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/apps/settings/wcm/designs/example/sites"
+        cq:template="/apps/example/sites/templates/products-detail-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Products List"
+        jcr:description="Home Page of English US market"
+        jcr:language="en_US"
+        sling:resourceType="example/sites/components/products-detail-page">
+    </jcr:content>
+</jcr:root>

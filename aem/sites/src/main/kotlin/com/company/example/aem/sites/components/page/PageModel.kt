@@ -56,10 +56,11 @@ class PageModel : Serializable {
   }
 
   private fun determineLanguageCode(): String {
-    val languagePath = LanguageUtil.getLanguageRoot(resource.path)
-    val languagePart = languagePath.substringAfterLast("/")
+//    val languagePath = LanguageUtil.getLanguageRoot(resource.path)
+//    val languagePart = languagePath.substringAfterLast("/")
 
-    return LanguageUtil.getLanguage(languagePart).languageCode ?: "en"
+//    return LanguageUtil.getLanguage(languagePart).languageCode ?: "en"
+    return "en"
   }
 
 }

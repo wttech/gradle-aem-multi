@@ -20,5 +20,15 @@ services:
     extra_hosts:
       - "host.docker.internal:10.0.2.2"
     {% endif %}
+  knotx:
+    image: knotx/knotx:2.0.0-RC5
+    command: ["knotx", "run-knotx"]
+    volumes:
+      - "{{ environment.dockerConfigPath }}/knotx/conf:/usr/local/knotx/conf"
+      - "{{ environment.dockerRootPath }}/knotx/logs:/var/log/knotx"
+    ports:
+      - "8092:8092"
+    networks:
+      - docker-net
 networks:
   docker-net:

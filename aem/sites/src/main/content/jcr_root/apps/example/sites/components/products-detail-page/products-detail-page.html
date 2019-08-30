@@ -1,0 +1,43 @@
+<sly data-sly-use.page="com.company.example.aem.sites.components.page.PageModel"/>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<!DOCTYPE html>
+<html lang="${page.languageCode}">
+<head>
+  <title>Example | ${page.title}</title>
+
+  <sly data-sly-call="${clientLib.css @ categories='example.sites.publish'}"/>
+  <sly data-sly-call="${clientLib.css @ categories='example.sites.author'}" data-sly-test="${!wcmmode.disabled}"/>
+</head>
+<body>
+<header id="header" class="container">
+  <div class="jumbotron">
+    <h1>${page.title}</h1>
+    <p>${page.description}</p>
+  </div>
+</header>
+<div id="content" class="container">
+  <knotx:snippet data-knotx-task="hello-world">
+    <p>{{hello._result.message}}</p>
+  </knotx:snippet>
+</div>
+<footer id="footer" class="container">
+  <div class="card">
+    <div class="card-header">
+      AEM application built by
+    </div>
+    <div class="card-body">
+      <a href="https://github.com/Cognifide/gradle-aem-plugin">
+        <img class="logo" src="/etc.clientlibs/example/sites/clientlibs/page/publish/resources/img/logo.png" alt="">
+      </a>
+    </div>
+  </div>
+
+  <div class="mt-3 mb-3">
+    All rights reserved | 2019 &copy; Company
+  </div>
+</footer>
+
+<sly data-sly-call="${clientLib.js @ categories='example.sites.publish'}"/>
+<sly data-sly-call="${clientLib.js @ categories='example.sites.author'}" data-sly-test="${!wcmmode.disabled}"/>
+</body>
+</html>

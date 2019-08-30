@@ -6,7 +6,8 @@ configure<AemExtension> {
                 "example.com",
                 "demo.example.com",
                 "author.example.com",
-                "dispatcher.example.com"
+                "dispatcher.example.com",
+                "knotx.demo.example.com"
         )
         distributions {
             download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
@@ -15,7 +16,8 @@ configure<AemExtension> {
         }
         directories {
             regular(
-                    "httpd/logs"
+                    "httpd/logs",
+                    "knotx/logs"
             )
             cache(
                     "httpd/cache/content/example/live",
@@ -27,6 +29,7 @@ configure<AemExtension> {
             url("Demo site", "http://demo.example.com/en-us.html", text = "English")
             url("Author login", "http://author.example.com/libs/granite/core/content/login.html" +
                     "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown", text = "AEM Sign In")
+            url("Knot.x", "http://knotx.demo.example.com/products/details.html", text = "Content filled by Knot.x integration framework.")
         }
     }
 

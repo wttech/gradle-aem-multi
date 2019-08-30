@@ -70,7 +70,12 @@ Documentation for:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
 
-3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
+3. Setup the local DEV environment containing:
+- AEM instances with dependencies
+- AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration))
+- [Knot.x](https://github.com/Knotx/knotx) (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration))
+
+and build AEM application using command:
 
     ```bash
     aem/hosts
@@ -128,6 +133,7 @@ Project is configured to have local environment which consists of:
 
 * native AEM instances running on local file system, 
 * virtualized Apache HTTP Server with AEM Dispatcher module running on Docker ([official httpd image](https://hub.docker.com/_/httpd)).
+* virtualized [Knot.x](https://github.com/Knotx/knotx) reactive integration framework running on Docker
 
 Assumptions:
 
@@ -137,6 +143,7 @@ Assumptions:
   * http://example.com -> which maps to `/content/example/live` content root on publish
   * http://demo.example.com -> which maps to `/content/example/demo` content root on publish
   * http://author.example.com -> which is proxy to the author instance
+  * http:://knotx.demo.example.com -> which maps to `/content/example/demo` content root on publish and [processes `<knotx:snippet>` tags](https://github.com/Knotx/knotx-fragments)
 
 ## Building
 
@@ -168,13 +175,28 @@ Task `setup` will:
 * set up AEM environment (run HTTPD service on Docker) and install AEM dispatcher module
 * build AEM application (compose assembly CRX package from many)
 * migrate AEM application (for projects already deployed on production to upgrade JCR content in case of changed application behavior)
-* clean AEM environment (restart HTTPD service then clean AEM dispatcher caches)
+* clean AEM environment (restart HTTPD service then clean AEM dispatcher caches, restart Knot.x)
 * check AEM environment (quickly check responsiveness of deployed application)
 * run integration tests
 * run functional tests
 
 To sum up, all things needed by developer are fully automated in one place / Gradle build. 
 Still all separate concerns like running tests, only building application, only running tests, could be used separately by running particular Gradle tasks.
+
+## Validation
+
+### AEM mappings
+You can check AEM Dispatcher url rewrites with:
+
+[example.com/en-us.html](http://example.com/en-us.html)
+[demo.example.com/en-us.html](http://demo.example.com/en-us.html)
+
+### Knot.x Fragments processing
+Fully static template page containing "dynamic" placeholder from Dispatcher:
+[demo.example.com/products/details.html](http://demo.example.com/products/details.html)
+
+Page containing data assembled by Knot.x:
+[knotx.demo.example.com/products/details.html](http://knotx.demo.example.com/products/details.html)
 
 ## Tips & tricks
 
