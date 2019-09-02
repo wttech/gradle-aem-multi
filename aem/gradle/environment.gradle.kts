@@ -2,12 +2,6 @@ import com.cognifide.gradle.aem.AemExtension
 
 configure<AemExtension> {
     environment {
-        hosts(
-                "example.com",
-                "demo.example.com",
-                "author.example.com",
-                "dispatcher.example.com"
-        )
         distributions {
             download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
                 copyArchiveFile(it, "**/dispatcher-apache*.so", distributionFile("mod_dispatcher.so"))
@@ -21,6 +15,12 @@ configure<AemExtension> {
                     "httpd/cache/content/example/live",
                     "httpd/cache/content/example/demo"
             )
+        }
+        hosts {
+            author("http://author.example.com")
+            publish("http://demo.example.com") { tag("test") }
+            publish("http://example.com") { tag("live") }
+            other("http://dispatcher.example.com")
         }
         healthChecks {
             url("Live site", "http://example.com/en-us.html", text = "English")
