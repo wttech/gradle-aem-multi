@@ -15,7 +15,7 @@ aem {
                     ":aem:instanceSatisfy",
                     ":aem:assembly:full:packageDeploy",
                     ":aem:environmentClean",
-                    ":aem:environmentCheck",
+                    ":aem:environmentAwait",
                     ":test:integration:test",
                     ":test:functional:test"
             )

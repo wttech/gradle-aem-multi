@@ -2,7 +2,6 @@ import com.moowork.gradle.node.yarn.YarnTask
 import java.util.function.Consumer
 
 plugins {
-    id("java")
     id("com.cognifide.aem.common")
     id("com.moowork.node")
 }
@@ -11,12 +10,8 @@ description = "Example - Functional Tests"
 
 tasks {
 
-    named("check") {
-        dependsOn("runJestPuppeteer")
-    }
-
-    register<YarnTask>("runJestPuppeteer") {
-        dependsOn("setupJestPuppeteer")
+    register<YarnTask>("test") {
+        dependsOn("setupTest")
         group = "check"
 
         setYarnCommand("jest")
@@ -40,7 +35,7 @@ tasks {
         }
     }
 
-    register<YarnTask>("setupJestPuppeteer") {
+    register<YarnTask>("setupTest") {
         group = "check"
 
         setYarnCommand("install")
