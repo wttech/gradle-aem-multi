@@ -96,8 +96,8 @@ Documentation for:
 Tested on:
 
 * Java 1.8
-* Gradle 5.4
-* Adobe AEM 6.4
+* Gradle 5.4.1
+* Adobe AEM 6.5
 * Docker 2.0.0.3
 
 ## Structure
