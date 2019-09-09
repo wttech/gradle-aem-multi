@@ -1,10 +1,5 @@
 {
   "license": "UNLICENSED",
-  "scripts": {
-    "open": "cypress open",
-    "runHeadless": "cypress run",
-    "runHeaded": "cypress run --headed"
-  },
   "devDependencies": {
     "cypress": "^3.4.1"
   }
