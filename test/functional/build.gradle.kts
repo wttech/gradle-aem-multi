@@ -10,11 +10,13 @@ description = "Example - Functional Tests"
 
 aem {
     tasks {
-        register<YarnTask>("test") {
+        register<YarnTask>("run") {
             dependsOn("yarn")
             group = "check"
+
             val baseUrl = props.string("baseUrl") ?: main.environment.hosts.publish.url
 
+            setWorkingDir(projectDir)
             setYarnCommand("cypress")
             setArgs(listOf("run", "-c", "baseUrl=$baseUrl"))
         }
