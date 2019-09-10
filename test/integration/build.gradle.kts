@@ -15,6 +15,7 @@ dependencies {
     testImplementation("com.intuit.karate:karate-core:0.9.4")
     testImplementation("com.intuit.karate:karate-apache:0.9.4")
     testImplementation("com.intuit.karate:karate-junit5:0.9.4")
+    testImplementation("net.masterthought:cucumber-reporting:4.9.0")
 }
 
 tasks {
@@ -29,6 +30,10 @@ tasks {
             showStandardStreams = true
             events = setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
         }
+
+        systemProperty("karate.options", System.getProperty("karate.options"))
+        systemProperty("karate.env", System.getProperty("karate.env"))
+        systemProperty("karate.parallel", System.getProperty("karate.parallel"))
     }
 }
 
