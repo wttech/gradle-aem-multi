@@ -1,7 +1,8 @@
 ### Project specific
 .instance/
 .environment/
-.idea/
+.idea/*
+!/.idea/runConfigurations
 *.iml
 *.ipr
 classes/
@@ -152,7 +153,7 @@ gradle-app.setting
 *.iml
 
 ## Directory-based project format:
-.idea/
+#.idea/
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
