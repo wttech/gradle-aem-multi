@@ -27,7 +27,7 @@ class KarateRunner {
 
   private fun generateReport(reportDir: File) {
     val jsonFiles = (reportDir.listFiles { file: File -> file.extension == "json" } ?: arrayOf())
-    val config = Configuration(reportDir.parentFile, "example");
+    val config = Configuration(reportDir.parentFile, "Integration Tests");
 
     ReportBuilder(jsonFiles.map { it.absolutePath }.toList(), config).generateReports();
   }
