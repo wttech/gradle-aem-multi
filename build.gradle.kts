@@ -16,7 +16,7 @@ aem {
                     ":aem:assembly:full:packageDeploy",
                     ":aem:environmentClean",
                     ":aem:environmentAwait",
-//                    ":test:integration:test",
+                    ":test:integration:test",
                     ":test:functional:run"
             )
         }
