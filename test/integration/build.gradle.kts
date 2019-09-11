@@ -23,6 +23,10 @@ tasks {
         enabled = false
     }
 
+    named<Task>(LifecycleBasePlugin.CHECK_TASK_NAME) {
+        dependsOn.remove(named(JavaPlugin.TEST_TASK_NAME))
+    }
+
     named<Test>(JavaPlugin.TEST_TASK_NAME) {
         outputs.upToDateWhen { false }
 
