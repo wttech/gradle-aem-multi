@@ -12,7 +12,6 @@ dependencies {
     testImplementation(project(":aem:common"))
     testImplementation(project(":aem:sites"))
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Build.KOTLIN_VERSION}")
     testImplementation("org.jetbrains.kotlin:kotlin-stdlib:${Build.KOTLIN_VERSION}")
     testImplementation("com.intuit.karate:karate-core:0.9.4")
     testImplementation("com.intuit.karate:karate-apache:0.9.4")
