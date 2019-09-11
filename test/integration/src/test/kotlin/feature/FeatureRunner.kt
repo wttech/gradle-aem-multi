@@ -5,7 +5,7 @@ import com.intuit.karate.Runner
 import com.intuit.karate.junit5.Karate
 import net.masterthought.cucumber.Configuration
 import net.masterthought.cucumber.ReportBuilder
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty
@@ -23,7 +23,7 @@ class FeatureRunner {
   fun testParallel() {
     Runner.parallel(javaClass, Runtime.getRuntime().availableProcessors()).apply {
       generateReport(File(reportDir))
-      Assertions.assertTrue(failCount == 0, errorMessages)
+      assertTrue(failCount == 0, errorMessages)
     }
   }
 
