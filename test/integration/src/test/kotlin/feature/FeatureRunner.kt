@@ -15,11 +15,11 @@ import java.io.File
 class FeatureRunner {
 
   @Karate.Test
-  @DisabledIfSystemProperty(named = "karate.parallel", matches = "true")
+  @DisabledIfSystemProperty(named = "test.parallel", matches = "true")
   fun testSequential() = Karate().tags("~@ignore").relativeTo(javaClass)
 
   @Test
-  @EnabledIfSystemProperty(named = "karate.parallel", matches = "true")
+  @EnabledIfSystemProperty(named = "test.parallel", matches = "true")
   fun testParallel() {
     Runner.parallel(javaClass, 5).apply {
       generateReport(File(reportDir))

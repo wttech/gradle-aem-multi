@@ -1,8 +1,11 @@
 Feature: Page Details Endpoint
 
+  Background:
+    * url baseUrl
+
   Scenario: Check response for home page
 
-    Given url 'http://demo.example.com/en-us.details.json'
+    Given path '/en-us.details.json'
     When method get
     Then status 200
     And match response ==

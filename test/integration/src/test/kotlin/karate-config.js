@@ -2,12 +2,14 @@ function() {
     // karate.configure('connectTimeout', 60000);
     // karate.configure('readTimeout', 60000);
 
-    // TODO base url from cmd line
+    var baseUrl = karate.properties['test.baseUrl'];
+    karate.log("Base URL: " + baseUrl);
+
+    var env = karate.env || 'dev';
+    karate.log("Environment: " + env);
 
     return {
-        env: karate.env
-
-        // Define global variables below
-        // ...
+        env: env,
+        baseUrl: baseUrl
     };
 }
