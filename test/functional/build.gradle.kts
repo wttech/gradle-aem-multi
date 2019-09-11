@@ -14,7 +14,7 @@ aem {
             dependsOn("yarn")
             group = "check"
 
-            val baseUrl = props.string("baseUrl") ?: main.environment.hosts.publish.url
+            val baseUrl = props.string("test.baseUrl") ?: main.environment.hosts.publish.url
 
             setWorkingDir(projectDir)
             setYarnCommand("cypress")

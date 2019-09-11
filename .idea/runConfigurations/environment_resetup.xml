@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="build test" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="environment resetup" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/aem" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="--info --stacktrace" />
       <option name="taskDescriptions">
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="tasks" />
+          <option value="environmentRestart" />
         </list>
       </option>
       <option name="vmOptions" value="" />
