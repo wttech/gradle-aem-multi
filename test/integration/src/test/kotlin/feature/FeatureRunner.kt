@@ -21,7 +21,7 @@ class FeatureRunner {
   @Test
   @EnabledIfSystemProperty(named = "test.parallel", matches = "true")
   fun testParallel() {
-    Runner.parallel(javaClass, 5).apply {
+    Runner.parallel(javaClass, Runtime.getRuntime().availableProcessors()).apply {
       generateReport(File(reportDir))
       Assertions.assertTrue(failCount == 0, errorMessages)
     }
