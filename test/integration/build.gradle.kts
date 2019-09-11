@@ -41,17 +41,13 @@ tasks {
         systemProperty("karate.env", System.getProperty("karate.env"))
         systemProperty("karate.parallel", System.getProperty("karate.parallel"))
     }
-
-    withType<KotlinCompile>().configureEach {
-        destinationDir = file("build/classes/java")
-    }
 }
 
 sourceSets {
     test {
         resources {
-            srcDir(file("src/test/java"))
-            exclude("**/*.kt", "**/*.java")
+            srcDir(file("src/test/kotlin"))
+            exclude("**/*.kt")
         }
     }
 }
