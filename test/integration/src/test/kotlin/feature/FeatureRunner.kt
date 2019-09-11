@@ -1,3 +1,5 @@
+package feature
+
 import com.intuit.karate.KarateOptions
 import com.intuit.karate.Runner
 import com.intuit.karate.junit5.Karate
@@ -10,7 +12,7 @@ import org.junit.jupiter.api.condition.EnabledIfSystemProperty
 import java.io.File
 
 @KarateOptions(tags = ["~@ignore"])
-class KarateRunner {
+class FeatureRunner {
 
   @Karate.Test
   @DisabledIfSystemProperty(named = "karate.parallel", matches = "true")
