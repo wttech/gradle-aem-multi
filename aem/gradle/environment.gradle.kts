@@ -65,27 +65,6 @@ configure<AemExtension> {
                     }
                 }
             }
-            step("setup-replication-author") {
-                condition { once() && instance.author }
-                action {
-                    sync {
-                        repository {
-                            node("/etc/replication/agents.publish/flush/jcr:content", mapOf(
-                                    "transportUri" to "http://dispatcher.example.com/dispatcher/invalidate.cache"
-                            ))
-                        }
-                    }
-                }
-            }
-            step("disable-unsecure-bundles") {
-                condition { once() && instance.environment == "prod" }
-                action {
-                    sync {
-                        osgiFramework.stopBundle("org.apache.sling.jcr.webdav")
-                        osgiFramework.stopBundle("com.adobe.granite.crxde-lite")
-                    }
-                }
-            }
         }
 
         // Here is a desired place for defining custom AEM tasks
