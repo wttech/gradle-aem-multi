@@ -13,6 +13,7 @@ aem {
         }) {
             dependsOrdered(
                     ":aem:instanceSatisfy",
+                    ":aem:instanceProvision",
                     ":aem:assembly:full:packageDeploy",
                     ":aem:environmentClean",
                     ":aem:environmentAwait",
