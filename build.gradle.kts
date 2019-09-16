@@ -14,6 +14,7 @@ aem {
             dependsOrdered(
                     ":aem:instanceSatisfy",
                     ":aem:assembly:full:packageDeploy",
+                    ":aem:migration:packageDeploy",
                     ":aem:environmentClean",
                     ":aem:environmentAwait",
                     ":test:integration:test",

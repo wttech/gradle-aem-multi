@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="environment resetup" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="instance restart" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$/aem" />
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="environmentRestart" />
+          <option value="instanceRestart" />
         </list>
       </option>
       <option name="vmOptions" value="" />
