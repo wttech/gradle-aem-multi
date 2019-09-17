@@ -14,10 +14,11 @@ aem {
             group = "check"
 
             val baseUrl = props.string("test.baseUrl") ?: main.environment.hosts.publish.url
-            val reportsDir = file("build/reports")
-            val configTpl = file("sites/${baseUrl.substringAfter("://")}.conf")
+            val configName = "${baseUrl.substringAfter("://")}.conf"
+            val configTpl = file("sites/$configName")
                     .takeIf { it.exists() } ?: file("sites/default.conf")
-            val configFile = file("build/sites/${configTpl.name}")
+            val configFile = file("build/sites/$configName")
+            val reportsDir = file("build/reports")
 
             setWorkingDir(projectDir)
             setYarnCommand("lighthouse-batch")
