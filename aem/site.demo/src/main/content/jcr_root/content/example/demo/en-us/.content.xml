@@ -4,10 +4,10 @@
     <jcr:content
         cq:designPath="/apps/settings/wcm/designs/example/sites"
         cq:template="/apps/example/sites/templates/home-page"
-        jcr:primaryType="cq:PageContent"
-        jcr:title="English US"
         jcr:description="Home Page of English US market"
         jcr:language="en_US"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="English US"
         sling:resourceType="example/sites/components/home-page">
         <content
             jcr:primaryType="nt:unstructured"

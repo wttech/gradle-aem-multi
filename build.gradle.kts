@@ -9,16 +9,17 @@ defaultTasks("develop")
 aem {
     tasks {
         sequence("develop", {
-            description = "Builds and deploys AEM application, cleans environment then runs integration, functional and performance tests"
+            description = "Builds and deploys AEM application, cleans environment then runs integration and functional tests"
         }) {
             dependsOrdered(
                     ":aem:instanceSatisfy",
+                    ":aem:instanceProvision",
                     ":aem:assembly:full:packageDeploy",
+                    ":aem:migration:packageDeploy",
                     ":aem:environmentClean",
-                    ":aem:environmentCheck",
+                    ":aem:environmentAwait",
                     ":test:integration:test",
-                    ":test:functional:test",
-                    ":test:performance:test"
+                    ":test:functional:run"
             )
         }
     }
