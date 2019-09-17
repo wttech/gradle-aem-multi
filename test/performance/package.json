@@ -1,9 +1,6 @@
 {
-  "name": "performance-tests",
-  "scripts": {
-    "lighthouse": "lighthouse-batch --file \"./config/sites.conf\" --out \"./reports\" --html"
-  },
-  "dependencies": {
+  "license": "UNLICENSED",
+  "devDependencies": {
     "lighthouse-batch": "^5.0.1"
   }
 }
