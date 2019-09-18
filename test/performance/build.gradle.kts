@@ -12,6 +12,7 @@ aem {
         register<YarnTask>("run") {
             dependsOn("yarn")
             group = "check"
+            description = "Run performance tests (Lighthouse)"
 
             val baseUrl = props.string("test.baseUrl") ?: main.environment.hosts.publish.url
             val configName = "${baseUrl.substringAfter("://")}.conf"
