@@ -17,7 +17,7 @@ To run tests use commands for:
 Optionally consider properties for:
 
 * different host / base URL: `-Ptest.baseUrl=http://aem-host.com`,
-* running Karate features in parallel: `-Ptest.parallel` with auto-generating [Cucumber Reports](https://github.com/damianszczepanik/cucumber-reporting).
+* running Karate features in parallel: `-Ptest.parallel` with auto-generating [Cucumber Reports](https://github.com/damianszczepanik/cucumber-reporting) under directory *build/cucumber-html-reports*.
 
 ## Screenshots
 

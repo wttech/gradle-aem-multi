@@ -16,3 +16,7 @@ Optionally configure with `-Ptest.baseUrl=http://aem-host.com` to run tests on o
 
 Test results will be saved in `build/reports` directory. 
 They include one HTML file (standard Lighthouse report) and one JSON file for each path and a single `summary.json` file aggregating stats for all paths.
+
+## Screenshots
+
+![Lighthouse Report](docs/lighthouse-report.png)
