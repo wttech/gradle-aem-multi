@@ -1,3 +1,9 @@
 {
-  "video": true
+  "video": true,
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "build/cypress/report.xml",
+    "toConsole": true
+  }
 }
+
