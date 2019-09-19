@@ -1,3 +1,4 @@
+@aem
 Feature: Page Details Endpoint
 
   Background:

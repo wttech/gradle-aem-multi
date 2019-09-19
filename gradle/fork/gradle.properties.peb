@@ -1,5 +1,7 @@
 # AEM configuration
 notifier.enabled=true
+#instance.author=true
+#instance.publish=true
 
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}

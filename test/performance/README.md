@@ -2,7 +2,7 @@
 
 ### About
 
-Performance tests are run using [lighthouse-batch](https://www.npmjs.com/package/lighthouse-batch) tool which supports executing Lighthouse tests for multiple sites. 
+Tests are using [lighthouse-batch](https://www.npmjs.com/package/lighthouse-batch) tool which supports executing Lighthouse tests for multiple sites. 
 
 ### Configuration
 
