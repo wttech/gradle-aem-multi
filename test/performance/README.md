@@ -2,7 +2,7 @@
 
 ## About
 
-Tests are using [lighthouse-batch](https://www.npmjs.com/package/lighthouse-batch) tool which supports executing Lighthouse tests for multiple sites. 
+Tests are based on [Lighthouse](https://developers.google.com/web/tools/lighthouse/) tool .
 
 ## Configuration
 
