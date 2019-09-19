@@ -19,3 +19,7 @@ Then it will be available to select:
 To tune test runner, see all available [Cypress configuration options](https://docs.cypress.io/guides/references/configuration.html#Options) then configure each option by editing file: [cypress.json](cypress.json)
 
 ## Screenshots 
+
+![Spec select](docs/gui-spec-select.png)
+
+![Home spec run](docs/gui-home-spec.png)
