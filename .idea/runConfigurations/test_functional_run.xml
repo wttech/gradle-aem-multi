@@ -11,6 +11,7 @@
       <option name="taskNames">
         <list>
           <option value="run" />
+          <option value="generateReport" />
         </list>
       </option>
       <option name="vmOptions" value="" />

@@ -19,7 +19,8 @@ aem {
                     ":aem:environmentClean",
                     ":aem:environmentAwait",
                     ":test:integration:test",
-                    ":test:functional:run"
+                    ":test:functional:run",
+                    ":test:functional:generateReport"
             )
         }
     }
