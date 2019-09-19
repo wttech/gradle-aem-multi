@@ -1,14 +1,10 @@
-## Functional tests
+# Functional tests
 
-### About
+## About
 
 Module which consists of functional tests based on [Cypress](https://www.cypress.io/) tool.
 
-![Spec select](docs/gui-spec-select.png)
-
-![Home spec run](docs/gui-home-spec.png)
-
-### Running
+## Running
 
 To run all tests use command: `sh gradlew :test:functional:run`. 
 Optionally configure with `-Ptest.baseUrl=http://aem-host.com` to run tests on other host.
@@ -21,3 +17,5 @@ Then it will be available to select:
  
  
 To tune test runner, see all available [Cypress configuration options](https://docs.cypress.io/guides/references/configuration.html#Options) then configure each option by editing file: [cypress.json](cypress.json)
+
+## Screenshots 

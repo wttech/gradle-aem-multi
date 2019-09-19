@@ -1,15 +1,15 @@
-## Performance tests
+# Performance tests
 
-### About
+## About
 
 Tests are using [lighthouse-batch](https://www.npmjs.com/package/lighthouse-batch) tool which supports executing Lighthouse tests for multiple sites. 
 
-### Configuration
+## Configuration
 
 Add all paths you want to test to `sites/default.conf` file, one per line.
 If paths are specific to site create dedicated file `sites/${host}.conf`.
 
-### Running
+## Running
 
 Simply run command: `sh gradlew :test:performance:run`. 
 Optionally configure with `-Ptest.baseUrl=http://aem-host.com` to run tests on other host (using default paths).

@@ -1,17 +1,13 @@
-## Integration tests
+# Integration tests
 
-### About
+## About
 
 Module which consists of integration test for:
  
 * webservices checking based on [Karate Framework](https://github.com/intuit/karate),
 * web page HTML markup checking based on [JUnit5](https://junit.org/junit5) & [JSoup](https://jsoup.org).
 
-![Karate IntelliJ Run](docs/karate-feature-intellij.png)
-
-![Karate / Cucumber Report](docs/cucumber-report.png)
-
-### Running
+## Running
 
 To run tests use commands for:
 
@@ -22,3 +18,9 @@ Optionally consider properties for:
 
 * different host / base URL: `-Ptest.baseUrl=http://aem-host.com`,
 * running Karate features in parallel: `-Ptest.parallel` with auto-generating [Cucumber Reports](https://github.com/damianszczepanik/cucumber-reporting).
+
+## Screenshots
+
+![Karate IntelliJ Run](docs/karate-feature-intellij.png)
+
+![Karate / Cucumber Report](docs/cucumber-report.png)
