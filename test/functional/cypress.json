@@ -1,7 +1,10 @@
 {
   "video": false,
+  "videosFolder": "build/cypress/videos",
+  "screenshotsFolder": "build/cypress/screenshots",
   "reporter": "mochawesome",
   "reporterOptions": {
+    "reportDir": "build/cypress/reports",
     "overwrite": false,
     "html": false,
     "json": true

@@ -19,7 +19,7 @@ aem {
                 props.string("test.browser")?.let { add("--browser=$it")}
             }
         }
-        val reportDir = "mochawesome-report"
+        val reportDir = "build/cypress/reports"
 
         register<YarnTask>("run") {
             group = "check"

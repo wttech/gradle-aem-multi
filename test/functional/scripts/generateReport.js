@@ -2,8 +2,9 @@ const merger = require('mochawesome-merge');
 const generator = require('mochawesome-report-generator');
 
 async function generateReport() {
-    const jsonReport = await merger.merge();
-    await generator.create(jsonReport);
+    const opts = { reportDir: 'build/cypress/reports'};
+    const jsonReport = await merger.merge(opts);
+    await generator.create(jsonReport, opts);
 }
 
 generateReport();
