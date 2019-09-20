@@ -22,9 +22,10 @@ aem {
         val reportDir = "mochawesome-report"
 
         register<YarnTask>("run") {
-            dependsOn("yarn")
             group = "check"
             description = "Run functional tests (Cypress)"
+            dependsOn("yarn")
+            finalizedBy("generateReport")
 
             setWorkingDir(projectDir)
             setYarnCommand("cypress")
@@ -32,25 +33,24 @@ aem {
             doFirst { delete(reportDir) }
         }
 
+        register<YarnTask>("generateReport") {
+            group = "check"
+            description = "Generate report for functional tests (Cypress) "
+
+            setWorkingDir(projectDir)
+            setYarnCommand("node")
+            setArgs(listOf("scripts/generateReport.js"))
+        }
+
         register<YarnTask>("openGui") {
-            dependsOn("yarn")
             group = "check"
             description = "Open functional tests GUI runner (Cypress)"
+            dependsOn("yarn")
 
             setWorkingDir(projectDir)
             setYarnCommand("cypress")
             setArgs(listOf("open") + args)
             doFirst { delete(reportDir) }
-        }
-
-        register<YarnTask>("generateReport") {
-            dependsOn("run")
-            group = "check"
-            description = "Generate report for functional tests (Cypress)"
-
-            setWorkingDir(projectDir)
-            setYarnCommand("node")
-            setArgs(listOf("generateReport.js"))
         }
     }
 }
