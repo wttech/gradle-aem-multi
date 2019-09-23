@@ -1,0 +1,12 @@
+{
+  "args": [
+    "--performance=95",
+    "--accessibility=90",
+    "--best-practices=86",
+    "--seo=64",
+    "--pwa=0"
+  ],
+  "paths": [
+    "/en-us.html"
+  ]
+}
