@@ -1,9 +1,5 @@
 import com.moowork.gradle.node.yarn.YarnExecRunner
-
-class CliConfig {
-    var paths = listOf<String>()
-    var args = listOf<String>()
-}
+class CliConfig { var paths = listOf<String>(); var args = listOf<String>() }
 
 plugins {
     id("com.cognifide.aem.common")
