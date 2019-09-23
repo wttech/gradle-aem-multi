@@ -1,4 +1,4 @@
-import com.moowork.gradle.node.yarn.YarnTask
+import com.moowork.gradle.node.yarn.YarnExecRunner
 
 plugins {
     id("com.cognifide.aem.common")
@@ -9,30 +9,34 @@ description = "Example - Performance Tests"
 
 aem {
     tasks {
-        register<YarnTask>("run") {
+        register("run") {
             dependsOn("yarn")
             group = "check"
             description = "Run performance tests (Lighthouse)"
 
             val baseUrl = props.string("test.baseUrl") ?: main.environment.hosts.publish.url
             val configName = "${baseUrl.substringAfter("://")}.conf"
-            val configTpl = file("sites/$configName")
+            val configFile = file("sites/$configName")
                     .takeIf { it.exists() } ?: file("sites/default.conf")
-            val configFile = file("build/sites/$configName")
-            val reportsDir = file("build/reports")
+            val reportDir = file("build/lighthouse")
 
-            setWorkingDir(projectDir)
-            setYarnCommand("lighthouse-batch")
-            setArgs(listOf("--file", "$configFile", "--html", "--out", "$reportsDir"))
+            doLast {
+                reportDir.mkdirs()
+                configFile.forEachLine { path ->
+                    if (path.isNotBlank()) {
+                        val url = "$baseUrl$path"
+                        val fileName = url.substringAfter("://").replace("/", "_")
 
-            doFirst {
-                configFile.parentFile.mkdirs()
-                configFile.printWriter().use {writer ->
-                    configTpl.forEachLine { path ->
-                        writer.println("$baseUrl$path")
+                        YarnExecRunner(project).apply {
+                            workingDir = projectDir
+                            arguments = mutableListOf(
+                                    "lighthouse-ci", url, "--report=$reportDir",
+                                    "--filename=$fileName", "--config-path=lighthouse.json"
+                            )
+                            execute()
+                        }
                     }
                 }
-
             }
         }
     }

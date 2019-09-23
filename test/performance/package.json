@@ -1,6 +1,6 @@
 {
   "license": "UNLICENSED",
   "devDependencies": {
-    "lighthouse-batch": "^5.0.1"
+    "lighthouse-ci": "^1.10.0"
   }
 }
