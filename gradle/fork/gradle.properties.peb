@@ -1,5 +1,8 @@
 # AEM configuration
 notifier.enabled=true
+package.deploy.workflowToggle=[dam_asset=false]
+
+#package.snapshots=[**/*-SNAPSHOT*.zip]
 #instance.author=true
 #instance.publish=true
 
