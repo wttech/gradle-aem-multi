@@ -10,7 +10,7 @@
         logLevel="error"
         retryDelay="60000"
         serializationType="durbo"
-        transportPassword="\{bd8571f0cd29747219b1abdf527f94c3e94b64d1fe840b611149186ea7d2dab7}"
+        transportPassword="admin"
         transportUri="http://localhost:4503/bin/receive?sling:authRequestLogin=1"
         transportUser="admin"
         userId="admin"/>
