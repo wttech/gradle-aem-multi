@@ -54,30 +54,21 @@ configure<AemExtension> {
         }
 
         instanceProvision {
-            step("enable-crxde") {
-                description = "Enables CRX DE"
-                condition { once() && instance.environment != "prod" }
-                action {
-                    sync {
-                        osgiFramework.configure("org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet", mapOf(
-                                "alias" to "/crx/server"
-                        ))
-                    }
-                }
-            }
+            // https://github.com/Cognifide/gradle-aem-plugin#task-instanceprovision
         }
 
         // Here is a desired place for defining custom AEM tasks
         // https://github.com/Cognifide/gradle-aem-plugin#implement-custom-aem-tasks
 
+        /*
         register("doSomething") {
             description = "Does something"
             doLast {
                 aem.sync {
-                    // use instance services: 'http', 'repository', 'packageManager', 'osgiFramework', 'groovyConsole'
+                    // use instance services: http, repository, packageManager, osgiFramework, groovyConsole
                 }
             }
         }
-
+        */
     }
 }
