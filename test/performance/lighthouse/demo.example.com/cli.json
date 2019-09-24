@@ -1,10 +1,10 @@
 {
   "args": [
-    "--performance=95",
+    "--performance=90",
     "--accessibility=90",
-    "--best-practices=86",
-    "--seo=64",
-    "--pwa=0"
+    "--best-practices=80",
+    "--seo=60",
+    "--pwa=30"
   ],
   "paths": [
     "/en-us.html",
