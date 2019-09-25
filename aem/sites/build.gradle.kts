@@ -22,7 +22,7 @@ aem {
             dependsOn("yarn")
             setYarnCommand("buildPublish")
 
-            val dir = "src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish"
+            val dir = "${packageOptions.jcrRootDir}/apps/example/sites/clientlibs/page/publish"
 
             inputs.file("package.json")
             inputs.dir("$dir/src")
