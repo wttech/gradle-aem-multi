@@ -6,6 +6,8 @@ plugins {
     id("com.moowork.node")
 }
 
+apply(from = rootProject.file("gradle/common.gradle.kts"))
+
 group = "com.company.example.aem"
 description = "Example - AEM Sites"
 

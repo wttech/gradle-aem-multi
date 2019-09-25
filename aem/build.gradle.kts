@@ -5,6 +5,8 @@ plugins {
     id("com.cognifide.aem.environment")
 }
 
+apply(from = rootProject.file("gradle/common.gradle.kts"))
+
 aem {
     environment {
         distributions {

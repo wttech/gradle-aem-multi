@@ -3,6 +3,9 @@ plugins {
     id("com.cognifide.aem.common")
 }
 
+apply(from = "gradle/common.gradle.kts")
+apply(from = "gradle/fork.gradle.kts")
+
 description = "Example"
 defaultTasks("develop")
 
@@ -25,6 +28,3 @@ aem {
         }
     }
 }
-
-apply(from = "gradle/fork.gradle.kts")
-apply(from = "gradle/common.gradle.kts")
