@@ -11,7 +11,7 @@ aem {
         sequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
-            dependsOrdered(
+            dependsOn(
                     ":aem:instanceSatisfy",
                     ":aem:instanceProvision",
                     ":aem:assembly:full:packageDeploy",

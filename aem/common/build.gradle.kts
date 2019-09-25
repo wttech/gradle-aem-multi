@@ -3,6 +3,7 @@ plugins {
     id("com.cognifide.aem.bundle")
 }
 
+group = "com.company.example.aem"
 description = "Example - AEM Common"
 
 aem {

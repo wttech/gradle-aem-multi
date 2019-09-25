@@ -6,6 +6,7 @@ plugins {
     id("com.moowork.node")
 }
 
+group = "com.company.example.aem"
 description = "Example - AEM Sites"
 
 dependencies {
