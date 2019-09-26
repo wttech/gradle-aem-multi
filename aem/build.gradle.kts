@@ -30,10 +30,12 @@ aem {
             other("http://dispatcher.example.com")
         }
         healthChecks {
-            url("Live site", "http://example.com/en-us.html", text = "English")
-            url("Demo site", "http://demo.example.com/en-us.html", text = "English")
-            url("Author login", "http://author.example.com/libs/granite/core/content/login.html" +
-                    "?resource=%2F&\$\$login\$\$=%24%24login%24%24&j_reason=unknown&j_reason_code=unknown", text = "AEM Sign In")
+            url("Live site", "http://example.com/en-us.html") { containsText("English US") }
+            url("Demo site", "http://demo.example.com/en-us.html") { containsText("English US") }
+            url("Author module 'Sites'", "http://author.example.com/sites.html") {
+                options { basicCredentials = authorInstance.credentials }
+                containsText("Sites")
+            }
         }
     }
 
