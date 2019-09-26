@@ -6,6 +6,9 @@ plugins {
     id("com.moowork.node")
 }
 
+apply(from = rootProject.file("gradle/common.gradle.kts"))
+
+group = "com.company.example.aem"
 description = "Example - AEM Sites"
 
 dependencies {
@@ -19,7 +22,7 @@ aem {
             dependsOn("yarn")
             setYarnCommand("buildPublish")
 
-            val dir = "src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish"
+            val dir = "${packageOptions.jcrRootDir}/apps/example/sites/clientlibs/page/publish"
 
             inputs.file("package.json")
             inputs.dir("$dir/src")

@@ -3,6 +3,9 @@ plugins {
     id("com.cognifide.aem.common")
 }
 
+apply(from = "gradle/common.gradle.kts")
+apply(from = "gradle/fork.gradle.kts")
+
 description = "Example"
 defaultTasks("develop")
 
@@ -11,7 +14,7 @@ aem {
         sequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
-            dependsOrdered(
+            dependsOn(
                     ":aem:instanceSatisfy",
                     ":aem:instanceProvision",
                     ":aem:assembly:full:packageDeploy",
@@ -25,6 +28,3 @@ aem {
         }
     }
 }
-
-apply(from = "gradle/fork.gradle.kts")
-apply(from = "gradle/common.gradle.kts")

@@ -5,6 +5,8 @@ plugins {
     id("com.cognifide.aem.common")
 }
 
+apply(from = rootProject.file("gradle/common.gradle.kts"))
+
 description = "Example - Integration Tests"
 
 dependencies {

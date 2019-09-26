@@ -5,6 +5,8 @@ plugins {
     id("com.moowork.node")
 }
 
+apply(from = rootProject.file("gradle/common.gradle.kts"))
+
 description = "Example - Performance Tests"
 
 aem {
