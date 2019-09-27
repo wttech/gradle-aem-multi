@@ -29,7 +29,7 @@ aem {
 
                 when {
                     !suiteName.isNullOrBlank() -> suiteConfig.suites.filter { it.name == suiteName }
-                    else -> suiteConfig.suites.filter { Patterns.wildcard(baseUrl, it.baseUrls) }
+                    else -> suiteConfig.suites.filter { it.baseUrl?.run { Patterns.wildcard(baseUrl, this) } ?: false }
                 }.ifEmpty {
                     suiteConfig.suites.filter { it.name == "default" }
                 }.forEach { suite ->

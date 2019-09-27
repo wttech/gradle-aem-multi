@@ -2,9 +2,7 @@
   "suites": [
     {
       "name": "site.demo",
-      "baseUrls": [
-        "http://demo.example.com"
-      ],
+      "baseUrl": "http://demo.example.com",
       "paths": [
         "/en-us.html",
         "/en-gb.html"
@@ -20,9 +18,7 @@
     },
     {
       "name": "site.live",
-      "baseUrls": [
-        "http://example.com"
-      ],
+      "baseUrl": "http://example.com",
       "paths": [
         "/en-us.html"
       ],

@@ -13,9 +13,9 @@ class LighthouseConfig {
 
     lateinit var name: String
 
-    val paths: List<String> = listOf()
+    var baseUrl: String? = null
 
-    val baseUrls: List<String> = listOf()
+    val paths: List<String> = listOf()
 
     val args: List<String> = listOf()
   }
