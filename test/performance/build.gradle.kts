@@ -33,6 +33,7 @@ aem {
                 }.ifEmpty {
                     suiteConfig.suites.filter { it.name == "default" }
                 }.forEach { suite ->
+                    logger.info("Running Lighthouse Suite '${suite.name}'")
                     suite.paths.forEach { path ->
                         val url = "$baseUrl$path"
                         val fileName = url.substringAfter("://").replace("/", "_")
