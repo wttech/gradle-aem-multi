@@ -1,3 +1,4 @@
+import com.cognifide.gradle.aem.common.utils.Patterns
 import com.moowork.gradle.node.yarn.YarnExecRunner
 
 plugins {
@@ -17,30 +18,30 @@ aem {
             description = "Run performance tests (Lighthouse)"
 
             doLast {
-                val baseUrl = props.string("test.baseUrl") ?: main.environment.hosts.publish.url
-                val configName = baseUrl.substringAfter("://")
-                val lighthouseConfig = file("lighthouse/$configName/lighthouse.json")
-                        .takeIf { it.exists() } ?: file("lighthouse/default/config.json")
-                val reportDir = file("build/lighthouse")
-                val cliConfig = (file("lighthouse/$configName/cli.json")
-                        .takeIf { it.exists() } ?: file("lighthouse/default/cli.json")).run {
-                    formats.asJson(readText())
+                val suiteName = props.string("test.lighthouseSuite")
+                val suiteConfig = file("lighthouse/suites.json").run {
+                    formats.fromJson(readText(), LighthouseConfig::class.java)
                 }
-                val cliPaths: List<String> = cliConfig.read("paths")
-                val cliArgs: List<String> = cliConfig.read("args")
+                val baseUrl = props.string("test.publishUrl") ?: main.environment.hosts.publish.url
+                val reportDir = file("build/lighthouse")
 
                 reportDir.mkdirs()
-                cliPaths.forEach { path ->
-                    if (path.isNotBlank()) {
+
+                when {
+                    !suiteName.isNullOrBlank() -> suiteConfig.suites.filter { it.name == suiteName }
+                    else -> suiteConfig.suites.filter { Patterns.wildcard(baseUrl, it.baseUrls) }
+                }.ifEmpty {
+                    suiteConfig.suites.filter { it.name == "default" }
+                }.forEach { suite ->
+                    suite.paths.forEach { path ->
                         val url = "$baseUrl$path"
                         val fileName = url.substringAfter("://").replace("/", "_")
 
                         YarnExecRunner(project).apply {
                             workingDir = projectDir
-                            arguments = mutableListOf(
-                                    "lighthouse-ci", url, "--report=$reportDir",
-                                    "--filename=$fileName", "--config-path=$lighthouseConfig"
-                            ) + cliArgs
+                            arguments = mutableListOf("lighthouse-ci", url, "--report=$reportDir",
+                                    "--filename=$fileName"
+                            ) + suite.args
                             execute()
                         }
                     }

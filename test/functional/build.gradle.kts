@@ -12,7 +12,7 @@ description = "Example - Functional Tests"
 aem {
     tasks {
         val args by lazy {
-            val baseUrl = props.string("test.baseUrl") ?: main.environment.hosts.publish.url
+            val baseUrl = props.string("test.publishUrl") ?: main.environment.hosts.publish.url
 
             mutableListOf("-c", "baseUrl=$baseUrl").apply {
                 if (props.flag("test.headed")) add("--headed")

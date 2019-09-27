@@ -31,7 +31,7 @@ localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
 # Tests configuration
 test.parallel=false
 #test.browser=chrome
-#test.baseUrl=http://example.com
+#test.publishUrl=http://example.com
 
 # Performance tuning
 org.gradle.daemon=true

@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Assertions.assertTrue
 
 abstract class MarkupTest {
 
-  val baseUrl get() = System.getProperty("test.baseUrl")
+  val publishUrl get() = System.getProperty("test.publishUrl")
 
-  fun get(path: String) = Jsoup.connect("$baseUrl$path").get()
+  fun get(path: String) = Jsoup.connect("$publishUrl$path").get()
 
   fun assertText(expectedPattern: String, actualText: String) {
     assertTrue(FilenameUtils.wildcardMatch(expectedPattern, actualText)) {

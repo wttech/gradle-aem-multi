@@ -7,7 +7,7 @@ Module which consists of functional tests based on [Cypress](https://www.cypress
 ## Running
 
 To run all tests use command: `sh gradlew :test:functional:run`. 
-Optionally configure with `-Ptest.baseUrl=http://aem-host.com` to run tests on other host.
+Optionally configure with `-Ptest.publishUrl=http://aem-host.com` to run tests on other host.
 
 To open GUI use command: `sh gradlew :test:functional:openGui`.
 Then it will be available to select:

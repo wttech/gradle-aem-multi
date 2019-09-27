@@ -1,0 +1,22 @@
+{
+  "suites": [
+    {
+      "name": "default",
+      "baseUrls": [
+        "http://demo.example.com",
+        "http://example.com"
+      ],
+      "paths": [
+        "/en-us.html"
+      ],
+      "args": [
+        "--config-path=lighthouse/config.json",
+        "--performance=90",
+        "--accessibility=90",
+        "--best-practices=80",
+        "--seo=60",
+        "--pwa=30"
+      ]
+    }
+  ]
+}

@@ -43,7 +43,7 @@ aem {
             systemProperty("karate.env", props.string("karate.env") ?: "local")
             systemProperty("karate.config.dir", "src/test/kotlin/karate")
 
-            systemProperty("test.baseUrl", props.string("test.baseUrl") ?: main.environment.hosts.publish.url)
+            systemProperty("test.publishUrl", props.string("test.publishUrl") ?: main.environment.hosts.publish.url)
             systemProperty("test.parallel", props.string("test.parallel") ?: "")
         }
     }
