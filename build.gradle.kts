@@ -23,7 +23,7 @@ aem {
                     ":aem:environmentAwait",
                     ":test:integration:test",
                     ":test:functional:run",
-                    ":test:performance:run"
+                    ":test:performance:lighthouseRun"
             )
         }
     }
