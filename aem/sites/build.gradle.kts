@@ -3,7 +3,7 @@ import com.moowork.gradle.node.yarn.YarnTask
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("com.cognifide.aem.bundle")
-    id("com.moowork.node")
+    id("com.github.node-gradle.node")
 }
 
 apply(from = rootProject.file("gradle/common.gradle.kts"))

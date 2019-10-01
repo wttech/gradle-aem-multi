@@ -46,10 +46,10 @@ plugins.withId("org.jetbrains.kotlin.jvm") {
     }
 }
 
-plugins.withId("com.moowork.node") {
+plugins.withId("com.github.node-gradle.node") {
     configure<NodeExtension> {
-        version = "10.16.0"
-        yarnVersion = "1.9.4"
+        version = "10.16.3"
+        yarnVersion = "1.19.0"
         download = true
     }
 }

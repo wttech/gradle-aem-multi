@@ -2,7 +2,7 @@ import com.moowork.gradle.node.yarn.YarnTask
 
 plugins {
     id("com.cognifide.aem.common")
-    id("com.moowork.node")
+    id("com.github.node-gradle.node")
 }
 
 apply(from = rootProject.file("gradle/common.gradle.kts"))
@@ -12,7 +12,7 @@ description = "Example - Functional Tests"
 aem {
     tasks {
         val args by lazy {
-            val baseUrl = props.string("test.publishUrl") ?: main.environment.hosts.publish.url
+            val baseUrl = props.string("test.publishUrl")
 
             mutableListOf("-c", "baseUrl=$baseUrl").apply {
                 if (props.flag("test.headed")) add("--headed")
