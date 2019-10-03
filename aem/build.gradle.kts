@@ -57,6 +57,7 @@ aem {
                 group("dep.vanity-urls") { /* useLocal("pkg/vanityurls-components-1.0.2.zip") */ }
                 group("dep.kotlin") { resolve("org.jetbrains.kotlin:kotlin-osgi-bundle:${Build.KOTLIN_VERSION}") }
                 group("dep.acs-aem-commons") { download("https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases/download/acs-aem-commons-4.0.0/acs-aem-commons-content-4.0.0-min.zip") }
+                group("tool.ac-tool") { download("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool", "accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip", "accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip") }
                 group("tool.aem-easy-content-upgrade") { download("https://github.com/valtech/aem-easy-content-upgrade/releases/download/2.0.0/aecu.bundle-2.0.0.zip") }
                 group("tool.search-webconsole-plugin") { resolve("com.neva.felix:search-webconsole-plugin:1.2.0") }
             }

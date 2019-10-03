@@ -31,6 +31,9 @@ aem {
 
         packageCompose {
             dependsOn(named("webpackPublish"))
+            vaultDefinition {
+                property("installhook.actool.class", "biz.netcentric.cq.tools.actool.installhook.AcToolInstallHook")
+            }
         }
     }
 }
