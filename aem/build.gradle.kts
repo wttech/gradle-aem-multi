@@ -31,7 +31,7 @@ aem {
         }
         healthChecks {
             url("Live site", "http://example.com/en-us.html") { containsText("English US") }
-            url("Demo site", "http://demo.example.com/en-gb.html") { containsText("English GB") } // TODO also 'en-us'
+            url("Demo site", "http://demo.example.com/en-us.html") { containsText("English US") }
             url("Author module 'Sites'", "http://author.example.com/sites.html") {
                 options { basicCredentials = authorInstance.credentials }
                 containsText("Sites")
