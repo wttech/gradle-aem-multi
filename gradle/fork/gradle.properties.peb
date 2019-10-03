@@ -37,7 +37,6 @@ test.publishUrl=http://demo.example.com
 org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.caching=true
-org.gradle.configureondemand=true
 org.gradle.jvmargs=-Xmx3072m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 
 # SMB / JCIFS workaround for Mac OSX
