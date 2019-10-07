@@ -58,7 +58,7 @@ plugins.withId("com.cognifide.aem.bundle") {
 
     configure<AemExtension> {
         tasks {
-            bundle {
+            bundleCompose {
                 category = "example"
                 vendor = "Company"
             }

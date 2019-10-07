@@ -10,7 +10,7 @@ description = "Example - AEM Common"
 
 aem {
     tasks {
-        bundle {
+        bundleCompose {
             embedPackage("org.hashids", true, "org.hashids:hashids:1.0.1")
         }
         packageCompose {
