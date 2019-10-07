@@ -11,7 +11,7 @@ description = "Example - AEM Common"
 aem {
     tasks {
         bundleCompose {
-            embedPackage("org.hashids", true, "org.hashids:hashids:1.0.1")
+            // TODO / embedPackage("org.hashids", true, "org.hashids:hashids:1.0.1")
         }
         packageCompose {
             fromJar("org.jsoup:jsoup:1.10.2")
