@@ -12,11 +12,11 @@ services:
     networks:
       - docker-net
     volumes:
-      - "{{ environment.dockerRootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
-      - "{{ environment.dockerRootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
-      - "{{ environment.dockerRootPath }}/httpd/logs:/usr/local/apache2/logs"
-      - "{{ environment.dockerConfigPath }}/httpd/conf:/usr/local/apache2/conf"
-    {% if (environment.dockerRuntime.name == 'toolbox') %}
+      - "{{ environment.docker.rootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      - "{{ environment.docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
+      - "{{ environment.docker.rootPath }}/httpd/logs:/usr/local/apache2/logs"
+      - "{{ environment.docker.configPath }}/httpd/conf:/usr/local/apache2/conf"
+    {% if (environment.docker.runtime.name == 'toolbox') %}
     extra_hosts:
       - "host.docker.internal:10.0.2.2"
     {% endif %}
