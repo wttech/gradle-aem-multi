@@ -9,19 +9,23 @@ apply(from = rootProject.file("gradle/common.gradle.kts"))
 
 aem {
     environment {
+        docker {
+            containers {
+                "httpd" {
+                    reload {
+                        cleanDir(
+                                "/opt/aem/dispatcher/cache/content/example/live",
+                                "/opt/aem/dispatcher/cache/content/example/demo"
+                        )
+                        ensureDir("/usr/local/apache2/logs")
+                    }
+                }
+            }
+        }
         distributions {
             download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
                 copyArchiveFile(it, "**/dispatcher-apache*.so", distributionFile("mod_dispatcher.so"))
             }
-        }
-        directories {
-            regular(
-                    "httpd/logs"
-            )
-            cache(
-                    "httpd/cache/content/example/live",
-                    "httpd/cache/content/example/demo"
-            )
         }
         hosts {
             author("http://author.example.com")

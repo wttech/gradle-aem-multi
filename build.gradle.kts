@@ -19,7 +19,7 @@ aem {
                     ":aem:instanceProvision",
                     ":aem:assembly:full:packageDeploy",
                     ":aem:migration:packageDeploy",
-                    ":aem:environmentClean",
+                    ":aem:environmentReload",
                     ":aem:environmentAwait",
                     ":test:integration:test",
                     ":test:functional:run",
