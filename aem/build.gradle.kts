@@ -1,5 +1,3 @@
-import com.cognifide.gradle.aem.AemExtension
-
 plugins {
     id("com.cognifide.aem.instance")
     id("com.cognifide.aem.environment")
