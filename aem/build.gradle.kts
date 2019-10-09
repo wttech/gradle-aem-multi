@@ -18,6 +18,7 @@ aem {
                                 "/opt/aem/dispatcher/cache/content/example/demo"
                         )
                         ensureDir("/usr/local/apache2/logs")
+                        exec("/usr/local/apache2/bin/httpd -k restart")
                     }
                 }
             }
