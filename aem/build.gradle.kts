@@ -8,6 +8,12 @@ apply(from = rootProject.file("gradle/common.gradle.kts"))
 aem {
     environment {
         docker {
+            init {
+                ensureDir(
+                        "httpd/cache",
+                        "httpd/logs"
+                )
+            }
             containers {
                 "httpd" {
                     reload {

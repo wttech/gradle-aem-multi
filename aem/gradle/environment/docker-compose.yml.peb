@@ -2,7 +2,7 @@ version: "3"
 services:
   httpd:
     image: httpd:2.4.39
-    command: ["tail", "-f", "--retry", "/usr/local/apache2/logs/error.log"]
+    command: ["tail", "-f", "--retry", "/usr/local/apache2/logs/error_log"]
     deploy:
       replicas: 1
       restart_policy:
@@ -12,11 +12,11 @@ services:
     networks:
       - docker-net
     volumes:
-      - "{{ environment.docker.rootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
-      - "{{ environment.docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
-      - "{{ environment.docker.rootPath }}/httpd/logs:/usr/local/apache2/logs"
-      - "{{ environment.docker.configPath }}/httpd/conf:/usr/local/apache2/conf"
-    {% if (environment.docker.runtime.name == 'toolbox') %}
+      - "{{ docker.rootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      - "{{ docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
+      - "{{ docker.rootPath }}/httpd/logs:/usr/local/apache2/logs"
+      - "{{ docker.configPath }}/httpd/conf:/usr/local/apache2/conf"
+    {% if (docker.runtime.name == 'toolbox') %}
     extra_hosts:
       - "host.docker.internal:10.0.2.2"
     {% endif %}
