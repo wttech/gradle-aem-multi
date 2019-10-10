@@ -29,7 +29,7 @@ aem {
         }
         distributions {
             download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
-                copyArchiveFile(it, "**/dispatcher-apache*.so", distributionFile("mod_dispatcher.so"))
+                copyArchiveFile(it, "**/dispatcher-apache*.so", file("mod_dispatcher.so"))
             }
         }
         hosts {
