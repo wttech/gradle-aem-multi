@@ -61,6 +61,12 @@ aem {
             dependsOn(":develop")
         }
 
+        environmentDev {
+            reloader {
+                configDir("httpd/conf")
+            }
+        }
+
         instanceSatisfy {
             packages {
                 "dep.vanity-urls" { /* useLocal("pkg/vanityurls-components-1.0.2.zip") */ }

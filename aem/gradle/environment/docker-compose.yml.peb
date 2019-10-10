@@ -13,7 +13,9 @@ services:
       - docker-net
     volumes:
       - "{{ docker.rootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      {% if (docker.runtime.safeVolumes) %}
       - "{{ docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
+      {% endif %}
       - "{{ docker.rootPath }}/httpd/logs:/usr/local/apache2/logs"
       - "{{ docker.configPath }}/httpd/conf:/usr/local/apache2/conf"
     {% if (docker.runtime.name == 'toolbox') %}
