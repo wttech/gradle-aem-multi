@@ -8,28 +8,34 @@ apply(from = rootProject.file("gradle/common.gradle.kts"))
 aem {
     environment {
         docker {
-            init {
-                ensureDir(
-                        "httpd/cache",
-                        "httpd/logs"
-                )
-            }
             containers {
                 "httpd" {
+                    init {
+                        host {
+                            resolveFiles {
+                                download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
+                                    copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
+                                }
+                            }
+                            ensureDir("cache", "logs")
+                        }
+                    }
+                    deploy {
+                        ensureDir(
+                                "/usr/local/apache2/logs",
+                                "/opt/aem/dispatcher/cache/content/example/live",
+                                "/opt/aem/dispatcher/cache/content/example/demo"
+                        )
+                        exec("/usr/local/apache2/bin/httpd -k start")
+                    }
                     reload {
                         cleanDir(
                                 "/opt/aem/dispatcher/cache/content/example/live",
                                 "/opt/aem/dispatcher/cache/content/example/demo"
                         )
-                        ensureDir("/usr/local/apache2/logs")
-                        exec("/usr/local/apache2/bin/httpd -k restart")
+                        exec("/usr/local/apache2/bin/httpd -k reload")
                     }
                 }
-            }
-        }
-        distributions {
-            download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
-                copyArchiveFile(it, "**/dispatcher-apache*.so", file("mod_dispatcher.so"))
             }
         }
         hosts {

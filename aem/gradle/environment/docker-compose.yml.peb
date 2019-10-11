@@ -12,7 +12,7 @@ services:
     networks:
       - docker-net
     volumes:
-      - "{{ docker.rootPath }}/distributions/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      - "{{ docker.rootPath }}/httpd/modules/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
       {% if (docker.runtime.safeVolumes) %}
       - "{{ docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
       {% endif %}
