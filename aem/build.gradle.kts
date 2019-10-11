@@ -33,7 +33,7 @@ aem {
                                 "/opt/aem/dispatcher/cache/content/example/live",
                                 "/opt/aem/dispatcher/cache/content/example/demo"
                         )
-                        exec("/usr/local/apache2/bin/httpd -k reload")
+                        exec("/usr/local/apache2/bin/httpd -k restart")
                     }
                 }
             }
