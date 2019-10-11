@@ -10,7 +10,7 @@ aem {
         docker {
             containers {
                 "httpd" {
-                    init {
+                    resolve {
                         host {
                             resolveFiles {
                                 download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
@@ -20,7 +20,7 @@ aem {
                             ensureDir("cache", "logs")
                         }
                     }
-                    deploy {
+                    up {
                         ensureDir(
                                 "/usr/local/apache2/logs",
                                 "/opt/aem/dispatcher/cache/content/example/live",
