@@ -70,6 +70,7 @@ aem {
         environmentDev {
             reloader {
                 configDir("httpd/conf")
+                containerName = "httpd"
             }
         }
 
