@@ -11,29 +11,23 @@ aem {
             containers {
                 "httpd" {
                     resolve {
-                        host {
-                            resolveFiles {
-                                download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
-                                    copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
-                                }
+                        resolveFiles {
+                            download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz").then {
+                                copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
                             }
-                            ensureDir("cache", "logs")
                         }
+                        ensureDir("cache", "logs")
                     }
                     up {
-                        ensureDir(
-                                "/usr/local/apache2/logs",
-                                "/opt/aem/dispatcher/cache/content/example/live",
-                                "/opt/aem/dispatcher/cache/content/example/demo"
-                        )
-                        exec("/usr/local/apache2/bin/httpd -k start")
+                        ensureDir("/usr/local/apache2/logs", "/opt/aem/dispatcher/cache/content/example/live", "/opt/aem/dispatcher/cache/content/example/demo")
+                        execShell("Starting HTTPD server", "/usr/local/apache2/bin/httpd -k start")
                     }
                     reload {
-                        cleanDir(
-                                "/opt/aem/dispatcher/cache/content/example/live",
-                                "/opt/aem/dispatcher/cache/content/example/demo"
-                        )
-                        exec("/usr/local/apache2/bin/httpd -k restart")
+                        cleanDir("/opt/aem/dispatcher/cache/content/example/live", "/opt/aem/dispatcher/cache/content/example/demo")
+                        execShell("Restarting HTTPD server", "/usr/local/apache2/bin/httpd -k restart")
+                    }
+                    dev {
+                        watchConfigDir("conf")
                     }
                 }
             }
@@ -65,13 +59,6 @@ aem {
     tasks {
         registerOrConfigure<Task>("setup", "resetup") {
             dependsOn(":develop")
-        }
-
-        environmentDev {
-            reloader {
-                configDir("httpd/conf")
-                containerName = "httpd"
-            }
         }
 
         instanceSatisfy {
