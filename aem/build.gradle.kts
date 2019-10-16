@@ -19,11 +19,11 @@ aem {
                         ensureDir("cache", "logs")
                     }
                     up {
-                        ensureDir("/usr/local/apache2/logs", "/opt/aem/dispatcher/cache/content/example/live", "/opt/aem/dispatcher/cache/content/example/demo")
+                        ensureDir("/usr/local/apache2/logs", "/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
                         execShell("Starting HTTPD server", "/usr/local/apache2/bin/httpd -k start")
                     }
                     reload {
-                        cleanDir("/opt/aem/dispatcher/cache/content/example/live", "/opt/aem/dispatcher/cache/content/example/demo")
+                        cleanDir("/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
                         execShell("Restarting HTTPD server", "/usr/local/apache2/bin/httpd -k restart")
                     }
                     dev {
@@ -84,7 +84,8 @@ aem {
             description = "Does something"
             doLast {
                 aem.sync {
-                    // use instance services: http, repository, packageManager, osgiFramework, groovyConsole
+                    // Use instance services:
+                    // http, repository, packageManager, osgiFramework, workflowManager, groovyConsole
                 }
             }
         }
