@@ -10,9 +10,7 @@ description = "Example - AEM Common"
 
 aem {
     tasks {
-        bundle {
-            embedPackage("org.hashids", true, "org.hashids:hashids:1.0.1")
-        }
+        bundlePrivateEmbed("org.hashids:hashids:1.0.1", "org.hashids")
         packageCompose {
             fromJar("org.jsoup:jsoup:1.10.2")
             fromJar("com.github.mickleroy:aem-sass-compiler:1.0.1")

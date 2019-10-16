@@ -11,7 +11,7 @@ defaultTasks("develop")
 
 aem {
     tasks {
-        sequence("develop", {
+        registerSequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
             dependsOn(
@@ -19,7 +19,7 @@ aem {
                     ":aem:instanceProvision",
                     ":aem:assembly:full:packageDeploy",
                     ":aem:migration:packageDeploy",
-                    ":aem:environmentClean",
+                    ":aem:environmentReload",
                     ":aem:environmentAwait",
                     ":test:integration:test",
                     ":test:functional:run",
