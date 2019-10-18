@@ -190,7 +190,7 @@ Assumptions:
     * `sh gradlew :aem:site.demo:sync`
     * `sh gradlew :aem:site.live:sync`
 3. Interactively updating HTTPD Virtual-Host & AEM Dispatcher configuration: `sh gradlew environmentDev`
-4. Copying JCR content between AEM instances: `sh gradlew :aem:sites:demo:rcp -Prcp.source=int-author -Prcp.target=local-author -Prcp.paths=[/content/example,/content/dam/example]`
+4. Copying JCR content between AEM instances: `sh gradlew :aem:sites:demo:rcp -Prcp.source=http://user:pass@x.x.x.x:4502 -Prcp.target=local-author -Prcp.paths=[/content/example,/content/dam/example]`
 
 ## Tips & tricks
 

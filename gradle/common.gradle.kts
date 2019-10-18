@@ -29,12 +29,11 @@ plugins.withId("java") {
             events = setOf(TestLogEvent.FAILED)
             exceptionFormat = TestExceptionFormat.SHORT
         }
+    }
 
-        dependencies {
-            "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
-            "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
-            "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
-        }
+    dependencies {
+        "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
+        "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
     }
 }
 
@@ -92,5 +91,9 @@ plugins.withId("com.cognifide.aem.bundle") {
 
         "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Build.KOTLIN_VERSION}")
         "compileOnly"("org.hashids:hashids:1.0.1")
+
+        // AEM test dependencies
+
+        "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
     }
 }
