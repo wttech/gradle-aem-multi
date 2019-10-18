@@ -3,19 +3,9 @@
 [![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg?random=456)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
 
+[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
+
 # AEM Multi-Project Example
-
-<br>
-<p align="center">
-  <img src="docs/logo.png" alt="Gradle AEM Plugin Logo"/>
-</p>
-<br>
-
-## Screenshot
-
-<p align="center">
-  <img src="docs/gradle-aem-multi-build.gif" alt="Gradle AEM Multi Build"/>
-</p>
 
 ## Description
 
@@ -24,6 +14,12 @@ This project could be used to start developing **long-term project** based on AE
 To start developing **application/library** based on AEM it is recommended to use [Gradle AEM Single](https://github.com/Cognifide/gradle-aem-single) instead.
 
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+
+## Screenshot
+
+<p align="center">
+  <img src="docs/gradle-aem-multi-build.gif" alt="Gradle AEM Multi Build"/>
+</p>
 
 ## Table of Contents
 
