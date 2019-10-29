@@ -22,11 +22,13 @@ aem {
                         copyToDirectory(it, composedDir)
                     }
                 }
+
+                // TODO opear not read '-f'
                 runDocker {
                     operation("Validating CRX package '${composedFile.name}'")
                     volume(composedDir, "/work")
                     image = "adamcin/oakpal"
-                    command = "-j -o oakpal-report.json --file ${opearFile.name} ${composedFile.name}"
+                    command = "-j -o oakpal-report.json -f ${opearFile.name} -p acs-commons-integrators ${composedFile.name}"
                 }
             }
         }
