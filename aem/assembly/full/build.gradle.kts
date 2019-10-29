@@ -23,9 +23,10 @@ aem {
                     }
                 }
                 runDocker {
+                    operation("Validating CRX package '${composedFile.name}'")
                     volume(composedDir, "/work")
                     image = "adamcin/oakpal"
-                    command = "--file ${opearFile.name} ${composedFile.name}"
+                    command = "-j -o oakpal-report.json --file ${opearFile.name} ${composedFile.name}"
                 }
             }
         }
