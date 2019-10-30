@@ -23,12 +23,13 @@ aem {
                     }
                 }
 
-                // TODO opear not read '-f'
                 runDocker {
                     operation("Validating CRX package '${composedFile.name}'")
                     volume(composedDir, "/work")
-                    image = "adamcin/oakpal"
-                    command = "-j -o oakpal-report.json -f ${opearFile.name} -p acs-commons-integrators ${composedFile.name}"
+                    image = "adamcin/oakpal:1.5.1"
+                    command = "-j -o oakpal-report.json -f ${opearFile.name} ${composedFile.name}"
+                    // TODO make working sth below
+                    // command = "-p plan.json -j -o oakpal-report.json -f ${opearFile.name} ${composedFile.name}"
                 }
             }
         }
