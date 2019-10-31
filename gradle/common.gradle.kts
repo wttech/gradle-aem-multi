@@ -54,6 +54,20 @@ plugins.withId("com.github.node-gradle.node") {
     }
 }
 
+plugins.withId("com.cognifide.aem.package") {
+
+    configure<AemExtension> {
+        `package` {
+            validator {
+                opear {
+                    base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
+                }
+            }
+        }
+    }
+
+}
+
 plugins.withId("com.cognifide.aem.bundle") {
 
     configure<AemExtension> {
