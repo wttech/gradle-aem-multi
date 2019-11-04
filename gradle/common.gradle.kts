@@ -59,9 +59,7 @@ plugins.withId("com.cognifide.aem.package") {
     configure<AemExtension> {
         `package` {
             validator {
-                opear {
-                    base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
-                }
+                base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
             }
         }
     }
