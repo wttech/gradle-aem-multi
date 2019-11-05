@@ -46,17 +46,17 @@
   + config (nt:unstructured)
 
 [granite:Task] > granite:InboxItem, mix:referenceable
-  - selectedAction (string)
-  - parentTaskId (string)
-  - completedBy (string)
-  - description (string)
-  - actionNames (string) multiple
   - name (string)
-  - taskTypeName (string)
-  - lastModifiedBy (string)
+  - description (string)
   - instructions (string)
+  - taskTypeName (string)
   - createdBy (string)
   - lastModified (date)
+  - lastModifiedBy (string)
+  - completedBy (string)
+  - actionNames (string) multiple
+  - selectedAction (string)
+  - parentTaskId (string)
   - contentPath (string)
   - * (undefined)
   - * (undefined) multiple
@@ -165,6 +165,7 @@
   - description (string)
   - sling:resourceType (string) = 'cq/workflow/components/model' mandatory autocreated
   - title (string)
+  + variables (nt:unstructured)
   + metaData (nt:unstructured)
   + nodes (nt:unstructured)
   + transitions (nt:unstructured)
@@ -208,15 +209,15 @@
 [cq:EditConfig] > nt:hierarchyNode, nt:unstructured
   orderable
   - cq:dialogMode (string) < 'auto', 'floating', 'inline'
-  - cq:layout (string) < 'editbar', 'rollover', 'auto'
-  - cq:actions (string) multiple
   - cq:emptyText (string)
+  - cq:layout (string) < 'editbar', 'rollover', 'auto'
   - cq:inherit (boolean)
-  + cq:formParameters (nt:base) = nt:unstructured
-  + cq:actionConfigs (nt:base) = nt:unstructured
-  + cq:dropTargets (nt:base) = nt:unstructured
+  - cq:actions (string) multiple
   + cq:inplaceEditing (cq:InplaceEditingConfig) = cq:InplaceEditingConfig
+  + cq:actionConfigs (nt:base) = nt:unstructured
   + cq:listeners (nt:base) = cq:EditListenersConfig
+  + cq:formParameters (nt:base) = nt:unstructured
+  + cq:dropTargets (nt:base) = nt:unstructured
 
 [cq:TabPanel] > cq:Panel
   orderable
@@ -278,10 +279,10 @@
   - jcr:language (string)
 
 [cq:ClientLibraryFolder] > sling:Folder
-  - channels (string) multiple
-  - categories (string) multiple
   - dependencies (string) multiple
+  - categories (string) multiple
   - embed (string) multiple
+  - channels (string) multiple
 
 [cq:mailerMessage]
   mixin
@@ -310,7 +311,7 @@
   + jcr:activities (rep:Activities) = rep:Activities mandatory protected abort
   + jcr:configurations (rep:Configurations) = rep:Configurations protected abort
   + * (nt:base) = nt:base ignore
-  + rep:privileges (rep:Privileges) = rep:Privileges mandatory protected abort
+  + rep:privileges (rep:Privileges) = rep:Privileges protected abort
 
 [rep:Password]
   - * (undefined) protected
@@ -401,15 +402,15 @@
 
 [granite:InboxItem]
   mixin
-  - dueTime (date)
+  - assignee (string)
   - startTime (date)
-  - progressBeginTime (date)
-  - rank (long)
   - endTime (date)
+  - dueTime (date)
+  - progressBeginTime (date)
   - priority (long)
+  - rank (long)
   - status (string)
   - subType (string)
-  - assignee (string)
 
 [nt:frozenNode] > mix:referenceable
   orderable
@@ -446,9 +447,6 @@
   - jcr:successors (reference) protected multiple abort < 'nt:version'
   - jcr:activity (reference) protected abort < 'nt:activity'
   + jcr:frozenNode (nt:frozenNode) protected abort
-
-[nt:fordSearch]
-  - * (undefined)
 
 [rep:MemberReferencesList]
   + * (rep:MemberReferences) = rep:MemberReferences protected
@@ -526,9 +524,9 @@
 
 [cq:Widget] > nt:unstructured
   orderable
+  - name (string)
   - xtype (string)
   - title (string)
-  - name (string)
   + items (nt:base) = cq:WidgetCollection
 
 [sling:Redirect] > sling:Resource
@@ -539,16 +537,16 @@
   abstract
 
 [cq:Template] > mix:title, nt:hierarchyNode
-  - allowedParents (string) multiple
-  - allowedChildren (string) multiple
-  - ranking (long)
   - * (undefined) multiple
+  - allowedChildren (string) multiple
+  - allowedParents (string) multiple
+  - ranking (long)
   - * (undefined)
-  + * (nt:base) = nt:base multiple version
-  + icon.png (nt:file)
   + thumbnail.png (nt:file)
   + workflows (nt:base)
+  + * (nt:base) = nt:base multiple version
   + jcr:content (nt:base)
+  + icon.png (nt:file)
 
 [vlt:PackageDefinition] > nt:unstructured
   orderable
@@ -694,8 +692,8 @@
 
 [cq:Page] > nt:hierarchyNode
   orderable primaryitem jcr:content
-  + * (nt:base) = nt:base version
   + jcr:content (nt:base) = nt:unstructured
+  + * (nt:base) = nt:base version
 
 [nt:address]
   - jcr:protocol (string)
@@ -734,25 +732,25 @@
   + * (rep:ACE) = rep:GrantACE protected ignore
 
 [cq:Component] > mix:title, nt:folder, sling:ResourceSuperType
-  - * (undefined)
-  - allowedChildren (string) multiple
   - dialogPath (string)
-  - * (undefined) multiple
-  - cq:isContainer (boolean)
   - cq:noDecoration (boolean)
-  - cq:cellName (string)
+  - allowedChildren (string) multiple
+  - * (undefined)
+  - cq:isContainer (boolean)
   - allowedParents (string) multiple
+  - * (undefined) multiple
+  - cq:cellName (string)
   - componentGroup (string)
-  + cq:childEditConfig (cq:EditConfig) = cq:EditConfig
+  + dialog (nt:base) = nt:unstructured
   + design_dialog (nt:base) = nt:unstructured
+  + cq:htmlTag (nt:base) = nt:unstructured
   + * (nt:base) = nt:base multiple version
   + cq:infoProviders (nt:base) = nt:unstructured
-  + virtual (nt:base) = sling:Folder
-  + dialog (nt:base) = nt:unstructured
-  + cq:htmlTag (nt:base) = nt:unstructured
   + cq:editConfig (cq:EditConfig) = cq:EditConfig
   + icon.png (nt:file)
+  + cq:childEditConfig (cq:EditConfig) = cq:EditConfig
   + thumbnail.png (nt:file)
+  + virtual (nt:base) = sling:Folder
 
 [oauth:Token]
   orderable
@@ -839,11 +837,11 @@
 
 [cq:ReplicationStatus]
   mixin
-  - cq:lastPublishedBy (string) ignore
   - cq:lastReplicatedBy (string) ignore
-  - cq:lastReplicationAction (string) ignore
-  - cq:lastReplicationStatus (string) ignore
   - cq:lastPublished (date) ignore
+  - cq:lastReplicationStatus (string) ignore
+  - cq:lastPublishedBy (string) ignore
+  - cq:lastReplicationAction (string) ignore
   - cq:lastReplicated (date) ignore
 
 [mix:created]
@@ -948,18 +946,15 @@
 [granite:CloudsettingsConfigType]
   mixin
 
-[nt:fordAccSearch]
-  - * (undefined)
-
 [cq:EditListenersConfig]
   - afteredit (string)
   - aftermove (string)
-  - afterinsert (string)
-  - * (undefined) multiple
-  - aftercreate (string)
   - afterremove (string)
+  - afterinsert (string)
   - * (undefined)
   - afterdelete (string)
+  - * (undefined) multiple
+  - aftercreate (string)
   + * (nt:base) = nt:base multiple version
 
 [rep:UnstructuredProtected]
@@ -1021,8 +1016,8 @@
   - sling:internalRedirect (string) multiple
 
 [cq:meta]
-  - * (undefined)
   - * (undefined) multiple
+  - * (undefined)
   + * (nt:base) = cq:meta ignore
 
 [rep:RepoAccessControllable]
@@ -1066,17 +1061,17 @@
 
 [cq:PageContent] > cq:OwnerTaggable, cq:ReplicationStatus, mix:created, mix:title, nt:unstructured, sling:Resource, sling:VanityPath
   orderable
-  - pageTitle (string)
   - cq:lastModified (date)
-  - jcr:language (string)
-  - offTime (date)
-  - cq:lastModifiedBy (string)
-  - hideInNav (boolean)
-  - cq:designPath (string)
   - cq:template (string)
+  - pageTitle (string)
+  - offTime (date)
+  - hideInNav (boolean)
+  - cq:lastModifiedBy (string)
   - onTime (date)
-  - navTitle (string)
+  - jcr:language (string)
   - cq:allowedTemplates (string) multiple
+  - cq:designPath (string)
+  - navTitle (string)
 
 [rep:AuthorizableFolder] > nt:hierarchyNode
   + * (rep:Authorizable) = rep:User version
