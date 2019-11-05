@@ -1,4 +1,4 @@
-package feature
+package karate.feature
 
 import com.intuit.karate.KarateOptions
 import com.intuit.karate.Runner

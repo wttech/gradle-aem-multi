@@ -3,9 +3,12 @@ import com.moowork.gradle.node.yarn.YarnTask
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("com.cognifide.aem.bundle")
-    id("com.moowork.node")
+    id("com.github.node-gradle.node")
 }
 
+apply(from = rootProject.file("gradle/common.gradle.kts"))
+
+group = "com.company.example.aem"
 description = "Example - AEM Sites"
 
 dependencies {
@@ -19,7 +22,7 @@ aem {
             dependsOn("yarn")
             setYarnCommand("buildPublish")
 
-            val dir = "src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish"
+            val dir = "${packageOptions.jcrRootDir}/apps/example/sites/clientlibs/page/publish"
 
             inputs.file("package.json")
             inputs.dir("$dir/src")
@@ -28,6 +31,9 @@ aem {
 
         packageCompose {
             dependsOn(named("webpackPublish"))
+            vaultDefinition {
+                property("installhook.actool.class", "biz.netcentric.cq.tools.actool.installhook.AcToolInstallHook")
+            }
         }
     }
 }

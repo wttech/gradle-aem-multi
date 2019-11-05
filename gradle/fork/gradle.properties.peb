@@ -1,5 +1,10 @@
 # AEM configuration
 notifier.enabled=true
+package.deploy.workflowToggle=[dam_asset=false]
+
+#package.snapshots=[**/*-SNAPSHOT*.zip]
+#instance.author=true
+#instance.publish=true
 
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
@@ -23,10 +28,16 @@ localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
 localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
 {% endif %}
 
+# Tests configuration
+test.parallel=false
+test.publishUrl=http://demo.example.com
+#test.browser=chrome
+
 # Performance tuning
 org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.caching=true
+org.gradle.jvmargs=-Xmx3072m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 
 # SMB / JCIFS workaround for Mac OSX
 systemProp.jcifs.resolveOrder=DNS

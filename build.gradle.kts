@@ -3,25 +3,35 @@ plugins {
     id("com.cognifide.aem.common")
 }
 
+apply(from = "gradle/common.gradle.kts")
+apply(from = "gradle/fork.gradle.kts")
+
 description = "Example"
 defaultTasks("develop")
 
 aem {
     tasks {
-        sequence("develop", {
-            description = "Builds and deploys AEM application, cleans environment then runs integration and functional tests"
+        registerSequence("develop", {
+            description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
-            dependsOrdered(
-                    ":aem:instanceSatisfy",
-                    ":aem:assembly:full:packageDeploy",
-                    ":aem:environmentClean",
-                    ":aem:environmentAwait",
-                    ":test:integration:test",
-                    ":test:functional:run"
+            if (!props.flag("setup.skip")) {
+                dependsOn(":aem:instanceSetup")
+            }
+            dependsOn(":aem:assembly:full:packageDeploy")
+            if (!props.flag("migration.skip")) {
+                dependsOn(":aem:migration:packageDeploy")
+            }
+            dependsOn(
+                    ":aem:environmentReload",
+                    ":aem:environmentAwait"
             )
+            if (!props.flag("test.skip")) {
+                dependsOn(
+                        ":test:integration:test",
+                        ":test:functional:run",
+                        ":test:performance:lighthouseRun"
+                )
+            }
         }
     }
 }
-
-apply(from = "gradle/fork.gradle.kts")
-apply(from = "gradle/common.gradle.kts")

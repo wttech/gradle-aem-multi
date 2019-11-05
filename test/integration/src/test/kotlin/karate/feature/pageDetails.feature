@@ -1,7 +1,8 @@
+@aem
 Feature: Page Details Endpoint
 
   Background:
-    * url baseUrl
+    * url publishUrl
 
   Scenario: Check response for home page
 

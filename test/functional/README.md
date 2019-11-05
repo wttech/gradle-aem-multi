@@ -1,16 +1,25 @@
-## Functional tests
+# Functional tests
 
-### Running
+## About
 
-Simply run command: `sh gradlew :test:functional:runJestPuppeteer`. 
+Module which consists of functional tests based on [Cypress](https://www.cypress.io/) tool.
 
-Available parameters:
+## Running
 
-|Parameter|Description|Default value|Sample value|
-|---|---|---|---|
-|`aem.instance.name`|Name of instance from *gradle.properties*|`local-publish`|`int-publish`|
+To run all tests use command: `sh gradlew :test:functional:run`. 
+Optionally configure with `-Ptest.publishUrl=http://aem-host.com` to run tests on other host.
 
-To check style of tests source code, run command: `sh gradlew :test:functional:runLint`.
-### Stack
+To open GUI use command: `sh gradlew :test:functional:openGui`.
+Then it will be available to select:
 
-[Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/)
+ * single / concrete test spec to be launched,
+ * web browser to be used when launching test spec. 
+ 
+ 
+To tune test runner, see all available [Cypress configuration options](https://docs.cypress.io/guides/references/configuration.html#Options) then configure each option by editing file: [cypress.json](cypress.json)
+
+## Screenshots 
+
+![Spec select](docs/gui-spec-select.png)
+
+![Home spec run](docs/gui-home-spec.png)
