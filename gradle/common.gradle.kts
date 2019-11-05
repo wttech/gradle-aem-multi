@@ -11,6 +11,7 @@ repositories {
     maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
     maven { url = uri("https://repo1.maven.org/maven2") }
     maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
+    maven { url = uri("https://dl.bintray.com/acs/releases") }
 }
 
 plugins.withId("java") {
@@ -51,6 +52,18 @@ plugins.withId("com.github.node-gradle.node") {
         yarnVersion = "1.19.0"
         download = true
     }
+}
+
+plugins.withId("com.cognifide.aem.package") {
+
+    configure<AemExtension> {
+        `package` {
+            validator {
+                base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
+            }
+        }
+    }
+
 }
 
 plugins.withId("com.cognifide.aem.bundle") {

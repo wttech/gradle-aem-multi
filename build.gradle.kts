@@ -14,17 +14,24 @@ aem {
         registerSequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
+            if (!props.flag("setup.skip")) {
+                dependsOn(":aem:instanceSetup")
+            }
+            dependsOn(":aem:assembly:full:packageDeploy")
+            if (!props.flag("migration.skip")) {
+                dependsOn(":aem:migration:packageDeploy")
+            }
             dependsOn(
-                    ":aem:instanceSatisfy",
-                    ":aem:instanceProvision",
-                    ":aem:assembly:full:packageDeploy",
-                    ":aem:migration:packageDeploy",
                     ":aem:environmentReload",
-                    ":aem:environmentAwait",
-                    ":test:integration:test",
-                    ":test:functional:run",
-                    ":test:performance:lighthouseRun"
+                    ":aem:environmentAwait"
             )
+            if (!props.flag("test.skip")) {
+                dependsOn(
+                        ":test:integration:test",
+                        ":test:functional:run",
+                        ":test:performance:lighthouseRun"
+                )
+            }
         }
     }
 }

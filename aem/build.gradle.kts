@@ -12,7 +12,7 @@ aem {
                 "httpd" {
                     resolve {
                         resolveFiles {
-                            download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz").then {
+                            download("http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz").use {
                                 copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
                             }
                         }
@@ -75,20 +75,5 @@ aem {
         instanceProvision {
             // https://github.com/Cognifide/gradle-aem-plugin#task-instanceprovision
         }
-
-        // Here is a desired place for defining custom AEM tasks
-        // https://github.com/Cognifide/gradle-aem-plugin#implement-custom-aem-tasks
-
-        /*
-        register("doSomething") {
-            description = "Does something"
-            doLast {
-                aem.sync {
-                    // Use instance services:
-                    // http, repository, packageManager, osgiFramework, workflowManager, groovyConsole
-                }
-            }
-        }
-        */
     }
 }
