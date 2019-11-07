@@ -141,7 +141,7 @@ buildNumber.properties
 ### Gradle template
 .gradle
 build/
-/gradle.properties
+gradle.user.properties
 
 # Ignore Gradle GUI config
 gradle-app.setting
