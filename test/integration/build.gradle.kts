@@ -26,9 +26,11 @@ tasks {
         enabled = false
     }
 
+    /* TODO as of Gradle 6.x no longer possible ("build" at root should NOT execute "test" task of this project)
     named<Task>(LifecycleBasePlugin.CHECK_TASK_NAME) {
         dependsOn.remove(named(JavaPlugin.TEST_TASK_NAME))
     }
+    */
 
     named<Test>(JavaPlugin.TEST_TASK_NAME) {
         outputs.upToDateWhen { false }
