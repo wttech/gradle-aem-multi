@@ -6982,7 +6982,7 @@ webpack-merge@^4.1.4:
   dependencies:
     lodash "^4.17.15"
 
-webpack-mode@^1.0.1:
+webpack-mode@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/webpack-mode/-/webpack-mode-1.0.2.tgz#a3dc6829e0f83ed02dee56890af442998193507a"
   integrity sha512-TydeR+3krVOSJnegrwsp+KZnEAfI2LQDgRa7KYmI6FhMoBRLeR/NGYB3GUnp/9qKk9nLzqA7Pm0x0+zX4C8kUw==

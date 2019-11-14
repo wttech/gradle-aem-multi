@@ -24,7 +24,6 @@ aem {
             dependsOn("yarn")
             setYarnCommand("buildPublish")
 
-
             inputs.file("package.json")
             inputs.dir("$publishDir/src")
             outputs.dir("$publishDir/dist")
@@ -32,6 +31,7 @@ aem {
 
         named<Task>("clean") {
             doLast {
+                delete("node_modules")
                 delete("$publishDir/dist")
             }
         }
