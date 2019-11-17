@@ -1,8 +1,8 @@
 {
   "license": "UNLICENSED",
   "scripts": {
-    "buildPublish": "cd src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish/src && webpack --mode=production",
-    "devPublish": "cd src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish/src && webpack --mode=development"
+    "webpackPublishProduction": "cd src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish/src && webpack --mode=production",
+    "webpackPublishDevelopment": "cd src/main/content/jcr_root/apps/example/sites/clientlibs/page/publish/src && webpack --mode=development"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
