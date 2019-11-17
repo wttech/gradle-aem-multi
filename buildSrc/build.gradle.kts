@@ -2,10 +2,6 @@ plugins {
     `kotlin-dsl`
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
-}
-
 repositories {
     mavenLocal()
     jcenter()
@@ -20,4 +16,5 @@ dependencies {
     implementation("com.neva.gradle:fork-plugin:4.0.0")
     implementation("com.github.node-gradle:gradle-node-plugin:2.2.0")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.50")
+    implementation("com.netflix.nebula:nebula-project-plugin:7.0.4")
 }

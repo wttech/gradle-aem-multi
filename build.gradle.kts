@@ -27,7 +27,7 @@ aem {
             )
             if (!props.flag("test.skip")) {
                 dependsOn(
-                        ":test:integration:test",
+                        ":test:integration:integrationTest",
                         ":test:functional:run",
                         ":test:performance:lighthouseRun"
                 )
