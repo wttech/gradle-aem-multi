@@ -16,17 +16,25 @@ dependencies {
 }
 
 aem {
+    val publishDir = "${packageOptions.jcrRootDir}/apps/example/sites/clientlibs/page/publish"
+    val webpackMode = props.string("webpack.mode") ?: "production"
+
     tasks {
         register<YarnTask>("webpackPublish") {
             description = "Builds sites publish clientlib using Webpack"
             dependsOn("yarn")
-            setYarnCommand("buildPublish")
+            setYarnCommand("webpackPublish${webpackMode.capitalize()}")
 
-            val dir = "${packageOptions.jcrRootDir}/apps/example/sites/clientlibs/page/publish"
-
+            inputs.property("webpackMode", webpackMode)
             inputs.file("package.json")
-            inputs.dir("$dir/src")
-            outputs.dir("$dir/dist")
+            inputs.dir("$publishDir/src")
+            outputs.dir("$publishDir/dist")
+        }
+
+        named<Task>("clean") {
+            doLast {
+                delete("$publishDir/dist")
+            }
         }
 
         packageCompose {

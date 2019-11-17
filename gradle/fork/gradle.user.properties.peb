@@ -1,3 +1,6 @@
+# Project specific configuration
+webpack.mode=development
+
 # AEM configuration
 notifier.enabled=true
 package.deploy.workflowToggle=[dam_asset=false]
@@ -27,4 +30,3 @@ localInstance.quickstart.licenseUrl={{ localInstanceQuickstartLicenseUri }}
 localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
 localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
 {% endif %}
-
