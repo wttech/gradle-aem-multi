@@ -42,7 +42,7 @@ configure<ForkExtension> {
                 "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
                 "localInstanceSource" to {
                     description = "Controls how instances will be created (from scratch, backup or automatically determined)"
-                    select(Source.values().map { it.name.toLowerCase() }, Source.BACKUP_ANY.name.toLowerCase())
+                    select(Source.values().map { it.name.toLowerCase() }, Source.AUTO.name.toLowerCase())
                 },
                 "localInstanceQuickstartJarUri" to {
                     description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
