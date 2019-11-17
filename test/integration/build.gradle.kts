@@ -34,13 +34,13 @@ tasks {
             showStandardStreams = true
             events = setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
         }
-
-        systemProperty("karate.options", aem.props.string("karate.options") ?: "")
-        systemProperty("karate.env", aem.props.string("karate.env") ?: aem.env)
-        systemProperty("karate.config.dir", "src/integTest/kotlin/karate")
-
-        systemProperty("test.publishUrl", aem.props.string("test.publishUrl") ?: aem.main.environment.hosts.publish.url)
-        systemProperty("test.parallel", aem.props.string("test.parallel") ?: "")
+        systemProperties(mapOf<String, Any?>(
+                "karate.options" to (aem.props.string("karate.options") ?: ""),
+                "karate.env" to (aem.props.string("karate.env") ?: aem.env),
+                "karate.config.dir" to "src/integTest/kotlin/karate",
+                "test.publishUrl" to (aem.props.string("test.publishUrl") ?: aem.main.environment.hosts.publish.url),
+                "test.parallel" to (aem.props.string("test.parallel") ?: "")
+        ))
     }
 }
 
