@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
  * TODO Remember to delete that component, because it is only for demonstrating purposes.
  */
 @Component(
+  immediate = true,
   service = Filter.class,
   property = {
     "sling.filter.scope=REQUEST",
@@ -27,7 +28,7 @@ import org.slf4j.LoggerFactory;
 )
 public class LoggingFilter extends SlingFilter {
 
-  private Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(LoggingFilter.class);
 
   @Reference
   private EnvironmentSettings settings;
@@ -36,7 +37,7 @@ public class LoggingFilter extends SlingFilter {
   public void doFilter(SlingHttpServletRequest request, SlingHttpServletResponse response, FilterChain chain)
     throws IOException, ServletException {
     if (settings.getAuthor()) {
-      logger.info("Request for '{}', with selector '{}'",
+      LOGGER.info("Request for '{}', with selector '{}'",
         request.getRequestPathInfo().getResourcePath(),
         request.getRequestPathInfo().getSelectorString()
       );
