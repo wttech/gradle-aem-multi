@@ -21,6 +21,11 @@ services:
     {% if (docker.runtime.name == 'toolbox') %}
     extra_hosts:
       - "host.docker.internal:10.0.2.2"
+    {% else %}
+    {% if (not docker.runtime.definedHostInternal) %}
+    extra_hosts:
+      - "host.docker.internal:{{ docker.runtime.hostInternalIp }}"
+    {% endif %}
     {% endif %}
 networks:
   docker-net:
