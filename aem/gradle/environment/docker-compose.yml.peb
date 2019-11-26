@@ -13,14 +13,14 @@ services:
       - docker-net
     volumes:
       - "{{ docker.rootPath }}/httpd/modules/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
-      {% if (docker.runtime.safeVolumes) %}
+      {% if docker.runtime.safeVolumes %}
       - "{{ docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
       {% endif %}
       - "{{ docker.rootPath }}/httpd/logs:/usr/local/apache2/logs"
       - "{{ docker.configPath }}/httpd/conf:/usr/local/apache2/conf"
-    {% if (docker.runtime.name == 'toolbox') %}
+    {% if docker.runtime.hostInternalIp is not empty %}
     extra_hosts:
-      - "host.docker.internal:10.0.2.2"
+      - "host.docker.internal:{{ docker.runtime.hostInternalIp }}"
     {% endif %}
 networks:
   docker-net:
