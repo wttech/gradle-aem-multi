@@ -61,6 +61,10 @@ aem {
             dependsOn(":develop")
         }
 
+        environmentUp {
+            mustRunAfter(":aem:migration:packageDeploy") // last step of ':develop'
+        }
+
         instanceSatisfy {
             packages {
                 "dep.vanity-urls" { /* useLocal("pkg/vanityurls-components-1.0.2.zip") */ }
