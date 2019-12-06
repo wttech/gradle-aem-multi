@@ -57,6 +57,20 @@ configure<ForkExtension> {
                 "localInstanceBackupUploadUri" to {
                     description = "URL to backup directory (SMB/SFTP)"
                     optional()
+                },
+                "companyUser" to {
+                    description = "User authorized to access AEM files"
+                    defaultValue = System.getProperty("user.name").orEmpty()
+                    optional()
+                },
+                "companyPassword" to {
+                    description = "Password for user authorized to access AEM files"
+                    optional()
+                },
+                "companyDomain" to {
+                    description = "Needed only when accessing AEM files over SMB"
+                    defaultValue = System.getenv("USERDOMAIN").orEmpty()
+                    optional()
                 }
         ))
     }
