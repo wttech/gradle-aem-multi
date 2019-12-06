@@ -103,7 +103,7 @@ Maintenance:
 3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
 
     ```bash
-    sh aem/hosts
+    sh hosts
     sh gradlew setup
     ```
     
