@@ -22,5 +22,17 @@ services:
     extra_hosts:
       - "host.docker.internal:{{ docker.runtime.hostInternalIp }}"
     {% endif %}
+  duckrails:
+    image: iridakos/duckrails:release-v2.1.5
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8080:80"
+    networks:
+      - docker-net
+    volumes:
+      - "{{ docker.rootPath }}/duckrails:/opt/duckrails/db"
 networks:
   docker-net:
