@@ -10,3 +10,9 @@ description = "Example - Performance Tests"
 lighthouse {
     baseUrl = aem.props.string("test.publishUrl")
 }
+
+tasks {
+    lighthouseRun {
+        mustRunAfter(":aem:environmentAwait")
+    }
+}

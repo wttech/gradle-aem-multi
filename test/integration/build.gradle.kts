@@ -28,6 +28,7 @@ dependencies {
 
 tasks {
     named<Test>("integrationTest") {
+        mustRunAfter(":aem:environmentAwait")
         outputs.upToDateWhen { false }
 
         testLogging {
