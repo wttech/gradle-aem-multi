@@ -17,7 +17,7 @@ dependencies {
 
 aem {
     val publishDir = "${packageOptions.jcrRootDir}/apps/example/sites/clientlibs/page/publish"
-    val webpackMode = prop.string("webpack.mode") ?: "production"
+    val webpackMode = props.string("webpack.mode") ?: "production"
 
     tasks {
         register<YarnTask>("webpackPublish") {

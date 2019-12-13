@@ -14,18 +14,18 @@ aem {
         registerSequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
-            if (!prop.flag("setup.skip")) {
+            if (!props.flag("setup.skip")) {
                 dependsOn(":aem:instanceSetup")
             }
             dependsOn(":aem:assembly:full:packageDeploy")
-            if (!prop.flag("migration.skip")) {
+            if (!props.flag("migration.skip")) {
                 dependsOn(":aem:migration:packageDeploy")
             }
             dependsOn(
                     ":aem:environmentReload",
                     ":aem:environmentAwait"
             )
-            if (!prop.flag("test.skip")) {
+            if (!props.flag("test.skip")) {
                 dependsOn(
                         ":test:integration:integrationTest",
                         ":test:functional:generateReport",
@@ -33,5 +33,7 @@ aem {
                 )
             }
         }
+
+
     }
 }
