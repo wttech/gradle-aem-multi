@@ -14,18 +14,18 @@ aem {
         registerSequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
-            if (!props.flag("setup.skip")) {
+            if (!prop.flag("setup.skip")) {
                 dependsOn(":aem:instanceSetup")
             }
             dependsOn(":aem:assembly:full:packageDeploy")
-            if (!props.flag("migration.skip")) {
+            if (!prop.flag("migration.skip")) {
                 dependsOn(":aem:migration:packageDeploy")
             }
             dependsOn(
                     ":aem:environmentReload",
                     ":aem:environmentAwait"
             )
-            if (!props.flag("test.skip")) {
+            if (!prop.flag("test.skip")) {
                 dependsOn(
                         ":test:integration:integrationTest",
                         ":test:functional:generateReport",
@@ -34,6 +34,14 @@ aem {
             }
         }
 
-
+        register("sftpServer") {
+            doLast {
+                dockerDaemon {
+                    image = "atmoz/sftp"
+                    command = "foo:pass:::upload"
+                    port(2222, 22)
+                }
+            }
+        }
     }
 }

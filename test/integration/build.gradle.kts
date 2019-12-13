@@ -36,11 +36,11 @@ tasks {
             events = setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
         }
         systemProperties(mapOf<String, Any?>(
-                "karate.options" to (aem.props.string("karate.options") ?: ""),
-                "karate.env" to (aem.props.string("karate.env") ?: aem.env),
+                "karate.options" to (aem.prop.string("karate.options") ?: ""),
+                "karate.env" to (aem.prop.string("karate.env") ?: aem.env),
                 "karate.config.dir" to "src/integTest/kotlin/karate",
-                "test.publishUrl" to (aem.props.string("test.publishUrl") ?: aem.main.environment.hosts.publish.url),
-                "test.parallel" to (aem.props.string("test.parallel") ?: "")
+                "test.publishUrl" to (aem.prop.string("test.publishUrl") ?: aem.main.environment.hosts.publish.url),
+                "test.parallel" to (aem.prop.string("test.parallel") ?: "")
         ))
     }
 }

@@ -8,7 +8,7 @@ apply(from = rootProject.file("gradle/common.gradle.kts"))
 description = "Example - Performance Tests"
 
 lighthouse {
-    baseUrl = aem.props.string("test.publishUrl")
+    baseUrl = aem.prop.string("test.publishUrl")
 }
 
 tasks {

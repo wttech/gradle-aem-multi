@@ -11,13 +11,13 @@ description = "Example - Functional Tests"
 
 tasks {
     val args by lazy {
-        val baseUrl = aem.props.string("test.publishUrl") ?: aem.main.environment.hosts.publish.url
+        val baseUrl = aem.prop.string("test.publishUrl") ?: aem.main.environment.hosts.publish.url
 
         mutableListOf("-c", "baseUrl=$baseUrl").apply {
-            if (aem.props.flag("test.headed")) add("--headed")
-            if (aem.props.flag("test.record")) add("--record")
-            aem.props.string("test.spec")?.let { add("--spec=$it")}
-            aem.props.string("test.browser")?.let { add("--browser=$it")}
+            if (aem.prop.flag("test.headed")) add("--headed")
+            if (aem.prop.flag("test.record")) add("--record")
+            aem.prop.string("test.spec")?.let { add("--spec=$it")}
+            aem.prop.string("test.browser")?.let { add("--browser=$it")}
         }
     }
     val reportDir = "build/cypress/reports"
