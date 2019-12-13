@@ -142,6 +142,7 @@ buildNumber.properties
 .gradle
 build/
 gradle.user.properties
+.gap.*.tmp
 
 # Ignore Gradle GUI config
 gradle-app.setting

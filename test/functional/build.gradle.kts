@@ -22,11 +22,11 @@ tasks {
     }
     val reportDir = "build/cypress/reports"
 
-    register<YarnTask>("run") {
+    register<YarnTask>("runTests") {
         group = "check"
         description = "Run functional tests (Cypress)"
         dependsOn("yarn")
-        finalizedBy("generateReport")
+        mustRunAfter(":aem:environmentAwait")
 
         setWorkingDir(projectDir)
         setYarnCommand("cypress")
@@ -36,7 +36,8 @@ tasks {
 
     register<YarnTask>("generateReport") {
         group = "check"
-        description = "Generate report for functional tests (Cypress) "
+        description = "Generate report for functional tests (Cypress)"
+        dependsOn("runTests")
 
         setWorkingDir(projectDir)
         setYarnCommand("node")

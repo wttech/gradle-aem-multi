@@ -4,5 +4,13 @@
     "acs-commons-integrators",
     "content-class-aem65"
   ],
-  "installHookPolicy": "SKIP"
+  "installHookPolicy": "SKIP",
+  "checks": [
+    {
+      "name": "basic/subpackages",
+      "config": {
+        "denyAll": false
+      }
+    }
+  ]
 }
