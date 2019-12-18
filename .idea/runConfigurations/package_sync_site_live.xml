@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="sync site demo" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="package sync site live" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/aem/site.demo" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/aem/site.live" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="--info --stacktrace" />
       <option name="taskDescriptions">
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="sync" />
+          <option value="packageSync" />
         </list>
       </option>
       <option name="vmOptions" value="" />
