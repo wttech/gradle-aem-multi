@@ -15,7 +15,7 @@ def cleanContent(root) {
     def sql = "SELECT * FROM [cq:PageContent] AS s WHERE ISDESCENDANTNODE([$root])"
     for (def pageContent : resourceResolver.findResources(sql, "JCR-SQL2")) {
         debug "Cleaning page '${pageContent.path}'"
-        Thread.sleep(500)
+        Thread.sleep(500) // TODO simulates some repository operation
     }
     debug "Cleaned content at root '$root'"
 }
