@@ -33,15 +33,5 @@ aem {
                 )
             }
         }
-
-        register("sftpServer") {
-            doLast {
-                dockerDaemon {
-                    image = "atmoz/sftp"
-                    command = "foo:pass:::upload"
-                    port(2222, 22)
-                }
-            }
-        }
     }
 }

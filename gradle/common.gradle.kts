@@ -4,8 +4,6 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.moowork.gradle.node.NodeExtension
 
-version = "1.0.0-SNAPSHOT"
-
 repositories {
     jcenter()
     maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
