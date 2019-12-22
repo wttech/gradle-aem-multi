@@ -10,22 +10,18 @@ Project build is based on [Gradle](https://docs.gradle.org/current/userguide/use
 
 ### Environment
 
-1. Generate user-specific properties file holding AEM instance files and urls:
-
-```bash
-sh gradlew props
-```
-
+1. Generate user-specific properties file covering AEM instance source files and configuration:
+    ```bash
+    sh gradlew props
+    ```
 2. Append project-specific host entries to OS-specific file by running script:
-
-* `sh hosts` (Unix)
-* `hosts.bat` (Windows)
+    * `sh hosts` (Unix)
+    * `hosts.bat` (Windows)
 
 3. Create, run and configure AEM instances and AEM dispatcher automatically by running command:
-
-```bash
-sh gradlew setup
-```
+    ```bash
+    sh gradlew setup
+    ```
 
 ### Application
 

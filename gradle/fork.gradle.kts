@@ -100,7 +100,7 @@ configure<ForkExtension> {
         ))
         removeTexts(listOf(
                 """    maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }""" + "\n",
-                """    implementation("com.neva.gradle:fork-plugin:4.1.1")""" + "\n",
+                """    implementation("com.neva.gradle:fork-plugin:4.1.3")""" + "\n",
                 """    id("com.neva.fork")""" + "\n",
                 """apply(from = "gradle/fork.gradle.kts")""" + "\n"
         ))
