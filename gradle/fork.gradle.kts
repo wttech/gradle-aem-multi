@@ -94,6 +94,7 @@ configure<ForkExtension> {
                 "LICENSE",
                 "azure-pipelines.yml",
                 "gh-md-toc",
+                "docs/*",
                 "gradle/fork/*",
                 "gradle/fork.gradle.kts"
         ))
