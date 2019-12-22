@@ -183,10 +183,10 @@ Assumptions:
 
 1. Monitoring errors in logs: `sh gradlew instanceTail`
 2. Synchronizing JCR content from AEM to local file system:
-    * `sh gradlew :aem:site.demo:sync`
-    * `sh gradlew :aem:site.live:sync`
+    * `sh gradlew :aem:site.demo:packageSync`
+    * `sh gradlew :aem:site.live:packageSync`
 3. Interactively updating HTTPD Virtual-Host & AEM Dispatcher configuration: `sh gradlew environmentDev`
-4. Copying JCR content between AEM instances: `sh gradlew :aem:sites:demo:rcp -Prcp.source=http://user:pass@x.x.x.x:4502 -Prcp.target=local-author -Prcp.paths=[/content/example,/content/dam/example]`
+4. Copying JCR content between AEM instances: `sh gradlew :aem:sites:demo:instanceRcp -Pinstance.rcp.source=http://user:pass@x.x.x.x:4502 -Pinstance.rcp.target=local-author -Pinstance.rcp.paths=[/content/example,/content/dam/example]`
 
 ## Tips & tricks
 
