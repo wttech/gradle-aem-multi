@@ -10,6 +10,7 @@ Project build is based on [Gradle](https://docs.gradle.org/current/userguide/use
 
 ### Environment
 
+0. See [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)
 1. Generate user-specific properties file covering AEM instance source files and configuration:
     ```bash
     sh gradlew props
