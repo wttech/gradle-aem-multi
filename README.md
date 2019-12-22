@@ -41,8 +41,8 @@ Main motivation of this project is to automate all aspects of AEM development an
 
 Archetyping:
 
-* [Generating project from archetype](gradle/fork.gradle.kts) using [Gradle Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin),
-* [Generating user-specific build properties](gradle/fork/gradle.properties.peb) using [friendly GUI](gradle/fork.gradle.kts)
+* [Generating project from archetype](gradle/fork/fork.gradle.kts) using [Gradle Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin),
+* [Generating user-specific build properties](gradle/fork/gradle.user.properties.peb) using [friendly GUI](gradle/fork/props.gradle.kts)
 
 Environment:
 

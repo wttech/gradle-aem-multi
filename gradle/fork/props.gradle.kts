@@ -1,27 +1,9 @@
 import com.cognifide.gradle.aem.common.instance.local.Source
 import com.neva.gradle.fork.ForkExtension
-import java.io.File
 
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "sourcePath" to { enabled = false },
-                "targetPath" to { enabled = false },
-                "projectName" to {
-                    description = "Artifact 'name' coordinate (lowercase)"
-                    validator { lowercased(); alphanumeric() }
-                    controller { other("targetPath").value = File(File(other("sourcePath").value).parentFile, value).toString() }
-                    defaultValue = "example"
-                },
-                "projectLabel" to {
-                    description = "Nice project name (human-readable)"
-                    defaultValue = "Example"
-                },
-                "projectGroup" to {
-                    description = "Java package in source code and artifact 'group' coordinate"
-                    validator { javaPackage(); notEndsWith("projectName") }
-                    defaultValue = "com.company"
-                },
                 "instanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
                     optional()
@@ -71,38 +53,6 @@ configure<ForkExtension> {
                     defaultValue = System.getenv("USERDOMAIN").orEmpty()
                     optional()
                 }
-        ))
-    }
-    config {
-        textFiles.addAll(listOf("**/*.conf", "**/*.any"))
-        cloneFiles()
-        moveFiles(mapOf(
-                "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem", // TODO simplify
-                "/example" to "/{{projectName}}",
-                "/demo.example" to "/demo.{{projectName}}",
-                "example.com" to "{{projectName}}.com"
-        ))
-        replaceContents(mapOf(
-                "com.company.example.aem" to "{{projectGroup}}.{{projectName}}.aem",
-                "com.company.example" to "{{projectGroup}}.{{projectName}}",
-                "com.company" to "{{projectGroup}}",
-                "Example" to "{{projectLabel}}",
-                "example" to "{{projectName}}"
-        ))
-        copyTemplateFile("README.MD")
-        removeFiles(listOf(
-                "LICENSE",
-                "azure-pipelines.yml",
-                "gh-md-toc",
-                "docs/*",
-                "gradle/fork/*",
-                "gradle/fork.gradle.kts"
-        ))
-        removeTexts(listOf(
-                """    maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }""" + "\n",
-                """    implementation("com.neva.gradle:fork-plugin:4.1.3")""" + "\n",
-                """    id("com.neva.fork")""" + "\n",
-                """apply(from = "gradle/fork.gradle.kts")""" + "\n"
         ))
     }
 }
