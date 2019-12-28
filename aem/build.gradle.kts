@@ -51,7 +51,6 @@ aem {
     localInstance {
         install {
             files {
-                //useLocal("/Users/krystian.panek/Projects/mapper/fragment/sling-mapper-extender.jar")
                 // https://github.com/Cognifide/gradle-aem-plugin#pre-installed-osgi-bundles-and-crx-packages
             }
         }
