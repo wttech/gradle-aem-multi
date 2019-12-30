@@ -7,7 +7,7 @@ import org.osgi.service.component.annotations.Component
 import org.osgi.service.metatype.annotations.AttributeDefinition
 import org.osgi.service.metatype.annotations.Designate
 import org.osgi.service.metatype.annotations.ObjectClassDefinition
-import java.util.*
+import org.slf4j.LoggerFactory
 import java.net.URL as Url
 
 @Component(
@@ -16,17 +16,6 @@ import java.net.URL as Url
 )
 @Designate(ocd = PostsService.Config::class)
 class PostsService {
-
-  @ObjectClassDefinition(
-    name = "Posts Service Config",
-    description = "Customize endpoint URL for service which is returning posts"
-  )
-  annotation class Config(
-    @get:AttributeDefinition(
-      name = "Data source URL for posts.",
-      description = "Endpoint must return JSON with list of objects containing 'userId', 'id', 'title' and 'body'."
-    ) val url: String = "https://jsonplaceholder.typicode.com/posts"
-  )
 
   private lateinit var config: Config
 
@@ -38,13 +27,19 @@ class PostsService {
   val posts: List<Post>
     get() {
       if (config.url.isNullOrBlank()) {
+        LOG.error("Cannot read posts as of URL is not configured!")
         return listOf()
       }
 
-      return JsonUtils.GSON.fromJson<List<Post>>(
-        Url(config.url).openStream().bufferedReader().use { it.readText() },
-        object : TypeToken<List<Post>>() {}.type
-      )
+      return try {
+        JsonUtils.GSON.fromJson<List<Post>>(
+          Url(config.url).openStream().bufferedReader().use { it.readText() },
+          object : TypeToken<List<Post>>() {}.type
+        )
+      } catch (e: Exception) {
+        LOG.error("Cannot read posts! Cause: ${e.message}", e)
+        listOf()
+      }
     }
 
   fun randomPosts(count: Int): List<Post> {
@@ -58,4 +53,18 @@ class PostsService {
     return shuffled.subList(0, count)
   }
 
+  @ObjectClassDefinition(
+    name = "Posts Service Config",
+    description = "Customize endpoint URL for service which is returning posts"
+  )
+  annotation class Config(
+    @get:AttributeDefinition(
+      name = "Data source URL for posts.",
+      description = "Endpoint must return JSON with list of objects containing 'userId', 'id', 'title' and 'body'."
+    ) val url: String = "https://jsonplaceholder.typicode.com/posts"
+  )
+
+  companion object {
+    private val LOG = LoggerFactory.getLogger(PostsService::class.java)
+  }
 }
