@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.cognifide.gradle:aem-plugin:10.0.0")
+    implementation("com.cognifide.gradle:aem-plugin:10.0.1")
     implementation("com.cognifide.gradle:lighthouse-plugin:1.0.0")
     implementation("com.neva.gradle:fork-plugin:4.1.3")
     implementation("com.github.node-gradle:gradle-node-plugin:2.2.0")
