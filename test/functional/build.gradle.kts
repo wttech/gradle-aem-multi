@@ -27,6 +27,7 @@ tasks {
         description = "Run functional tests (Cypress)"
         dependsOn("yarn")
         mustRunAfter(":aem:environmentAwait")
+        finalizedBy("generateReport")
 
         setWorkingDir(projectDir)
         setYarnCommand("cypress")
@@ -37,7 +38,6 @@ tasks {
     register<YarnTask>("generateReport") {
         group = "check"
         description = "Generate report for functional tests (Cypress)"
-        dependsOn("runTests")
 
         setWorkingDir(projectDir)
         setYarnCommand("node")
