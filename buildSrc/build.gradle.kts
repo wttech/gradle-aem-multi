@@ -2,16 +2,12 @@ plugins {
     `kotlin-dsl`
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
-}
-
 repositories {
     mavenLocal()
     jcenter()
     gradlePluginPortal()
-    maven { url = uri("http://dl.bintray.com/cognifide/maven-public") }
-    maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
+    maven(uri("http://dl.bintray.com/cognifide/maven-public"))
+    maven(uri("https://dl.bintray.com/neva-dev/maven-public"))
 }
 
 dependencies {
