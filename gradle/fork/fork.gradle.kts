@@ -1,36 +1,32 @@
 import com.neva.gradle.fork.ForkExtension
-import java.io.File
 
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "sourcePath" to { enabled = false },
-                "targetPath" to { enabled = false },
+                "projectLabel" to {
+                    description = "Human-readable project name"
+                    defaultValue = "Example"
+                },
                 "projectName" to {
-                    description = "Artifact 'name' coordinate (lowercase)"
+                    description = "Artifact 'name' coordinate"
                     validator { lowercased(); alphanumeric() }
                     controller { other("targetPath").value = File(File(other("sourcePath").value).parentFile, value).toString() }
                     defaultValue = "example"
                 },
-                "projectLabel" to {
-                    description = "Nice project name (human-readable)"
-                    defaultValue = "Example"
-                },
                 "projectGroup" to {
-                    description = "Java package in source code and artifact 'group' coordinate"
+                    description = "Artifact 'group' coordinate and base Java package"
                     validator { javaPackage(); notEndsWith("projectName") }
-                    defaultValue = "com.company"
-                }
+                    defaultValue = "com.company.aem"
+                },
+                "sourcePath" to { enabled = false },
+                "targetPath" to { enabled = false }
         ))
     }
     config {
-        textFiles.addAll(listOf("**/*.conf", "**/*.any"))
         cloneFiles()
         moveFiles(mapOf(
-                "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem", // TODO simplify
-                "/example" to "/{{projectName}}",
-                "/demo.example" to "/demo.{{projectName}}",
-                "example.com" to "{{projectName}}.com"
+                "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem",
+                "/example" to "/{{projectName}}"
         ))
         replaceContents(mapOf(
                 "com.company.example.aem" to "{{projectGroup}}.{{projectName}}.aem",

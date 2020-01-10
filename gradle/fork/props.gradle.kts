@@ -3,52 +3,75 @@ import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
-        define(mapOf(
-                "instanceAuthorHttpUrl" to {
-                    url("http://localhost:4502")
-                    optional()
-                    description = "URL for accessing AEM author instance"
-                },
-                "instancePublishHttpUrl" to {
-                    url("http://localhost:4503")
-                    optional()
-                    description = "URL for accessing AEM publish instance"
-                },
+        define("Instance type", mapOf(
                 "instanceType" to {
+                    label = "Type"
                     select("local", "remote")
-                    description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
+                    description = "Local - instance will be created on local file system\nRemote - connecting to remote instance only"
                     controller { toggle(value == "local", "instanceRunModes", "instanceJvmOpts", "localInstance*") }
                 },
-                "instanceRunModes" to { text("local,nosamplecontent") },
-                "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
+                "instanceAuthorHttpUrl" to {
+                    label = "Author HTTP URL"
+                    url("http://localhost:4502")
+                    optional()
+                    description = "For accessing AEM author instance (leave empty to do not use it)"
+                },
+                "instancePublishHttpUrl" to {
+                    label = "Publish HTTP URL"
+                    url("http://localhost:4503")
+                    optional()
+                    description = "For accessing AEM publish instance (leave empty to do not use it)"
+                }
+        ))
+
+        define("Local instance", mapOf(
                 "localInstanceSource" to {
-                    description = "Controls how instances will be created (from scratch, backup or automatically determined)"
+                    label = "Source"
+                    description = "Controls how instances will be created (from scratch, backup or any available source)"
                     select(Source.values().map { it.name.toLowerCase() }, Source.AUTO.name.toLowerCase())
                 },
                 "localInstanceQuickstartJarUri" to {
-                    description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
+                    label = "Quickstart URI"
+                    description = "For file named 'cq-quickstart-x.x.x.jar'"
                 },
                 "localInstanceQuickstartLicenseUri" to {
-                    description = "Quickstart license file (license.properties)"
+                    label = "Quickstart License URI"
+                    description = "For file named 'license.properties'"
                 },
                 "localInstanceBackupDownloadUri" to {
-                    description = "URL to backup file (SMB/SFTP/HTTP)"
+                    label = "Backup Download URI"
+                    description = "For backup file. Protocols supported: SMB/SFTP/HTTP"
                     optional()
                 },
                 "localInstanceBackupUploadUri" to {
-                    description = "URL to backup directory (SMB/SFTP)"
+                    label = "Backup Upload URI"
+                    description = "For directory containing backup files. Protocols supported: SMB/SFTP"
                     optional()
                 },
+                "instanceRunModes" to {
+                    label = "Run Modes"
+                    text("local,nosamplecontent")
+                },
+                "instanceJvmOpts" to {
+                    label = "JVM Options"
+                    text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true")
+                }
+        ))
+
+        define("File transfer", mapOf(
                 "companyUser" to {
-                    description = "User authorized to access AEM files"
+                    label = "User"
+                    description = "Authorized to access AEM files"
                     defaultValue = System.getProperty("user.name").orEmpty()
                     optional()
                 },
                 "companyPassword" to {
-                    description = "Password for user authorized to access AEM files"
+                    label = "Password"
+                    description = "For above user"
                     optional()
                 },
                 "companyDomain" to {
+                    label = "Domain"
                     description = "Needed only when accessing AEM files over SMB"
                     defaultValue = System.getenv("USERDOMAIN").orEmpty()
                     optional()
