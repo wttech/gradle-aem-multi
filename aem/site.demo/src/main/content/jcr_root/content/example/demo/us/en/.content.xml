@@ -5,10 +5,10 @@
         cq:allowedTemplates="[/conf/example/settings/wcm/templates/.*]"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="nt:unstructured"
-        jcr:title="Demo"
+        jcr:title="United States - English"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
         redirectTarget="/content/example/demo/us/en"/>
-    <us/>
+    <contact/>
 </jcr:root>

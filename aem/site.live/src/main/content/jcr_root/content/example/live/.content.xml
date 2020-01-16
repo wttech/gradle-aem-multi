@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
-    <en-us/>
     <jcr:content
-        cq:designPath="/apps/settings/wcm/designs/example/sites"
-        cq:redirectTarget="/content/example/live/en-us"
-        jcr:primaryType="cq:PageContent"
-        jcr:title="Live Site"
+        cq:allowedTemplates="[/conf/example/settings/wcm/templates/.*]"
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Live"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
-        sling:resourceType="foundation/components/redirect"/>
+        sling:resourceType="foundation/components/redirect"
+        redirectTarget="/content/example/live/en-us"/>
 </jcr:root>
