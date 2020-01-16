@@ -396,17 +396,19 @@
         </wcm>
     </core>
     <example jcr:primaryType="nt:unstructured">
-        <components jcr:primaryType="nt:unstructured">
-            <page jcr:primaryType="nt:unstructured">
-                <policy_212634895490169
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Example - Page"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    appResourcesClientlib="cmp-examples.site"
-                    clientlibs="cmp-examples.base">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_212634895490169>
-            </page>
-        </components>
+        <sites jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <page jcr:primaryType="nt:unstructured">
+                    <policy_1579182456798
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Example - Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        appResourcesClientlib="cmp-examples.site"
+                        clientlibs="cmp-examples.base">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1579182456798>
+                </page>
+            </components>
+        </sites>
     </example>
 </jcr:root>
