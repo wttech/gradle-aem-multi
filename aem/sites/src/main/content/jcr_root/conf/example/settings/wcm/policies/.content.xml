@@ -8,7 +8,7 @@
             <components jcr:primaryType="nt:unstructured">
                 <responsivegrid jcr:primaryType="nt:unstructured">
                     <policy_76194888503838
-                        cq:styleDefaultClasses="example-structure"
+                        cq:styleDefaultClasses="cmp-examples-structure"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Example - Root"
                         sling:resourceType="wcm/core/components/policy/policy"
@@ -28,7 +28,7 @@
                             mergeList="{Boolean}true"/>
                     </policy_76194888503838>
                     <policy_1545309074617
-                        cq:styleDefaultClasses="example-structure__main"
+                        cq:styleDefaultClasses="cmp-examples-structure__main"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Example - Structure"
                         sling:resourceType="wcm/core/components/policy/policy"
@@ -50,22 +50,22 @@
                                 jcr:primaryType="nt:unstructured">
                                 <cq:styles jcr:primaryType="nt:unstructured">
                                     <item0
-                                        cq:styleClasses="example-structure__header"
+                                        cq:styleClasses="cmp-examples-structure__header"
                                         cq:styleId="1545309104202"
                                         cq:styleLabel="Header"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
-                                        cq:styleClasses="example-structure__main"
+                                        cq:styleClasses="cmp-examples-structure__main"
                                         cq:styleId="1545309110033"
                                         cq:styleLabel="Main"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item2
-                                        cq:styleClasses="example-structure__aside"
+                                        cq:styleClasses="cmp-examples-structure__aside"
                                         cq:styleId="1545309119491"
                                         cq:styleLabel="Aside"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item3
-                                        cq:styleClasses="example-structure__footer"
+                                        cq:styleClasses="cmp-examples-structure__footer"
                                         cq:styleId="1551382932159"
                                         cq:styleLabel="Footer"
                                         jcr:primaryType="nt:unstructured"/>
@@ -110,17 +110,17 @@
                                         jcr:primaryType="nt:unstructured">
                                         <cq:styles jcr:primaryType="nt:unstructured">
                                             <item0
-                                                cq:styleClasses="example-title--heading1"
+                                                cq:styleClasses="cmp-examples-title--heading1"
                                                 cq:styleId="1544759629303"
                                                 cq:styleLabel="Heading 1"
                                                 jcr:primaryType="nt:unstructured"/>
                                             <item1
-                                                cq:styleClasses="example-title--heading2"
+                                                cq:styleClasses="cmp-examples-title--heading2"
                                                 cq:styleId="1544759664489"
                                                 cq:styleLabel="Heading 2"
                                                 jcr:primaryType="nt:unstructured"/>
                                             <item2
-                                                cq:styleClasses="example-title--heading3"
+                                                cq:styleClasses="cmp-examples-title--heading3"
                                                 cq:styleId="1544759676459"
                                                 cq:styleLabel="Heading 3"
                                                 jcr:primaryType="nt:unstructured"/>
@@ -261,17 +261,17 @@
                                         jcr:primaryType="nt:unstructured">
                                         <cq:styles jcr:primaryType="nt:unstructured">
                                             <item0
-                                                cq:styleClasses="example-text--page-title"
+                                                cq:styleClasses="cmp-examples-text--page-title"
                                                 cq:styleId="1644862132301"
                                                 cq:styleLabel="Page Title"
                                                 jcr:primaryType="nt:unstructured"/>
                                             <item1
-                                                cq:styleClasses="example-text--hero"
+                                                cq:styleClasses="cmp-examples-text--hero"
                                                 cq:styleId="1544762734201"
                                                 cq:styleLabel="Hero"
                                                 jcr:primaryType="nt:unstructured"/>
                                             <item3
-                                                cq:styleClasses="example-text--no-results"
+                                                cq:styleClasses="cmp-examples-text--no-results"
                                                 cq:styleId="1550360114923"
                                                 cq:styleLabel="No Results"
                                                 jcr:primaryType="nt:unstructured"/>
@@ -296,12 +296,12 @@
                                         jcr:primaryType="nt:unstructured">
                                         <cq:styles jcr:primaryType="nt:unstructured">
                                             <item0
-                                                cq:styleClasses="example-teaser--component"
+                                                cq:styleClasses="cmp-examples-teaser--component"
                                                 cq:styleId="1547060090076"
                                                 cq:styleLabel="Component"
                                                 jcr:primaryType="nt:unstructured"/>
                                             <item1
-                                                cq:styleClasses="example-teaser--document"
+                                                cq:styleClasses="cmp-examples-teaser--document"
                                                 cq:styleId="1550165685463"
                                                 cq:styleLabel="Document"
                                                 jcr:primaryType="nt:unstructured"/>
@@ -325,7 +325,7 @@
                                         <item0 jcr:primaryType="nt:unstructured">
                                             <cq:styles jcr:primaryType="nt:unstructured">
                                                 <item0
-                                                    cq:styleClasses="example-form-text--search"
+                                                    cq:styleClasses="cmp-examples-form-text--search"
                                                     cq:styleId="1550289148555"
                                                     cq:styleLabel="Search"
                                                     jcr:primaryType="nt:unstructured"/>
@@ -351,7 +351,7 @@
                                         jcr:primaryType="nt:unstructured">
                                         <cq:styles jcr:primaryType="nt:unstructured">
                                             <item0
-                                                cq:styleClasses="example-separator--thin"
+                                                cq:styleClasses="cmp-examples-separator--thin"
                                                 cq:styleId="1550355113852"
                                                 cq:styleLabel="Thin"
                                                 jcr:primaryType="nt:unstructured"/>

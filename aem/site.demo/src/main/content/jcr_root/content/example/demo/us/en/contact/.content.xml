@@ -12,7 +12,17 @@
             <responsivegrid
                 cq:styleIds="[1545309110033]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    text="&lt;p>&lt;b>Congratulations!&lt;/b> &lt;/p>&#xd;&#xa;&lt;p>As you are seeing this page, it proves that you successfully built AEM application using Gradle AEM Plugin (GAP). Enjoy!&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <image
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="core/wcm/components/image/v2/image"
+                    fileReference="/content/dam/example/common/gap-logo.png"/>
+            </responsivegrid>
         </root>
     </jcr:content>
 </jcr:root>
