@@ -31,8 +31,14 @@ plugins.withId("java") {
     }
 
     dependencies {
-        "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
         "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+        "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
+
+        "testImplementation"("org.slf4j:slf4j-simple:1.7.25")
+        "testImplementation"("org.mockito:mockito-core:2.25.1")
+        "testImplementation"("org.mockito:mockito-junit-jupiter:2.25.1")
+        "testImplementation"("junit-addons:junit-addons:1.4")
+        "testImplementation"("uk.org.lidalia:slf4j-test:1.0.1")
     }
 }
 
@@ -79,22 +85,24 @@ plugins.withId("com.cognifide.aem.bundle") {
 
         // AEM runtime dependencies
 
-        "compileOnly"("org.osgi:osgi.cmpn:6.0.0")
-        "compileOnly"("org.osgi:org.osgi.core:6.0.0")
-        "compileOnly"("javax.servlet:servlet-api:2.5")
-        "compileOnly"("javax.servlet:jsp-api:2.0")
+        "compileOnly"("org.osgi:org.osgi.annotation.versioning:1.1.0")
+        "compileOnly"("org.osgi:org.osgi.annotation.bundle:1.0.0")
+        "compileOnly"("org.osgi:org.osgi.service.metatype.annotations:1.4.0")
+        "compileOnly"("org.osgi:org.osgi.service.component.annotations:1.4.0")
+        "compileOnly"("org.osgi:org.osgi.service.component:1.4.0")
+        "compileOnly"("org.osgi:org.osgi.service.cm:1.6.0")
+        "compileOnly"("org.osgi:org.osgi.service.event:1.3.1")
+        "compileOnly"("org.osgi:org.osgi.service.log:1.4.0")
+        "compileOnly"("org.osgi:org.osgi.resource:1.0.0")
+        "compileOnly"("org.osgi:org.osgi.framework:1.9.0")
+        "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.6")
+        "compileOnly"("javax.servlet:javax.servlet-api:3.1.0")
+        "compileOnly"("javax.servlet.jsp:jsp-api:2.1")
+        "compileOnly"("javax.annotation:javax.annotation-api:1.3.2")
         "compileOnly"("javax.jcr:jcr:2.0")
+        "compileOnly"("com.day.cq.wcm:cq-wcm-taglib:5.7.4")
         "compileOnly"("org.slf4j:slf4j-api:1.7.25")
-        "compileOnly"("org.apache.geronimo.specs:geronimo-atinject_1.0_spec:1.0")
-        "compileOnly"("org.apache.sling:org.apache.sling.api:2.18.4")
-        "compileOnly"("org.apache.sling:org.apache.sling.jcr.api:2.4.0")
-        "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.8")
-        "compileOnly"("org.apache.sling:org.apache.sling.settings:1.3.10")
-        "compileOnly"("com.google.guava:guava:15.0")
-        "compileOnly"("com.google.code.gson:gson:2.8.5")
-        "compileOnly"("joda-time:joda-time:2.9.1")
-        "compileOnly"("org.jetbrains:annotations:13.0")
-
+        "compileOnly"("com.adobe.cq:core.wcm.components.core:2.8.0")
         "compileOnly"("com.adobe.aem:uber-jar:${Build.AEM_VERSION}:apis")
 
         // Extra libraries provided by: task "instanceSatisfy", task packageCompose.fromJar
@@ -105,6 +113,6 @@ plugins.withId("com.cognifide.aem.bundle") {
 
         // AEM test dependencies
 
-        "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
+        "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.5.2")
     }
 }

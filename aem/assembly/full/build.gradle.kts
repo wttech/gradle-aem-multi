@@ -10,11 +10,8 @@ description = "Example - AEM Full"
 aem {
     tasks {
         packageCompose {
-            fromProject(":aem:common")
-            fromProject(":aem:sites")
-
-            fromProject(":aem:site.demo")
-            fromProject(":aem:site.live")
+            fromSubpackage(":aem:ui.apps:packageCompose")
+            fromSubpackage(":aem:ui.content:packageCompose")
         }
     }
 }

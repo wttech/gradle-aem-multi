@@ -34,13 +34,11 @@ aem {
         }
         hosts {
             author("http://author.example.com")
-            publish("http://demo.example.com") { tag("test") }
-            publish("http://example.com") { tag("live") }
+            publish("http://example.com")
             other("http://dispatcher.example.com")
         }
         healthChecks {
             url("Live site", "http://example.com/en-us.html") { containsText("English US") }
-            url("Demo site", "http://demo.example.com/en-us.html") { containsText("English US") }
             url("Author module 'Sites'", "http://author.example.com/sites.html") {
                 options { basicCredentials = authorInstance.credentials }
                 containsText("Sites")

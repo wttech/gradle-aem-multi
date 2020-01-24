@@ -11,8 +11,7 @@ apply(from = rootProject.file("gradle/common.gradle.kts"))
 description = "Example - Integration Tests"
 
 dependencies {
-    "integTestImplementation"(project(":aem:common"))
-    "integTestImplementation"(project(":aem:sites"))
+    "integTestImplementation"(project(":aem:core"))
 
     "integTestRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
     "integTestImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
