@@ -6,10 +6,10 @@ import com.moowork.gradle.node.NodeExtension
 
 repositories {
     jcenter()
-    maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
-    maven { url = uri("https://repo1.maven.org/maven2") }
-    maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
-    maven { url = uri("https://dl.bintray.com/acs/releases") }
+    maven("https://repo.adobe.com/nexus/content/groups/public")
+    maven("https://repo1.maven.org/maven2")
+    maven("https://dl.bintray.com/neva-dev/maven-public")
+    maven("https://dl.bintray.com/acs/releases")
 }
 
 plugins.withId("java") {
@@ -22,23 +22,16 @@ plugins.withId("java") {
     }
 
     tasks.withType<Test>().configureEach {
-        failFast = true
         useJUnitPlatform()
         testLogging {
-            events = setOf(TestLogEvent.FAILED)
+            events("passed", "skipped", "failed")
             exceptionFormat = TestExceptionFormat.SHORT
         }
     }
 
     dependencies {
-        "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
-        "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
-
-        "testImplementation"("org.slf4j:slf4j-simple:1.7.25")
-        "testImplementation"("org.mockito:mockito-core:2.25.1")
-        "testImplementation"("org.mockito:mockito-junit-jupiter:2.25.1")
-        "testImplementation"("junit-addons:junit-addons:1.4")
-        "testImplementation"("uk.org.lidalia:slf4j-test:1.0.1")
+        "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+        "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.6.0")
     }
 }
 
