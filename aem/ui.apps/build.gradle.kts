@@ -10,6 +10,7 @@ description = "Example - UI Apps"
 aem {
     tasks {
         packageCompose {
+            dependsOn(":aem:ui.frontend:webpack")
             fromProject(":aem:core")
         }
     }

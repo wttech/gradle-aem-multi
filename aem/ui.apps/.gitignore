@@ -1,5 +1,4 @@
 # Created by https://www.gitignore.io/api/eclipse,java,maven
 
-# TODO make it ignored, generate by ui.frontend module
-#src/main/content/jcr_root/apps/example/clientlibs/clientlib-site
-#src/main/content/jcr_root/apps/example/clientlibs/clientlib-dependencies
+src/main/content/jcr_root/apps/example/clientlibs/clientlib-site
+src/main/content/jcr_root/apps/example/clientlibs/clientlib-dependencies
