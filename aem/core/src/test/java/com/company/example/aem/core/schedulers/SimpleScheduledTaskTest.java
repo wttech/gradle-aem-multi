@@ -18,7 +18,6 @@ package com.company.example.aem.core.schedulers;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -45,7 +44,6 @@ class SimpleScheduledTaskTest {
     }
 
     @Test
-    @Disabled // TODO fix test
     void run() {
         SimpleScheduledTask.Config config = mock(SimpleScheduledTask.Config.class);
         when(config.myParameter()).thenReturn("parameter value");

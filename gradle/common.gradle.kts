@@ -77,6 +77,7 @@ plugins.withId("com.cognifide.aem.bundle") {
             bundleCompose {
                 category = "example"
                 vendor = "Company"
+                bnd("-plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin")
             }
         }
     }
