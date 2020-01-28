@@ -14,6 +14,7 @@
       {
       /hostname "host.docker.internal"
       /port "4503"
+      /always-resolve "1"
       }
     }
   /filter
