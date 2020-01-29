@@ -2,6 +2,7 @@ import com.cognifide.gradle.aem.AemExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.cognifide.gradle.aem.bundle.tasks.BundleCompose
 import com.moowork.gradle.node.NodeExtension
 
 repositories {
@@ -65,13 +66,11 @@ plugins.withId("com.cognifide.aem.package") {
 
 plugins.withId("com.cognifide.aem.bundle") {
 
-    configure<AemExtension> {
-        tasks {
-            bundleCompose {
-                category = "example"
-                vendor = "Company"
-                bnd("-plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin")
-            }
+    tasks {
+        withType<BundleCompose> {
+            category = "example"
+            vendor = "Company"
+            bnd("-plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin")
         }
     }
 

@@ -1,6 +1,6 @@
 plugins {
     id("com.neva.fork")
-    id("com.cognifide.aem.common")
+    id("com.cognifide.common")
 }
 
 apply(from = "gradle/fork/fork.gradle.kts")
@@ -10,7 +10,7 @@ apply(from = "gradle/common.gradle.kts")
 description = "Example"
 defaultTasks("develop")
 
-aem {
+common {
     tasks {
         registerSequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"

@@ -1,7 +1,7 @@
 version: "3"
 services:
   httpd:
-    image: httpd:2.4.39
+    image: centos/httpd:latest
     command: ["tail", "-f", "--retry", "/usr/local/apache2/logs/error.log"]
     deploy:
       replicas: 1
@@ -12,12 +12,12 @@ services:
     networks:
       - docker-net
     volumes:
-      - "{{ docker.rootPath }}/httpd/modules/mod_dispatcher.so:/usr/local/apache2/modules/mod_dispatcher.so"
+      - "{{ docker.rootPath }}/httpd/modules/mod_dispatcher.so:/etc/httpd/modules/mod_dispatcher.so"
       {% if docker.runtime.safeVolumes %}
       - "{{ docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
       {% endif %}
-      - "{{ docker.rootPath }}/httpd/logs:/usr/local/apache2/logs"
-      - "{{ docker.configPath }}/httpd/conf:/usr/local/apache2/conf"
+      - "{{ docker.rootPath }}/httpd/logs:/etc/httpd/logs"
+{#      - "{{ docker.configPath }}/httpd/conf:/usr/local/apache2/conf"#}
     {% if docker.runtime.hostInternalIp is not empty %}
     extra_hosts:
       - "host.docker.internal:{{ docker.runtime.hostInternalIp }}"
