@@ -7,12 +7,12 @@ plugins {
     id("nebula.integtest-standalone")
 }
 
-apply(from = rootProject.file("gradle/common.gradle.kts"))
+apply(from = rootProject.file("test/common.gradle.kts"))
 
 description = "Example - Integration Tests"
 
 dependencies {
-    "integTestImplementation"(project(":aem:core"))
+    "integTestImplementation"(project(":app:aem:core"))
 
     "integTestRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
     "integTestImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
@@ -28,7 +28,7 @@ dependencies {
 
 tasks {
     named<Test>("integrationTest") {
-        mustRunAfter(":aem:environmentAwait")
+        mustRunAfter(":env:environmentAwait")
         outputs.upToDateWhen { false }
 
         testLogging {

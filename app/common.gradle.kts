@@ -52,20 +52,18 @@ plugins.withId("com.github.node-gradle.node") {
     }
 }
 
-plugins.withId("com.cognifide.aem.package") {
-
+plugins.withId("com.cognifide.aem.common") {
     configure<AemExtension> {
         `package` {
+            configDir = rootProject.file("app/aem/common/package")
             validator {
                 base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
             }
         }
     }
-
 }
 
 plugins.withId("com.cognifide.aem.bundle") {
-
     tasks {
         withType<BundleCompose> {
             category = "example"

@@ -3,7 +3,7 @@ plugins {
     id("com.cognifide.lighthouse")
 }
 
-apply(from = rootProject.file("gradle/common.gradle.kts"))
+apply(from = rootProject.file("test/common.gradle.kts"))
 
 description = "Example - Performance Tests"
 

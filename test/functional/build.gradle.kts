@@ -6,7 +6,7 @@ plugins {
     id("com.github.node-gradle.node")
 }
 
-apply(from = rootProject.file("gradle/common.gradle.kts"))
+apply(from = rootProject.file("test/common.gradle.kts"))
 
 description = "Example - Functional Tests"
 

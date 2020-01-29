@@ -5,7 +5,6 @@ plugins {
 
 apply(from = "gradle/fork/fork.gradle.kts")
 apply(from = "gradle/fork/props.gradle.kts")
-apply(from = "gradle/common.gradle.kts")
 
 description = "Example"
 defaultTasks("develop")
@@ -16,15 +15,15 @@ common {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
             if (!prop.flag("setup.skip")) {
-                dependsOn(":aem:instanceSetup")
+                dependsOn(":env:instanceSetup")
             }
-            dependsOn(":aem:assembly:full:packageDeploy")
+            dependsOn(":app:aem:assembly:full:packageDeploy")
             if (!prop.flag("migration.skip")) {
-                dependsOn(":aem:migration:packageDeploy")
+                dependsOn(":app:aem:migration:packageDeploy")
             }
             dependsOn(
-                    ":aem:environmentReload",
-                    ":aem:environmentAwait"
+                    ":env:environmentReload",
+                    ":env:environmentAwait"
             )
             if (!prop.flag("test.skip")) {
                 dependsOn(
