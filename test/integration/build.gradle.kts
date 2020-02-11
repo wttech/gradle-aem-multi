@@ -37,9 +37,9 @@ tasks {
         }
         systemProperties(mapOf<String, Any?>(
                 "karate.options" to (aem.prop.string("karate.options") ?: ""),
-                "karate.env" to (aem.prop.string("karate.env") ?: aem.env),
+                "karate.env" to (aem.prop.string("karate.env") ?: aem.commonOptions.env),
                 "karate.config.dir" to "src/integTest/kotlin/karate",
-                "test.publishUrl" to (aem.prop.string("test.publishUrl") ?: aem.projectMain.environment.hosts["publish"].url),
+                "test.publishUrl" to aem.prop.string("test.publishUrl")!! /* TODO ?: aem.projectMain.environment.hosts["publish"].url)*/,
                 "test.parallel" to (aem.prop.string("test.parallel") ?: "")
         ))
     }
