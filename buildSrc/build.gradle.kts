@@ -6,7 +6,6 @@ repositories {
     mavenLocal()
     jcenter()
     gradlePluginPortal()
-    maven("https://dl.bintray.com/neva-dev/maven-public") // TODO to be removed
 }
 
 dependencies {
