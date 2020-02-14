@@ -13,6 +13,6 @@ lighthouse {
 
 tasks {
     lighthouseRun {
-        mustRunAfter(":aem:environmentAwait")
+        mustRunAfter(":env:environmentAwait")
     }
 }

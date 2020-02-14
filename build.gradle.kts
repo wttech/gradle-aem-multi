@@ -15,7 +15,10 @@ common {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
         }) {
             if (!prop.flag("setup.skip")) {
-                dependsOn(":env:instanceSetup")
+                dependsOn(
+                        ":env:instanceSetup",
+                        ":env:environmentUp"
+                )
             }
             dependsOn(":app:aem:assembly:full:packageDeploy")
             if (!prop.flag("migration.skip")) {

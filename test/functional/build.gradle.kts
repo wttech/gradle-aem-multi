@@ -27,7 +27,7 @@ tasks {
         group = "check"
         description = "Run functional tests (Cypress)"
         dependsOn("yarn")
-        mustRunAfter(":aem:environmentAwait")
+        mustRunAfter(":env:environmentAwait")
         finalizedBy("generateReport")
 
         setWorkingDir(projectDir)

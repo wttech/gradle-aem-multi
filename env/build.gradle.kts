@@ -1,6 +1,6 @@
 plugins {
-    id("com.cognifide.aem.instance")
     id("com.cognifide.environment")
+    id("com.cognifide.aem.instance.local")
 }
 
 repositories {
@@ -17,6 +17,15 @@ aem {
     }
 
     tasks {
+        environmentUp {
+            mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
+            mustRunAfter(":app:aem:migration:packageDeploy") // last step of ':develop'
+        }
+
+        environmentAwait {
+            mustRunAfter(instanceAwait)
+        }
+
         instanceSatisfy {
             packages {
                 // "dep.vanity-urls"("pkg/vanityurls-components-1.0.2.zip")
@@ -72,12 +81,6 @@ environment {
         url("Author module 'Sites'", "http://author.example.com/sites.html") {
             options { basicCredentials = aem.authorInstance.credentials }
             containsText("Sites")
-        }
-    }
-
-    tasks {
-        environmentUp {
-            mustRunAfter(":aem:migration:packageDeploy") // last step of ':develop'
         }
     }
 }
