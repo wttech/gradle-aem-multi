@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<workspaceFilter version="1.0">
-    <filter root="/apps/example/common"/>
-    <filter root="/etc/replication/agents.publish/flush"/>
-    <filter root="/etc/replication/agents.author/publish"/>
-</workspaceFilter>
