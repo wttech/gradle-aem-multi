@@ -19,7 +19,7 @@ aem {
     tasks {
         environmentUp {
             mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
-            mustRunAfter(":app:aem:migration:packageDeploy") // last step of ':develop'
+            mustRunAfter(":app:aem:migration:packageDeploy") // last step of task ':develop'
         }
 
         environmentAwait {
