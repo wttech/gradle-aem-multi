@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="bundle install common" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="bundle install core" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/aem/common" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/app/aem/core" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="--info --stacktrace" />
       <option name="taskDescriptions">
