@@ -5,13 +5,13 @@ plugins {
 apply(from = rootProject.file("app/common.gradle.kts"))
 apply(from = rootProject.file("app/aem/common.gradle.kts"))
 
-description = "Example - AEM Full"
+description = "Example - AEM All-In-One Package"
 
 aem {
     tasks {
         packageCompose {
-            fromSubpackage(":app:aem:ui.apps:packageCompose")
-            fromSubpackage(":app:aem:ui.content:packageCompose")
+            nestPackage(":app:aem:ui.apps:packageCompose")
+            nestPackage(":app:aem:ui.content:packageCompose")
         }
     }
 }

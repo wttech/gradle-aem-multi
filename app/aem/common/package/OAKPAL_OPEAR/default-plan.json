@@ -5,7 +5,6 @@
     "content-class-aem65"
   ],
   "installHookPolicy": "SKIP",
-  "a": "bb2",
   "checks": [
     {
       "name": "basic/subpackages",

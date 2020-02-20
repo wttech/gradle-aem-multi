@@ -8,7 +8,7 @@ include(":app:aem:ui.content")
 include(":app:aem:ui.frontend")
 include(":app:aem:dispatcher")
 include(":app:aem:migration")
-include(":app:aem:assembly:full")
+include(":app:aem:all")
 
 /*
 include(":app:knotx:distribution") // fork of starterkit
