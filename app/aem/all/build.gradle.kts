@@ -10,8 +10,8 @@ description = "Example - AEM All-In-One Package"
 aem {
     tasks {
         packageCompose {
-            nestPackage(":app:aem:ui.apps:packageCompose")
-            nestPackage(":app:aem:ui.content:packageCompose")
+            nestPackageProject(":app:aem:ui.apps")
+            nestPackageProject(":app:aem:ui.content")
         }
     }
 }
