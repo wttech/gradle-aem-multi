@@ -11,7 +11,7 @@ aem {
     localInstance {
         install {
             files {
-                // https://github.com/Cognifide/gradle-aem-plugin#pre-installed-osgi-bundles-and-crx-packages
+                // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/local-instance-plugin.md#pre-installed-osgi-bundles-and-crx-packages
             }
         }
     }
@@ -29,7 +29,6 @@ aem {
         instanceSatisfy {
             packages {
                 // "dep.vanity-urls"("pkg/vanityurls-components-1.0.2.zip")
-                "dep.kotlin"("org.jetbrains.kotlin:kotlin-osgi-bundle:${Build.KOTLIN_VERSION}")
                 "dep.core-components-all"("com.adobe.cq:core.wcm.components.all:2.8.0@zip")
                 "dep.core-components-examples"("com.adobe.cq:core.wcm.components.examples:2.8.0@zip")
                 "tool.ac-tool"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool", "accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip", "accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
@@ -39,7 +38,7 @@ aem {
         }
 
         instanceProvision {
-            // https://github.com/Cognifide/gradle-aem-plugin#task-instanceprovision
+            // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instanceprovision
         }
     }
 }
