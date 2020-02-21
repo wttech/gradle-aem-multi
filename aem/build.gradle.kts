@@ -30,6 +30,11 @@ aem {
                         watchConfigDir("conf")
                     }
                 }
+                "duckrails" {
+                    resolve {
+                        ensureDir()
+                    }
+                }
             }
         }
         hosts {
