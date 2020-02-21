@@ -20,7 +20,7 @@ common {
                         ":env:environmentUp"
                 )
             }
-            dependsOn(":app:aem:assembly:full:packageDeploy")
+            dependsOn(":app:aem:all:packageDeploy")
             if (!prop.flag("migration.skip")) {
                 dependsOn(":app:aem:migration:packageDeploy")
             }

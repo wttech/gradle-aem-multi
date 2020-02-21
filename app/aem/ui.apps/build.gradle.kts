@@ -11,7 +11,7 @@ aem {
     tasks {
         packageCompose {
             dependsOn(":app:aem:ui.frontend:webpack")
-            fromProject(":app:aem:core")
+            mergePackageProject(":app:aem:core")
         }
     }
 }
