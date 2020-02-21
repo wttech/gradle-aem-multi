@@ -58,11 +58,11 @@ environment {
                 }
                 up {
                     ensureDir("/usr/local/apache2/logs", "/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
-                    execShell("Starting HTTPD server", "/usr/local/apache2/bin/httpd -k start")
+                    execShell("Starting HTTPD server", "/usr/sbin/httpd -k start")
                 }
                 reload {
                     cleanDir("/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
-                    execShell("Restarting HTTPD server", "/usr/local/apache2/bin/httpd -k restart")
+                    execShell("Restarting HTTPD server", "/usr/sbin/httpd -k restart")
                 }
                 dev {
                     watchConfigDir("conf")
