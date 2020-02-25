@@ -22,8 +22,8 @@ aem {
                 "dep.core-components-all"("com.adobe.cq:core.wcm.components.all:2.8.0@zip")
                 "dep.core-components-examples"("com.adobe.cq:core.wcm.components.examples:2.8.0@zip")
                 "tool.aem-easy-content-upgrade"("https://github.com/valtech/aem-easy-content-upgrade/releases/download/3.0.1/aecu.bundle-3.0.1.zip")
-                "atool.ac-tool"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool", "accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip", "accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
-                "atool.search-webconsole-plugin"("com.neva.felix:search-webconsole-plugin:1.2.0")
+                "tool.ac-tool"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool", "accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip", "accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
+                "tool.search-webconsole-plugin"("com.neva.felix:search-webconsole-plugin:1.2.0")
             }
         }
         provisioner {
