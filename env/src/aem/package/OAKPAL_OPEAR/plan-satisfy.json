@@ -1,0 +1,28 @@
+{
+  "checklists": [
+    "net.adamcin.oakpal.core/basic",
+    "acs-commons-integrators",
+    "content-class-aem65"
+  ],
+  "installHookPolicy": "SKIP",
+  "checks": [
+    {
+      "name": "basic/subpackages",
+      "config": {
+        "denyAll": false
+      }
+    },
+    {
+      "name": "basic/acHandling",
+      "config": {
+        "levelSet": "no_unsafe"
+      }
+    },
+    {
+      "name": "com.adobe.acs.acs-aem-commons-oakpal-checks/content-class-aem65/content-classifications",
+      "config": {
+        "severity": "MINOR"
+      }
+    }
+  ]
+}
