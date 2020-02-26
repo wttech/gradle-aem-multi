@@ -11,6 +11,12 @@
       "config": {
         "denyAll": false
       }
+    },
+    {
+      "name": "basic/acHandling",
+      "config": {
+        "levelSet": "no_unsafe"
+      }
     }
   ]
 }
