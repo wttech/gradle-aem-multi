@@ -12,7 +12,10 @@ aem {
     tasks {
         packageCompose {
             dependsOn(":app:aem:ui.frontend:webpack")
-            mergePackageProject(":app:aem:core")
+            installBundleProject(":app:aem:core")
+            vaultDefinition {
+                property("installhook.actool.class", "biz.netcentric.cq.tools.actool.installhook.AcToolInstallHook")
+            }
         }
     }
 }

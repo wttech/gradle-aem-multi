@@ -13,11 +13,3 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:2.25.1")
     testImplementation("junit-addons:junit-addons:1.4")
 }
-
-tasks {
-    packageCompose {
-        vaultDefinition {
-            property("installhook.actool.class", "biz.netcentric.cq.tools.actool.installhook.AcToolInstallHook")
-        }
-    }
-}

@@ -23,10 +23,19 @@ aem {
                 "dep.core-components-examples"("com.adobe.cq:core.wcm.components.examples:2.8.0@zip")
                 "tool.aem-easy-content-upgrade"("https://github.com/valtech/aem-easy-content-upgrade/releases/download/3.0.1/aecu.bundle-3.0.1.zip")
                 "tool.ac-tool"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool", "accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip", "accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
-                "tool.search-webconsole-plugin"("com.neva.felix:search-webconsole-plugin:1.2.0")
+                "tool.search-webconsole-plugin"("com.neva.felix:search-webconsole-plugin:1.3.0")
             }
         }
         provisioner {
+            step("disable-unsecure-bundles") {
+                condition { once() && instance.environment == "prod" }
+                sync {
+                    osgiFramework.stopBundle("org.apache.sling.jcr.webdav")
+                    osgiFramework.stopBundle("com.adobe.granite.crxde-lite")
+
+                    instance.awaitUp() // include above in property: 'instance.awaitUp.bundles.symbolicNamesIgnored'
+                }
+            }
             // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instanceprovision
         }
     }
