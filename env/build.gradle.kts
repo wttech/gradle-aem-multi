@@ -93,10 +93,10 @@ environment {
     }
 
     healthChecks {
-        url("Live site", "http://example.com/en-us.html") { containsText("English US") }
-        url("Author module 'Sites'", "http://author.example.com/sites.html") {
-            options { basicCredentials = aem.authorInstance.credentials }
+        http("Live Site", "http://example.com/en-us.html","English US")
+        http("Author module 'Site'", "http://author.example.com/sites.html") {
             containsText("Sites")
+            options { basicCredentials = aem.authorInstance.credentials }
         }
     }
 }
