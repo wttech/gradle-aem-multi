@@ -68,18 +68,18 @@ environment {
                             copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
                         }
                     }
-                    ensureDir("cache", "logs")
+                    ensureDir("htdocs", "cache", "logs")
                 }
                 up {
-                    ensureDir("/usr/local/apache2/logs", "/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
+                    ensureDir("/usr/local/apache2/logs", "/var/www/localhost/htdocs", "/var/www/localhost/cache")
                     execShell("Starting HTTPD server", "/usr/sbin/httpd -k start")
                 }
                 reload {
-                    cleanDir("/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
+                    cleanDir("/var/www/localhost/cache")
                     execShell("Restarting HTTPD server", "/usr/sbin/httpd -k restart")
                 }
                 dev {
-                    watchConfigDir("conf")
+                    watchRootDir("app/aem/dispatcher/src/conf.d", "app/aem/dispatcher/src/conf.dispatcher.d")
                 }
             }
         }
