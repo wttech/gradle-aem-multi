@@ -10,12 +10,14 @@ services:
     networks:
       - docker-net
     volumes:
-      - "{{ docker.rootPath }}/httpd/modules/mod_dispatcher.so:/etc/httpd/modules/mod_dispatcher.so"
+      - "{{ docker.rootPath }}/app/aem/dispatcher/src/conf.d:/etc/httpd/conf.d"
+      - "{{ docker.rootPath }}/app/aem/dispatcher/src/conf.dispatcher.d:/etc/httpd/conf.dispatcher.d"
+      - "{{ docker.workPath }}/httpd/modules/mod_dispatcher.so:/etc/httpd/modules/mod_dispatcher.so"
+      - "{{ docker.workPath }}/httpd/logs:/etc/httpd/logs"
       {% if docker.runtime.safeVolumes %}
-      - "{{ docker.rootPath }}/httpd/cache:/opt/aem/dispatcher/cache"
+      - "{{ docker.workPath }}/httpd/cache:/var/www/localhost/cache"
+      - "{{ docker.workPath }}/httpd/htdocs:/var/www/localhost/htdocs"
       {% endif %}
-      - "{{ docker.rootPath }}/httpd/logs:/etc/httpd/logs"
-{#      - "{{ docker.configPath }}/httpd/conf:/usr/local/apache2/conf"#}
     {% if docker.runtime.hostInternalIp is not empty %}
     extra_hosts:
       - "host.docker.internal:{{ docker.runtime.hostInternalIp }}"

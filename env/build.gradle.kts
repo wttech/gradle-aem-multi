@@ -68,31 +68,29 @@ environment {
                             copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
                         }
                     }
-                    ensureDir("cache", "logs")
+                    ensureDir("htdocs", "cache", "logs")
                 }
                 up {
-                    ensureDir("/usr/local/apache2/logs", "/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
+                    ensureDir("/usr/local/apache2/logs", "/var/www/localhost/htdocs", "/var/www/localhost/cache")
                     execShell("Starting HTTPD server", "/usr/sbin/httpd -k start")
                 }
                 reload {
-                    cleanDir("/opt/aem/dispatcher/cache/content/example/demo", "/opt/aem/dispatcher/cache/content/example/live")
+                    cleanDir("/var/www/localhost/cache")
                     execShell("Restarting HTTPD server", "/usr/sbin/httpd -k restart")
                 }
                 dev {
-                    watchConfigDir("conf")
+                    watchRootDir("app/aem/dispatcher/src/conf.d", "app/aem/dispatcher/src/conf.dispatcher.d")
                 }
             }
         }
     }
     hosts {
-        "http://author.example.com" { tag("author") }
-        "http://example.com" { tag("publish") }
-        "http://dispatcher.example.com" { tag("dispatcher") }
+        "http://example.com" { tag("live") }
     }
 
     healthChecks {
-        http("Live Site", "http://example.com/en-us.html","English US")
-        http("Author module 'Site'", "http://author.example.com/sites.html") {
+        http("Site 'live'", "http://example.com","English US")
+        http("Author Sites Editor", "http://localhost:4502/sites.html") {
             containsText("Sites")
             options { basicCredentials = aem.authorInstance.credentials }
         }
