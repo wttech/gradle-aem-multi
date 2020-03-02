@@ -46,17 +46,14 @@ Archetyping:
 
 Environment:
 
-* [Automatic native local AEM instance(s) setup](https://github.com/Cognifide/gradle-aem-plugin#instance-plugin),
-* [Automatic HTTPD server with AEM dispatcher setup](https://github.com/Cognifide/gradle-aem-plugin#environment-plugin) (based on [Docker](https://www.docker.com)),
-* [Hosts file amendment](https://github.com/Cognifide/gradle-aem-plugin#task-environmenthosts) - [`aem.environment.hosts`](aem/build.gradle.kts),
-* [Health checking](https://github.com/Cognifide/gradle-aem-plugin#task-environmentawait) - [`aem.environment.healthChecks`](aem/build.gradle.kts)
+* [Automatic native local AEM instance(s) setup](env/build.gradle.kts),
+* [Automatic HTTPD server with AEM dispatcher setup](env/build.gradle.kts) (based on [Docker](https://www.docker.com)),
+* [Hosts file amendment](env/build.gradle.kts)
+* [Health checking](env/build.gradle.kts)
 
 Back-end:
 
-* Interoperable [Java](aem/sites/src/main/java) and [Kotlin](aem/sites/src/main/kotlin) code examples.
-* Examples for:
-    * [Embedding JAR file into OSGI bundle](https://github.com/Cognifide/gradle-aem-plugin#embedding-jar-file-into-osgi-bundle) - [`bundlePrivateEmbed`](aem/common/build.gradle.kts)
-    * [Including additional OSGi bundle into CRX package](https://github.com/Cognifide/gradle-aem-plugin#including-additional-osgi-bundle-into-crx-package) - [`packageCompose.fromJar`](aem/common/build.gradle.kts)
+* [Building OSGi bundle ready for AEM sites development](app/aem/core/build.gradle.kts)
 
 Front-end:
 
@@ -65,16 +62,16 @@ Front-end:
 
 Testing:
 
-* [Unit tests](aem/sites/src/test) using popular AEM testing toolkit - [wcm.io Testing](http://wcm.io/testing).
+* [Unit tests](app/aem/core/src/test) 
 * [Integration tests](test/integration) using [Karate Framework](https://github.com/intuit/karate) and [JSoup](https://jsoup.org/).
 * [Functional tests](test/functional) using [Cypress](http://cypress.io)
 * [Performance tests](test/performance) using [Gradle Lighthouse Plugin](https://github.com/Cognifide/gradle-lighthouse-plugin)
 
 Maintenance:
 
-* [Automatic AEM migration scripts execution](aem/migration/build.gradle.kts) using [AEM Easy Content Upgrade](https://github.com/valtech/aem-easy-content-upgrade),
-* [Automatic AEM access control configuration applying](aem/sites/build.gradle.kts) using [Access Control Tool](https://github.com/Netcentric/accesscontroltool),
-* [Interactive incident monitoring / logs monitoring](https://github.com/Cognifide/gradle-aem-plugin#task-instancetail) with [filtering](aem/gradle/instanceTail/incidentFilter.txt).
+* [Automatic AEM migration scripts execution](app/aem/migration/build.gradle.kts) using [AEM Easy Content Upgrade](https://github.com/valtech/aem-easy-content-upgrade),
+* [Automatic AEM access control configuration applying](app/aem/ui.apps/build.gradle.kts) using [Access Control Tool](https://github.com/Netcentric/accesscontroltool),
+* [Interactive incident monitoring / logs monitoring](https://github.com/Cognifide/gradle-aem-plugin#task-instancetail) with [filtering](env/src/aem/instance/tail/incidentFilter.txt).
 
 ## Quickstart
 
@@ -103,7 +100,9 @@ Maintenance:
 3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
 
     ```bash
+    cd env
     sh hosts
+    cd ../
     sh gradlew setup
     ```
     
@@ -124,7 +123,7 @@ Maintenance:
     or to just deploy AEM application (without running anything else):
     
     ```bash
-    sh gradlew :aem:assembly:full:packageDeploy
+    sh gradlew :app:aem:all:packageDeploy
     ```
 
 ## Prerequisites
@@ -132,21 +131,15 @@ Maintenance:
 Tested on:
 
 * Java 1.8
-* Gradle 5.4.1
+* Gradle 6.2.1
 * Adobe AEM 6.5
 * Docker 2.0.0.3
 
 ## Structure
 
-Project is divided into subpackages (designed with reinstallabilty on production environments in mind):
-
-* *aem/assembly/full* - non-reinstallable complete all-in-one package with application and contents (combination of subpackages: all). Useful to deploy all code by installing single package in a project stage when application is not live.
-* *aem/assembly/app* - reinstallable assembly package that contains only application code, not content (combination of subpackages: *common*, *sites*). Useful to deploy application code only in a project stage when application is live and content should remain untouched on production server.
-
-* *aem/common* - OSGi bundle with integrations of libraries needed by other bundles and global AEM extensions (dialogs, form controls etc). Only code unrelated to any site / AEM platform wide.
-* *aem/sites* - AEM sites module extension consisting of site specific code like: OSGi bundle with business logic, AEM components, templates, design.
-* *aem/site.demo* - consists of extra AEM pages that presents features of application (useful for testing). Helps application testers and developers in QA/UAT application feature tests.
-* *aem/site.live* - contains minimal set of pages needed initially to rollout new site(s) using installed application. Helps content authors to start working with application.
+* *app* - source code generated from [Adobe AEM Archetype]() and adapted to Gradle / [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin),
+* *env* - resources and configuration related with setting up local AEM instances and AEM dispatcher,
+* *test* - integration and functional tests requiring full environment setup.
 
 ## Environment
 
@@ -160,9 +153,7 @@ Assumptions:
 * AEM author available at [http://localhost:4502](http://localhost:4502)
 * AEM publish available at [http://localhost:4503](http://localhost:4503)
 * Apache web server with Virtual hosts configured for domains:
-  * http://example.com -> which maps to `/content/example/live` content root on publish
-  * http://demo.example.com -> which maps to `/content/example/demo` content root on publish
-  * http://author.example.com -> which is proxy to the author instance
+  * http://example.com -> which maps to `/content/example` content root on publish
 
 ## Building
 
@@ -170,27 +161,24 @@ Assumptions:
 2. Deploy application:
     * Full assembly and run all tests
         * `sh gradlew` <=> `sh gradlew :develop`
-    * Only assembly packages:
-        * `sh gradlew :aem:assembly:full:packageDeploy`
-        * `sh gradlew :aem:assembly:app:packageDeploy`
-    * Only single package:
-        * `sh gradlew :aem:sites:packageDeploy`,
-        * `sh gradlew :aem:common:packageDeploy`,
-        * `sh gradlew :aem:site.demo:packageDeploy`.
-        * `sh gradlew :aem:site.live:packageDeploy`,
+    * Only assembly package:
+        * `sh gradlew :app:aem:all:packageDeploy`
+    * Only single package or bundle:
+        * `sh gradlew :app:aem:core::bundleInstall`,
+        * `sh gradlew :app:aem:ui.apps:packageDeploy`,
+        * `sh gradlew :app:aem:ui.content:packageDeploy`.
+3. Rebuilding front-end only: `sh gradlew :app:aem:ui.frontend:build`
         
 ## Tooling
 
 1. Monitoring errors in logs: `sh gradlew instanceTail`
-2. Synchronizing JCR content from AEM to local file system:
-    * `sh gradlew :aem:site.demo:packageSync`
-    * `sh gradlew :aem:site.live:packageSync`
+2. Synchronizing JCR content from AEM to local file system: `sh gradlew :app:aem:ui.content:packageSync`
 3. Interactively updating HTTPD Virtual-Host & AEM Dispatcher configuration: `sh gradlew environmentDev`
-4. Copying JCR content between AEM instances: `sh gradlew :aem:sites:demo:instanceRcp -Pinstance.rcp.source=http://user:pass@x.x.x.x:4502 -Pinstance.rcp.target=local-author -Pinstance.rcp.paths=[/content/example,/content/dam/example]`
+4. Copying JCR content between AEM instances: `sh gradlew instanceRcp -Pinstance.rcp.source=http://user:pass@x.x.x.x:4502 -Pinstance.rcp.target=local-author -Pinstance.rcp.paths=[/content/example,/content/dam/example]`
 
 ## Tips & tricks
 
-* To run some task only for subproject, use project path as a prefix, for instance: `sh gradlew :aem:sites:packageDeploy`.
+* To run some task only for subproject, use project path as a prefix, for instance: `sh gradlew :app:aem:ui.content:packageDeploy`.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.
