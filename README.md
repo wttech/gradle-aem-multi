@@ -100,7 +100,9 @@ Maintenance:
 3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
 
     ```bash
+    cd env
     sh hosts
+    cd ../
     sh gradlew setup
     ```
     
@@ -121,7 +123,7 @@ Maintenance:
     or to just deploy AEM application (without running anything else):
     
     ```bash
-    sh gradlew :aem:assembly:full:packageDeploy
+    sh gradlew :app:aem:all:packageDeploy
     ```
 
 ## Prerequisites
@@ -129,7 +131,7 @@ Maintenance:
 Tested on:
 
 * Java 1.8
-* Gradle 5.4.1
+* Gradle 6.2.1
 * Adobe AEM 6.5
 * Docker 2.0.0.3
 
