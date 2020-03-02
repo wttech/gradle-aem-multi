@@ -60,7 +60,6 @@
                         </cq:responsive>
                     </title>
                     <responsivegrid
-                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wcm/foundation/components/responsivegrid">
                         <cq:responsive jcr:primaryType="nt:unstructured">
@@ -89,7 +88,6 @@
                             </cq:responsive>
                         </button_facebook>
                         <button_twitter
-                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Twitter"
                             sling:resourceType="example/components/content/button"

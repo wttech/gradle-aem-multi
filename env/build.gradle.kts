@@ -85,14 +85,12 @@ environment {
         }
     }
     hosts {
-        "http://author.example.com" { tag("author") }
-        "http://example.com" { tag("publish") }
-        "http://dispatcher.example.com" { tag("dispatcher") }
+        "http://example.com" { tag("live") }
     }
 
     healthChecks {
-        http("Live Site", "http://example.com/en-us.html","English US")
-        http("Author module 'Site'", "http://author.example.com/sites.html") {
+        http("Site 'live'", "http://example.com","English US")
+        http("Author Sites Editor", "http://localhost:4502/sites.html") {
             containsText("Sites")
             options { basicCredentials = aem.authorInstance.credentials }
         }
