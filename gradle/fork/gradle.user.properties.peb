@@ -1,5 +1,5 @@
 # Project specific configuration
-webpack.mode=development
+webpack.mode=dev
 
 # AEM configuration
 notifier.enabled=true
