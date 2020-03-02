@@ -10,6 +10,11 @@ description = "Example - AEM Migration"
 aem {
     tasks {
         packageCompose {
+            mustRunAfter(
+                    ":app:aem:all:packageCompose",
+                    ":app:aem:ui.apps:packageCompose",
+                    ":app:aem:ui.content:packageCompose"
+            )
             vaultDefinition {
                 property("installhook.aecu.class", "de.valtech.aecu.core.installhook.AecuInstallHook")
             }
