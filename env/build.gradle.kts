@@ -30,8 +30,8 @@ aem {
             step("disable-unsecure-bundles") {
                 condition { once() && instance.environment == "prod" }
                 sync {
-                    osgiFramework.stopBundle("org.apache.sling.jcr.webdav")
-                    osgiFramework.stopBundle("com.adobe.granite.crxde-lite")
+                    osgi.stopBundle("org.apache.sling.jcr.webdav")
+                    osgi.stopBundle("com.adobe.granite.crxde-lite")
 
                     instance.awaitUp() // include above in property: 'instance.awaitUp.bundles.symbolicNamesIgnored'
                 }
@@ -51,9 +51,7 @@ aem {
     tasks {
         environmentUp {
             mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
-            mustRunAfter(":app:aem:migration:packageDeploy") // last step of task ':develop'
         }
-
         environmentAwait {
             mustRunAfter(instanceAwait)
         }
