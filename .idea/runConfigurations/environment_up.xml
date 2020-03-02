@@ -2,7 +2,7 @@
   <configuration default="false" name="environment up" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/aem" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/env" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="--info --stacktrace" />
       <option name="taskDescriptions">

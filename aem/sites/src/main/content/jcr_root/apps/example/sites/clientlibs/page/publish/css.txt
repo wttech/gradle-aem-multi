@@ -1,2 +1,0 @@
-libs/bootstrap.min.css
-dist/main.css

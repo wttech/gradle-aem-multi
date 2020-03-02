@@ -50,7 +50,7 @@ configure<ForkExtension> {
                 },
                 "instanceRunModes" to {
                     label = "Run Modes"
-                    text("local,nosamplecontent")
+                    text("local")
                 },
                 "instanceJvmOpts" to {
                     label = "JVM Options"
