@@ -10,23 +10,23 @@ repositories {
 
 aem {
     `package` {
-        validator {
+        validator { // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/package-plugin.md#crx-package-validation
             base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.4.0")
         }
     }
 
     instance {
-        satisfier {
+        satisfier { // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instancesatisfy
             packages {
                 // "dep.vanity-urls"("pkg/vanityurls-components-1.0.2.zip")
                 "dep.core-components-all"("com.adobe.cq:core.wcm.components.all:2.8.0@zip")
                 "dep.core-components-examples"("com.adobe.cq:core.wcm.components.examples:2.8.0@zip")
-                "tool.aem-easy-content-upgrade"("https://github.com/valtech/aem-easy-content-upgrade/releases/download/3.0.1/aecu.bundle-3.0.1.zip")
+                "tool.aem-easy-content-upgrade"("https://github.com/valtech/aem-easy-content-upgrade/releases/download/3.1.0/aecu.bundle-3.1.0.zip")
                 "tool.ac-tool"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool", "accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip", "accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
                 "tool.search-webconsole-plugin"("com.neva.felix:search-webconsole-plugin:1.3.0")
             }
         }
-        provisioner {
+        provisioner { // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instanceprovision
             step("disable-unsecure-bundles") {
                 condition { once() && instance.environment == "prod" }
                 sync {
@@ -36,7 +36,6 @@ aem {
                     instance.awaitUp() // include above in property: 'instance.awaitUp.bundles.symbolicNamesIgnored'
                 }
             }
-            // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instanceprovision
         }
     }
 
@@ -58,7 +57,7 @@ aem {
     }
 }
 
-environment {
+environment { // https://github.com/Cognifide/gradle-environment-plugin
     docker {
         containers {
             "httpd" {
