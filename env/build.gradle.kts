@@ -55,12 +55,6 @@ aem {
         environmentAwait {
             mustRunAfter(instanceAwait)
         }
-
-        register("foo") {
-            doLast {
-                println(authorInstance.runningModes)
-            }
-        }
     }
 }
 
