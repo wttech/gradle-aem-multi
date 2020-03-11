@@ -12,14 +12,14 @@
 Include conf.d/variables/custom.vars
 
 <VirtualHost *:80>
-	ServerName	"publish"
+	ServerName	example.com
 	# Put names of which domains are used for your published site/content here
 	ServerAlias	 "*"
 	# Use a document root that matches the one in conf.dispatcher.d/default.farm
 	DocumentRoot "${DOCROOT}"
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-		Header add X-Vhost "publish"
+		Header add X-Vhost "example.com"
 	</IfModule>
 	<Directory />
 		<IfModule disp_apache2.c>

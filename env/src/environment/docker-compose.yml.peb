@@ -10,6 +10,7 @@ services:
     networks:
       - docker-net
     volumes:
+      - "{{ docker.rootPath }}/env/src/environment/httpd/conf/httpd.conf:/etc/httpd/conf/httpd.conf"
       - "{{ docker.rootPath }}/app/aem/dispatcher/src/conf.d:/etc/httpd/conf.d"
       - "{{ docker.rootPath }}/app/aem/dispatcher/src/conf.dispatcher.d:/etc/httpd/conf.dispatcher.d"
       - "{{ docker.workPath }}/httpd/modules/mod_dispatcher.so:/etc/httpd/modules/mod_dispatcher.so"
