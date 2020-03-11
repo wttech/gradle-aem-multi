@@ -68,6 +68,8 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
                             copyArchiveFile(it, "**/dispatcher-apache*.so", file("modules/mod_dispatcher.so"))
                         }
                     }
+                    rootProject.file("env/src/environment/httpd/conf.d/variables/default.vars")
+                            .copyTo(rootProject.file("app/aem/dispatcher/src/conf.d/variables/default.vars"))
                     ensureDir("htdocs", "cache", "logs")
                 }
                 up {
@@ -79,7 +81,10 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
                     execShell("Restarting HTTPD server", "/usr/sbin/httpd -k restart")
                 }
                 dev {
-                    watchRootDir("app/aem/dispatcher/src/conf.d", "app/aem/dispatcher/src/conf.dispatcher.d")
+                    watchRootDir(
+                            "app/aem/dispatcher/src/conf.d",
+                            "app/aem/dispatcher/src/conf.dispatcher.d",
+                            "env/src/environment/httpd")
                 }
             }
         }
@@ -89,7 +94,7 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
     }
 
     healthChecks {
-        http("Site 'live'", "http://example.com","English US")
+        http("Site 'live'", "http://example.com", "English - United States")
         http("Author Sites Editor", "http://localhost:4502/sites.html") {
             containsText("Sites")
             options { basicCredentials = aem.authorInstance.credentials }
