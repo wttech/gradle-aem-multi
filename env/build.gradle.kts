@@ -27,16 +27,8 @@ aem {
                 "tool.search-webconsole-plugin"("com.neva.felix:search-webconsole-plugin:1.3.0")
             }
         }
-        provisioner { // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instanceprovision
-            step("disable-unsecure-bundles") {
-                condition { once() && instance.environment == "prod" }
-                sync {
-                    osgi.stopBundle("org.apache.sling.jcr.webdav")
-                    osgi.stopBundle("com.adobe.granite.crxde-lite")
-
-                    instance.awaitUp() // include above in property: 'instance.awaitUp.bundles.symbolicNamesIgnored'
-                }
-            }
+        provisioner {
+            // https://github.com/Cognifide/gradle-aem-plugin/blob/master/docs/instance-plugin.md#task-instanceprovision
         }
     }
 
