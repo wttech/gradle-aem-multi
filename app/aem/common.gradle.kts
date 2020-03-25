@@ -9,7 +9,8 @@ group = "com.company.example.aem"
 plugins.withId("com.cognifide.aem.common") {
     configure<AemExtension> {
         `package` {
-            configDir.set(rootProject.file("app/aem/common/package"))
+            appPath.set("/apps/example")
+            commonDir.set(rootProject.file("app/aem/common/package"))
             validator {
                 base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
             }

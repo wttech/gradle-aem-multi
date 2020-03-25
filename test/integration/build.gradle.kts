@@ -1,4 +1,3 @@
-import com.cognifide.gradle.environment.environment
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
