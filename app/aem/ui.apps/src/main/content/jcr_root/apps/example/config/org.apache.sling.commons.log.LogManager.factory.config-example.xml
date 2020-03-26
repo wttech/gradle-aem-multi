@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:OsgiConfig"
+    org.apache.sling.commons.log.additiv=""
     org.apache.sling.commons.log.file="logs/project-example.log"
     org.apache.sling.commons.log.level="info"
     org.apache.sling.commons.log.names="[com.company]"
