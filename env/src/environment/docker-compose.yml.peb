@@ -19,7 +19,7 @@ services:
       - "{{ docker.workPath }}/httpd/cache:/var/www/localhost/cache"
       - "{{ docker.workPath }}/httpd/htdocs:/var/www/localhost/htdocs"
       {% endif %}
-    {% if docker.runtime.hostInternalIp is not empty %}
+    {% if docker.runtime.hostInternalIpMissing %}
     extra_hosts:
       - "host.docker.internal:{{ docker.runtime.hostInternalIp }}"
     {% endif %}

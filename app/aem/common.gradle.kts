@@ -9,7 +9,8 @@ group = "com.company.example.aem"
 plugins.withId("com.cognifide.aem.common") {
     configure<AemExtension> {
         `package` {
-            configDir.set(rootProject.file("app/aem/common/package"))
+            appPath.set("/apps/example")
+            commonDir.set(rootProject.file("app/aem/common/package"))
             validator {
                 base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
             }
@@ -48,12 +49,13 @@ plugins.withId("com.cognifide.aem.bundle") {
         "compileOnly"("com.day.cq.wcm:cq-wcm-taglib:5.7.4")
         "compileOnly"("org.slf4j:slf4j-api:1.7.25")
         "compileOnly"("com.adobe.cq:core.wcm.components.core:2.8.0")
-        "compileOnly"("com.adobe.aem:uber-jar:${Build.AEM_VERSION}:apis")
+
+        "compileOnly"("com.adobe.aem:uber-jar:6.5.0:apis")
 
         // Extra libraries provided by: task "instanceSatisfy", task packageCompose.fromJar
         // or put directly inside dir 'install'.
 
-        "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Build.KOTLIN_VERSION}")
+        "compileOnly"("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.71")
         "compileOnly"("org.hashids:hashids:1.0.1")
 
         // AEM test dependencies

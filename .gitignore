@@ -8,6 +8,7 @@
 classes/
 fork.properties
 yarn-error.log
+.java-version
 
 ### Java template
 *.class

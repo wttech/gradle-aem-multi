@@ -1,5 +1,6 @@
 plugins {
     id("com.cognifide.aem.bundle")
+    id("maven-publish")
 }
 
 apply(from = rootProject.file("app/common.gradle.kts"))
@@ -12,4 +13,12 @@ dependencies {
     testImplementation("org.mockito:mockito-core:2.25.1")
     testImplementation("org.mockito:mockito-junit-jupiter:2.25.1")
     testImplementation("junit-addons:junit-addons:1.4")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["aem"])
+        }
+    }
 }

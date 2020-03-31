@@ -1,5 +1,6 @@
 plugins {
     id("com.cognifide.aem.package")
+    id("maven-publish")
 }
 
 apply(from = rootProject.file("app/common.gradle.kts"))
@@ -15,3 +16,12 @@ aem {
         }
     }
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["aem"])
+        }
+    }
+}
+

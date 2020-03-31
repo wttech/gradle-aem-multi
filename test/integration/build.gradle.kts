@@ -1,4 +1,3 @@
-import com.cognifide.gradle.environment.environment
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
@@ -18,7 +17,7 @@ dependencies {
     "integTestImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
     "integTestImplementation"("org.jsoup:jsoup:1.12.1")
 
-    "integTestImplementation"("org.jetbrains.kotlin:kotlin-stdlib:${Build.KOTLIN_VERSION}")
+    "integTestImplementation"("org.jetbrains.kotlin:kotlin-stdlib:1.3.71")
     "integTestImplementation"("com.intuit.karate:karate-core:0.9.4")
     "integTestImplementation"("com.intuit.karate:karate-apache:0.9.4")
     "integTestImplementation"("com.intuit.karate:karate-junit5:0.9.4")
