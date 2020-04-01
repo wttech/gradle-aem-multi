@@ -20,7 +20,7 @@ aem {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            from(components["aem"])
+            artifact(common.publicationArtifact("packageCompose"))
         }
     }
 }

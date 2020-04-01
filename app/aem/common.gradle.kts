@@ -1,8 +1,8 @@
 /**
  * Common configuration for AEM application artifacts
  */
-import com.cognifide.gradle.aem.bundle.tasks.BundleCompose
 import com.cognifide.gradle.aem.AemExtension
+import com.cognifide.gradle.aem.bundle.tasks.bundle
 
 group = "com.company.example.aem"
 
@@ -20,10 +20,12 @@ plugins.withId("com.cognifide.aem.common") {
 
 plugins.withId("com.cognifide.aem.bundle") {
     tasks {
-        withType<BundleCompose> {
-            category = "example"
-            vendor = "Company"
-            bnd("-plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin")
+        withType<Jar> {
+            bundle {
+                category = "example"
+                vendor = "Company"
+                bnd("-plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin")
+            }
         }
     }
 

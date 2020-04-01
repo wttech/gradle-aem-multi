@@ -61,7 +61,7 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
                         }
                     }
                     rootProject.file("env/src/environment/httpd/conf.d/variables/default.vars")
-                            .copyTo(rootProject.file("app/aem/dispatcher/src/conf.d/variables/default.vars"))
+                            .copyTo(rootProject.file("app/aem/dispatcher/src/conf.d/variables/default.vars"), true)
                     ensureDir("htdocs", "cache", "logs")
                 }
                 up {

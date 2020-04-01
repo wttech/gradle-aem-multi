@@ -7,7 +7,7 @@ class HomeTest : MarkupTest() {
 
   @Test
   fun shouldHaveElementsInMarkup() {
-    get("/en-us.html").apply {
+    get("/").apply {
       select(".jumbotron").apply {
         select("h1").textMatches("English US")
         select("p").textMatches("Home Page of English US market")

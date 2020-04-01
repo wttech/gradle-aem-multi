@@ -11,22 +11,21 @@ apply(from = rootProject.file("test/common.gradle.kts"))
 description = "Example - Integration Tests"
 
 dependencies {
-    "integTestImplementation"(project(":app:aem:core"))
+    integTestImplementation(project(":app:aem:core"))
 
-    "integTestRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
-    "integTestImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
-    "integTestImplementation"("org.jsoup:jsoup:1.12.1")
+    integTestRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+    integTestImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
+    integTestImplementation("org.jsoup:jsoup:1.12.1")
 
-    "integTestImplementation"("org.jetbrains.kotlin:kotlin-stdlib:1.3.71")
-    "integTestImplementation"("com.intuit.karate:karate-core:0.9.4")
-    "integTestImplementation"("com.intuit.karate:karate-apache:0.9.4")
-    "integTestImplementation"("com.intuit.karate:karate-junit5:0.9.4")
-    "integTestImplementation"("net.masterthought:cucumber-reporting:4.9.0")
-
+    integTestImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.3.71")
+    integTestImplementation("com.intuit.karate:karate-core:0.9.4")
+    integTestImplementation("com.intuit.karate:karate-apache:0.9.4")
+    integTestImplementation("com.intuit.karate:karate-junit5:0.9.4")
+    integTestImplementation("net.masterthought:cucumber-reporting:4.9.0")
 }
 
 tasks {
-    named<Test>("integrationTest") {
+    integrationTest {
         mustRunAfter(":env:environmentAwait")
         outputs.upToDateWhen { false }
 
@@ -45,7 +44,7 @@ tasks {
 }
 
 sourceSets {
-    named("integTest") {
+    integTest {
         resources {
             srcDir(file("src/integTest/kotlin"))
             exclude("**/*.kt")
