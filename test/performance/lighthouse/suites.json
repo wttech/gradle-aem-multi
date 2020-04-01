@@ -1,33 +1,18 @@
 {
   "suites": [
     {
-      "name": "site.demo",
-      "baseUrl": "http://demo.example.com",
-      "paths": [
-        "/en-us.html",
-        "/en-gb.html"
-      ],
-      "args": [
-        "--config-path=lighthouse/config.json",
-        "--performance=90",
-        "--accessibility=90",
-        "--best-practices=80",
-        "--seo=60",
-        "--pwa=30"
-      ]
-    },
-    {
       "name": "site.live",
       "baseUrl": "http://example.com",
       "paths": [
-        "/en-us.html"
+        "/",
+        "/us/en.html"
       ],
       "args": [
         "--config-path=lighthouse/config.json",
-        "--performance=90",
-        "--accessibility=90",
-        "--best-practices=80",
-        "--seo=60",
+        "--performance=70",
+        "--accessibility=70",
+        "--best-practices=70",
+        "--seo=70",
         "--pwa=30"
       ]
     }
