@@ -18,7 +18,7 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            from(components["aem"])
+            from(components["java"])
         }
     }
 }
