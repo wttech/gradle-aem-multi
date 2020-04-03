@@ -18,7 +18,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 ## Screenshot
 
 <p align="center">
-  <img src="docs/gradle-aem-multi-build.gif" alt="Gradle AEM Multi Build"/>
+  <img src="docs/develop-task.gif" alt="Gradle AEM Multi - Develop task"/>
 </p>
 
 ## Table of Contents
