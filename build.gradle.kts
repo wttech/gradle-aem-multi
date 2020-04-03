@@ -31,7 +31,7 @@ common {
             if (!prop.flag("test.skip")) {
                 dependsOn(
                         ":test:integration:integrationTest",
-                        ":test:functional:generateReport",
+                        ":test:functional:runTests",
                         ":test:performance:lighthouseRun"
                 )
             }
