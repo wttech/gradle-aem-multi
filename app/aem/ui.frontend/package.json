@@ -18,7 +18,7 @@
       "@babel/core": "^7.0.0",
       "@babel/plugin-proposal-class-properties": "^7.3.3",
       "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
-      "acorn": "^6.1.0",
+      "acorn": "^6.4.1",
       "aem-clientlib-generator": "^1.4.3",
       "autoprefixer": "^9.2.1",
       "browserslist": "^4.2.1",
