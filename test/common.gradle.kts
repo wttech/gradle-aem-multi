@@ -1,7 +1,5 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import com.cognifide.gradle.aem.bundle.tasks.BundleCompose
 import com.moowork.gradle.node.NodeExtension
 
 repositories {
