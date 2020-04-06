@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Oakpal-ModuleName: com.adobe.acs.acs-aem-commons-oakpal-checks
+Bundle-SymbolicName: com.adobe.acs.acs-aem-commons-oakpal-checks
+Built-By: brobert
+Bnd-LastModified: 1571267137525
+Bundle-ManifestVersion: 2
+Import-Package: com.google.common.collect;version="[27.0,28)",javax.jc
+ r;version="[2.0,3)",javax.json;version="[1.1,2)",net.adamcin.oakpal.c
+ ore;version="[1.5,2)",net.adamcin.oakpal.core.checks;version="[1.5,2)
+ ",org.apache.jackrabbit.api;version="[2.5,3)",org.apache.jackrabbit.a
+ pi.security.user;version="[2.4,3)",org.apache.jackrabbit.commons;vers
+ ion="[2.4,3)",org.apache.jackrabbit.oak.spi.mount;version="[3.2,4)",o
+ rg.apache.jackrabbit.vault.fs.config;version="[2.6,3)",org.apache.jac
+ krabbit.vault.packaging;version="[2.9,3)",org.apache.jackrabbit.vault
+ .util;version="[2.4,3)",org.osgi.framework;version="[1.8,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.1.0.201810181252
+Oakpal-Checklist: OAKPAL-INF/checklist/acs-internal.json,OAKPAL-INF/ch
+ ecklist/acs-commons-integrators.json,OAKPAL-INF/checklist/content-cla
+ ss-aem64.json,OAKPAL-INF/checklist/content-class-aem65.json
+Oakpal-Plan: plan-compose.json
+Export-Package: com.adobe.acs.commons.oakpal.checks;uses:="javax.jcr,j
+ avax.json,net.adamcin.oakpal.core";version="4.3.4"
+Bundle-Name: ACS AEM Commons Oakpal Checks
+Bundle-Version: 4.3.4
+Private-Package: OAKPAL-INF.checklist,bundleinfo
+Created-By: 1.8.0_222 (Private Build)
+Build-Jdk: 1.8.0_222
+
