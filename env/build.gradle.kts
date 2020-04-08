@@ -84,3 +84,12 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
         }
     }
 }
+
+tasks {
+    environmentUp {
+        mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
+    }
+    environmentAwait {
+        mustRunAfter(instanceAwait)
+    }
+}
