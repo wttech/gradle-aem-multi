@@ -1,4 +1,3 @@
-import com.cognifide.gradle.environment.environment
 import com.moowork.gradle.node.yarn.YarnTask
 
 plugins {
@@ -12,13 +11,12 @@ description = "Example - Functional Tests"
 
 tasks {
     val args by lazy {
-        val baseUrl = aem.prop.string("test.publishUrl")!! /* TODO ?: aem.projectMain.environment.hosts["publish"].url */
-
-        mutableListOf("-c", "baseUrl=$baseUrl").apply {
+        mutableListOf<String>().apply {
+            aem.prop.string("test.publishUrl")?.let { addAll(listOf("-c", "baseUrl=$it")) }
             if (aem.prop.flag("test.headed")) add("--headed")
             if (aem.prop.flag("test.record")) add("--record")
             aem.prop.string("test.spec")?.let { add("--spec=$it")}
-            aem.prop.string("test.browser")?.let { add("--browser=$it")}
+            aem.prop.string("test.browser")?.let { if (it != "auto") add("--browser=$it")}
         }
     }
     val reportDir = "build/cypress/reports"

@@ -4,26 +4,21 @@ import com.neva.gradle.fork.ForkExtension
 configure<ForkExtension> {
     properties {
         define("Project specific", mapOf(
-                "instanceAuthor" to {
-                    label = "Author Instance Only"
-                    description = "Allows to temporarily limit instances to work with to author instance only."
-                    checkbox(false)
-                },
-                "packageDamAssetToggle" to {
-                    label = "DAM Asset Workflows Toggling"
-                    description = "Allows to temporarily disable DAM assets processing only for time of CRX package deployment.\n" +
-                            "Useful to avoid redundant DAM rendition generation when package already contains all renditions (synchronized earlier)."
-                    checkbox(true)
-                },
-                "webpackMode" to {
-                    label = "Webpack Build Mode"
-                    description = "Controls used set of configuration (use 'prod' for minified source code, 'dev' - not minified)"
-                    select("dev", "prod")
-                },
                 "testBrowser" to {
                     label = "Test Browser"
                     description = "Browser used when running functional tests powered by Cypress"
-                    select("chrome", "chromium", "chrome:canary", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
+                    select("auto", "chrome", "chrome:canary", "chromium", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
+                },
+                "webpackMode" to {
+                    label = "Webpack Build Mode"
+                    description = "Controls optimization of front-end resources (CSS/JS/assets) "
+                    select("dev", "prod")
+                },
+                "packageDamAssetToggle" to {
+                    label = "DAM Asset Workflows Toggling"
+                    description = "Allows to temporarily disable assets processing for package deployment time.\n" +
+                            "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
+                    checkbox(true)
                 }
         ))
 
@@ -58,13 +53,23 @@ configure<ForkExtension> {
                     label = "Author HTTP URL"
                     url("http://localhost:4502")
                     optional()
-                    description = "For accessing AEM author instance (leave empty to do not use it)"
+                    description = "For accessing AEM author instance (leave empty to skip creating it)"
+                },
+                "instanceAuthorOnly" to {
+                    label = "Author Only"
+                    description = "Allows to temporarily limit instances to work with to author instance only."
+                    checkbox(false)
                 },
                 "instancePublishHttpUrl" to {
                     label = "Publish HTTP URL"
                     url("http://localhost:4503")
                     optional()
-                    description = "For accessing AEM publish instance (leave empty to do not use it)"
+                    description = "For accessing AEM publish instance (leave empty to skip creating it)"
+                },
+                "instancePublishOnly" to {
+                    label = "Publish Only"
+                    description = "Allows to temporarily limit instances to work with to publish instance only."
+                    checkbox(false)
                 }
         ))
 

@@ -3,8 +3,9 @@ webpack.mode={{webpackMode}}
 
 # AEM configuration
 notifier.enabled={{notifierEnabled}}
+instance.author={{instanceAuthorOnly}}
+instance.publish={{instancePublishOnly}}
 package.manager.workflowToggle=[dam_asset={{packageDamAssetToggle}}]
-instance.author={{instanceAuthor}}
 
 # Tests configuration
 test.browser={{testBrowser}}
