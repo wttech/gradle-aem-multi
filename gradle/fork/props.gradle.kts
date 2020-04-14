@@ -3,6 +3,45 @@ import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
+        define("Project specific", mapOf(
+                "instanceAuthor" to {
+                    label = "Author Instance Only"
+                    description = "Allows to temporarily limit instances to work with to author instance only."
+                    checkbox(false)
+                },
+                "packageDamAssetToggle" to {
+                    label = "DAM Asset Workflows Toggling"
+                    description = "Allows to temporarily disable DAM assets processing only for time of CRX package deployment.\n" +
+                            "Useful to avoid redundant DAM rendition generation when package already contains all renditions (synchronized earlier)."
+                    checkbox(true)
+                },
+                "webpackMode" to {
+                    label = "Webpack Build Mode"
+                    description = "Controls used set of configuration (use 'prod' for minified source code, 'dev' - not minified)"
+                    select("dev", "prod")
+                }
+        ))
+
+        define("File transfer", mapOf(
+                "companyUser" to {
+                    label = "User"
+                    description = "Authorized to access AEM files"
+                    defaultValue = System.getProperty("user.name").orEmpty()
+                    optional()
+                },
+                "companyPassword" to {
+                    label = "Password"
+                    description = "For above user"
+                    optional()
+                },
+                "companyDomain" to {
+                    label = "Domain"
+                    description = "Needed only when accessing AEM files over SMB"
+                    defaultValue = System.getenv("USERDOMAIN").orEmpty()
+                    optional()
+                }
+        ))
+
         define("Instance type", mapOf(
                 "instanceType" to {
                     label = "Type"
@@ -58,23 +97,11 @@ configure<ForkExtension> {
                 }
         ))
 
-        define("File transfer", mapOf(
-                "companyUser" to {
-                    label = "User"
-                    description = "Authorized to access AEM files"
-                    defaultValue = System.getProperty("user.name").orEmpty()
-                    optional()
-                },
-                "companyPassword" to {
-                    label = "Password"
-                    description = "For above user"
-                    optional()
-                },
-                "companyDomain" to {
-                    label = "Domain"
-                    description = "Needed only when accessing AEM files over SMB"
-                    defaultValue = System.getenv("USERDOMAIN").orEmpty()
-                    optional()
+        define("Other", mapOf(
+                "notifierEnabled" to {
+                    label = "Notifications"
+                    description = "Controls displaying of GUI notifications (baloons)"
+                    checkbox(true)
                 }
         ))
     }

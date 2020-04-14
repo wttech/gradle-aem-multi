@@ -1,13 +1,10 @@
 # Project specific configuration
-webpack.mode=dev
+webpack.mode={{webpackMode}}
 
 # AEM configuration
-notifier.enabled=true
-package.manager.workflowToggle=[dam_asset=false]
-
-#package.snapshots=[**/*-SNAPSHOT*.zip]
-#instance.author=true
-#instance.publish=true
+notifier.enabled={{notifierEnabled}}
+package.manager.workflowToggle=[dam_asset={{packageDamAssetToggle}}]
+instance.author={{instanceAuthor}}
 
 fileTransfer.user={{companyUser}}
 fileTransfer.password={{companyPassword}}
