@@ -1,10 +1,11 @@
 const merger = require('mochawesome-merge');
 const generator = require('mochawesome-report-generator');
+const cypressOptions = require('../cypress');
 
 async function generateReport() {
-    const opts = { reportDir: 'build/cypress/reports'};
-    const jsonReport = await merger.merge(opts);
-    await generator.create(jsonReport, opts);
+    const reportDir = cypressOptions.reporterOptions.reportDir;
+    const jsonReport = await merger.merge({ files: [`./${reportDir}/mochawesome*.json`] });
+    await generator.create(jsonReport, { reportDir: reportDir});
 }
 
 generateReport();

@@ -6,6 +6,9 @@ notifier.enabled={{notifierEnabled}}
 package.manager.workflowToggle=[dam_asset={{packageDamAssetToggle}}]
 instance.author={{instanceAuthor}}
 
+# Tests configuration
+test.browser={{testBrowser}}
+
 fileTransfer.user={{companyUser}}
 fileTransfer.password={{companyPassword}}
 fileTransfer.domain={{companyDomain}}

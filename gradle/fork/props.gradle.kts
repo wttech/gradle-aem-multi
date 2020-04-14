@@ -19,6 +19,11 @@ configure<ForkExtension> {
                     label = "Webpack Build Mode"
                     description = "Controls used set of configuration (use 'prod' for minified source code, 'dev' - not minified)"
                     select("dev", "prod")
+                },
+                "testBrowser" to {
+                    label = "Test Browser"
+                    description = "Browser used when running functional tests powered by Cypress"
+                    select("chrome", "chromium", "chrome:canary", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
                 }
         ))
 
