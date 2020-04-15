@@ -3,26 +3,20 @@ import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
-        define("Project specific", mapOf(
+        define("Build", mapOf(
+                "webpackMode" to {
+                    label = "Webpack Mode"
+                    description = "Controls optimization of front-end resources (CSS/JS/assets) "
+                    select("dev", "prod")
+                },
                 "testBrowser" to {
                     label = "Test Browser"
                     description = "Browser used when running functional tests powered by Cypress"
                     select("auto", "chrome", "chrome:canary", "chromium", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
-                },
-                "webpackMode" to {
-                    label = "Webpack Build Mode"
-                    description = "Controls optimization of front-end resources (CSS/JS/assets) "
-                    select("dev", "prod")
-                },
-                "packageDamAssetToggle" to {
-                    label = "DAM Asset Workflows Toggling"
-                    description = "Allows to temporarily disable assets processing for package deployment time.\n" +
-                            "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
-                    checkbox(true)
                 }
         ))
 
-        define("File transfer", mapOf(
+        define("Authorization", mapOf(
                 "companyUser" to {
                     label = "User"
                     description = "Authorized to access AEM files"
@@ -42,7 +36,7 @@ configure<ForkExtension> {
                 }
         ))
 
-        define("Instance type", mapOf(
+        define("Instance", mapOf(
                 "instanceType" to {
                     label = "Type"
                     select("local", "remote")
@@ -57,7 +51,7 @@ configure<ForkExtension> {
                 },
                 "instanceAuthorOnly" to {
                     label = "Author Only"
-                    description = "Allows to temporarily limit instances to work with to author instance only."
+                    description = "Limits instances to work with to author instance only."
                     checkbox(false)
                 },
                 "instancePublishHttpUrl" to {
@@ -68,7 +62,7 @@ configure<ForkExtension> {
                 },
                 "instancePublishOnly" to {
                     label = "Publish Only"
-                    description = "Allows to temporarily limit instances to work with to publish instance only."
+                    description = "Limits instances to work with to publish instance only."
                     checkbox(false)
                 }
         ))
@@ -108,6 +102,28 @@ configure<ForkExtension> {
         ))
 
         define("Other", mapOf(
+                "instanceSatisfierEnabled" to {
+                    label = "Instance Satisfier Enabled"
+                    description = "Turns on/off automated package pre-installation."
+                    checkbox(true)
+                },
+                "instanceProvisionerEnabled" to {
+                    label = "Instance Provisioner Enabled"
+                    description = "Turns on/off automated instance configuration."
+                    checkbox(true)
+                },
+                "packageValidatorEnabled" to {
+                    label = "Package Validator Enabled"
+                    description = "Turns on/off package validation using OakPAL."
+                    checkbox(true)
+                },
+                "packageDamAssetToggle" to {
+                    label = "Package Deploy Without DAM Worklows"
+                    description = "Turns on/off temporary disablement of assets processing for package deployment time.\n" +
+                            "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
+                    checkbox(true)
+                },
+
                 "notifierEnabled" to {
                     label = "Notifications"
                     description = "Controls displaying of GUI notifications (baloons)"

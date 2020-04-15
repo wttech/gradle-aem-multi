@@ -5,6 +5,9 @@ webpack.mode={{webpackMode}}
 notifier.enabled={{notifierEnabled}}
 instance.author={{instanceAuthorOnly}}
 instance.publish={{instancePublishOnly}}
+instance.satisfy.enabled={{instanceSatisfierEnabled}}
+instance.provision.enabled={{instanceProvisionerEnabled}}
+package.validator.enabled={{packageValidatorEnabled}}
 package.manager.workflowToggle=[dam_asset={{packageDamAssetToggle}}]
 
 # Tests configuration
