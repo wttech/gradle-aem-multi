@@ -24,13 +24,15 @@ instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
 instance.local-author.type={{instanceType}}
 instance.local-author.runModes={{localInstanceRunModes}}
 instance.local-author.jvmOpts={{localInstanceJvmOpts}}
+instance.local-author.openPath={{localInstanceOpenPath}}
 {% endif %}
 
 {% if instancePublishHttpUrl is not empty %}
 instance.local-publish.httpUrl={{instancePublishHttpUrl}}
 instance.local-publish.type={{instanceType}}
 instance.local-publish.runModes={{localInstanceRunModes}}
-instance.local-publish.jvmOpts={{localInstanceJvmOpts}}
+instance.local-publish.jvmOpt={{localInstanceJvmOpts}}
+instance.local-publish.openPath={{localInstanceOpenPath}}
 {% endif %}
 
 {% if instanceType == 'local' %}
@@ -39,4 +41,5 @@ localInstance.quickstart.jarUrl={{ localInstanceQuickstartJarUri }}
 localInstance.quickstart.licenseUrl={{ localInstanceQuickstartLicenseUri }}
 localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
 localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
+localInstance.openMode={{ localInstanceOpenMode }}
 {% endif %}
