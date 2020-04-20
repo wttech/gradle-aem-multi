@@ -39,15 +39,6 @@ aem {
             }
         }
     }
-
-    tasks {
-        environmentUp {
-            mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
-        }
-        environmentAwait {
-            mustRunAfter(instanceAwait)
-        }
-    }
 }
 
 environment { // https://github.com/Cognifide/gradle-environment-plugin
@@ -91,5 +82,14 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
             containsText("Sites")
             options { basicCredentials = aem.authorInstance.credentials }
         }
+    }
+}
+
+tasks {
+    environmentUp {
+        mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
+    }
+    environmentAwait {
+        mustRunAfter(instanceAwait)
     }
 }

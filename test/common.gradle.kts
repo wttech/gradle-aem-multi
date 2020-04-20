@@ -39,8 +39,8 @@ plugins.withId("org.jetbrains.kotlin.jvm") {
 
 plugins.withId("com.github.node-gradle.node") {
     configure<NodeExtension> {
-        version = "10.16.3"
-        yarnVersion = "1.21.1"
+        version = "12.16.2"
+        yarnVersion = "1.22.4"
         download = true
     }
 }
