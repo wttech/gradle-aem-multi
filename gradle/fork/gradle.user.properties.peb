@@ -1,23 +1,25 @@
-# Project specific configuration
+# === Project specific configuration ===
 webpack.mode={{webpackMode}}
+test.browser={{testBrowser}}
 
-# AEM configuration
+# === GAP configuration ===
+
 notifier.enabled={{notifierEnabled}}
-instance.author={{instanceAuthorOnly}}
-instance.publish={{instancePublishOnly}}
-instance.satisfy.enabled={{instanceSatisfierEnabled}}
-instance.provision.enabled={{instanceProvisionerEnabled}}
+
+fileTransfer.user={{companyUser}}
+fileTransfer.password={{companyPassword}}
+fileTransfer.domain={{companyDomain}}
+
 package.validator.enabled={{packageValidatorEnabled}}
 package.bundleTest={{packageBundleTest}}
 package.nestedValidation={{packageNestedValidation}}
 package.manager.workflowToggle=[dam_asset={{packageDamAssetToggle}}]
 
-# Tests configuration
-test.browser={{testBrowser}}
-
-fileTransfer.user={{companyUser}}
-fileTransfer.password={{companyPassword}}
-fileTransfer.domain={{companyDomain}}
+instance.author={{instanceAuthorOnly}}
+instance.publish={{instancePublishOnly}}
+instance.satisfy.enabled={{instanceSatisfierEnabled}}
+instance.provision.enabled={{instanceProvisionerEnabled}}
+instance.awaitUp.help.enabled={{ instanceAwaitUpHelpEnabled }}
 
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}

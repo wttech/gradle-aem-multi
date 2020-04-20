@@ -57,6 +57,11 @@ configure<ForkExtension> {
                     label = "Provisioner Enabled"
                     description = "Turns on/off automated instance configuration."
                     checkbox(true)
+                },
+                "instanceAwaitUpHelpEnabled" to {
+                    label = "Await Up Helping"
+                    description = "Tries to start bundles automatically when instance is not stable longer time"
+                    checkbox(true)
                 }
         ))
 
