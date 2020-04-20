@@ -4,8 +4,7 @@
       "name": "site.live",
       "baseUrl": "http://example.com",
       "paths": [
-        "/",
-        "/us/en.html"
+        "/"
       ],
       "args": [
         "--config-path=lighthouse/config.json",
