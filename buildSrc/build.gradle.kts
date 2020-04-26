@@ -6,7 +6,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
-    implementation("com.neva.gradle:fork-plugin:4.2.2")
+    implementation("com.neva.gradle:fork-plugin:5.0.0")
     implementation("com.netflix.nebula:nebula-project-plugin:7.0.9")
     implementation("com.cognifide.gradle:environment-plugin:0.1.12")
     implementation("com.cognifide.gradle:aem-plugin:13.0.0")
