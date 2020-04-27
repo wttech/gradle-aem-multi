@@ -86,6 +86,12 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
 }
 
 tasks {
+    instanceResolve {
+        dependsOn(":requireProps")
+    }
+    instanceCreate {
+        dependsOn(":requireProps")
+    }
     environmentUp {
         mustRunAfter(instanceUp, instanceSatisfy, instanceProvision, instanceSetup)
     }

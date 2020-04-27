@@ -2,6 +2,10 @@
 webpack.mode={{webpackMode}}
 test.browser={{testBrowser}}
 
+release.repository={{releaseRepository}}
+release.user={{releaseUser}}
+release.password={{releasePassword}}
+
 # === GAP configuration ===
 
 notifier.enabled={{notifierEnabled}}
