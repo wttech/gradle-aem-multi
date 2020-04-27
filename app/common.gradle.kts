@@ -11,6 +11,20 @@ repositories {
     maven("https://dl.bintray.com/acs/releases")
 }
 
+plugins.withId("maven-publish") {
+    configure<PublishingExtension> {
+        repositories {
+            maven(findProperty("release.repository").toString()) {
+                name = "internal"
+                credentials {
+                    username = findProperty("release.user")?.toString()
+                    password = findProperty("release.password")?.toString()
+                }
+            }
+        }
+    }
+}
+
 plugins.withId("java") {
     tasks.withType<JavaCompile>().configureEach {
         with(options) {
