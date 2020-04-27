@@ -149,6 +149,19 @@ configure<ForkExtension> {
                     description = "Needed only when accessing AEM files over SMB"
                     defaultValue = System.getenv("USERDOMAIN").orEmpty()
                     optional()
+                },
+                "releaseRepository" to {
+                    description = "URL for Nexus, Artifactory etc."
+                    defaultValue = "https://nexus.company.com/content/repositories/company-internal"
+                    optional()
+                },
+                "releaseUser" to {
+                    description = "Authorized to release artifacts to above repository"
+                    optional()
+                },
+                "releasePassword" to {
+                    description = "For above user"
+                    optional()
                 }
         ))
 

@@ -1,6 +1,8 @@
 plugins {
+    id("base")
     id("com.neva.fork")
     id("com.cognifide.common")
+    id("net.researchgate.release")
 }
 
 apply(from = "gradle/fork/fork.gradle.kts")
@@ -36,5 +38,17 @@ common {
                 )
             }
         }
+    }
+}
+
+tasks {
+    val publishToInternal = register("publishToInternal") {
+        dependsOn(
+                ":app:aem:all:publishMavenPublicationToInternalRepository",
+                ":app:aem:core:publishMavenPublicationToInternalRepository"
+        )
+    }
+    afterReleaseBuild {
+        dependsOn(publishToInternal)
     }
 }
