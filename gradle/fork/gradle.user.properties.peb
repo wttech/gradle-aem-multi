@@ -17,7 +17,7 @@ fileTransfer.domain={{companyDomain}}
 package.validator.enabled={{packageValidatorEnabled}}
 package.bundleTest={{packageBundleTest}}
 package.nestedValidation={{packageNestedValidation}}
-{% if packageDamAssetToggle %}
+{% if packageDamAssetToggle == 'true' %}
 package.manager.workflowToggle=[dam_asset=false]
 {% endif %}
 
