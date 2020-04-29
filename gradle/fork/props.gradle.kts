@@ -129,6 +129,7 @@ configure<ForkExtension> {
                     description = "Turns on/off temporary disablement of assets processing for package deployment time.\n" +
                             "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
                     checkbox(true)
+                    dynamic()
                 }
         ))
 
