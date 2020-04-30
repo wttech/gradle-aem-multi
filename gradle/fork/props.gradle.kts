@@ -109,6 +109,18 @@ configure<ForkExtension> {
         ))
 
         define("Package", mapOf(
+                "packageDeployAvoidance" to {
+                    label = "Deploy Avoidance"
+                    description = "Avoids uploading and installing package if identical is already deployed on instance."
+                    checkbox(true)
+                },
+                "packageDamAssetToggle" to {
+                    label = "Deploy Without DAM Worklows"
+                    description = "Turns on/off temporary disablement of assets processing for package deployment time.\n" +
+                            "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
+                    checkbox(true)
+                    dynamic()
+                },
                 "packageValidatorEnabled" to {
                     label = "Validator Enabled"
                     description = "Turns on/off package validation using OakPAL."
@@ -123,13 +135,6 @@ configure<ForkExtension> {
                     label = "Bundle Test"
                     description = "Turns on/off running tests for built bundles put under install path."
                     checkbox(true)
-                },
-                "packageDamAssetToggle" to {
-                    label = "Deploy Without DAM Worklows"
-                    description = "Turns on/off temporary disablement of assets processing for package deployment time.\n" +
-                            "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
-                    checkbox(true)
-                    dynamic()
                 }
         ))
 
