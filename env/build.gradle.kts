@@ -20,7 +20,6 @@ aem {
             packages {
                 // "dep.vanity-urls"("pkg/vanityurls-components-1.0.2.zip")
                 "dep.core-components-all"("com.adobe.cq:core.wcm.components.all:2.8.0@zip")
-                "dep.core-components-examples"("com.adobe.cq:core.wcm.components.examples:2.8.0@zip")
                 "tool.aem-easy-content-upgrade"("https://github.com/valtech/aem-easy-content-upgrade/releases/download/3.1.0/aecu.bundle-3.1.0.zip")
                 "tool.ac-tool.package"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool/accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip")
                 "tool.ac-tool.oak-index"("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool/accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
