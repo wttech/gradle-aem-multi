@@ -8,7 +8,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
     implementation("com.neva.gradle:fork-plugin:5.0.1")
     implementation("com.netflix.nebula:nebula-project-plugin:7.0.9")
-    implementation("com.cognifide.gradle:environment-plugin:0.1.12")
+    implementation("com.cognifide.gradle:environment-plugin:0.1.13")
     implementation("com.cognifide.gradle:aem-plugin:14.0.0-beta")
     implementation("org.apache.sling:org.apache.sling.caconfig.bnd-plugin:1.0.2")
     implementation("com.cognifide.gradle:lighthouse-plugin:1.0.0")
