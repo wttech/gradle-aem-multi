@@ -48,15 +48,16 @@ configure<ForkExtension> {
                     checkbox(false)
                     controller { other("instanceAuthorOnly").enabled = !value.toBoolean() }
                 },
-                "instanceSatisfierEnabled" to {
-                    label = "Satisfier Enabled"
-                    description = "Turns on/off automated package pre-installation."
-                    checkbox(true)
-                },
-                "instanceProvisionerEnabled" to {
-                    label = "Provisioner Enabled"
+                "instanceProvisionEnabled" to {
+                    label = "Provision Enabled"
                     description = "Turns on/off automated instance configuration."
                     checkbox(true)
+                },
+                "instanceProvisionDeployPackageStrict" to {
+                    label = "Provision Deploy Package Strict"
+                    description = "Check if package is actually deployed on instance.\n" +
+                            "By default faster heuristic is used which does not require downloading deployed packages eagerly."
+                    checkbox(false)
                 },
                 "instanceAwaitUpHelpEnabled" to {
                     label = "Await Up Helping"

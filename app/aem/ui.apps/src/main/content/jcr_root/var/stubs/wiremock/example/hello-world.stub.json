@@ -1,0 +1,17 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/example/hello/mapping"
+      },
+      "response": {
+        "status": 200,
+        "body": "Hello World - from mapping file!",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    }
+  ]
+}

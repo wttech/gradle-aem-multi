@@ -62,6 +62,7 @@ Front-end:
 
 Testing:
 
+* [Stubbing](app/aem/ui.apps/src/main/content/jcr_root/var/stubs/wiremock/example) using [AEM Stubs Tool](https://github.com/Cognifide/aem-stubs)
 * [Unit tests](app/aem/core/src/test) 
 * [Integration tests](test/integration) using [Karate Framework](https://github.com/intuit/karate) and [JSoup](https://jsoup.org/).
 * [Functional tests](test/functional) using [Cypress](http://cypress.io)
@@ -70,7 +71,7 @@ Testing:
 Maintenance:
 
 * [Automatic AEM migration scripts execution](app/aem/migration/build.gradle.kts) using [AEM Easy Content Upgrade](https://github.com/valtech/aem-easy-content-upgrade),
-* [Automatic AEM access control configuration applying](app/aem/ui.apps/build.gradle.kts) using [Access Control Tool](https://github.com/Netcentric/accesscontroltool),
+* [Automatic AEM access control configuration applying](app/aem/ui.apps/src/main/content/jcr_root/apps/example/permissions) using [Access Control Tool](https://github.com/Netcentric/accesscontroltool),
 * [Interactive incident monitoring / logs monitoring](https://github.com/Cognifide/gradle-aem-plugin#task-instancetail) with [filtering](env/src/aem/instance/tail/incidentFilter.txt).
 
 ## Quickstart
