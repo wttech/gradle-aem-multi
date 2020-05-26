@@ -48,7 +48,7 @@ Environment:
 
 * [Automatic native local AEM instance(s) setup](env/build.gradle.kts),
 * [Automatic HTTPD server with AEM dispatcher setup](env/build.gradle.kts) (based on [Docker](https://www.docker.com)),
-* [Hosts file amendment](env/build.gradle.kts)
+* [Hosts file amendment](env/hosts)
 * [Health checking](env/build.gradle.kts)
 
 Back-end:
