@@ -20,7 +20,7 @@ aem {
             enableCrxDe()
             deployPackage("com.adobe.cq:core.wcm.components.all:2.8.0@zip")
             deployPackage("https://github.com/valtech/aem-easy-content-upgrade/releases/download/3.1.1/aecu.bundle-3.1.1.zip")
-            deployPackage("https://github.com/Cognifide/aem-stubs/releases/download/1.0.2/stubs-app-1.0.2.zip")
+            deployPackage("https://github.com/Cognifide/aem-stubs/releases/download/1.0.3/stubs-app-1.0.3.zip")
             deployPackage("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool/accesscontroltool-package/2.3.2/accesscontroltool-package-2.3.2.zip")
             deployPackage("https://repo1.maven.org/maven2/biz/netcentric/cq/tools/accesscontroltool/accesscontroltool-oakindex-package/2.3.2/accesscontroltool-oakindex-package-2.3.2.zip")
             deployPackage("com.neva.felix:search-webconsole-plugin:1.3.0")

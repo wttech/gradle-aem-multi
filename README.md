@@ -62,7 +62,7 @@ Front-end:
 
 Testing:
 
-* [Stubbing](app/aem/ui.apps/src/main/content/jcr_root/var/stubs/wiremock/example) using [AEM Stubs Tool](https://github.com/Cognifide/aem-stubs)
+* [Stubbing](app/aem/ui.content/src/main/content/jcr_root/conf/stubs/wiremock/example) using [AEM Stubs Tool](https://github.com/Cognifide/aem-stubs)
 * [Unit tests](app/aem/core/src/test) 
 * [Integration tests](test/integration) using [Karate Framework](https://github.com/intuit/karate) and [JSoup](https://jsoup.org/).
 * [Functional tests](test/functional) using [Cypress](http://cypress.io)
@@ -101,9 +101,7 @@ Maintenance:
 3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
 
     ```bash
-    cd env
-    sh hosts
-    cd ../
+    sh env/hosts
     sh gradlew setup
     ```
     

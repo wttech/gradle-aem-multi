@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/conf/example" mode="merge"/>
+    <filter root="/conf/stubs/wiremock/example"/>
     <filter root="/content/example" mode="merge"/>
     <filter root="/content/dam/example" mode="merge"/>
     <filter root="/content/experience-fragments/example" mode="merge"/>
