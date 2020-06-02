@@ -12,6 +12,6 @@ dependencies {
     implementation("com.cognifide.gradle:aem-plugin:14.0.1")
     implementation("org.apache.sling:org.apache.sling.caconfig.bnd-plugin:1.0.2")
     implementation("com.cognifide.gradle:lighthouse-plugin:1.0.0")
-    implementation("com.github.node-gradle:gradle-node-plugin:2.2.3")
+    implementation("com.github.node-gradle:gradle-node-plugin:2.2.4")
     implementation("net.researchgate:gradle-release:2.6.0")
 }
