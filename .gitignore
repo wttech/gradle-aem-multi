@@ -9,6 +9,7 @@ classes/
 fork.properties
 yarn-error.log
 .java-version
+/app/aem/dispatcher/src/conf.d/variables/default.vars
 
 ### Java template
 *.class
