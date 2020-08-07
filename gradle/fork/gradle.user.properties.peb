@@ -22,6 +22,8 @@ package.manager.deployAvoidance={{packageDeployAvoidance}}
 package.manager.workflowToggle=[dam_asset=false]
 {% endif %}
 
+instance.type={{instanceType}}
+
 instance.author={{instanceAuthorOnly}}
 instance.publish={{instancePublishOnly}}
 instance.provision.enabled={{instanceProvisionEnabled}}

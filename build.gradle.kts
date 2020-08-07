@@ -15,27 +15,48 @@ common {
     tasks {
         registerSequence("develop", {
             description = "Builds and deploys AEM application to instances, cleans environment then runs all tests"
+            dependsOn(":requireProps")
         }) {
-            if (!prop.flag("setup.skip")) {
-                dependsOn(
-                        ":env:instanceSetup",
-                        ":env:environmentUp"
-                )
-            }
-            dependsOn(":app:aem:all:packageDeploy")
-            if (!prop.flag("migration.skip")) {
-                dependsOn(":app:aem:migration:packageDeploy")
-            }
-            dependsOn(
-                    ":env:environmentReload",
-                    ":env:environmentAwait"
-            )
-            if (!prop.flag("test.skip")) {
-                dependsOn(
-                        ":test:integration:integrationTest",
-                        ":test:functional:runTests",
-                        ":test:performance:lighthouseRun"
-                )
+            when (prop.string("instance.type")) {
+                "local" -> {
+                    if (!prop.flag("setup.skip")) {
+                        dependsOn(
+                                ":env:instanceSetup",
+                                ":env:environmentUp"
+                        )
+                    }
+                    dependsOn(":app:aem:all:packageDeploy")
+                    if (!prop.flag("migration.skip")) {
+                        dependsOn(":app:aem:migration:packageDeploy")
+                    }
+                    dependsOn(
+                            ":env:environmentReload",
+                            ":env:environmentAwait"
+                    )
+                    if (!prop.flag("test.skip")) {
+                        dependsOn(
+                                ":test:integration:integrationTest",
+                                ":test:functional:runTests",
+                                ":test:performance:lighthouseRun"
+                        )
+                    }
+                }
+                else -> {
+                    if (!prop.flag("setup.skip")) {
+                        dependsOn(":env:instanceProvision")
+                    }
+                    dependsOn(":app:aem:all:packageDeploy")
+                    if (!prop.flag("migration.skip")) {
+                        dependsOn(":app:aem:migration:packageDeploy")
+                    }
+                    if (!prop.flag("test.skip")) {
+                        dependsOn(
+                                ":test:integration:integrationTest",
+                                ":test:functional:runTests",
+                                ":test:performance:lighthouseRun"
+                        )
+                    }
+                }
             }
         }
     }
