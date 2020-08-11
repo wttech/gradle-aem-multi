@@ -1,6 +1,7 @@
 # === Project specific configuration ===
 webpack.mode={{webpackMode}}
 test.browser={{testBrowser}}
+test.skip={{testSkip}}
 
 release.repository={{releaseRepository}}
 release.user={{releaseUser}}

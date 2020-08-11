@@ -203,6 +203,11 @@ configure<ForkExtension> {
                     description = "Controls optimization of front-end resources (CSS/JS/assets) "
                     select("dev", "prod")
                 },
+                "testSkip" to {
+                    label = "Test Skip"
+                    description = "Skip running integration, functional and performance tests."
+                    checkbox(false)
+                },
                 "testBrowser" to {
                     label = "Test Browser"
                     description = "Browser used when running functional tests powered by Cypress"
