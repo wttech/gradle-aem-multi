@@ -14,13 +14,13 @@ Feature: Page Model Endpoint
     {
       "designPath": "/libs/settings/wcm/designs/default",
       "title": "en",
-      "templateName": "content-page-template",
+      "templateName": "page-content",
       "cssClassNames": "page basicpage",
       "language": "en",
       ":items": "#object",
       ":itemsOrder": [
         "root"
         ],
-      ":type": "example/components/structure/page"
+      ":type": "example/components/page"
     }
     """

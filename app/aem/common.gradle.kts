@@ -4,7 +4,7 @@
 import com.cognifide.gradle.aem.AemExtension
 import com.cognifide.gradle.aem.bundle.tasks.bundle
 
-group = "com.company.example.aem"
+group = "com.company.example"
 
 plugins.withId("com.cognifide.aem.common") {
     configure<AemExtension> {
@@ -41,16 +41,14 @@ plugins.withId("com.cognifide.aem.bundle") {
         "compileOnly"("org.osgi:org.osgi.service.cm:1.6.0")
         "compileOnly"("org.osgi:org.osgi.service.event:1.3.1")
         "compileOnly"("org.osgi:org.osgi.service.log:1.4.0")
-        "compileOnly"("org.osgi:org.osgi.resource:1.0.0")
         "compileOnly"("org.osgi:org.osgi.framework:1.9.0")
-        "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.6")
-        "compileOnly"("javax.servlet:javax.servlet-api:3.1.0")
-        "compileOnly"("javax.servlet.jsp:jsp-api:2.1")
-        "compileOnly"("javax.annotation:javax.annotation-api:1.3.2")
+        "compileOnly"("org.osgi:org.osgi.resource:1.0.0")
+        "compileOnly"("org.slf4j:slf4j-api:1.7.21")
         "compileOnly"("javax.jcr:jcr:2.0")
-        "compileOnly"("com.day.cq.wcm:cq-wcm-taglib:5.7.4")
-        "compileOnly"("org.slf4j:slf4j-api:1.7.25")
-        "compileOnly"("com.adobe.cq:core.wcm.components.core:2.8.0")
+        "compileOnly"("javax.servlet:javax.servlet-api:3.1.0")
+        "compileOnly"("javax.annotation:javax.annotation-api:1.3.2")
+        "compileOnly"("org.apache.sling:org.apache.sling.servlets.annotations:1.2.4")
+        "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.6")
 
         "compileOnly"("com.adobe.aem:uber-jar:6.5.0:apis")
 

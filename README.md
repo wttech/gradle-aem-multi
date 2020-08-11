@@ -136,7 +136,7 @@ Tested on:
 
 ## Structure
 
-* *app* - source code generated from [Adobe AEM Archetype]() and adapted to Gradle / [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin),
+* *app* - source code generated from [Adobe AEM Archetype 23](https://github.com/Adobe/aem-project-archetype) and adapted to Gradle / [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin),
 * *env* - resources and configuration related with setting up local AEM instances and AEM dispatcher,
 * *test* - integration and functional tests requiring full environment setup.
 

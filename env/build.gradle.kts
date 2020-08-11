@@ -72,7 +72,7 @@ environment { // https://github.com/Cognifide/gradle-environment-plugin
     }
 
     healthChecks {
-        http("Site 'live'", "http://example.com", "English - United States")
+        http("Site 'live'", "http://example.com", "Example")
         http("Author Sites Editor", "http://localhost:4502/sites.html") {
             containsText("Sites")
             options { basicCredentials = aem.authorInstance.credentials }

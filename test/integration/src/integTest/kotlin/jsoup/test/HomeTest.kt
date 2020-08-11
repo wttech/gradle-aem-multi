@@ -9,7 +9,7 @@ class HomeTest : MarkupTest() {
   fun shouldHaveElementsInMarkup() {
     get("/").apply {
       select(".title").first().apply {
-        select(".cmp-title__text").textMatches("English - United States")
+        select(".cmp-title__text").textMatches("Example")
       }
     }
   }
