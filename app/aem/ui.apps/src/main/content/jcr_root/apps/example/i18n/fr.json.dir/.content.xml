@@ -3,5 +3,6 @@
     jcr:language="fr"
     jcr:mixinTypes="[mix:language]"
     jcr:primaryType="nt:file">
-    <jcr:content jcr:primaryType="nt:resource"/>
+    <jcr:content
+        jcr:primaryType="nt:resource"/>
 </jcr:root>

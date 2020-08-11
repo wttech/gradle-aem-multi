@@ -28,14 +28,19 @@ instance.author={{instanceAuthorOnly}}
 instance.publish={{instancePublishOnly}}
 instance.provision.enabled={{instanceProvisionEnabled}}
 instance.provision.deployPackage.strict={{instanceProvisionDeployPackageStrict}}
-instance.awaitUp.help.enabled={{ instanceAwaitUpHelpEnabled }}
+
+instance.check.help.enabled={{ instanceCheckHelpEnabled }}
+instance.check.bundles.enabled={{ instanceCheckBundlesEnabled }}
+instance.check.installer.enabled={{ instanceCheckInstallerEnabled }}
+instance.check.events.enabled={{ instanceCheckEventsEnabled }}
+instance.check.components.enabled={{ instanceCheckComponentsEnabled }}
 
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
 instance.local-author.type={{instanceType}}
 instance.local-author.runModes={{localInstanceRunModes}}
 instance.local-author.jvmOpts={{localInstanceJvmOpts}}
-instance.local-author.openPath={{localInstanceOpenPath}}
+instance.local-author.openPath={{localInstanceOpenAuthorPath}}
 {% endif %}
 
 {% if instancePublishHttpUrl is not empty %}
@@ -43,7 +48,7 @@ instance.local-publish.httpUrl={{instancePublishHttpUrl}}
 instance.local-publish.type={{instanceType}}
 instance.local-publish.runModes={{localInstanceRunModes}}
 instance.local-publish.jvmOpt={{localInstanceJvmOpts}}
-instance.local-publish.openPath={{localInstanceOpenPath}}
+instance.local-publish.openPath={{localInstanceOpenPublishPath}}
 {% endif %}
 
 {% if instanceType == 'local' %}
