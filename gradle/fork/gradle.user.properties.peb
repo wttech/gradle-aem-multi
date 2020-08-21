@@ -25,8 +25,6 @@ package.manager.workflowToggle=[dam_asset=false]
 
 instance.type={{instanceType}}
 
-instance.author={{instanceAuthorOnly}}
-instance.publish={{instancePublishOnly}}
 instance.provision.enabled={{instanceProvisionEnabled}}
 instance.provision.deployPackage.strict={{instanceProvisionDeployPackageStrict}}
 
@@ -36,21 +34,19 @@ instance.check.installer.enabled={{ instanceCheckInstallerEnabled }}
 instance.check.events.enabled={{ instanceCheckEventsEnabled }}
 instance.check.components.enabled={{ instanceCheckComponentsEnabled }}
 
-{% if instanceAuthorHttpUrl is not empty %}
+instance.local-author.enabled={{instanceAuthorEnabled}}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
 instance.local-author.type={{instanceType}}
 instance.local-author.runModes={{localInstanceRunModes}}
 instance.local-author.jvmOpts={{localInstanceJvmOpts}}
 instance.local-author.openPath={{localInstanceOpenAuthorPath}}
-{% endif %}
 
-{% if instancePublishHttpUrl is not empty %}
+instance.local-publish.enabled={{instancePublishEnabled}}
 instance.local-publish.httpUrl={{instancePublishHttpUrl}}
 instance.local-publish.type={{instanceType}}
 instance.local-publish.runModes={{localInstanceRunModes}}
 instance.local-publish.jvmOpt={{localInstanceJvmOpts}}
 instance.local-publish.openPath={{localInstanceOpenPublishPath}}
-{% endif %}
 
 {% if instanceType == 'local' %}
 localInstance.source={{ localInstanceSource }}
