@@ -1,4 +1,5 @@
 plugins {
+    id("com.cognifide.htl")
     id("com.cognifide.aem.package")
     id("com.cognifide.aem.package.sync")
 }
