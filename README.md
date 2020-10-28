@@ -48,7 +48,7 @@ Environment:
 
 * [Automatic native local AEM instance(s) setup](env/build.gradle.kts),
 * [Automatic HTTPD server with AEM dispatcher setup](env/build.gradle.kts) (based on [Docker](https://www.docker.com)),
-* [Hosts file amendment](env/hosts)
+* [Hosts file amendment](env/build.gradle.kts)
 * [Health checking](env/build.gradle.kts)
 
 Back-end:
@@ -101,7 +101,7 @@ Maintenance:
 3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-environment-plugin#prerequisites)) then build application using command:
 
     ```bash
-    sh env/hosts
+    sh gradlew environmentHosts
     sh gradlew setup
     ```
     
@@ -129,10 +129,10 @@ Maintenance:
 
 Tested on:
 
-* Java 1.8
-* Gradle 6.2.1
+* Java 1.8, 11
+* Gradle 6.7
 * Adobe AEM 6.5
-* Docker 2.0.0.3
+* Docker 2.4.0.0
 
 ## Structure
 
