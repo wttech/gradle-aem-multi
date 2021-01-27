@@ -2,11 +2,11 @@
 
 ## About
 
-Tests are based on [Gradle Lighthouse Plugin](https://github.com/Cognifide/gradle-lighthouse-plugin) / [Lighthouse](https://developers.google.com/web/tools/lighthouse/) tool .
+Tests are based on [Gradle Lighthouse Plugin](https://github.com/wttech/gradle-lighthouse-plugin) / [Lighthouse](https://developers.google.com/web/tools/lighthouse/) tool .
 
 ## Configuration
 
-See available configuration options on [plugin page](https://github.com/Cognifide/gradle-lighthouse-plugin#configuration).
+See available configuration options on [plugin page](https://github.com/wttech/gradle-lighthouse-plugin#configuration).
 
 ## Running
 

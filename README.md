@@ -1,9 +1,9 @@
-![Cognifide logo](docs/cognifide-logo.png)
+![WTT logo](docs/wtt-logo.png)
 
 [![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg?random=456)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
-[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
+[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/wttech/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
 
-[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
+[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/wttech/gradle-aem-plugin)
 
 # AEM Multi-Project Example
 
@@ -11,9 +11,9 @@
 
 This project could be used to start developing **long-term project** based on AEM.
 
-To start developing **application/library** based on AEM it is recommended to use [Gradle AEM Single](https://github.com/Cognifide/gradle-aem-single) instead.
+To start developing **application/library** based on AEM it is recommended to use [Gradle AEM Single](https://github.com/wttech/gradle-aem-single) instead.
 
-Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/wttech/gradle-aem-plugin).
 
 ## Screenshot
 
@@ -62,24 +62,24 @@ Front-end:
 
 Testing:
 
-* [Stubbing](app/aem/ui.content/src/main/content/jcr_root/conf/stubs/wiremock/example) using [AEM Stubs Tool](https://github.com/Cognifide/aem-stubs)
+* [Stubbing](app/aem/ui.content/src/main/content/jcr_root/conf/stubs/wiremock/example) using [AEM Stubs Tool](https://github.com/wttech/aem-stubs)
 * [Unit tests](app/aem/core/src/test) 
 * [Integration tests](test/integration) using [Karate Framework](https://github.com/intuit/karate) and [JSoup](https://jsoup.org/).
 * [Functional tests](test/functional) using [Cypress](http://cypress.io)
-* [Performance tests](test/performance) using [Gradle Lighthouse Plugin](https://github.com/Cognifide/gradle-lighthouse-plugin)
+* [Performance tests](test/performance) using [Gradle Lighthouse Plugin](https://github.com/wttech/gradle-lighthouse-plugin)
 
 Maintenance:
 
 * [Automatic AEM migration scripts execution](app/aem/migration/build.gradle.kts) using [AEM Easy Content Upgrade](https://github.com/valtech/aem-easy-content-upgrade),
 * [Automatic AEM access control configuration applying](app/aem/ui.apps/src/main/content/jcr_root/apps/example/permissions) using [Access Control Tool](https://github.com/Netcentric/accesscontroltool),
-* [Interactive incident monitoring / logs monitoring](https://github.com/Cognifide/gradle-aem-plugin#task-instancetail) with [filtering](env/src/aem/instance/tail/incidentFilter.txt).
+* [Interactive incident monitoring / logs monitoring](https://github.com/wttech/gradle-aem-plugin#task-instancetail) with [filtering](env/src/aem/instance/tail/incidentFilter.txt).
 
 ## Quickstart
 
 1. Fork project using command:
 
     ```bash
-    git clone https://github.com/Cognifide/gradle-aem-multi.git && cd gradle-aem-multi && sh gradlew fork
+    git clone https://github.com/wttech/gradle-aem-multi.git && cd gradle-aem-multi && sh gradlew fork
     ```
 
     and specify properties:
@@ -98,7 +98,7 @@ Maintenance:
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
 
-3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-environment-plugin#prerequisites)) then build application using command:
+3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/wttech/gradle-environment-plugin#prerequisites)) then build application using command:
 
     ```bash
     sh gradlew environmentHosts
@@ -136,7 +136,7 @@ Tested on:
 
 ## Structure
 
-* *app* - source code generated from [Adobe AEM Archetype 23](https://github.com/Adobe/aem-project-archetype) and adapted to Gradle / [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin),
+* *app* - source code generated from [Adobe AEM Archetype 23](https://github.com/Adobe/aem-project-archetype) and adapted to Gradle / [Gradle AEM Plugin](https://github.com/wttech/gradle-aem-plugin),
 * *env* - resources and configuration related with setting up local AEM instances and AEM dispatcher,
 * *test* - integration and functional tests requiring full environment setup.
 

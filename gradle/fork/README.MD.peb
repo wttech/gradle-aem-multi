@@ -6,11 +6,11 @@ TBD
 
 ## Building
 
-Project build is based on [Gradle](https://docs.gradle.org/current/userguide/userguide.html) and using [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+Project build is based on [Gradle](https://docs.gradle.org/current/userguide/userguide.html) and using [Gradle AEM Plugin](https://github.com/wttech/gradle-aem-plugin).
 
 ### Environment
 
-0. See [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)
+0. See [prerequisites](https://github.com/wttech/gradle-aem-plugin/tree/develop#environment-configuration)
 1. Generate user-specific properties file covering AEM instance source files and configuration:
     ```bash
     sh gradlew props
